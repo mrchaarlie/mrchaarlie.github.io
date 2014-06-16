@@ -1,1 +1,141 @@
-Hello World
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Charlie Wu</title>
+	
+	<meta charset="utf-8">
+	<meta name="author" content="Charlie Wu" />
+	<meta name="description" content="My Website" />
+	<meta name="keywords" content="Waterloo, Student, Life, Developer, co-op" />
+	<meta name="robots" content="index, follow, noarchive" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="googlebot" content="noarchive" />
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="shortcut icon" href="favicon.png" />
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,700' rel='stylesheet' type='text/css'>
+	
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-33834473-1', 'charleswu.ca');
+	  ga('send', 'pageview');
+
+	</script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/jquery.parallax-1.1.3.js"></script>
+		
+	<!--[if lt IE 9]><script src="../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script 	src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	<![endif]-->
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+		$('.internal-shortcut').click(function (e) {
+		e.preventDefault();
+		var $this = $(this);
+		var offset = $($this.attr('href')).offset();
+		$('html, body').animate({ scrollTop: offset.top - ($('.navbar').height() + 20)  }, '800');
+
+		});
+
+		//.parallax(xPosition, speedFactor, outerHeight) options:
+		//xPosition - Horizontal position of the element
+		//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
+		//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
+		$('#bg').parallax("50%", 0.1);
+		});
+	</script>
+</head>
+
+<body>
+	
+<!-- Navbar	================================================== -->
+	<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav color-emerald" role="banner">
+		<div class="container">
+			<div class="navbar-header">
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="#" class="navbar-brand" id="name">Charles Wu</a>
+			</div>
+			<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a class="nav-anchor internal-shortcut" href="#bg">Home</a>
+					</li>
+					<li>
+						<a class="nav-anchor internal-shortcut" href="#about">About</a>
+					</li>
+					<!-- <li>
+						<a class="nav-anchor internal-shortcut" href="#contact">Contact</a>
+					</li> -->
+					<li>
+						<a class="nav-anchor transition" href="photography.html">Photography</a>
+					</li>
+					<li>
+						<a class="nav-anchor" href="docs/Charles-Wu-Resume.pdf" target="_blank">Resume</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<div id="bg">
+		<div class="container">
+		<div class="text-left col-md-8">
+			<h1>Charlie Wu <span class="thin-title">[<b>chahr</b>-lee woo]:</span></h1>
+			<h3 class="Lato">1. A designer, developer, photographer and student. Has a passion for mobile technology and user interfaces.</h3>
+
+		</div>
+		<div class="col-md-4"> <img id="headshot" src="img/headshot_thumb.jpg"></div>
+		</div>
+		
+		<div class="space"></div>
+
+		<div id="about" >
+		<div class="container">
+			<h1>About</h1>
+			<div class="col-md-12 text-left p-padding">
+				<p>I am a student -- not just in school, but also in aspects that pertain to life, technology, and character. I do not let my limitations define me, nor by some marks on a paper. I hope my work and actions will let me impact the world.</p>
+
+				<p>I am currently completing my undergraduate studies in Systems Design Engineering at the University of Waterloo, Canada. Systems Design taught me to take multi-disciplinary approaches to design and problem solving, so that I am able to develop solutions that are both intuitive and comfortable for the end-user. I am a user experience designer and developer that stays up to date with modern trends - life is always moving, and so should art and design.</p>
+
+				<p>You can see some of my work on my Behance portfolio, or contact me via e-mail.</p>
+
+			</div>
+		</div>
+		</div>
+
+		<div class="space"></div>
+
+		<div id="icons" class="container text-center">
+
+			<a href="https://www.behance.net/mrcharlie" class="behanceIcon" title="Behance link"></a>		
+			<a href="http://www.flickr.com/photos/mr-charlie/" class="flickrIcon" title="Flickr link"></a>
+			<a href="http://www.linkedin.com/profile/view?id=99273719" class="linkedInIcon" title="LinkedIn link"></a>	
+
+
+		</div>
+	</div>
+	
+	<script src="js/fade.js"></script>
+
+
+</body>
+</html>	

@@ -1,0 +1,184 @@
+body{
+	background:#011f18;
+	color:#111;
+	font-size:1.0em;
+}
+
+::selection {
+	background: #afc5c0; /* Safari */
+	}
+::-moz-selection {
+	background: #afc5c0; /* Firefox */
+}
+
+p{
+	font-size: 2.0em;
+	font-family: 'Lato', Arial, sans-serif;
+	font-weight: 300;
+}
+
+.Lato{
+	font-family: 'Lato', Arial, sans-serif;
+}
+.Alegreya{
+	font-family: 'Alegreya Sans', Arial, sans-serif;
+}
+
+.color-emerald{
+	background-color: #009b77;
+}
+
+.text-emerald{
+	color: #009b77;
+}
+
+.navbar-nav>li>a{
+	font-size: 1.3em;
+	color:#eee;
+}
+.navbar-nav>li>a:hover{
+	color:#555;
+}
+.nav{
+	font-family: 'Lato', Arial, sans-serif;
+	text-transform:uppercase;
+	color:#eee;
+	font-size: 1.0em;
+}
+
+.nav-anchor:hover{
+	color: #000;
+}
+.navbar-inner{
+	background-image: -moz-linear-gradient(top,rgb(3, 3, 3),rgb(11, 24, 13));
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(rgb(3, 3, 3)),to(rgb(11, 24, 13)));
+	background-image: -webkit-linear-gradient(top,rgb(3, 3, 3),rgb(11, 24, 13));
+	background-image: -o-linear-gradient(rgb(3, 3, 3),rgb(11, 24, 13));
+	background-image: linear-gradient(to bottom,rgb(3, 3, 3),rgb(11, 24, 13));
+}
+
+.p-padding{
+	margin-top:10px;
+}
+
+a{
+	color:#222;
+	text-decoration:none;
+	font-weight: 700;
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	transition:.5s;
+}
+a:hover{
+	color:#004e3c;
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	transition:.5s;
+}
+
+.story{
+    margin: 0 auto;
+		color: #ddd;
+    float: none;
+}
+
+.thin-title{
+	font-weight:400;
+}
+
+#name{
+	font-size: 1.5em;
+}
+
+#bg{
+    background:url("../img/toronto.jpg") 100%  no-repeat fixed;
+    color: #eee;
+    height: auto;
+    margin: 0;
+    padding: 200px 0 150px 0;
+	text-align:center;
+}
+
+#headshot{
+	height: 200px;
+}
+.space{
+	height: 80px;
+}
+
+#about{
+	background:url("../img/emerald-20.png") 100%  repeat;
+	padding: 5px 0 25px 0;
+}
+
+#icons{
+	display:block;
+}
+
+.behanceIcon{
+	margin: 0 10px;
+	width: 70px;
+	height: 70px;
+	display:inline-block;
+	background:transparent url('../img/behance-icon.png') center top no-repeat;
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	transition:.5s;
+}
+.behanceIcon:hover{
+	background-image: url('../img/behance-icon-hover.png');
+
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	transition:.5s;
+}
+
+.flickrIcon{	
+	margin: 0 10px;
+	width: 70px;
+	height: 70px;
+	display:inline-block;
+	background:transparent url('../img/flickr-icon.png') center top no-repeat;
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	transition:.5s;
+}
+.flickrIcon:hover{
+	background-image: url('../img/flickr-icon-hover.png');
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	transition:.5s;
+}
+
+.linkedInIcon{	
+	margin: 0 10px;
+	width: 70px;
+	height: 70px;
+	display:inline-block;
+	background:transparent url('../img/linkedIn-icon.png') center top no-repeat;
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	transition:.5s;
+}
+.linkedInIcon:hover{
+	background-image: url('../img/linkedIn-icon-hover.png');
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	transition:.5s;
+}

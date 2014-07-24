@@ -6,26 +6,26 @@
 
 
 header = new Layer 
-	x:1536-114, y:0, width:115, height:2048, image:"images/header.png", index:20
+	x:710, y:0, width:58, height:1024, image:"images/header.png", index:20
 	
 body = new Layer 
-	x:0, y:0, width:1422, height:2048, image:"images/body.png", index:10
+	x:0, y:0, width:711, height:1024, image:"images/body.jpg", index:10
 	
 video = new Layer 
-	x:-1536, y:0, width:1536, height:2048, image:"images/video.jpg", index:11
+	x:-1000, y:0, width:768, height:1024, image:"images/video.jpg", index:11
 	
 #
 
 videoHitBox = new Layer
-	x: 198
-	y: 125
-	width: 520
-	height: 859
+	x: 80
+	y: 50
+	width: 300
+	height: 450
 	opacity: 0
 
 videoCloseHitBox = new Layer
-	x: 1446
-	y: 1905
+	x: 699
+	y: 900
 	width: 100
 	height: 150
 	opacity: 0

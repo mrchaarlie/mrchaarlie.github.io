@@ -8,6 +8,12 @@ Image2.src = "img/linkedIn-icon-hover.png";
 Image3 = new Image(1,1);
 Image3.src = "img/behance-icon-hover.png";
 
+Image3 = new Image(1,1);
+Image3.src = "img/500px-icon-hover.png";
+
+Image3 = new Image(1,1);
+Image3.src = "img/github-icon-hover.png";
+
 (function($){
 	/*Page Transition*/
 	$("body").css("display", "none");

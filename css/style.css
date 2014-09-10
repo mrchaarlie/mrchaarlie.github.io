@@ -295,104 +295,51 @@ figure.effect-chico:hover p {
 /*---------------*/
 
 .behanceIcon{
-	margin: 0 10px;
-	width: 70px;
-	height: 70px;
-	display:inline-block;
 	background:transparent url('../img/behance-icon.png') center top no-repeat;
-	-o-transition: 0.35s;
-	-ms-transition: 0.35s;
-	-moz-transition: 0.35s;
-	-webkit-transition: 0.35s;
-	transition: 0.35s;
 }
 .behanceIcon:hover{
 	background-image: url('../img/behance-icon-hover.png');
-
-	-o-transition: 0.35s;
-	-ms-transition: 0.35s;
-	-moz-transition: 0.35s;
-	-webkit-transition: 0.35s;
-	transition: 0.35s;
 }
 
-.flickrIcon{	
-	margin: 0 10px;
-	width: 70px;
-	height: 70px;
-	display:inline-block;
+.flickrIcon{
 	background:transparent url('../img/flickr-icon.png') center top no-repeat;
-	-o-transition: 0.35s;
-	-ms-transition: 0.35s;
-	-moz-transition: 0.35s;
-	-webkit-transition: 0.35s;
-	transition: 0.35s;
 }
 .flickrIcon:hover{
 	background-image: url('../img/flickr-icon-hover.png');
-	-o-transition: 0.35s;
-	-ms-transition: 0.35s;
-	-moz-transition: 0.35s;
-	-webkit-transition: 0.35s;
-	transition: 0.35s;
 }
 
 .linkedInIcon{	
-	margin: 0 10px;
-	width: 70px;
-	height: 70px;
-	display:inline-block;
 	background:transparent url('../img/linkedIn-icon.png') center top no-repeat;
-	-o-transition: 0.35s;
-	-ms-transition: 0.35s;
-	-moz-transition: 0.35s;
-	-webkit-transition: 0.35s;
-	transition: 0.35s;
 }
 .linkedInIcon:hover{
 	background-image: url('../img/linkedIn-icon-hover.png');
-	-o-transition: 0.35s;
-	-ms-transition: 0.35s;
-	-moz-transition: 0.35s;
-	-webkit-transition: 0.35s;
-	transition: 0.35s;
 }
 
-.pxIcon{	
-	margin: 0 10px;
-	width: 70px;
-	height: 70px;
-	display:inline-block;
+.pxIcon{
 	background:transparent url('../img/500px-icon.png') center top no-repeat;
-	-o-transition: 0.35s;
-	-ms-transition: 0.35s;
-	-moz-transition: 0.35s;
-	-webkit-transition: 0.35s;
 	transition: 0.35s;
 }
 .pxIcon:hover{
 	background-image: url('../img/500px-icon-hover.png');
-	-o-transition: 0.35s;
-	-ms-transition: 0.35s;
-	-moz-transition: 0.35s;
-	-webkit-transition: 0.35s;
 	transition: 0.35s;
 }
 
 .githubIcon{	
-	margin: 0 10px;
-	width: 70px;
-	height: 70px;
-	display:inline-block;
 	background:transparent url('../img/github-icon.png') center top no-repeat;
-	-o-transition: 0.35s;
-	-ms-transition: 0.35s;
-	-moz-transition: 0.35s;
-	-webkit-transition: 0.35s;
-	transition: 0.35s;
 }
 .githubIcon:hover{
 	background-image: url('../img/github-icon-hover.png');
+
+}
+
+.iconButton{
+	margin: 0 15px;
+	vertical-align: middle;
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	display:inline-block;
+	background-color: #eee;
 	-o-transition: 0.35s;
 	-ms-transition: 0.35s;
 	-moz-transition: 0.35s;

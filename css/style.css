@@ -320,11 +320,9 @@ figure.effect-chico:hover p {
 
 .pxIcon{
 	background:transparent url('../img/500px-icon.png') center top no-repeat;
-	transition: 0.35s;
 }
 .pxIcon:hover{
 	background-image: url('../img/500px-icon-hover.png');
-	transition: 0.35s;
 }
 
 .githubIcon{	
@@ -332,7 +330,13 @@ figure.effect-chico:hover p {
 }
 .githubIcon:hover{
 	background-image: url('../img/github-icon-hover.png');
+}
 
+.stackExchangeIcon{	
+	background:transparent url('../img/se-icon.png') center top no-repeat;
+}
+.stackExchangeIcon:hover{
+	background-image: url('../img/se-icon-hover.png');
 }
 
 .iconButton{

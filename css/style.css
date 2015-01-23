@@ -1,5 +1,5 @@
 body{
-	background:url("../img/bg_loop2.png") 100%  repeat-y;
+	/*background:url("../img/bg_loop2.png") 100%  repeat-y;*/
 	color:#867062;
 	font-size:1.0 em;
 	font-family: 'Lato', Arial, sans-serif;
@@ -24,16 +24,19 @@ body{
 	display: inline-block;
 	overflow: hidden;
 	margin: -0.135em;
-	width: 33.333%;
+	width: 28%;
 	height: 400px;
 	background: #222;
 	text-align: center;
 	cursor: pointer;
+	margin: 10px;
+	border: none;
 }
 
 .grid figure img {
 	position: relative;
 	display: block;
+
 	min-height: 100%;
 	opacity: 0.8;
 }
@@ -186,49 +189,57 @@ a:hover{
 }
 
 #bg{
-    background:url("../img/bg_60.jpg") 100%  no-repeat fixed;
+    /*background:url("../img/bg_60.jpg") 100%  no-repeat fixed;*/
+    background:url("../img/paper-bg.png") 100%  repeat fixed;
     color: #f6f5f0;
     height: auto;
-    margin: 0;
-    padding: 100px 0 125px 0;
+    /*margin: 50px 0 0 0;*/
 	text-align:center;
+}
+
+.color-overlay{
+	background: rgba(166, 213, 202, 0.28);
+	padding-top: 50px;
 }
 
 #headshot{
 	height: 200px;
 	border-radius: 50%;
 }
-.space{
-	height: 80px;
+.spacing{
+	height: 4em;
 }
 
 .title{
 	color: #eeeeee;
 	background: rgba(0,11,11,0.7);
-	margin: 20px 0;
+	margin: 30px 0 0 0 ;
 }
 .title h1{	
 	padding: 9px 0;
-	margin: 10px 0;
+	margin: 10px 0 0 0;
 }
 
 .about{
 	color: #eeeeee;
 	/*background:url("../img/dark-70.png") 100%  repeat;*/
 	background: rgba(0,11,11,0.5);
-	padding: 25px 0;
+	padding: 10px 0 20px 0;
 }
 
 .about p{
 	font-size: 16px;
 }
 
-.portfolio{
+.portfolio-content{
 	padding: 10px;
+	background: rgba(0,11,11,0.5);
 }
 
-#icons{
+.icons{
 	display:block;
+	padding: 20px;
+	background: rgba(0,11,11,0.5);
 }
 /*---------------*/
 /***** Chico *****/
@@ -249,7 +260,7 @@ figure.effect-chico:hover img {
 }
 
 figure.effect-chico figcaption {
-	padding: 3em;
+	padding: 2em;
 }
 
 figure.effect-chico figcaption::before {
@@ -349,6 +360,6 @@ figure.effect-chico:hover p {
 @media screen and (max-width: 41.5em) {
 
 	.grid figure {
-		width: 100%;
+		width: 80%;
 	}
 }	

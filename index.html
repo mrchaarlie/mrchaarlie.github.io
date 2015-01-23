@@ -58,7 +58,7 @@
 		//xPosition - Horizontal position of the element
 		//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
 		//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
-		$('#bg').parallax("50%", 0.1);
+		$('#bg').parallax("50%", 1);
 	});
 		</script>
 	</head>
@@ -86,11 +86,8 @@
 							<a class="nav-anchor internal-shortcut" href="#portfolio">Portfolio</a>
 						</li>
 					<!-- <li>
-						<a class="nav-anchor internal-shortcut" href="#contact">Contact</a>
-					</li> -->
-					<li>
 						<a class="nav-anchor transition" href="photography.html">Photography</a>
-					</li>
+					</li> -->
 					<li>
 						<a class="nav-anchor" href="docs/Charles-Wu-Resume.pdf" target="_blank">Resume</a>
 					</li>
@@ -101,8 +98,7 @@
 
 
 	<!-- MAIN CONTENT BEGIN-->
-	<div id="bg">
-
+	<div id="bg"><div class="color-overlay">
 
 		<div class="title">
 			<h1>About</h1>
@@ -126,14 +122,12 @@
 			</div>
 		</div>
 
-		<div class="space"></div>
-
 		<div class="title">
 			<h1 id="portfolio">Portfolio</h1>
 		</div>
 
 		<!-- Portfolio Projects -->
-		<div class="portfolio">
+		<div class="portfolio-content">
 			<div class="grid">
 				<figure class="effect-chico">
 					<img src="img/LowPoly-Fox.jpg" alt="Low-Poly Fox"/>
@@ -148,10 +142,10 @@
 				<figure class="effect-chico">
 					<img src="img/Animal-Logos-bg.png" alt="Animal Logos"/>
 					<figcaption>
-						<h2>ANIMAL ICON <span>DESIGN</span></h2>
+						<h2>ANIMAL<br/><span>ICON DESIGN</span></h2>
 						<p>A simple project I did for fun, developed from doodles.<br />
 							[Ai]</p>
-						<a href="img/Animal-Logos.png" target="_blank">View more</a>
+						<a href="https://www.behance.net/gallery/21266715/Animal-Icon-Design" target="_blank">View more</a>
 					</figcaption>			
 				</figure>
 
@@ -168,7 +162,7 @@
 				<figure class="effect-chico">
 					<img src="img/engOri.jpg" alt="Waterloo Engineering Orientation 2013"/>
 					<figcaption>
-						<h2>UNIVERSITY OF WATERLOO <br /><span>ORIENTATION WEBSITE</span></h2>
+						<h2>UNIVERSITY <br /><span>WEBSITE</span></h2>
 						<p>A site made for the entire incoming first year engineering students at the University of Waterloo in the year 2013.<br />
 							[HTML, CSS, JS, Ps]</p>
 						<a href="https://www.behance.net/gallery/13884929/University-Waterloo-Engineering-Orientation-Webpage" target="_blank">View more</a>
@@ -188,27 +182,27 @@
 				<figure class="effect-chico">
 					<img src="img/focus.jpg" alt="Focus"/>
 					<figcaption>
-						<h2>FOCUS <span>ANDROID APP</span></h2>
+						<h2>FOCUS &nbsp;&nbsp;<span>APP</span></h2>
 						<p>An Android project I worked on for fun that helps with productivity <br />
 							[Java, Ps]</p>
-						<a href="https://play.google.com/store/apps/details?id=ca.charleswu.focus" target="_blank">View more</a>
+						<a href="https://www.behance.net/gallery/13415167/Focus-Productivity-Android-App" target="_blank">View more</a>
 					</figcaption>			
 				</figure>
 
 				<figure class="effect-chico">
 					<img src="img/ashcity.jpg" alt="Ash City iOS App"/>
 					<figcaption>
-						<h2>ASH CITY&nbsp;&nbsp;<span>iOS APP</span></h2>
+						<h2>ASH CITY &nbsp;&nbsp;<span>APP</span></h2>
 						<p>An iOS app I designed and developed independently on my 4th co-op term for Ash City. <br />
 							[Obj C, User Research, Ps]</p>
-						<a href="https://itunes.apple.com/ca/app/ash-city/id638421480" target="_blank">View more</a>
+						<a href="https://www.behance.net/gallery/11486751/Ash-City-iOS-App" target="_blank">View more</a>
 					</figcaption>			
 				</figure>
 
 				<figure class="effect-chico">
 					<img src="img/yustman.png" alt="Odette Annable"/>
 					<figcaption>
-						<h2>ODETTE <span>ANNABLE</span></h2>
+						<h2>ODETTE &nbsp;&nbsp;<span>ANNABLE</span></h2>
 						<p>A vectorized image of Odette Yustman. <br />
 							[Ps]</p>
 						<a href="https://www.behance.net/gallery/11486527/Odette-Annable-(Yustman)" target="_blank">View more</a>
@@ -219,21 +213,28 @@
 			<!-- End Portfolio Projects -->
 
 		</div>
-
-		<div class="space"></div>
-
-		<div id="icons" class="container text-center">
-
-			<a href="http://www.linkedin.com/profile/view?id=99273719" class="iconButton linkedInIcon" title="LinkedIn"></a>
-			<a href="https://github.com/mrchaarlie" class="iconButton githubIcon" title="GitHub"></a>
-			<a href="http://stackexchange.com/users/1308737/mrcharlie?tab=accounts" class="iconButton stackExchangeIcon" title="Stack Exchange"></a>
-			<a href="https://www.behance.net/mrcharlie" class="iconButton behanceIcon" title="Behance"></a>
-			<a href="http://www.flickr.com/photos/mr-charlie" class="iconButton flickrIcon" title="Flickr"></a>
-			<a href="http://500px.com/mstrcharlie" class="iconButton pxIcon" title="500px"></a>
-			
-
+		
+		<div class="title">
+			<h1>External Links</h1>
 		</div>
-	</div>
+
+
+		<!-- Icons -->
+		<div class="icons">
+			<div class="container text-center">
+
+				<a href="http://www.linkedin.com/profile/view?id=99273719" class="iconButton linkedInIcon" title="LinkedIn"></a>
+				<a href="https://github.com/mrchaarlie" class="iconButton githubIcon" title="GitHub"></a>
+				<a href="http://stackexchange.com/users/1308737/mrcharlie?tab=accounts" class="iconButton stackExchangeIcon" title="Stack Exchange"></a>
+				<a href="https://www.behance.net/mrcharlie" class="iconButton behanceIcon" title="Behance"></a>
+				<a href="http://www.flickr.com/photos/mr-charlie" class="iconButton flickrIcon" title="Flickr"></a>
+				<a href="http://500px.com/mstrcharlie" class="iconButton pxIcon" title="500px"></a>
+			</div>
+		</div>
+
+		<div class="spacing"></div>
+	</div></div>
+	
 	
 	<script src="js/visuals.js"></script>
 

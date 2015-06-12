@@ -1,0 +1,106 @@
+@import url('reset.css');
+@font-face {
+    font-family: 'WebSymbolsRegular';
+    src: url('../fonts/websymbols-regular-webfont.eot');
+    src: url('../fonts/websymbols-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/websymbols-regular-webfont.woff') format('woff'),
+         url('../fonts/websymbols-regular-webfont.ttf') format('truetype'),
+         url('../fonts/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+html{background:#727272;}
+.center{text-align: center}
+.WebFont{font-family: 'WebSymbolsRegular';}
+/*
+font-family: 'Poiret One', sans-serif;
+font-family: 'Comfortaa', sans-serif;
+font-family: 'Italianno', sans-serif;
+*/
+
+body{font-family: 'PT Sans Narrow', Arial, sans-serif; position:relative; z-index:0; margin:0;}
+p{color:#444;}
+h2 {font-size:110%; font-weight:bold;}
+ul {list-style-type:disc; padding:0 0 0 40px; margin:0 0 15px 0;}
+table {width:100%;}
+
+#fibre{background: url("../img/BGFibre.png"); position:relative; z-index:-2; min-width:885px;}
+
+.LongHR	{width: 100%;
+	border-right:none;
+	border-left:none;
+	border-bottom:none;
+	color:#999;
+}
+.padding{
+	height: 100px;
+}
+
+/* -------------- Vignette -------------- */
+
+#top, #bottom{height: 15%; width:100%; position: fixed; z-index: -1;}
+#left, #right{width: 15%; height:100%; position: fixed; z-index: -1;}
+#top{
+background-image: -moz-linear-gradient(100% 100% 90deg, rgba(200, 200, 200, 0), #6f6f6f );
+background-image: -webkit-gradient(linear, 0% 0%, 0% 100%,  color-stop(0%,rgba(111,111,111,1)), color-stop(72%,rgba(153,153,153,0.1)), color-stop(100%,rgba(170,170,170,0)));
+top: 0; z-index:5;}
+#bottom{
+background-image: -moz-linear-gradient(100% 100% 90deg, #6f6f6f, rgba(200, 200, 200, 0) );
+background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%,rgba(170,170,170,0)), color-stop(28%,rgba(153,153,153,0.1)), color-stop(100%,rgba(111,111,111,1)));
+bottom: 0; z-index:5;}
+#left{
+background-image: -moz-linear-gradient(100% 100% 180deg, rgba(200, 200, 200, 0), #6f6f6f );
+background-image: -webkit-gradient(linear, left center, right center,  color-stop(0%,rgba(111,111,111,1)), color-stop(72%,rgba(153,153,153,0.1)), color-stop(100%,rgba(170,170,170,0)));
+left: 0; }
+#right{
+background-image: -moz-linear-gradient(100% 100% 180deg, #6f6f6f, rgba(200, 200, 200, 0) );
+background-image: -webkit-gradient(linear, right center, left center,  color-stop(0%,rgba(111,111,111,1)), color-stop(72%,rgba(153,153,153,0.1)), color-stop(100%,rgba(170,170,170,0)));
+right: 0; }
+
+/* -------------- Paper -------------- */
+#paper{
+	width:865px;
+	height:auto;
+	margin:40px auto;
+	background:#fff;
+	position:relative; z-index:1;
+	box-shadow:0 0 100px 20px rgba(143, 142, 145, 0.8);
+	border-color: white;
+	border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+}
+
+#innerPaper{font-family: 'Istok Web', sans-serif; font-size:14px; padding:60px; color: #4a4a4a;}
+
+/* -------------- Title -------------- */
+/*--------- Alternate way has colour and/or animated -----------
+.text_holder { position: relative; height: 103px;}
+#Space{ background-image: url(../img/TitleMaskColour.png);
+		background-repeat: repeat-x; height: 103px; position: absolute; top: 0px; width: 100%;
+		-webkit-text-fill-color: transparent;
+		 -webkit-background-clip: text;
+		 -webkit-animation-name:fish-animation;
+		 -webkit-animation-duration: 60s;
+		 -webkit-animation-iteration-count: infinite;
+		 -webkit-animation-timing-function: linear;}
+@-webkit-keyframes fish-animation {
+	0% {background-position: 1200px bottom;}
+	100% {background-position: left bottom;}
+}
+-------------------------------------------------------------*/
+#Space > h1{font-family: 'Bilbo Swash Caps', sans-serif; font-size:80px; text-align:center; color:#222;
+	/*Alternate way, monochrome:*/
+	-webkit-mask-image: url(../img/TitleMask.png);
+	-o-mask-image: url(/img/TitleMask.png);
+	-moz-mask-image: url(/img/TitleMask.png);
+	-ms-mask-image: url(/img/TitleMask.png);
+	mask-image: url(/img/TitleMask.png);
+}
+.divider{margin:0 0 0 20px;}
+.divider object{width:705px; height:48px;}
+
+#footer{
+	padding:30px 0 ;
+}

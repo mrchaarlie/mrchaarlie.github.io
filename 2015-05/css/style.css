@@ -1,0 +1,370 @@
+body{
+	/*background:url("../img/bg_loop2.png") 100%  repeat-y;*/
+	color:#867062;
+	font-size:1.0 em;
+	font-family: 'Lato', Arial, sans-serif;
+}
+
+::selection {
+	background: #afc5c0; /* Safari */
+	}
+::-moz-selection {
+	background: #afc5c0; /* Firefox */
+}
+
+/*Grid Figure*/
+*, *:after, *:before { border-box; box-sizing: border-box; }
+.clearfix:before, .clearfix:after { content: ''; display: table; }
+.clearfix:after { clear: both; }
+
+/* Common style */
+.grid figure {
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	overflow: hidden;
+	margin: -0.135em;
+	width: 28%;
+	height: 400px;
+	background: #222;
+	text-align: center;
+	cursor: pointer;
+	margin: 10px;
+	border: none;
+}
+
+.grid figure img {
+	position: relative;
+	display: block;
+
+	min-height: 100%;
+	opacity: 0.8;
+}
+
+.grid figure figcaption {
+	padding: 2em;
+	color: #fff;
+	/*text-transform: uppercase;*/
+	font-size: 1.25em;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.grid figure figcaption::before,
+.grid figure figcaption::after {
+	pointer-events: none;
+}
+
+.grid figure figcaption,
+.grid figure a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* Anchor will cover the whole item by default */
+/* For some effects it will show as a button */
+.grid figure a {
+	z-index: 1000;
+	text-indent: 200%;
+	white-space: nowrap;
+	font-size: 0;
+	opacity: 0;
+}
+
+.grid figure h2 {
+	word-spacing: -0.15em;
+	
+	font-weight: 300;
+}
+
+.grid figure h2 span {
+	font-weight: 800;
+}
+
+.grid figure h2,
+.grid figure p {
+	margin: 0;
+}
+
+.grid figure p {
+	letter-spacing: 1px;
+	font-size: 68.5%;
+}
+
+/*Body*/
+
+h1, h2, h3{
+	font-family: 'Raleway', Arial, sans-serif;
+	font-weight: 800;
+}
+
+p{
+	font-size: 2.0em;
+	font-weight: 300;
+}
+
+.Lato{
+	font-family: 'Lato', Arial, sans-serif;
+}
+
+.color-emerald{
+	background-color: #009b77;
+}
+
+.text-emerald{
+	color: #009b77;
+}
+
+.navbar{
+	font-family: 'Raleway', Arial, sans-serif;
+	border: none;
+	box-shadow: 0 1px 8px #444;
+}
+.navbar a{letter-spacing: 2px;}
+.navbar a#name{letter-spacing: 1px;}
+.navbar li{margin: 0 0 0 10px}
+.navbar-nav>li>a{
+	font-size: 1.3em;
+	color:#eee;
+}
+.navbar-nav>li>a:hover{
+	color:#555;
+}
+.nav{
+	text-transform: uppercase;
+	color:#eee;
+	font-size: 1.0em;
+}
+
+.nav-anchor{
+	font-weight: 400;
+}
+.nav-anchor:hover{
+	color: #000;
+}
+.navbar-inner{
+	background-image: -moz-linear-gradient(top,rgb(3, 3, 3),rgb(11, 24, 13));
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(rgb(3, 3, 3)),to(rgb(11, 24, 13)));
+	background-image: -webkit-linear-gradient(top,rgb(3, 3, 3),rgb(11, 24, 13));
+	background-image: -o-linear-gradient(rgb(3, 3, 3),rgb(11, 24, 13));
+	background-image: linear-gradient(to bottom,rgb(3, 3, 3),rgb(11, 24, 13));
+}
+
+.p-padding{
+	margin-top:10px;
+}
+
+a{
+	color:#222;
+	text-decoration:none;
+	font-weight: 700;
+	-o-transition: 0.35s;
+	-ms-transition: 0.35s;
+	-moz-transition: 0.35s;
+	-webkit-transition: 0.35s;
+	transition: 0.35s;
+}
+a:hover{
+	color:#004e3c;
+	-o-transition: 0.35s;
+	-ms-transition: 0.35s;
+	-moz-transition: 0.35s;
+	-webkit-transition: 0.35s;
+	transition: 0.35s;
+}
+a:focus{
+	color: #fff !important; font-weight: bold;
+}
+.story{
+    margin: 0 auto;
+	color: #ddd;
+    float: none;
+}
+
+.thin-title{
+	font-weight:400;
+}
+
+#name{
+	font-size: 1.5em;
+	font-weight: 400;
+}
+
+#bg{
+    /*background:url("../img/bg_60.jpg") 100%  no-repeat fixed;*/
+    background:url("../img/paper-bg.png") 100%  repeat fixed;
+    color: #f6f5f0;
+    height: auto;
+    /*margin: 50px 0 0 0;*/
+	text-align:center;
+}
+
+.color-overlay{
+	background: rgba(166, 213, 202, 0.28);
+	padding-top: 50px;
+}
+
+#headshot{
+	height: 200px;
+	border-radius: 50%;
+}
+.spacing{
+	height: 4em;
+}
+
+.title{
+	color: #eeeeee;
+	background: rgba(0,11,11,0.7);
+	margin: 30px 0 0 0 ;
+}
+.title h1{	
+	padding: 9px 0;
+	margin: 10px 0 0 0;
+}
+
+.about{
+	color: #eeeeee;
+	/*background:url("../img/dark-70.png") 100%  repeat;*/
+	background: rgba(0,11,11,0.5);
+	padding: 10px 0 20px 0;
+}
+
+.about p{
+	font-size: 16px;
+}
+
+.portfolio-content{
+	padding: 20px;
+	background: rgba(0,11,11,0.5);
+}
+
+.icons{
+	display:block;
+	padding: 40px;
+	background: rgba(0,11,11,0.5);
+}
+/*---------------*/
+/***** Chico *****/
+/*---------------*/
+
+figure.effect-chico img {
+	opacity: 0.8;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+figure.effect-chico:hover img {
+	opacity: 0.25;
+	-webkit-transform: scale(1.12);
+	transform: scale(1.12);
+}
+
+figure.effect-chico figcaption {
+	padding: 2em;
+}
+
+figure.effect-chico figcaption::before {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	bottom: 30px;
+	left: 30px;
+	/*background: linear-gradient(to bottom, rgba(11,66,21,0) 40%, rgba(22,22,22,1) 90%);*/
+	border: 2px solid #009b77;
+	content: '';
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+figure.effect-chico figcaption::before,
+figure.effect-chico p {
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+}
+
+figure.effect-chico h2 {
+	padding: 20% 0 20px 0;
+}
+
+figure.effect-chico p {
+	margin: 0 auto;
+	max-width: 200px;
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+figure.effect-chico:hover figcaption::before,
+figure.effect-chico:hover p {
+	opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+@media screen and (max-width: 69.5em) {
+	.grid figure {
+		width: 50%;
+	}	
+
+	.grid figure figcaption {
+		font-size: 90%;
+	}
+}
+
+
+/*---------------*/
+/***** Images *****/
+/*---------------*/
+
+.linkedInIcon{background:transparent url('../img/linkedIn-icon.png') center top no-repeat;}
+.linkedInIcon:hover{background-image: url('../img/linkedIn-icon-hover.png');}
+.githubIcon{background:transparent url('../img/github-icon.png') center top no-repeat; }
+.githubIcon:hover{background-image: url('../img/github-icon-hover.png'); }
+.stackExchangeIcon{background:transparent url('../img/se-icon.png') center top no-repeat; }
+.stackExchangeIcon:hover{background-image: url('../img/se-icon-hover.png'); }
+.behanceIcon{background:transparent url('../img/behance-icon.png') center top no-repeat; }
+.behanceIcon:hover{background-image: url('../img/behance-icon-hover.png'); }
+.flickrIcon{background:transparent url('../img/flickr-icon.png') center top no-repeat; }
+.flickrIcon:hover{background-image: url('../img/flickr-icon-hover.png'); }
+.pxIcon{background:transparent url('../img/500px-icon.png') center top no-repeat; }
+.pxIcon:hover{background-image: url('../img/500px-icon-hover.png'); }
+
+
+
+.iconButton{
+	margin: 0 15px;
+	vertical-align: middle;
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	display:inline-block;
+	background-color: #eee;
+	-o-transition: 0.35s;
+	-ms-transition: 0.35s;
+	-moz-transition: 0.35s;
+	-webkit-transition: 0.35s;
+	transition: 0.35s;
+}
+
+@media screen and (max-width: 69.5em) {
+	.grid figure {
+		width: 50%;
+	}	
+
+	.grid figure figcaption {
+		font-size: 90%;
+	}
+}
+
+
+@media screen and (max-width: 41.5em) {
+
+	.grid figure {
+		width: 80%;
+	}
+}	

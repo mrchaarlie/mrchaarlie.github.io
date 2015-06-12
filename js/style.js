@@ -84,8 +84,7 @@ $(document).scroll(function(){
 	
 	windowPosition = $(window).scrollTop();
 	windowHeight = $(window).height();
-
-	console.log('scroll');
+	// console.log('scroll');
 	
 		//show/hide scroll-nav
 	if(windowPosition > $('.section1').offset().top - 89 && scrollNav == 0){

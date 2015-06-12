@@ -12,13 +12,11 @@
 // Image6.src = "img/500px-icon-hover.png";
 var scrollNav = 0;
 var c = 0;
+var flairPosition = 0;
 
 $(document).ready(function(){
 	
-
 	$('#cards').mixItUp();
-
-	//TODO cleanup old filter stuff
 
 	$('.card > div').hover(function(){
 		$(this).stop().find('.dark-bg').css("opacity","1");
@@ -87,7 +85,9 @@ $(document).scroll(function(){
 	windowPosition = $(window).scrollTop();
 	windowHeight = $(window).height();
 
-	//show/hide scroll-nav
+	console.log('scroll');
+	
+		//show/hide scroll-nav
 	if(windowPosition > $('.section1').offset().top - 89 && scrollNav == 0){
 		//show
 		$('.scroll-nav').stop().animate({
@@ -104,13 +104,13 @@ $(document).scroll(function(){
 		// $('.scroll-nav').css('opacity','0');
 	}
 
-	if (windowPosition > $('#portfolio').offset().top - 88 && windowPosition < $('#about').offset().top - 218){
+	if (windowPosition >= $('#portfolio').offset().top - 88 && windowPosition < $('#about').offset().top - 218){
 		$('.scroll-nav .links a').removeClass('active');
 		$('#portfolio-link').addClass('active');
-	}else if (windowPosition > $('#about').offset().top - 218 && windowPosition < $('#resume').offset().top - 100){
+	}else if (windowPosition >= $('#about').offset().top - 218 && windowPosition < $('#resume').offset().top - 100){
 		$('.scroll-nav .links a').removeClass('active');
 		$('#about-link').addClass('active');
-	}else{
+	}else if (windowPosition >= $('#resume').offset().top - 100){
 		$('.scroll-nav .links a').removeClass('active');
 		$('#resume-link').addClass('active');
 	}
@@ -118,12 +118,15 @@ $(document).scroll(function(){
 
 });
 
+$(window).resize(function(){
+	flairPosition = $('.flair').offset().top;
+});
+
 function parallaxFlair(){
 
 	if (c < 4){
 		flairPosition = $('.flair').offset().top;
 		c = c + 1;
-		console.log('x');
 	}
 
 	flairPosition = $('.flair').offset().top;

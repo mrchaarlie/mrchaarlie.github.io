@@ -164,6 +164,7 @@ h1, h2, h3, h4, h5{font-weight: 300; font-family: 'Raleway', sans-serif}
   bottom: 0;
   left: 0;
   width: 100%;
+  border-top: 1px solid #bbb;
 }
 .section1 .story .x{
 	position: absolute;

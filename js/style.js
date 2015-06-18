@@ -129,7 +129,7 @@ $(document).scroll(function(){
 		if (isStory == 1)
 			hideStory();
 		// $('.scroll-nav').css('opacity','0');
-	}else if(windowPosition > $('.section3').offset().top - (windowHeight * 0.6)){
+	}else if(windowPosition > $('.section3').offset().top - (windowHeight * 0.8) - 20){
 		if (isStory == 1)
 			hideStory();
 	}
@@ -159,13 +159,11 @@ function showStory(card){
 	isStory = 1;
 	loadStory(card);
 
-	// storyHeight = (windowHeight - navHeight) * 0.40;
-	storyHeight = 140;
+	storyHeight = (windowHeight - navHeight) * 0.20;
 	storyTop = (windowHeight - navHeight) * 0.15 + navHeight;
 	
-	// if (storyHeight < 250)
-	// 	storyHeight = 250;
-
+	if (storyHeight < 180)
+		storyHeight = 180;
 
 	$('.story').css({
 		'height': storyHeight
@@ -196,9 +194,9 @@ function hideStory(){
 }
 
 function resizeStory(){
-	storyHeight = (windowHeight - navHeight) * 0.40;
-	if (storyHeight < 250)
-		storyHeight = 250;
+	storyHeight = (windowHeight - navHeight) * 0.20;
+	if (storyHeight < 180)
+		storyHeight = 180;
 
 	$('.story').css({
 		'height': storyHeight

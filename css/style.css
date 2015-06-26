@@ -304,6 +304,7 @@ h1, h2, h3, h4, h5{font-weight: 300; font-family: 'Raleway', sans-serif}
 .section3 h1{margin-top: 50px; display: inline-block;}
 .section3 h1.skills{display: inline-block;}
 .section3 p.skills{font-weight: 400; margin: 5px 0}
+
 .legend{float: right; margin-top: 65px;}
 .legend > div{
 	margin: 2px 3px 0 13px;
@@ -316,6 +317,23 @@ h1, h2, h3, h4, h5{font-weight: 300; font-family: 'Raleway', sans-serif}
 span.high {color: #299347}
 span.medium {color: #AAD259}
 
+.section3 .accounts{text-align: center;}
+.section3 .accounts > a{
+	width: 90px;
+	height: 90px;
+	display: inline-block;
+	margin: 0 5px;
+	background-size: contain;
+	opacity: 0.7;
+	border: 1px solid transparent;
+}
+.section3 .accounts > a:hover{opacity: 1; border: 1px solid #F4A640;}
+.section3 .accounts .behance{background-image: url('../img/behance-icon-c.png');}
+.section3 .accounts .stackexchange{background-image: url('../img/stack-exchange-icon-c.png');}
+.section3 .accounts .linkedin{background-image: url('../img/linked-icon-c.png');}
+.section3 .accounts .github{background-image: url('../img/github-icon-c.png');}
+.section3 .accounts .fivehundred{background-image: url('../img/500px-icon-c.png');}
+.section3 .accounts .flickr{background-image: url('../img/flickr-icon-c2.png');}
 .section3 .resume-link{float:right; color: #F4A640; margin-top: 65px;}
 .section3 .paper{
 	background-color: #FCFAF9;
@@ -339,6 +357,7 @@ span.medium {color: #AAD259}
 .section3 .paper .skills p{margin: 5px 0 0}
 .section3 .paper .date{float: right; color: #aaa; font-weight: 300;}
 .section3 .paper .experience p{font-weight: 400;}
+
 
 .flair{
 	height: 200px;

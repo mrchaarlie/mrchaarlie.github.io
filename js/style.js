@@ -206,7 +206,8 @@ function resizeStory(){
 function loadStory(card){
 	if (card.hasClass('curio')){
 		$('.story .title').text("Crowd Curio");
-		$('.story .text').html("I designed and developed interfaces for a crowd-sourcing citizen science project. View the creation journey <a href='https://www.behance.net/gallery/27518269/Crowd-Curio-UX-Design-Web-Development'>here</a>. View the live link here: <a href='http://alpha.crowdcurio.com'>alpha.crowdcurio.com</a>.");
+		$('.story .text').html("I designed and developed interfaces for a crowd-sourcing citizen science project. <br/> \
+			View the creation journey <a href='https://www.behance.net/gallery/27518269/Crowd-Curio-UX-Design-Web-Development'>here</a>. View the live link here: <a href='http://alpha.crowdcurio.com'>alpha.crowdcurio.com</a>.");
 
 		console.log('x');
 	}else if (card.hasClass('fox')){

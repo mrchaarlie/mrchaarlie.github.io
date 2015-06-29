@@ -206,37 +206,37 @@ function resizeStory(){
 function loadStory(card){
 	if (card.hasClass('curio')){
 		$('.story .title').text("Crowd Curio");
-		$('.story .text').html("View live link here: <a href='http://alpha.crowdcurio.com'>alpha.crowdcurio.com</a>.");
+		$('.story .text').html("I designed and developed interfaces for a crowd-sourcing citizen science project. View the creation journey <a href='https://www.behance.net/gallery/27518269/Crowd-Curio-UX-Design-Web-Development'>here</a>. View the live link here: <a href='http://alpha.crowdcurio.com'>alpha.crowdcurio.com</a>.");
 
 		console.log('x');
 	}else if (card.hasClass('fox')){
 		$('.story .title').text("Low-Poly Fox Art");
-		$('.story .text').html("View in more detail on my <a href='https://www.behance.net/gallery/21297315/Low-Poly-Fox'>behance</a>.");
+		$('.story .text').html("I really liked the low-poly art style, so I made a fox! View in more detail on my <a href='https://www.behance.net/gallery/21297315/Low-Poly-Fox'>behance</a>.");
 
 
 	}else if (card.hasClass('animal')){
 		$('.story .title').text("Animal Icons");
-		$('.story .text').html("View in more detail on my <a href='https://www.behance.net/gallery/21266715/Animal-Icon-Design'>behance</a>.");
+		$('.story .text').html("A simple project I did for fun, developed from doodles. View in more detail on my <a href='https://www.behance.net/gallery/21266715/Animal-Icon-Design'>behance</a>.");
 
 	}else if (card.hasClass('yelp')){
 		$('.story .title').text("Yelp Web Redesign");
-		$('.story .text').html("View in more detail on my <a href='https://www.behance.net/gallery/19352437/Yelp-Web-UIUX-Redesign'>behance</a>.");
+		$('.story .text').html("An unsolicited redesign for Yelp's Web Interface to improve the user interface. View in more detail on my <a href='https://www.behance.net/gallery/19352437/Yelp-Web-UIUX-Redesign'>behance</a>.");
 
 	}else if (card.hasClass('focus')){
 		$('.story .title').text("Focus Android Study App");
-		$('.story .text').html("View in more detail on my <a href='https://www.behance.net/gallery/13415167/Focus-Productivity-Android-App'>behance</a>.");
+		$('.story .text').html("An Android project I worked on for fun that helps with productivity. View in more detail on my <a href='https://www.behance.net/gallery/13415167/Focus-Productivity-Android-App'>behance</a>.");
 
 	}else if (card.hasClass('uw')){
 		$('.story .title').text("University of Waterloo Engineering Orientation Website");
-		$('.story .text').html("View in more detail on my <a href='https://www.behance.net/gallery/13884929/University-Waterloo-Engineering-Orientation-Webpage'>behance</a>.");
+		$('.story .text').html("A site made for the entire incoming first year engineering students at the University of Waterloo in the year 2013. View in more detail on my <a href='https://www.behance.net/gallery/13884929/University-Waterloo-Engineering-Orientation-Webpage'>behance</a>.");
 
 	}else if (card.hasClass('ashcity')){
 		$('.story .title').text("Ash City iOS App");
-		$('.story .text').html("View in more detail on my <a href='https://www.behance.net/gallery/11486751/Ash-City-iOS-App'>behance</a>.");
+		$('.story .text').html("An iOS app I designed and developed independently when I worked for Ash City. View in more detail on my <a href='https://www.behance.net/gallery/11486751/Ash-City-iOS-App'>behance</a>.");
 
 	}else if (card.hasClass('odette')){
 		$('.story .title').text("Odette Annable");
-		$('.story .text').html("View in more detail on my <a href='https://www.behance.net/gallery/11486527/Odette-Annable-(Yustman)'>behance</a>.");
+		$('.story .text').html("A vectorized image of Odette Annable. View in more detail on my <a href='https://www.behance.net/gallery/11486527/Odette-Annable-(Yustman)'>behance</a>.");
 
 	}
 

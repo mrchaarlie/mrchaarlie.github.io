@@ -20,7 +20,7 @@ var c = 0;
 var flairPosition = 0;
 var windowHeight = 800;
 $(document).ready(function(){
-	
+
 	//init
 	$('#cards').mixItUp();
 	windowHeight = $(window).height();
@@ -30,7 +30,7 @@ $(document).ready(function(){
 	$('.card > div').hover(function(){
 		$(this).stop().find('.dark-bg').css("opacity","1");
 	},function(){
-		$(this).stop().delay(200).queue(function (next) { 
+		$(this).stop().delay(200).queue(function (next) {
 			$(this).find('.dark-bg').css("opacity","0")
 			next();
 	  });
@@ -108,10 +108,10 @@ $(document).ready(function(){
 });
 
 $(document).scroll(function(){
-	
+
 	windowPosition = $(window).scrollTop();
 	// console.log('scroll');
-	
+
 	//show/hide scroll-nav
 	if(windowPosition > $('.section1').offset().top - 89 && scrollNav == 0){
 		//show
@@ -161,14 +161,14 @@ function showStory(card){
 
 	storyHeight = (windowHeight - navHeight) * 0.20;
 	storyTop = (windowHeight - navHeight) * 0.15 + navHeight;
-	
+
 	if (storyHeight < 180)
 		storyHeight = 180;
 
 	$('.story').css({
 		'height': storyHeight
 	});
-	
+
 	$('.story').stop().slideDown();
 
 	// $(window).scrollTop(card.offset().top)
@@ -207,7 +207,7 @@ function loadStory(card){
 	if (card.hasClass('curio')){
 		$('.story .title').text("Crowd Curio");
 		$('.story .text').html("I designed and developed interfaces for a crowd-sourcing citizen science project. <br/> \
-			View the creation journey <a href='https://www.behance.net/gallery/27518269/Crowd-Curio-UX-Design-Web-Development'>here</a>. View the live link here: <a href='http://alpha.crowdcurio.com'>alpha.crowdcurio.com</a>.");
+			View the creation journey <a href='https://www.behance.net/gallery/27518269/Crowd-Curio-UX-Design-Web-Development'>here</a>.  View the live link here: <a href='http://alpha.crowdcurio.com'>alpha.crowdcurio.com</a>.");
 
 		console.log('x');
 	}else if (card.hasClass('fox')){

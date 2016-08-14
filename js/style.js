@@ -78,7 +78,7 @@ function toggleAboutExtras(){
 		showExtra.innerHTML = "Show more";
 
 	}else{
-		aboutDiv.className += " show-extra";		
+		aboutDiv.className += " show-extra";
 		showExtra.innerHTML = "Show less";
 	}
 }
@@ -92,6 +92,7 @@ window.onscroll = function (e) {
 
 function expandPreview(element){
 	isPreviewExpanded = true;
+	isMouseOverModal = true;
 
 	var item = element.className.replace("item ", "");
 	var title = element.children[0].children[0].innerHTML;

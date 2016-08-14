@@ -68,7 +68,7 @@ html {
 
 body{
 	margin: 0 2rem;
-	line-height: 1.4;
+	line-height: 1.5;
 	color: #444;
 	font-family: 'Lato', sans-serif;
 	font-weight: 400;
@@ -101,7 +101,7 @@ h1{margin: 0 0 0.67rem;}
 	text-decoration: none;
 }
 .btn:hover{
-	background: #386757;	
+	background: #386757;
 }
 
 /*Specific Styles*/
@@ -193,7 +193,7 @@ h1{margin: 0 0 0.67rem;}
 .about .show-extra{
 	display: block;
 	margin: 1rem auto 0;
-	width: 7rem;	
+	width: 7rem;
 }
 .about .extra{
 	overflow: hidden;
@@ -396,9 +396,9 @@ h1{margin: 0 0 0.67rem;}
 	padding: 1rem 2rem;
 	font-size: 1.1em;
 }
-.portfolio-list .modal .modal-text:hover{
+/*.portfolio-list .modal .modal-text:hover{
 	padding: 1rem calc(2rem + 7.5px) 1rem 2rem;
-}
+}*/
 .portfolio-list .modal .modal-text h1{
 	margin: 1rem 0;
 }

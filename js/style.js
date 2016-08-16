@@ -108,6 +108,7 @@ function expandPreview(element){
 	 // center center no-repeat rgba(0,0,0,0.4)
 	// mainPreviewImg.style.backgroundSize = "contain";url("img/ashcity-large.jpg") center center / contain no-repeat rgba(0, 0, 0, 0.4)
 	var textContainer = document.getElementsByClassName("modal-text")[0];
+	textContainer.scrollTop = 0;
 	textContainer.innerHTML = longDesc;
 
 }

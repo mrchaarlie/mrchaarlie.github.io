@@ -54,15 +54,18 @@
 
 	<div class="about" id="about">
 		<h1>I'm Charles Wu</h1>
-		<p>	I am a UX designer/developer based in Toronto.
+		<p>	<span class="extra">(<i>You&nbsp;</i> can call me Charlie)</span>
 
-			<span class="extra">I studied Systems Design Engineering at the University of Waterloo, where I learned about all the different types of systems – human, computer, industrial to name a few – and how they worked. What caught my attention was how inefficient or prone to error they sometimes were. Now, I try to make products better by not only incorporating a pleasant interface, but a consciously and immersively designed experience.</span>
+			I am a UX designer and developer, currently working in Toronto.
 
-			I've created digital experiences for web, mobile, and large-format displays (TV's).
+			<span class="extra">I studied Systems Design Engineering at the University of Waterloo, where I learned about <i>all types</i> of systems — human, computer, and industrial just to name a few — and how they worked. What caught my attention was how inefficient or prone-to-error they sometimes were. Now, I try to make products better by not only designing a pleasant interface, but also a consciously and immersively designed experience.</span>
+
+			I create digital experiences (feature specs, information architecture, prototypes, code) for web and mobile.
+
 			<span class="extra">That said, I'm aiming to develop more of my skills in the UX field as well as the VR space.</span>
 
 		</p>
-		<div class="show-extra btn" id="show-extra">Go on...</div>
+		<div class="show-extra btn" id="show-extra">Show more...</div>
 
 
 	</div>
@@ -75,8 +78,8 @@
 					<div class="modal-container">
 						<div class="close"><span>close</span></div>
 						<div class="main-img"></div>
-						<div class="modal-text-container">
-							<div class="modal-text" id="modal-text"></div>
+						<div class="modal__text-container">
+							<div class="modal__text" id="modal__text"></div>
 						</div>
 					</div>
 				</div>
@@ -239,101 +242,142 @@ OPTIONAL: describe more of your process e.g. interface considerations? Slider to
 
 	</div>
 
-	<div class="resume" id="resume">
-		<h1>Resume</h1>
-		<a href="docs/Charles-Wu-Resume.pdf" target="_blank" class="resume-link btn">View PDF Format</a>
+	<div id="resume">
 
-		<div class="paper">
+		<div class="flex flex--space-between flex--align-end">
+			<h1 class="inline-block no-margin">Resume</h1>
+			<a href="docs/Charles-Wu-Resume.pdf" target="_blank" class="resume-link btn">View PDF Format</a>
+		</div>
+
+		<div class="resume paper">
 			<h1>Charlie Wu</h1>
-			<div class="contact">
+			<div class="resume__contact">
 				<h4>UX Designer &amp; Developer</h4>
 				<h4>Phone: +1–647–767–6126</h4>
-				<h4>Email: <a href="mailto:charlie.wu@uwaterloo.ca">charlie.wu@uwaterloo.ca</a></h4>
+				<h4>Email: <a href="mailto:imcharleswu@gmail.com">imcharleswu@gmail.com</a></h4>
 			</div>
 
-			<div class="section-header"><h2>Skills</h2><div class="section-break"></div></div>
-				<div class="skills">
-					<p><b>UX:</b> User Research, Problem Analysis, Prototyping, (Adobe Ps, Ai)</p>
-					<p><b>Dev:</b> HTML, CSS, JS, JQuery, Django, Python, PHP, Obj-C, Java, Clojure/Clojurescript</p>
-					<p><b>Other:</b> Cognitive Ergonomics, MachineIntelligence, Production Management</p>
+			<div class="resume__section--header">
+				<h2>Summary</h2>
+				<hr>
+			</div>
+			<div>
+				<p>Charlie is a talented and versatile user-experience designer &amp; developer, adept in research, planning, and converting user needs into user-centered designs.
+				He has is capable of elegantly balancing design with code to enhance team efficiency. His areas of expertise include:</p>
+			</div>
+
+			<div class="skills">
+				<p><b>UX:</b>User Research, User Testing,  Web Accessibility, Prototyping (Adobe Xd, Ps, Ai)</p>
+				<p><b>Code:</b> HTML, CSS (SCSS, BEM), JS (Vanilla, Ember), Python, Java</p>
+			</div>
+
+			<div class="resume__section--header"><h2>Experience</h2><hr></div>
+
+				<div class="resume__section--subheader">
+					<h3><b>UX Developer</b> — CareerJSM</h3>
+					<h3 class="resume__date">09/2016 – Present</h3>
 				</div>
-
-			<div class="section-header"><h2>Experience</h2><div class="section-break"></div></div>
-
-				<p><b>UX Designer and Developer</b>, DIVE Networks Inc<span class="date">Aug '15 – Jul '16</span></p>
 				<ul>
-					<li>Created wireframes, prototypes, and information architecture for web app from conception to delivery</li>
-					<li>Researched and optimized visual display content for responsive web and large format displays</li>
-					<li>Created script to automatically test and compare widgets via  visual differences</li>
+					<li>Designed feature mock-ups for potential and existing clients to demonstrate how applications would work and improve their own workflow</li>
+					<li>Conducted web accessibility audit and performed the necessary design and code updates to ensure the application met the requirements </li>
+					<li>Planned and implemented user testing sessions to validate features</li>
 				</ul>
 
-				<p><b>UX Designer and Web Developer</b>, Crowd Curio<span class="date">Jan – Jun '15</span></p>
+				<div class="resume__section--subheader">
+					<h3><b>UX Developer</b> — DIVE Networks</h3>
+					<h3 class="resume__date">08/2015 – 07/2016</h3>
+				</div>
 				<ul>
-					<li>Designed wireframes and application interfaces for a crowd-sourced citizen science project</li>
-					<li>Increased user engagement and experience by improving their ability to discover, contribute, and manage data by gamifying experiments into interactive modules</li>
+					<li>Researched and optimized content for responsive web and large format displays, taking into account size, speed, and distance to the monitor</li>
+					<li>Developed an automation script to isolate anomalies by analyzing visual differences</li>
+					<li>Created several feature information architecture, wireframes, and prototypes</li>
 				</ul>
 
-				<p><b>UI Designer</b>, McKinsey Digital<span class="date">Jun – Aug '14</span></p>
+				<div class="resume__section--subheader">
+					<h3><b>UX Designer &amp; Web Developer</b> — Crowd Curio</h3>
+					<h3 class="resume__date">01/2015 – 06/2015</h3>
+				</div>
 				<ul>
-					<li>Created custom client experiences using data science and user-centered design methodologies</li>
-					<li>Designed wireframes, storyboards, and mock-ups, making use of user-research and justifying each step</li>
+					<li>Designed wireframes and prototypes for a crowd-sourced science project</li>
+					<li>Improved user engagement by testing and optimizing different layouts and through added gamification elements</li>
 				</ul>
 
-				<p><b>UX/Android Developer</b>, Intelligent Mechatronics Systems<span class="date">Sep – Dec '13</span></p>
+				<div class="resume__section--subheader">
+					<h3><b>UI Designer</b> — McKinsey Digital Labs</h3>
+					<h3 class="resume__date">06/2014 – 08/2014</h3>
+				</div>
 				<ul>
-					<li>Conducted user research and needs analyses to design a vehicle infotainment app, ensuring safety and ease-of-use</li>
-					<li>Developed features for added user convenience, such as profile settings and quick access shortcuts</li>
+					<li>Assessed 4 client projects, analyzed feature requirements, and generated designs</li>
+					<li>Produced wireframes, storyboards, and mock-ups, making use of user research and user-centered design methodologies</li>
 				</ul>
 
-				<p><b>iOS Mobile Developer</b>, Ash City Worldwide<span class="date">Jan – Apr '13</span></p>
+				<div class="resume__section--subheader">
+					<h3><b>UX/Android Developer</b> — Intelligent Mechatronics</h3>
+					<h3 class="resume__date">09/2013 – 12/2013</h3>
+				</div>
 				<ul>
-					<li>Managed, designed, and developed a clothing inventory and ordering app: created project requirements, wireframes, image assets, code; conducted user research and testing</li>
+					<li>Developed and enhanced features such as application menu and profile settings</li>
+					<li>Conducted user research and needs analyses to improve application accessibility with a preoccupied user (i.e. driving) while ensuring safety and compliance with law</li>
 				</ul>
 
-				<p><b>Web Content Developer</b>, Raymond James Ltd.<span class="date">May – Aug '12</span></p>
+				<div class="resume__section--subheader">
+					<h3><b>iOS Developer</b> — AlphaBroder (formerly Ash City)</h3>
+					<h3 class="resume__date">01/2013 – 04/2013</h3>
+				</div>
+				<ul>
+					<li>Managed, designed, and developed a catalog and ordering application from conception to delivery within a 4 month deadline</li>
+					<li>Created project requirements, wireframes, image assets, code</li>
+					<li>Performed one-on-one user research and conducted user testing sessions</li>
+				</ul>
+
+				<!-- <p><b>Web Content Developer</b> — Raymond James Ltd.<span class="resume__date">05/2012 – 08/2012</span></p>
 				<ul>
 					<li>Redesigned and developed the Canadian intranet site, improving on design clarity and news accessibility</li>
 					<li>Created and managed content for the Raymond James website, impacting hundreds of daily users</li>
 					<li>Worked with several senior level advisors to design and develop custom websites</li>
-				</ul>
+				</ul> -->
 
-				<p><b>Business Project Assistant</b>, York Region Municipality<span class="date">Sep – Dec '11</span></p>
+				<!-- <p><b>Business Project Assistant</b> — York Region Municipality<span class="resume__date">Sep – Dec '11</span></p>
 				<ul>
 					<li>Developed a new user feedback system that was then implemented in senior assistance centres</li>
 					<li>Simplified and converted complex workflows from a paper to a digital medium</li>
 					<li>Improved user experience through simplification and the reduction of required clicks per action</li>
-				</ul>
+				</ul> -->
 
-			<div class="section-header"><h2>Education</h2><div class="section-break"></div></div>
-				<p><b>Bachelors of Applied Science (BASc), Systems Design Engineering, 2015</b> <br/> With Option in Management Science
-				<span class="date">University of Waterloo, Canada</p>
+			<div class="resume__section--header"><h2>Education</h2><hr></div>
 
-			<div class="section-header"><h2>Projects and Interests</h2><div class="section-break"></div></div>
+			<div class="resume__section--subheader">
+				<h3><b>Bachelors of Applied Science (B.A.Sc.)</b> – University of Waterloo</h3>
+				<h3 class="resume__date">2010 – 2015</h3>
+			</div>
+			<h4 class="no-margin">Systems Design Engineering, Option in Management Science</h4>
+
+			<div class="resume__section--header"><h2>Projects and Interests</h2><hr></div>
 				<p><b>Projects</b></p>
 				<ul>
-					<li>Curio-X: A citizen science and gamification project (UX design and web-dev)</li>
-					<li>BufferBox (acquired by Google): Student Designer and Team Lead</li>
-					<li>Co-op Storage: Co-Founder &amp; Designer</li>
-					<li>Proxima: Created a device to wirelessly transfer data via gestures</li>
+					<li>Curio-X: Worked on designed and developing a citizen science and gamification project to digitally catalog archive images of plants</li>
+					<li>BufferBox (acquired by Google): Student Designer and Team Lead for website</li>
+					<li>Proxima: Helped fabricate and design a physical "glove" to wirelessly transfer data via gestures</li>
 					<li>Focus: Developed and published an Android study tool</li>
 					<li>InFit: Developed a fitness tracking app to process sensor data</li>
 				</ul>
 
 				<p><b>Volunteer</b></p>
 				<ul>
-					<li>Engineering Society Class Rep for Systems Design 2015 <span class="date">2010 – 2015</span></li>
-					<li>Orientation Week Leader and Director <span class="date">2012 – 2014</span></li>
+					<li>Engineering Society Class Rep for Systems Design 2015</li>
+					<li>Waterloo Orientation Week Director in 2014 &amp; 2015</li>
+					<li>Waterloo Orientation Week Leader in 2012 &amp; 2013</li>
 				</ul>
 
 				<p><b>Recreation</b></p>
-				<ul><li>Climbing, photography, biking, volleyball, and long walks on the beach</li></ul>
+				<ul><li>I enjoy indoor rock climbing, photography, biking, volleyball, &amp; long walks on the beach</li></ul>
 		</div>
 
 	</div>
 
 	<div class="quick-links" id="quick-links">
 		<h1>Quick Links</h1>
-		<div class="links-container">
+		<div class="quick-links__container">
 			<a href="http://stackexchange.com/users/1308737/mrcharlie" class="link">
 				<img src="img/stack-exchange.svg" alt="Stack Exchange">
 				<img src="img/stack-exchange-hover.svg">

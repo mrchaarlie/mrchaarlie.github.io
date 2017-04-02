@@ -2,7 +2,7 @@
 
 var previewContainer = document.getElementsByClassName("preview")[0];
 var mainPreviewImg = document.getElementsByClassName("main-img")[0];
-var modalText = document.getElementById("modal-text");
+var modalText = document.getElementById("modal__text");
 var showExtra = document.getElementById("show-extra");
 var aboutDiv = document.getElementById("about");
 var isMouseOverModal = false;
@@ -106,7 +106,7 @@ function expandPreview(element){
 	mainPreviewImg.style.backgroundImage = "url(img/" + item + "-large.jpg)";
 	 // center center no-repeat rgba(0,0,0,0.4)
 	// mainPreviewImg.style.backgroundSize = "contain";url("img/ashcity-large.jpg") center center / contain no-repeat rgba(0, 0, 0, 0.4)
-	var textContainer = document.getElementsByClassName("modal-text")[0];
+	var textContainer = document.getElementsByClassName("modal__text")[0];
 	textContainer.scrollTop = 0;
 	textContainer.innerHTML = longDesc;
 

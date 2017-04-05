@@ -75,9 +75,9 @@ body{
 	color: #444;
 	font-family: 'Lato', sans-serif;
 	font-weight: 400;
-	background: #efefef;
-
+	background: #f5f5f5;
 }
+
 p {font-weight: 400;}
 b {font-weight: 700;}
 a {color: #66CDAA;}
@@ -85,6 +85,21 @@ a:hover, a:visited{color: #386757;}
 h1, h2, h3 {font-weight: 700; font-family: 'Raleway', sans-serif}
 h4, h5 {font-weight: 400; font-family: 'Raleway', sans-serif}
 h1 {margin: 0 0 0.67rem;}
+code {
+	background: #eee;
+	color: #C25;
+	border: 1px solid #ccc;
+  padding: 0 5px 2px;
+  border-radius: 4px;
+  position: relative;
+  top: -1px;
+  margin: 0 3px 0 1px;
+  font-size: 90%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  font-family: monospace;
+
+}
 
 .no-margin {
 	margin: 0 !important;

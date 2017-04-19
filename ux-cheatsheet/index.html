@@ -73,17 +73,16 @@
 
 		</div>
 
-		<div class="section" id="accessibility">
+		<div class="section" id="copy">
 			<h2>Copy</h2>
 			<div class="subsection">
 				<h3>Use of "We" vs "You"</h3>
-				<p></p>
+				<p>Use "you" most of the time: it focuses on the user and is stronger. Use "we" sparingly, e.g.: "We promise...", or when you have a close or intimate relation with the user.</p>
 			</div>
 			<div class="subsection">
-				<h3>Passive vs 	Active Voice</h3>
-				<p>Use passive voice for web headings. Use Active voice for everything else.</p>
+				<h3>Passive vs Active Voice</h3>
+				<p>Use passive voice for web headings. Use active voice for everything else.</p>
 			</div>
-
 		</div>
 
 		<div class="section" id="forms">
@@ -114,10 +113,42 @@
 				<p>Use inline validation <em>BUT</em> don't validate as a user is typing, validate only when the field loses focus.</p>
 			</div>
 
-			<!-- Zeigarnik effect -->
+			<div><a href="https://uxdesign.cc/design-better-forms-96fadca0f49c">More reading</a></div>
+		</div>
 
+		<div class="section" id="accessibility">
+			<h2>General Design</h2>
 
-			<div><a href="https://uxdesign.cc/design-better-forms-96fadca0f49c">More reading</div>
+			<div class="subsection">
+				<h3 id="progress-bar">Progress Bars</h3>
+				<p>A completion meter can increase user satisfaction and engagement. Showing it can make long load times seem shorter. Use an indeterminate load bar if you don't know how long something will take.</p>
+				<p>Related: <a href="#zeignarik-effect">Zeigarnik effect</a>.</p>
+			</div>
+
+			<div class="subsection">
+				<h3 id="zeignarik-effect">Zeigarnik Effect</h3>
+				<p>People remember incomplete or interrupted tasks better than completed tasks. People will usually want to complete a task (to effectively forget about them).</p><p>Related: <a href="#progress-bar">Progress Bar</a>.</p>
+			</div>
+
+		</div>
+
+		<div class="section" id="animation">
+			<h2>Animation</h2>
+
+			<div class="subsection">
+				<h3>CSS/HTML Optimization</h3>
+				<p>Get 60fps! <a href="https://medium.com/outsystems-experts/how-to-achieve-60-fps-animations-with-css3-db7b98610108">Do it properly. Here's a summary:</a></p>
+				<ul>
+					<li>Don't use transitions with <code>left/top/right/bottom</code> properties, use <code>transform</code></li>
+					<li>Include <code>will-change: transform;</code></li>
+					<li>Isolate animating elements so it doesn't have any siblings</li>
+				</ul>
+			</div>
+
+			<div class="subsection">
+				<h3>Easing</h3>
+				<p>Make sure to use the correct easing. Usually use <code>ease-out-cubic</code> for intros, and <code>ease-out-cubic</code> for outros.</p>
+			</div>
 
 		</div>
 

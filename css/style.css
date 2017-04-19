@@ -1,11 +1,20 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700|Raleway:300,400,700);
 
 /* Animations*/
+
+@keyframes anchor-highlight {
+
+	0%,
+	100% {
+		color: inherit;
+	}
+	50%{
+		color: #66CDAA;
+	}
+}
 @keyframes intro-animation {
 
-	0% {
-		opacity: 1;
-	}
+	0%,
 	60% {
 		opacity: 1;
 	}
@@ -17,11 +26,8 @@
  /*This is for the text*/
 @keyframes intro-bg-animation {
 
-	0% {
-		background: #fff;
-		opacity: 1;
-	}
-	10%{
+	0%,
+	10% {
 		background: #fff;
 		opacity: 1;
 	}
@@ -35,9 +41,7 @@
 }
 @keyframes intro-mask-animation {
 
-	0% {
-		width: 120%;
-	}
+	0%,
 	50% {
 		width: 120%;
 	}
@@ -49,7 +53,7 @@
 
 /*Shared Styles*/
 
-:selection {
+::selection {
 	background: #000;
 	color: #fff;
 }
@@ -81,9 +85,16 @@ body{
 p {font-weight: 400;}
 b {font-weight: 700;}
 a {color: #66CDAA;}
-a:hover {color: #386757;}
-h1, h2, h3 {font-weight: 700; font-family: 'Raleway', sans-serif}
-h4, h5 {font-weight: 400; font-family: 'Raleway', sans-serif}
+a:hover {color: #386757; transition: color .5s ease;}
+*:target > h1,
+*:target > h2,
+*:target > h3,
+#resume:target > div:first-of-type > h1,
+h3:target {
+	animation: anchor-highlight .5s ease;
+}
+h1, h2, h3 {font-weight: 700; font-family: 'Raleway', sans-serif; }
+h4, h5 {font-weight: 400; font-family: 'Raleway', sans-serif; }
 h1 {margin: 0 0 0.67rem;}
 code {
 	background: #eee;

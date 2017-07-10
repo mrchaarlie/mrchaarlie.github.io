@@ -29,10 +29,12 @@
 		ga('require', 'displayfeatures');
 		ga('send', 'pageview');
 	</script>
+	<script src="js/cookies.js"></script>
+
 
 	</head>
 
-	<body id="home">
+	<body id="home" onload="checkCookies()">
 
 	<div class="intro">
 		<img class="intro-mask" src="img/intro-mask.svg"/>
@@ -65,8 +67,8 @@
 			<span class="extra">That said, I'm aiming to develop more of my skills in the UX field as well as the VR space!</span>
 
 		</p>
-		<div class="show-extra btn" id="show-extra">Show more...</div>
 
+		<div class="show-extra btn" id="show-extra">Show more...</div>
 
 	</div>
 

@@ -307,13 +307,18 @@ code {
   padding: 4.5rem 0 0;
 }
 
-.about .show-extra {
+
+
+
+
+
+.about .show-extra-text-button {
   display: block;
   margin: 1rem auto 0;
   width: 7rem;
 }
 
-.about .extra {
+.about .extra-text {
   overflow: hidden;
   transition: max-height 1.5s ease, margin 1s ease;
   display: block;
@@ -322,7 +327,7 @@ code {
   margin-bottom: 0;
 }
 
-.about.show-extra .extra {
+.about.show-extra .extra-text {
   max-height: 4.3em;
   margin-bottom: 1em;
 }

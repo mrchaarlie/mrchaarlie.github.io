@@ -3,7 +3,7 @@
 var previewContainer = document.getElementsByClassName("preview")[0];
 var mainPreviewImg = document.getElementsByClassName("main-img")[0];
 var modalText = document.getElementById("modal__text");
-var showExtra = document.getElementById("show-extra");
+var showExtra = document.getElementById("showExtraTextButton");
 var aboutDiv = document.getElementById("about");
 var isMouseOverModal = false;
 var isPreviewExpanded = false;
@@ -69,9 +69,6 @@ function mouseOutModal(){
 	document.getElementById("home").style.overflow = "auto";
 }
 function toggleAboutExtras(){
-	console.log("toggle about extras");
-	console.log(aboutDiv);
-	console.log(aboutDiv.className.indexOf('show-extra'));
 
 	if (aboutDiv.className.indexOf('show-extra') != -1){
 		aboutDiv.className = aboutDiv.className.replace(" show-extra", "");

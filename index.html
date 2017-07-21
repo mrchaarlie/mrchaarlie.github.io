@@ -77,19 +77,21 @@
 
   <div class="portfolio" id="portfolio">
     <h1>Portfolio</h1>
-    <div class="portfolio-list">
-      <div class="preview">
+    <div class="portfolio-container">
+
+      <div class="portfolio-preview" id="portfolioPreview">
+
         <div class="modal">
           <div class="modal-container">
-            <div class="close"><span>close</span></div>
-            <div class="main-img"></div>
+            <div class="close"><span>Close</span></div>
+            <div class="main-img" id="portfolioPreviewImage"></div>
             <div class="modal__text-container">
-              <div class="modal__text" id="modal__text"></div>
+              <div class="modal__text" id="portfolioPreviewText"></div>
             </div>
           </div>
         </div>
 
-        <div class="item dive">
+        <div class="portfolio-item portfolio-item--dive">
           <div class="content">
             <h2>DIVE Networks</h2>
             <p>A digital display news network</p>
@@ -114,7 +116,8 @@
           </div>
           <div class="bg-img"></div>
         </div>
-        <div class="item curio">
+
+        <div class="portfolio-item portfolio-item--curio">
           <div class="content">
             <h2>Crowd Curio</h2>
             <p>A citizen science project to help conduct research</p>
@@ -147,7 +150,7 @@
           <div class="bg-img"></div>
         </div>
 
-        <div class="item ashcity">
+        <div class="portfolio-item portfolio-item--ashcity">
           <div class="content">
             <h2>iOS App - Ash City Catalog</h2>
             <p>An app for viewing and ordering clothes</p>
@@ -162,7 +165,8 @@
           </div>
           <div class="bg-img"></div>
         </div>
-        <div class="item focus">
+
+        <div class="portfolio-item portfolio-item--focus">
           <div class="content">
             <h2>Android App - Focus</h2>
             <p>A workflow helper</p>
@@ -171,19 +175,12 @@
               <h1>Android App - Focus</h1>
               <p>Focus was a side project I worked on to help people work more efficiently. I was interested in both Android development and product design so I created a simple app with a unique interface to help split work into 30 minute segments comprised of 25 minutes of work and 5 minutes of break (<i>the Pomodoro technique</i>).</p>
               <p>The initial iteration of Focus can be found  play store <a href="https://play.google.com/store/apps/details?id=ca.charleswu.focus">here.</a> For this project, I used <b>Adobe Photoshop &amp; Illustrator,</b> and <b>Java.</b></p>
-
-{#
-              Focus was a side project I worked on to help people work more efficiently. I was interested in both Android Development and product design so I created a simple app with a unique interface to help split work into 30-minute segments comprised of 25 minutes of work and 5 minutes of break time.
-The first iteration of Focus can be found at the play store here. For this project, I used Adobe Photoshop & Illustrator, and Java.
-OPTIONAL: describe more of your process e.g. interface considerations? Slider to adjust time? #}
-
-
             </div>
           </div>
           <div class="bg-img"></div>
         </div>
 
-        <div class="item yelp">
+        <div class="portfolio-item portfolio-item--yelp">
           <div class="content">
             <h2>Yelp Redesign</h2>
             <p>An unsolicited Yelp Website Redesign, Fall 2014</p>
@@ -225,7 +222,8 @@ OPTIONAL: describe more of your process e.g. interface considerations? Slider to
           </div>
           <div class="bg-img"></div>
         </div>
-        <div class="item orientation">
+
+        <div class="portfolio-item portfolio-item--orientation">
           <div class="content">
             <h2>Waterloo Orientation Website, 2013</h2>
             <p>A website made to welcome first year engineering students</p>
@@ -241,7 +239,6 @@ OPTIONAL: describe more of your process e.g. interface considerations? Slider to
         </div>
 
       </div>
-
 
     </div>
 

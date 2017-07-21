@@ -1,8 +1,8 @@
 // Global Variables --------------------------------------------------
 
-var previewContainer = document.getElementsByClassName("preview")[0];
-var mainPreviewImg = document.getElementsByClassName("main-img")[0];
-var modalText = document.getElementById("modal__text");
+var previewContainer = document.getElementById("portfolioPreview");
+var mainPreviewImg = document.getElementById("portfolioPreviewImage");
+var modalText = document.getElementById("portfolioPreviewText");
 var showExtra = document.getElementById("showExtraTextButton");
 var aboutDiv = document.getElementById("about");
 var isMouseOverModal = false;
@@ -50,7 +50,7 @@ document.body.onclick = function(e) {
 	var parentNode = e.parentNode;
 
 	// If you click on div with class "item"
-    if (parentNode.className && parentNode.className.indexOf('item') != -1) {
+    if (parentNode.className && parentNode.className.indexOf('portfolio-item') != -1) {
 		togglePreview(parentNode);
     }else if (e.className && e.className == 'close') {
 		minimizePreview();
@@ -89,28 +89,24 @@ window.onscroll = function (e) {
 
 function expandPreview(element){
 	isPreviewExpanded = true;
+	console.log(element);
 
-	var item = element.className.replace("item ", "");
+	var item = element.className.replace("portfolio-item portfolio-item--", "");
 	var title = element.children[0].children[0].innerHTML;
 	var shortDesc = element.children[0].children[1].innerHTML;
 	var longDesc = element.children[0].children[3].innerHTML;
 
 	// console.log(item);
 	// console.log(title);
-	// console.log(shortDesc);
-	// console.log(longDesc);
 	previewContainer.className += " expand";
 	mainPreviewImg.style.backgroundImage = "url(img/" + item + "-large.jpg)";
-	 // center center no-repeat rgba(0,0,0,0.4)
 	// mainPreviewImg.style.backgroundSize = "contain";url("img/ashcity-large.jpg") center center / contain no-repeat rgba(0, 0, 0, 0.4)
 	var textContainer = document.getElementsByClassName("modal__text")[0];
 	textContainer.scrollTop = 0;
 	textContainer.innerHTML = longDesc;
-
 }
 
 function minimizePreview(element){
-	// console.log("minimize");
 	isPreviewExpanded = false;
 	previewContainer.className = previewContainer.className.replace(" expand", "");
 }

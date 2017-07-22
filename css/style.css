@@ -555,7 +555,8 @@ code {
   margin: 1rem 0;
 }
 
-.modal__text p, .modal__text img {
+.modal__text p,
+.modal__text img {
   margin: .7rem 0;
 }
 
@@ -713,11 +714,13 @@ h3.resume__date {
   color: #66CDAA;
 }
 
-.quick-links__container a:hover img:first-of-type, .quick-links__container a:focus img:first-of-type {
+.quick-links__container a:hover img:first-of-type,
+.quick-links__container a:focus img:first-of-type {
   opacity: 0;
 }
 
-.quick-links__container a:hover img:nth-of-type(2), .quick-links__container a:focus img:nth-of-type(2) {
+.quick-links__container a:hover img:nth-of-type(2),
+.quick-links__container a:focus img:nth-of-type(2) {
   opacity: 1;
 }
 

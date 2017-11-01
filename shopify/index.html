@@ -21,39 +21,106 @@
     ga('require', 'displayfeatures');
     ga('send', 'pageview');
   </script>
-  <script src="../js/shopfy.js"></script>
+  <script src="../js/shopify.js"></script>
 
 
   </head>
 
-  <body id="home">
+  <body id="home" onload="checkCookies()">
+    <div class="nav">
+      <a href="../#home">
+        <div class="home">
+          <img src="img/CW.png">
+          <div class="home-text">Charles Wu</div>
+        </div>
+      </a>
+      <div class="internal-links">
+        <a href="../">Home</a>
+        <a href="#resume">Resume</a>
+      </div>
+    </div>
 
   <div class="wrapper">
 
-    <div class="shopify-1 text-center" id="shopify-1">
+    <div class="shopify-1 text-center fadeIn" id="shopify-1">
       <div>Charles Wu</div>
       <div>+</div>
-      <div class="shopify-green">Shopfiy</div>
-      <div class="subtitle">Portfolio Review</div>
+      <div class="">Shopfiy</div>
+      <div class="subtitle shopify-green">Portfolio Review</div>
     </div>
 
-    <div class="shopify-2 section"  id="shopify-2">
+    <div class="shopify-2 section fadeIn"  id="shopify-2">
       <h1>Brief Summary</h1>
       <p>I'm a front-end developer &amp; UX designer.</p>
       <p>I initially pursued software and mobile development, but moved towards UX and product design because I felt solving user-facing problems was more impactful and satisfying. I utilize animation, data, and testing to </p>
     </div>
 
     <div class="shopify-3 section" id="shopify-3">
-      <h1>Work Samples</h1>
+      <h1>Previous Work</h1>
       <div class="extrude-wrapper">
+
+        <!-- <div class="shopfiy-portfolio">
+          <h2>Ash City iOS App</h2>
+          <p></p>
+          <div class="shopify-portfolio__images">
+            <div class="shopify-portfolio__image" onclick="openModal(this)"><img src="../img/ashcity-large.jpg" alt="Ashcity iOS App"></div>
+          </div>
+        </div> -->
+
+        <div class="shopfiy-portfolio">
+          <h2>Crowd Curio</h2>
+          <p></p>
+          <div class="shopify-portfolio__images">
+            <div class="shopify-portfolio__image" onclick="openModal(this)"><img src="../img/shopify/curio-1.jpg"></div>
+            <div class="shopify-portfolio__image" onclick="openModal(this)"><img src="../img/shopify/curio-2.jpg"></div>
+            <div class="shopify-portfolio__image" onclick="openModal(this)"><img src="../img/shopify/curio-3.jpg"></div>
+            <div class="shopify-portfolio__image" onclick="openModal(this)"><img src="../img/shopify/curio-4.jpg"></div>
+            <div class="shopify-portfolio__image" onclick="openModal(this)"><img src="../img/shopify/curio-5.jpg"></div>
+            <div class="shopify-portfolio__image" onclick="openModal(this)"><img src="../img/shopify/curio-6.jpg"></div>
+          </div>
+        </div>
+
+
         <div class="shopfiy-portfolio">
           <h2>DIVE Networks</h2>
           <p></p>
+          <div class="shopify-portfolio__images">
+            <div class="shopify-portfolio__image" onclick="openModal(this)"><img src="../img/shopify/dive-1.png"></div>
+            <div class="shopify-portfolio__image" onclick="openModal(this)"><img src="../img/shopify/dive-2.jpg"></div>
+            <div class="shopify-portfolio__image" onclick="openModal(this)"><img src="../img/shopify/dive-3.png"></div>
+            <div class="shopify-portfolio__image" onclick="openModal(this)"><img src="../img/shopify/dive-4.pg"></div>
+
+          </div>
         </div>
 
         <div class="shopfiy-portfolio">
           <h2>CareerJSM</h2>
           <p></p>
+          <div class="shopify-portfolio__images">
+            <div class="shopify-portfolio__image" onclick="openModal(this)"><img src="../img/shopify/cjsm-1.png"></div>
+            <div class="shopify-portfolio__image" onclick="openModal(this)"><img src="../img/shopify/cjsm-2.jpg"></div>
+            <div class="shopify-portfolio__image" onclick="openModal(this)"><img src="../img/shopify/cjsm-3.png"></div>
+            <div class="shopify-portfolio__image" onclick="openModal(this)"><img src="../img/shopify/cjsm-4.png"></div>
+            <div class="shopify-portfolio__image" onclick="openModal(this)"><img src="../img/shopify/cjsm-5.png"></div>
+            <div class="shopify-portfolio__image" onclick="openModal(this)"><img src="../img/shopify/cjsm-6.png"></div>
+            <div class="shopify-portfolio__image" onclick="openModal(this)"><img src="../img/shopify/cjsm-7.png"></div>
+          </div>
+        </div>
+
+        <div class="shopfiy-portfolio shopfiy-portfolio--small">
+          <h2>Creative Art</h2>
+          <p></p>
+          <div class="shopify-portfolio__images">
+            <div class="shopify-portfolio__image" onclick="openModal(this)"><img src="../img/shopify/creative-1.jpg"></div>
+            <div class="shopify-portfolio__image" onclick="openModal(this)"><img src="../img/shopify/creative-2.png"></div>
+
+          </div>
+        </div>
+
+        <div class="shopfiy-portfolio shopfiy-portfolio--small">
+          <h2>Unsolicited Redesigns</h2>
+          <p></p>
+          <span><a href="../docs/UberEverything.pdf">Uber Everything</a> – Extend the Uber App to deliver <em>anything</em>, <em>anywhere</em>.</span>
         </div>
       </div>
       <p></p>
@@ -75,182 +142,12 @@
       <p>I like to use Adobe CC for mockups due to its flexibility and compatibility between other apps in the suite (like Ae, Ps, Ai). I prefer to use HTML/CSS for prototypes due to its speed, accuracy, animation, and its ability to replicate real results.</p>
     </div>
 
-
-    <div class="portfolio" id="portfolio">
-      <h1>Portfolio</h1>
-      <div class="portfolio-container">
-
-        <div class="portfolio-preview" id="portfolioPreview">
-
-          <div class="modal">
-            <div class="modal-container">
-              <div class="close"><span>Close</span></div>
-              <div class="main-img" id="portfolioPreviewImage"></div>
-              <div class="modal__text-container">
-                <div class="modal__text" id="portfolioPreviewText"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="portfolio-item portfolio-item--dive">
-            <div class="content">
-              <h2>DIVE Networks</h2>
-              <p>A digital display news network</p>
-              <span class="explore">Read more</span>
-              <div class="verbose">
-                <h1>DIVE Networks</h1>
-                <p>DIVE Networks focused on outputting an internal TV stream of custom content for companies, highlighting relevant and insightful information informed by trends and social posts. As the UX Lead, I oversaw widgets design from conception to delivery, and helped develop the front-end code as well.</p>
-
-                <img src="img/dive.png" alt="DIVE Network sample images on various devices" class="no-box-shadow">
-                <span class="caption">DIVE Network sample images on various devices.</span>
-
-                <p>DIVE's product space is quite unique as it was a mainly visual and non-interactive consumable product. As a result, I had to conduct research and refer to industry standards when designing each of the <i>interfaces</i> in the video playlist. Sizing, color contrast, timing, and speed, were all taken into consideration when creating new widgets. Custom animation and layouts were also used to increase visual interest and to help users quickly differentiate between topics.</p>
-
-                <img src="img/dive-screenshot.jpg" alt="DIVE Live screenshot">
-                <span class="caption">DIVE Live Screenshot.</span>
-
-                <p>DIVE also had a sibling product called Team DIVE, which was a responsive web app that not only included the player mentioned above, but also had the added functionality of allowing users to individually select and explore data from the library of social media and brand information available to them. I designed and helped build this entire project, involving: defining the project requirements and needs analysis; designing the information architecture; creating wireframes &amp; prototypes; and building &amp; polishing the front-end app.</p>
-
-                <p>While working here, I used <b>Adobe CC, HTML/CSS, Clojure/Clojurescript,</b> and <b>Java</b>.</p>
-
-                </div>
-            </div>
-            <div class="bg-img"></div>
-          </div>
-
-          <div class="portfolio-item portfolio-item--curio">
-            <div class="content">
-              <h2>Crowd Curio</h2>
-              <p>A citizen science project to help conduct research</p>
-              <span class="explore">Read more</span>
-
-              <div class="verbose">
-                <h1>Crowd Curio</h1>
-                <p>Crowd Curio is a crowd sourced platform that allows everyday people or "citizen scientists" to contribute to scientific research. Similar to sites like <a href="https://www.galaxyzoo.org/">Galaxy Zoo,</a> it relies on users to help sort and catalog data that would be otherwise very difficult or impossible to do (at this point in time) with machines. Crowd Curio as a platform was meant for anyone and everyone to be able to share, conduct, and contribute to experiments across the world. As the designer and front-end developer, I helped design the layout and configuration of web app.</p>
-
-                <img src="img/curio-wireframes.jpg" alt="Crowd Curio wireframes">
-                <span class="caption">Crowd Curio Wireframes.</span>
-
-                <p>Crowd Curio initially had several requirements:</p
-                <ol>
-                  <li>allow for the uploading &amp; management of experiments</li>
-                  <li>create custom modules/interfaces for the different types of topics</li>
-                  <li>gamify the experiments to increase engagement</li>
-                  <li>make new experiments easily discoverable</li>
-                </ol>
-
-                <p>In order to satisfy these needs, I started off with several paper wireframes and a site map, which I then converted to an HTML prototype after design improvements.</p>
-
-                <img src="img/curio-prototype.jpg" alt="Crowd Curio prototype">
-                <span class="caption">Crowd Curio Prototypes.</span>
-
-                <p>You can view the current iteration of Crowd Curio <a href="http://www/crowdcurio.com">here</a>. For this project, I used <b>Adobe Photoshop, HTML/CSS,</b> and <b>Django.</b></p>
-
-                </div>
-            </div>
-            <div class="bg-img"></div>
-          </div>
-
-          <div class="portfolio-item portfolio-item--ashcity">
-            <div class="content">
-              <h2>iOS App - Ash City Catalog</h2>
-              <p>An app for viewing and ordering clothes</p>
-              <span class="explore">Read more</span>
-              <div class="verbose">
-                <h1>iOS App - Ash City Catalog</h1>
-                <p>Ash City (now AlphaBroder) is a clothing manufacturer and distributor in Canada and USA for large scale orders. Since fashion changes quickly, inventory styles and stock must follow, so the need for an easily accessible way to preview and order arose. I created an iOS app so that the sales team and potential customers would be able preview and order from the Ash City catalog.</p>
-                <p>The requirements for this project were straight forward: pull in the up-to-date catalog styles, and provide item details such as product description, color/sizing options, and detailed images. Existing customers also needed to be able to log in so that they could to check pricing, inventory, and order.</p>
-                <p>I started off with a clear list of project requirements to ensure that all targets were visible and achievable within our 4 month time-frame. I then created paper prototypes and wireframes, following up with an information architecture document to connect all the pieces together. Iterations and revisions were completed along the entire process to ensure that both the sales team and potential customers were able to understand and use the app. In addition, to designing and coding the app, I also created all of the image assets and the app icon.</p>
-                <p>This was a hybrid role as I was the sole <b>manager, designer, and developer</b> for this project. By the end of 4 months, I successfully completed the app and got it approved on the <a href="https://itunes.apple.com/ca/app/ash-city/id638421480">Apple App Store.</a> Within 2 years, the app reached 10k+ downloads and received 20k+ orders. For this project, I used <b>Adobe Photoshop &amp; Illustrator, </b> and <b> Objective C.</b></p>
-              </div>
-            </div>
-            <div class="bg-img"></div>
-          </div>
-
-          <div class="portfolio-item portfolio-item--focus">
-            <div class="content">
-              <h2>Android App - Focus</h2>
-              <p>A workflow helper</p>
-              <span class="explore">Read more</span>
-              <div class="verbose">
-                <h1>Android App - Focus</h1>
-                <p>Focus was a side project I worked on to help people work more efficiently. I was interested in both Android development and product design so I created a simple app with a unique interface to help split work into 30 minute segments comprised of 25 minutes of work and 5 minutes of break (<i>the Pomodoro technique</i>).</p>
-                <p>The initial iteration of Focus can be found  play store <a href="https://play.google.com/store/apps/details?id=ca.charleswu.focus">here.</a> For this project, I used <b>Adobe Photoshop &amp; Illustrator,</b> and <b>Java.</b></p>
-              </div>
-            </div>
-            <div class="bg-img"></div>
-          </div>
-
-          <div class="portfolio-item portfolio-item--yelp">
-            <div class="content">
-              <h2>Yelp Redesign</h2>
-              <p>An unsolicited Yelp Website Redesign, Fall 2014</p>
-              <span class="explore">Read more</span>
-              <div class="verbose">
-                <h1>Yelp Website Redesign</h1>
-                <p><a href="https://www.yelp.com/">Yelp</a> is a popular site for exploring and searching for new venues. I was using <a href="https://web.archive.org/web/20140819234223/http://www.yelp.com/">Yelp's website one day back in August of 2014</a> and I was frustrated with it's overwhelming functions and buttons, when all I wanted to search for was nearby restaurants. I decided to redesign the website to eliminate the clutter and give more direct and faster access to users.</p>
-                <p>As with many businesses, <a href="https://www.yelpblog.com/2011/06/yelp-and-the-1990-rule">Yelp follows the 1/9/90 rule</a> – i.e. 1% of users actively create content; 9% participate via commenting, rating, etc; 90% lurk. By extrapolating Yelp's <a href="https://web.archive.org/web/20150321182530/http://www.yelp.ca/factsheet">Dec 31, 2014 fact sheet of reviewed businesses by category,</a> we can assume over 50% of total visitors used Yelp for looking up stores, restaurants, and services (this would further change by locale, as Yelp's usage would differ based on its local presence). Focusing the majority of users is what I've kept in mind with the redesign.</p>
-
-                <img src="img/yelp-dec-2014-reviews.png" alt="Yelp's Reviewed Businesses by Category">
-                <span class="caption">Yelp's Reviewed Businesses by Category, Dec 2014.</span>
-
-                <p>For the header, the initial location is detected and set via IP address. As it is uncommon to change locations often, and has been moved to the top left rather than placed beside the search bar. The sorting categories are now more conspicuous, and the locations less so. The header has decreased in height, and the second row has been restyled to fit in with the tabs on the right side.</p>
-
-                <img src="img/yelp-header.jpg" alt="The updated header">
-                <span class="caption">The Updated Header.</span>
-
-                <p>The previous 13 search categories have been replaced with only 4 to reduce visual clutter. These tabs remain static and change the content of the entire page. The prominent tabs would change depending on additional context from the user (e.g. If he/she frequently searches for Night Life or Arts &amp; Entertainment venues, those would replace the Shopping/Services tab; or if a user is not logged in and it is night time, Night Life would replace the Shopping tab).</p>
-
-                <img src="img/yelp-color.jpg" alt="The new color scheme">
-                <span class="caption">The New Color Scheme.</span>
-
-                <p>Yelp uses a unique coloring scheme for its ratings - red is used for the best as opposed to green. While this makes sense because of Yelp’s colors, it is inconsistent because red is also used in a negative connotation, like if a business was “Currently Closed”. This updated color scheme re-establishes that green is good, while making sure to avoid the use of Yelp’s red negatively.</p>
-
-                <img src="img/yelp-main.jpg" alt="The main content">
-                <span class="caption">The Main Content.</span>
-
-                <p>With the reduction of some clutter from categories, the main body has a bit more space. I added at-a-glance information for the top results: location, price, availability, and a modal map view. This allows users to quickly compare queries without further progressing into another page. </p>
-                <p>The popular events section has been bumped to the top of the sidebar, as it is more effective when compared to the “Review of the Day” – individual reviews are much more specific, and is thus less useful to more users. New businesses are featured just after the main section, as opposed to individual reviews under “Recent Activity” for the same reason. </p>
-
-                <p>technologies</p>
-
-                <p>For this project, I used <b>Adobe Photoshop &amp; Illustrator.</b></p>
-
-                <!--<img src="img/yelp-redesign.jpg" alt="My redesign of Yelp's website">
-                <span class="caption">My Redesign of Yelp's Website.</span>-->
-
-              </div>
-            </div>
-            <div class="bg-img"></div>
-          </div>
-
-          <div class="portfolio-item portfolio-item--orientation">
-            <div class="content">
-              <h2>Waterloo Orientation Website, 2013</h2>
-              <p>A website made to welcome first year engineering students</p>
-              <span class="explore">Read more</span>
-              <div class="verbose">
-                <h2>Waterloo Orientation Website, 2013</h2>
-                <p>I was a Waterloo orientation frosh leader for 3 of the 4 years that I attended Waterloo – it was a fun and valuable event for incoming students. I wanted to welcome and help the new arrivals to Waterloo, in a similar fashion that I experienced when I was in first year. Since there are different themes each year, the welcome site changes annually. I volunteered to help out and design/develop the website for the 2013 year.</p>
-                <p>The site allowed students to check some FAQ's about the school and engineering frosh events, and what group each student was assigned to. The website is archived <a href="http://engorientation.uwaterloo.ca/2013/" target="blank">here</a>.</p>
-                <p>For this project, I used <b>Adobe Photoshop,</b> and <b>HTML/CSS.</b></p>
-              </div>
-            </div>
-            <div class="bg-img"></div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <div id="resume" class="resume-container">
+    <div id="resume" class="resume-container section">
       <div class="resume-container__title">
         <h1 class="no-margin">Resume</h1>
         <div>
-          <a href="docs/Charles-Wu-Resume.docx" target="_blank" class="resume-link btn">Download DOCX</a>
-          <a href="docs/Charles-Wu-Resume.pdf" target="_blank" class="resume-link btn">Download PDF</a>
+          <a href="../docs/Charles-Wu-Resume.docx" target="_blank" class="resume-link btn">Download DOCX</a>
+          <a href="../docs/Charles-Wu-Resume.pdf" target="_blank" class="resume-link btn">Download PDF</a>
         </div>
       </div>
 
@@ -378,42 +275,42 @@
 
     </div>
 
-    <div class="quick-links" id="quick-links">
+    <div class="quick-links section" id="quick-links">
       <h1>Quick Links</h1>
       <div class="quick-links__container">
         <a href="http://stackexchange.com/users/1308737/mrcharlie" target="_blank" class="link">
-          <img src="img/stack-exchange.svg" target="_blank" alt="Stack Exchange">
-          <img src="img/stack-exchange-hover.svg">
+          <img src="../img/stack-exchange.svg" target="_blank" alt="Stack Exchange">
+          <img src="../img/stack-exchange-hover.svg">
           <span>Stack Exchange</span>
         </a>
         <a href="https://github.com/mrchaarlie" target="_blank" class="link">
-          <img src="img/github.svg" alt="Github">
-          <img src="img/github-hover.svg">
+          <img src="../img/github.svg" alt="Github">
+          <img src="../img/github-hover.svg">
           <span>Github</span>
         </a>
         <a href="https://www.linkedin.com/in/charliedwu" target="_blank" class="link">
-          <img src="img/linkedin.svg" alt="LinkedIn">
-          <img src="img/linkedin-hover.svg">
+          <img src="../img/linkedin.svg" alt="LinkedIn">
+          <img src="../img/linkedin-hover.svg">
           <span>LinkedIn</span>
         </a>
         <a href="https://dribbble.com/MrCharlie" target="_blank" class="link">
-          <img src="img/dribbble.svg" alt="Dribbble">
-          <img src="img/dribbble-hover.svg">
+          <img src="../img/dribbble.svg" alt="Dribbble">
+          <img src="../img/dribbble-hover.svg">
           <span>Dribbble</span>
         </a>
         <a href="https://www.behance.net/mrcharlie" target="_blank" class="link">
-          <img src="img/behance.svg" alt="Behance">
-          <img src="img/behance-hover.svg">
+          <img src="../img/behance.svg" alt="Behance">
+          <img src="../img/behance-hover.svg">
           <span>Behance</span>
         </a>
         <a href="https://www.flickr.com/mr-charlie/" target="_blank" class="link">
-          <img src="img/flickr.svg" alt="Flickr">
-          <img src="img/flickr-hover.svg">
+          <img src="../img/flickr.svg" alt="Flickr">
+          <img src="../img/flickr-hover.svg">
           <span>Flickr</span>
         </a>
         <a href="https://500px.com/mstrcharlie" target="_blank" class="link">
-          <img src="img/500px.svg" alt="500px">
-          <img src="img/500px-hover.svg">
+          <img src="../img/500px.svg" alt="500px">
+          <img src="../img/500px-hover.svg">
           <span>500px</span>
         </a>
       </div>
@@ -421,7 +318,11 @@
 
   </div>
 
-  <script src="js/style.js"></script>
+  <div class="modal" id="modal" onclick="closeModal()">
+    <img src="../img/CW.svg" id="modal-image">
+  </div>
+
+  <!-- <script src="js/style.js"></script> -->
 
 </body>
 </html>

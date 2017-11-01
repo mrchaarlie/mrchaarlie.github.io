@@ -21,6 +21,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 3rem;
 }
 
 .subtitle {
@@ -54,13 +55,103 @@
 
 .shopify-2.fadeIn {
   opacity: 0;
-  animation: fadeIn 1s ease 2.75s forwards;
+  animation: fadeIn 1s ease 1.75s forwards;
 }
 
 .shopfiy-portfolio {
   min-height: 75vh;
-  box-shadow: 1px 1px .5rem rgba(0, 0, 0, 0.3);
-  border-radius: 0.25rem;
-  padding: 1rem 2rem;
-  margin: 4rem 0;
+  box-shadow: -.6rem 0 1rem -.75rem rgba(0, 0, 0, 0.3),
+              .6rem 0 1rem -.75rem rgba(0, 0, 0, 0.3),
+              0 -.6rem 1rem -.75rem rgba(0, 0, 0, 0.3),
+              0 .8rem 1rem -.75rem rgba(0, 0, 0, 0.3);
+  padding: 1rem 2rem 2rem;
+  margin: 2rem 0 4rem;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, .9);
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.shopfiy-portfolio::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 10px;
+  background: rgba(186,227,104,1);
+  background: -moz-linear-gradient(left, rgba(186,227,104,1) 0%, rgba(112,179,79,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(186,227,104,1)), color-stop(100%, rgba(112,179,79,1)));
+  background: -webkit-linear-gradient(left, rgba(186,227,104,1) 0%, rgba(112,179,79,1) 100%);
+  background: linear-gradient(to right, rgba(186,227,104,1) 0%, rgba(112,179,79,1) 100%);
+}
+
+.shopfiy-portfolio--small {
+  min-height: 0;
+}
+
+.shopify-portfolio__images {
+  display: flex;
+  flex-flow: row wrap;
+  flex: 1 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.shopify-portfolio__image {
+  flex: 1 0 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  background-color: hsla(81, 5%, 90%, 1);
+  border-radius: 5px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.shopify-portfolio__image:hover {
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+
+.shopify-portfolio__image img {
+  object-fit: contain;
+  max-height: 400px;
+  max-width: 100%;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 10, 10, 0.8);
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all .125s ease;
+}
+
+.modal.active {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.modal img {
+  width: 95%;
+  height: 95%;
+  object-fit: scale-down;
 }

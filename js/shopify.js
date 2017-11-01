@@ -1,3 +1,6 @@
+
+let isModalExpanded = false;
+
 function setCookie (cname, cvalue, exdays) {
   var d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -28,10 +31,42 @@ function checkCookies () {
   if (lastVisited != "") {
     setCookie("lastVisited", now.getTime(), 2);
     console.log("Welcome Back");
+    document.getElementById('shopify-1').classList.remove("fadeIn");
+    document.getElementById('shopify-2').classList.remove("fadeIn");
   } else {
     setCookie("lastVisited", now.getTime(), 2);
     console.log("Nice to meet you!");
-    document.getElementById('shopify-1').classList.add("fadeIn");
-    document.getElementById('shopify-2').classList.add("fadeIn");
+  }
+}
+
+
+function openModal(e) {
+  document.getElementById('modal').classList.add("active");
+  isModalExpanded = true;
+  let src = e.firstElementChild.src;
+  document.getElementById('modal-image').src = src;
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove("active");
+  isModalExpanded = false;
+}
+
+document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    var isEscape = false;
+    if ("key" in evt) {
+        isEscape = evt.key == "Escape";
+    } else {
+        isEscape = evt.keyCode == 27;
+    }
+    if (isEscape && isModalExpanded) {
+        closeModal();
+    }
+};
+
+window.onscroll = function (e) {
+  if (isModalExpanded){
+    closeModal();
   }
 }

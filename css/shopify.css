@@ -58,7 +58,7 @@
   animation: fadeIn 1s ease 1.75s forwards;
 }
 
-.shopfiy-portfolio {
+.shopify-portfolio {
   min-height: 75vh;
   box-shadow: -.6rem 0 1rem -.75rem rgba(0, 0, 0, 0.3),
               .6rem 0 1rem -.75rem rgba(0, 0, 0, 0.3),
@@ -74,7 +74,7 @@
   overflow: hidden;
 }
 
-.shopfiy-portfolio::before {
+.shopify-portfolio::before {
   position: absolute;
   top: 0;
   left: 0;
@@ -89,7 +89,7 @@
   background: linear-gradient(to right, rgba(186,227,104,1) 0%, rgba(112,179,79,1) 100%);
 }
 
-.shopfiy-portfolio--small {
+.shopify-portfolio--small {
   min-height: 0;
 }
 

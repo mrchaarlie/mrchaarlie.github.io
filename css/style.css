@@ -113,8 +113,31 @@ b {
 
 a {color: #66CDAA;}
 
-a:hover {color: #386757; transition: color .5s ease;}
+a:hover {color: #386757;}
 
+p a,
+.fancy-link {
+  text-decoration: none;
+}
+
+p a:hover,
+.fancy-link:hover {
+  color: #66CDAA;
+  background: linear-gradient(currentColor,currentColor);
+  background-size: 1px .0625em;
+  background-repeat: repeat-x;
+  background-position: 0 91%;
+  text-shadow: 0 0.03em #fff, 0 -0.03em #fff, 0.03em 0 #fff, -0.03em 0 #fff, 0.06em 0 #fff, -0.06em 0 #fff, 0.09em 0 #fff, -0.09em 0 #fff, 0.12em 0 #fff, -0.12em 0 #fff;
+}
+
+.fancy-link--grey:hover {
+ text-shadow: 0 0.03em #f5f5f5, 0 -0.03em #f5f5f5, 0.03em 0 #f5f5f5, -0.03em 0 #f5f5f5, 0.06em 0 #f5f5f5, -0.06em 0 #f5f5f5, 0.09em 0 #f5f5f5, -0.09em 0 #f5f5f5, 0.12em 0 #f5f5f5, -0.12em 0 #f5f5f5;
+}
+
+.no-decoration {
+  text-decoration: none !important;
+  color: inherit;
+}
 *:target > h1,
 *:target > h2,
 *:target > h3,

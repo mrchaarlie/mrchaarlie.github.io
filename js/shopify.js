@@ -43,7 +43,7 @@ function checkCookies () {
 function openModal(e) {
   document.getElementById('modal').classList.add("active");
   isModalExpanded = true;
-  let src = e.firstElementChild.src;
+  let src = e.children[0].src;
   document.getElementById('modal-image').src = src;
 }
 

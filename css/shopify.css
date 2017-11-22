@@ -140,6 +140,14 @@
   border-radius: 0 0 5px 5px;
 }
 
+.shopify-portfolio__caption h3 {
+  margin: 0 0 .375em;
+}
+
+.shopify-portfolio__caption > *:last-child {
+  margin-bottom: 0;
+}
+
 .modal {
   position: fixed;
   height: 100%;

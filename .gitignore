@@ -5,3 +5,4 @@ favicon.ai
 *.ai
 test.html
 *.db
+.sass-cache

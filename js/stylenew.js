@@ -1,0 +1,329 @@
+// Global Variables --------------------------------------------------
+var ticking = false;
+
+
+// Document Events --------------------------------------------------
+
+//
+
+{
+  class Entry {
+    constructor(el) {
+      this.DOM = {el: el};
+      this.DOM.image = this.DOM.el.querySelector('.content-container');
+      this.DOM.title = {word: this.DOM.el.querySelector('.section__title')};
+      if (this.DOM.title.word){
+        charming(this.DOM.title.word);
+        this.DOM.title.letters = Array.from(this.DOM.title.word.querySelectorAll('span'));
+        this.DOM.title.letters.forEach(letter => letter.dataset.initial = letter.innerHTML);
+        this.lettersTotal = this.DOM.title.letters.length;
+      }
+
+      sectionObserver.observe(this.DOM.el);
+    }
+    enter(direction = 'down') {
+      this.entertime = setTimeout(()=> {
+        this.DOM.title.word.style.opacity = 1;
+        this.DOM.title.word.classList.add("section__title--active");
+        // console.log
+
+        anime.remove(this.DOM.title.letters);
+        anime({
+          targets: this.DOM.title.letters,
+          duration: 400,
+          delay: (target,index) => index*25,
+          easing: 'easeOutSine',
+          translateY: [direction === 'down' ? '1rem' : '-1rem', '0'],
+          opacity: {
+            value: [0,1],
+            duration: 100,
+            easing: 'linear'
+          }
+        });
+
+        bodyEl.style.backgroundColor = this.DOM.el.dataset.bgcolor;
+      }, 150);
+    }
+    exit(direction = 'down') {
+      anime.remove(this.DOM.title.letters);
+      if ( this.entertime ) {
+        clearTimeout(this.entertime);
+      }
+      this.DOM.title.word.classList.remove("section__title--active");
+
+
+      anime({
+        targets: this.DOM.title.letters,
+        duration: 200,
+        delay: (target,index) => index*15,
+        easing: 'easeOutCubic',
+        translateY: ['0%',direction === 'down' ? '-1rem' : '1rem'],
+        opacity: {
+          value: [1,0],
+          duration: 150,
+          easing: 'linear'
+        },
+        complete: () => this.DOM.title.word.style.opacity = 0
+      });
+    }
+  }
+
+  let sectionObserver;
+  let current = -1;
+  let sectionEntries = [];
+  const bodyEl = document.body;
+  const sections = Array.from(document.querySelectorAll('.section'));
+
+  imagesLoaded(document.querySelectorAll('.content__img'), () => {
+    // document.body.classList.remove('loading');
+    if ('IntersectionObserver' in window) {
+      document.body.classList.add('ioapi');
+
+      sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          let exception = false;
+          if(entry.target.id == "portfolio" && entry.intersectionRatio > 0.3)
+            exception = true;
+
+          if (entry.intersectionRatio > 0.5 || exception) {
+              const newcurrent = sections.indexOf(entry.target);
+              if ( newcurrent === current ) return;
+              const direction = newcurrent > current;
+              if (current >= 0 ) {
+                  sectionEntries[current].exit(direction ? 'down' : 'up');
+              }
+              sectionEntries[newcurrent].enter(direction ? 'down' : 'up');
+              current = newcurrent;
+          }
+        });
+      }, { threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5] });
+
+      sections.forEach(section => sectionEntries.push(new Entry(section)));
+    }
+  });
+
+}
+
+
+
+
+
+window.addEventListener('scroll', function(e) {
+  // console.log(window.scrollY);
+
+  if (!ticking) {
+    window.requestAnimationFrame(function() {
+      repositionLogo();
+      repositionFace();
+      ticking = false;
+    });
+
+    ticking = true;
+  }
+});
+
+window.addEventListener('touchstart', function(e) {
+  if (!usingTouch) {
+    usingTouch = true;
+    repositionLogo();
+  }
+});
+
+window.addEventListener('resize', function(e) {
+  windowHeight = window.innerHeight;
+  windowWidth = window.innerWidth;
+  repositionLogo();
+});
+
+
+function repositionLogo () {
+  let scrollAction = "";
+  const scrollAnimStart = 50;
+  const scrollAnimEnd = windowHeight*0.5;
+
+  if (window.scrollY >= 0 && window.scrollY < scrollAnimStart) {
+    scrollAction = "big";
+
+    if (usingTouch)
+      navWrapper.style.cssText = `position: sticky`;
+
+  } else if (window.scrollY >= scrollAnimStart && window.scrollY < scrollAnimEnd) {
+      if (!usingTouch) {
+        scrollAction = "shrinking";
+      } else {
+        scrollAction = "big";
+        navWrapper.style.cssText = `position: sticky`;
+      }
+
+  } else {
+    scrollAction = -1;
+  }
+
+  switch(scrollAction) {
+    // Deprecated, because I should show stuff on initial load
+    // case "textSlide":
+    //   bigView();
+    //   const scrollLength = 200;
+    //   heading.style.cssText = `font-size: 3rem;`;
+    //   subheading.style.cssText = `font-size: 2.25rem;`;
+    //   continuousAnimation = true;
+    //   break;
+
+    case "big":
+      if (continuousAnimation != "big") {
+        bigView();
+      }
+
+      continuousAnimation = "big";
+      break;
+
+    case "shrinking":
+      if (!usingTouch)
+
+        shrinkingAnimation(scrollAnimStart, scrollAnimEnd);
+
+      continuousAnimation = "shrinking";
+      break;
+
+    default:
+      if (continuousAnimation != "default")
+        defaultView();
+        navWrapper.removeAttribute("style");
+
+      continuousAnimation = "default";
+      break;
+  }
+
+}
+
+function repositionFace () {
+  const face = document.getElementById('face');
+}
+
+function bigView () {
+  // console.log('bigView');
+  resetStyles();
+  logoContainer.classList.add('logo-container--big');
+}
+
+function shrinkingAnimation(scrollStart, scrollEnd) {
+  const scrollDiff = scrollEnd - scrollStart;
+
+  let logoMinHeight = 10;
+  let logoAddHeight = 10;
+  let headingMinHeight = 1.75;
+  let headingAddHeight = 0.75;
+  let logoMaxRadius = 0.5;
+
+  if (windowWidth >= 1400) {
+    logoAddHeight = 20;
+    headingAddHeight = 2.25;
+    logoMaxRadius = 0.75;
+  } else if (windowWidth < 1024) {
+    logoAddHeight = 5;
+    logoMaxRadius = 0.25;
+ }
+
+  const leftSpacing = ((scrollDiff - window.scrollY + scrollStart) / scrollDiff) * 5;
+  const rightPadding = ((scrollDiff - window.scrollY + scrollStart) / scrollDiff) * 1.5 + 1.5;
+  const logoBorderRadius = ((scrollDiff - window.scrollY + scrollStart) / scrollDiff) * logoMaxRadius;
+  const logoMargin = ((scrollDiff - window.scrollY + scrollStart) / scrollDiff) * 13;
+  const logoHeight = ((scrollDiff - window.scrollY + scrollStart) / scrollDiff) * logoAddHeight + logoMinHeight;
+  const nameSize = ((scrollDiff - window.scrollY + scrollStart) / scrollDiff) * headingAddHeight + headingMinHeight;
+
+  logoSpacingLeft.style.cssText = `flex: 0 0 ${leftSpacing}vw;`;
+  logoSpacingRight.style.cssText = `padding-left: ${rightPadding}vw; background: transparent`;
+  logoContainer.style.cssText = `height: ${logoHeight}vh; padding: ${logoMargin}vh 0;`;
+  logoContainer.classList.add('logo-container--big');
+  logo.style.cssText = `height: ${logoHeight}vh; border-radius: ${logoBorderRadius}rem`;
+  heading.style.cssText = `font-size: ${nameSize}rem;`;
+  subheading.style.cssText = `font-size: ${nameSize * .6667}rem;`;
+}
+
+function defaultView () {
+  // console.log('defaultView');
+  resetStyles();
+}
+
+
+function resetStyles () {
+  logoSpacingLeft.removeAttribute("style");
+  logoSpacingRight.removeAttribute("style");
+  logoContainer.removeAttribute("style");
+  logo.removeAttribute("style");
+  logoContainer.classList.remove('logo-container--big');
+  heading.removeAttribute("style");
+  subheading.removeAttribute("style");
+}
+
+// Too much lag
+function resizeTitleGroupHide(percent) {
+  const rightMargin = 0.2;
+  const maxHeight = titleGroupHide[0].getBoundingClientRect().height;
+  const wordRatio1 = 1.15;
+  const wordRatio2 = 0.435;
+
+  titleGroupHide[0].style.cssText =
+    `width: ${maxHeight * wordRatio1 * percent}px;
+     transform: scaleX(${percent});
+     margin-right: ${rightMargin * percent}em;`;
+  titleGroupHide[1].style.cssText =
+    `width: ${maxHeight * wordRatio2 * percent}px;
+     transform: scaleX(${percent});
+     margin-right: ${rightMargin * percent}em;`;
+}
+
+function typeMe() {
+  var typed = new Typed('#about-rotation', {
+    strings: [
+      'a designer',
+      'an engineer',
+      'a front-end developer',
+      'an Adobe Illustrator master',
+      'a Adobe CC user',
+      'a pusher for interactive prototypes',
+      'a CSS guru',
+      'a Figma advocate',
+      'a Waterloo alumnus',
+      'a typography aficionado',
+      'Canadian 🍁!',
+      'an aspiring world-traveler',
+      'an experimenter',
+      'a fan of minimalism',
+      'an Apple &amp; Google (&amp; Microsoft Zune) fan',
+      'a foodie',
+      'a believer of pineapple-on-pizza',
+      'a whiskey drinker',
+      'a volleyball player',
+      'a rock climber',
+      'a bike rider',
+      'a music lover',
+      'a photographer',
+      'a gamer'],
+    typeSpeed: 35,
+    startDelay: 1000,
+    backSpeed: 00,
+    backDelay: 3000,
+    fadeOut: true,
+    loop: true,
+    shuffle: true
+  });
+}
+
+let usingTouch = false;
+let continuousAnimation = "";
+const navWrapper = document.getElementById('navWrapper');
+const logoContainer = document.getElementById('logoContainer');
+const logoSpacingLeft = document.getElementById('logoSpacingLeft');
+const logoSpacingRight = document.getElementById('logoSpacingRight');
+const logo = document.getElementById('logo');
+const heading = document.getElementById('heading');
+const subheading = document.getElementById('subheading');
+
+// const titleGroupHide = document.getElementsByClassName('title-group--hide');
+
+let windowHeight = window.innerHeight;
+let windowWidth = window.innerWidth;
+
+repositionLogo();
+typeMe();

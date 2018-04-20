@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700|Playfair+Display:400,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700|Playfair+Display:700');
 
 /*********** Variables ***********/
 $ultra-violet: #6D5B97;
@@ -17,7 +17,8 @@ $text-color--light: $grey;
 
 $menu-bg: rgba(249, 247, 253, 0.95);
 $border-radius: 4px;
-
+$max-width: 900px;
+$playfair: 'Playfair Display', sans-serif;
 
 
 
@@ -66,7 +67,44 @@ $ease-out-cubic: cubic-bezier(0.22, 0.61, 0.36, 1);
   background: url(https://placem.at/things?w=500&h=800&random=3) no-repeat;
 }
 
+.no-shadow {
+  box-shadow: none!important;
+}
 
+.btn {
+  color: #fff;
+  background: $primary-color;
+  border: 1px solid $primary-color;
+  border-radius: $border-radius;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: all 0.25s ease;
+
+  &:hover,
+  &:focus {
+    background: darken($primary-color, 10%);
+    box-shadow: 0 0 3px transparentize($primary-color, 0.4);
+  }
+
+  &:active {
+    background: darken($primary-color, 20%);
+  }
+}
+
+.btn--white {
+  color: $primary-color;
+  background: #fff;
+
+  &:hover,
+  &:focus {
+    background: lighten($primary-color, 49%);
+  }
+
+  &:active {
+    background: $primary-color;
+    color: #fff;
+  }
+}
 
 
 
@@ -80,8 +118,8 @@ $ease-out-cubic: cubic-bezier(0.22, 0.61, 0.36, 1);
 html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
-  /*font-family: 'Lato', 'Helvetica Neue', 'Hevletica', 'Arial', sans-serif;*/
-  font-family: 'Helvetica Neue', 'Hevletica', 'Arial', sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', 'Hevletica', 'Arial', sans-serif;
+  /*font-family: 'Helvetica Neue', 'Hevletica', 'Arial', sans-serif;*/
   line-height: 1.4;
   color: #444;
 }
@@ -479,7 +517,7 @@ a {
 
 .intro__summary {
   display: flex;
-  max-width: 900px;
+  max-width: $max-width;
   margin: 0 auto;
   align-items: center;
 
@@ -599,9 +637,12 @@ a {
   flex-direction: column;
   justify-content: flex-end;
   border-radius: $border-radius;
+  transition: box-shadow 0.25s ease;
 
   &:hover,
   &:focus {
+    box-shadow: 2px 2px 10px $primary-color;
+
     .content__top:before {
       width: calc(100% - 4rem);
       height: 17rem;
@@ -629,7 +670,7 @@ a {
 }
 
 .pantone-card--careerjsm .pantone-overlay { filter: hue-rotate(195deg) brightness(1.5); }
-.pantone-card--crowdcurio .pantone-overlay { filter: hue-rotate(235deg) brightness(0.15); }
+.pantone-card--crowdcurio .pantone-overlay { filter: hue-rotate(265deg) brightness(0.35); }
 .pantone-card--divenetworks .pantone-overlay { filter: hue-rotate(222deg) brightness(0.6) saturate(2); }
 .pantone-card--ubernow .pantone-overlay { filter: hue-rotate(210deg) brightness(0.2); }
 
@@ -637,7 +678,6 @@ a {
   width: 100%;
   height: 100%;
   background: red;
-  /*background: #3c61a5;*/
   opacity: 0.6;
   position: absolute;
   z-index: 10;

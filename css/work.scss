@@ -1,0 +1,157 @@
+@import 'style2018.scss';
+
+div {
+  /*outline: 1px dashed #eee;*/
+}
+
+.hero-banner {
+  height: 40vh;
+  padding-top: 10vh;
+  min-height: 20rem;
+  background: $primary-color--light;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  text-align: center;
+  position: relative;
+}
+
+
+.hero-banner__image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-text {
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 3rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+  text-shadow:
+    0 0 2px rgba(0, 0, 0, 0.2),
+    0 0 16px rgba(0, 0, 0, 0.2),
+    0 0 64px rgba(0, 0, 0, 0.4),
+}
+
+.hero--title {
+  margin: 0;
+
+  @include small {
+    font-size: 15vw;
+  }
+}
+
+.hero--subtitle {
+  margin: 1rem 0 0;
+  font-size: 1.25rem;
+}
+
+
+
+
+
+$work-margin: 5rem auto;
+
+.work-container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.work-summary {
+  width: 100%;
+  margin: $work-margin;
+  display: flex;
+  justify-content: space-around;
+}
+.work-summary__item {
+  flex: 1;
+  text-align: center;
+}
+.work-summary__title {
+  color: $light-grey;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 0.25rem 0;
+  font-size: 1.375rem;
+}
+.work-summary__value {
+  font-size: 1.5rem;
+  padding: 0.25rem 0;
+}
+
+.work-image-container {
+  height: 50vh;
+  min-height: 20rem;
+  margin: $work-margin;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+
+  @include small {
+    height: 25rem;
+    min-height: 0;
+  }
+}
+.work-images {
+  height: 100%;
+  width: 100%;
+}
+.work-image {
+  height: 100%;
+  width: auto;
+  border-radius: $border-radius;
+  margin: 0 0.5rem;
+  max-width: 100%;
+  object-fit: contain;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+.work-image__caption {
+  margin: 1rem 0 0;
+  font-style: italic;
+  color: $grey;
+}
+
+.work-details {
+  margin: $work-margin;
+  max-width: 750px;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+.work-details__title {
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+.work-link {
+  margin:  $work-margin;
+  text-align: center;
+}
+.work-link__button {
+  width: 50%;
+  min-width: 15rem;
+  padding: 0.5rem 3rem;
+  font-size: 1.375rem;
+}
+
+
+
+
+.work-footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 8rem auto 4rem;
+
+  > a {
+    min-width: 5rem;
+    text-align: center;
+  }
+}

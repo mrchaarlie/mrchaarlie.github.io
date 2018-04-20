@@ -71,6 +71,10 @@ $ease-out-cubic: cubic-bezier(0.22, 0.61, 0.36, 1);
   box-shadow: none!important;
 }
 
+.is-loading {
+  opacity: 0!important;
+}
+
 .btn {
   color: #fff;
   background: $primary-color;
@@ -593,6 +597,8 @@ a {
   width: 100%;
   overflow: hidden;
   border-radius: $border-radius $border-radius 0 0;
+  opacity: 1;
+  transition: opacity 0.25s $ease-out-cubic;
 }
 
 .content__image {

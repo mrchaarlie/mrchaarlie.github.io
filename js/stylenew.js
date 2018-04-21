@@ -97,9 +97,13 @@ const subheading = document.getElementById('subheading');
 
       sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
+          console.log('sectionObserver: ' + entry.target.id + ", " + entry.intersectionRatio);
           let exception = false;
-          if(entry.target.id == "portfolio" && entry.intersectionRatio > 0.3)
+          if ( entry.target.id == "portfolio" && entry.intersectionRatio > 0.5 )
             exception = true;
+          else if (entry.target.id == "resume" && entry.intersectionRatio > 0.2 ) {
+            exception = true;
+          }
 
           if (entry.intersectionRatio > 0.5 || exception) {
               const newcurrent = sections.indexOf(entry.target);
@@ -112,7 +116,7 @@ const subheading = document.getElementById('subheading');
               current = newcurrent;
           }
         });
-      }, { threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5] });
+      }, { threshold: [0.1, 0.2, 0.3, 0.4, 0.5] });
 
       sections.forEach(section => sectionEntries.push(new Entry(section)));
     }

@@ -136,6 +136,13 @@ h1, h2, h3, h4, h5 {
   font-family: 'Playfair Display', sans-serif;
 }
 
+h2 {
+  margin: 1em 0 .5em;
+}
+
+p {
+  margin: 0.5em 0;
+}
 @media (max-width: 768px) {
   html {
     font-size: 13px;
@@ -204,9 +211,10 @@ li {
 
   @media (max-width: 1280px) {
     font-size: 6vh;
-    margin: 0.75rem 0.5rem;
-    padding: 0.25em 0.375em;
+    margin: 0.5rem;
+    padding: 0.25em 0.375em 0.375em 0.375em;
     background: rgba(255, 255, 255, 0.9);
+    border: 1px solid $primary-color--light;
     border-radius: 4px;
     transition: all 0.25s $ease-out-cubic;
   }
@@ -747,7 +755,7 @@ li {
   > li {
     display: block;
     text-align: center;
-    padding: 1.5rem 0;
+    padding: 1.5vw 0;
   }
 }
 

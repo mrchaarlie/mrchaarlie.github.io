@@ -70,8 +70,6 @@ div {
 $work-margin: 5rem auto;
 
 .work-container {
-  max-width: $max-width;
-  margin: 0 auto;
   padding: 0 1rem;
 }
 .work-summary {
@@ -79,6 +77,8 @@ $work-margin: 5rem auto;
   margin: $work-margin;
   display: flex;
   justify-content: space-around;
+  max-width: $max-width;
+  padding: 0 1rem;
 }
 .work-summary__item {
   flex: 1;
@@ -97,8 +97,6 @@ $work-margin: 5rem auto;
 }
 
 .work-image-container {
-  height: 50vh;
-  min-height: 20rem;
   margin: $work-margin;
   display: flex;
   flex-direction: column;
@@ -106,38 +104,42 @@ $work-margin: 5rem auto;
   text-align: center;
 
   @include small {
-    height: 25rem;
     min-height: 0;
   }
 }
-.work-image-container--small {
-  height: 30vh;
-  min-height: 10rem;
-
-  @include small {
-    height: 20rem;
-  }
-}
 .work-images {
-  height: 100%;
   width: 100%;
 }
+
+.work-images--small {
+  >.work-image {
+    min-height: 0;
+    height: 15rem;
+    width: auto;
+  }
+}
 .work-image {
-  height: 100%;
-  width: auto;
+  height: auto;
+  max-height: 100%;
+  width: 100%;
+  max-width: 1100px;
   border-radius: $border-radius;
-  margin: 0 0.5rem;
-  max-width: 100%;
-  object-fit: contain;
+  margin: 0.5rem;
+  object-fit: cover;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+
+  @include small {
+    min-height: 20rem;
+  }
 }
 .work-image__caption {
-  margin: 1rem 0 0;
+  margin: 0.25rem 0 0;
   font-style: italic;
   color: $grey;
 }
 
 .work-details {
+  padding: 0 1rem;
   margin: $work-margin;
   max-width: 750px;
   font-size: 1.5rem;
@@ -166,6 +168,7 @@ $work-margin: 5rem auto;
   display: flex;
   justify-content: space-between;
   margin: 8rem auto 4rem;
+  max-width: $max-width;
 
   > a {
     min-width: 5rem;

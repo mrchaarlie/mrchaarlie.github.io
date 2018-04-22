@@ -159,6 +159,20 @@ h1 {
 a {
   color: $primary-color;
   text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    color: $primary-color--light;
+  }
+
+  &:active {
+    color: $primary-color--dark;
+  }
+}
+
+li {
+  margin: 0.5em 0;
+  line-height: 1.3;
 }
 
 

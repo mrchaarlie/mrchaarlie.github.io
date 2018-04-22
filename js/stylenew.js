@@ -116,7 +116,7 @@ const subheading = document.getElementById('subheading');
               current = newcurrent;
           }
         });
-      }, { threshold: [0.1, 0.2, 0.3, 0.4, 0.5] });
+      }, { threshold: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6] });
 
       sections.forEach(section => sectionEntries.push(new Entry(section)));
     }

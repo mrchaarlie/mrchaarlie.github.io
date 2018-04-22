@@ -245,6 +245,10 @@ a {
     content: '';
     display: block;
   }
+
+  @include large {
+    grid-template-columns: 2.5fr minmax(auto, 800px) 1fr;
+  }
 }
 
 

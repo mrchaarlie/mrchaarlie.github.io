@@ -99,7 +99,7 @@ const subheading = document.getElementById('subheading');
         entries.forEach(entry => {
           console.log('sectionObserver: ' + entry.target.id + ", " + entry.intersectionRatio);
           let exception = false;
-          if ( entry.target.id == "portfolio" && entry.intersectionRatio > 0.5 )
+          if ( entry.target.id == "portfolio" && entry.intersectionRatio > 0.4 )
             exception = true;
           else if (entry.target.id == "resume" && entry.intersectionRatio > 0.2 ) {
             exception = true;

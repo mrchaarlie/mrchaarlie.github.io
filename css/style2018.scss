@@ -49,6 +49,10 @@ $ease-out-cubic: cubic-bezier(0.22, 0.61, 0.36, 1);
 
 
 /*********** Utility Classes ***********/
+.m-0 {
+  margin: 0!important;
+}
+
 .font--heavy {
   font-weight: 700;
 }
@@ -743,7 +747,10 @@ a {
     margin-bottom: .25em;
   }
 
-  h4 { font-family: 'Lato', sans-serif; }
+  h4 {
+    font-family: 'Lato', sans-serif;
+    margin: .25em 0;
+  }
 }
 .resume__name {
   font-size: 2rem;
@@ -762,7 +769,7 @@ a {
 .resume__contact {
   display: flex;
   justify-content: space-between;
-  color: $light-grey;
+  color: $grey;
   font-size: 1.125rem;
   margin: .5em 0 0;
 }

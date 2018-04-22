@@ -97,7 +97,12 @@ const subheading = document.getElementById('subheading');
 
       sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          // console.log('sectionObserver: ' + entry.target.id + ", " + entry.intersectionRatio);
+          console.log('sectionObserver: ' + entry.target.id + ", " + entry.intersectionRatio);
+
+          if (entry.target.id == "quick-links" && entry.intersectionRatio < 0.65 ) {
+            return;
+          }
+
           let exception = false;
           if ( entry.target.id == "portfolio" && entry.intersectionRatio > 0.4 )
             exception = true;
@@ -116,7 +121,7 @@ const subheading = document.getElementById('subheading');
               current = newcurrent;
           }
         });
-      }, { threshold: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6] });
+      }, { threshold: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7] });
 
       sections.forEach(section => sectionEntries.push(new Entry(section)));
     }

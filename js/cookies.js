@@ -28,11 +28,10 @@ function checkCookies () {
   if (lastVisited != "") {
     setCookie("lastVisited", now.getTime(), 2);
     console.log("Welcome Back");
-    document.getElementById('intro-animation').classList.add("intro--fast");
-    document.getElementById('intro-animation-text').classList.add("intro-text--fast");
-    document.getElementById('intro-animation-color').classList.add("intro-text-color--fast");
+    console.log("Take a look at the code, I made it myself :)");
   } else {
     setCookie("lastVisited", now.getTime(), 2);
     console.log("Nice to meet you!");
+    console.log("Take a look at the code, I made it myself :)");
   }
 }

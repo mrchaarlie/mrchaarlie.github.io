@@ -97,7 +97,7 @@ const subheading = document.getElementById('subheading');
 
       sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          console.log('sectionObserver: ' + entry.target.id + ", " + entry.intersectionRatio);
+          // console.log('sectionObserver: ' + entry.target.id + ", " + entry.intersectionRatio);
           let exception = false;
           if ( entry.target.id == "portfolio" && entry.intersectionRatio > 0.4 )
             exception = true;

@@ -427,7 +427,7 @@ li {
   }
 
   .subheading {
-    font-size: 2rem;
+    font-size: 3.2vw;
     opacity: 0;
     margin-top: -1.6rem;
     animation: slideInDown .5s $ease-out-cubic 1s forwards;
@@ -855,10 +855,9 @@ li {
 }
 
 .quick-links__container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7rem, 0.5fr));
+  grid-gap: 1rem;
 }
 
 .quick-link {
@@ -882,6 +881,7 @@ li {
 .quick-link__title {
   margin-top: 1rem;
   font-weight: 800;
+  text-align: center;
 }
 
 

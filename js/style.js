@@ -97,7 +97,7 @@ const subheading = document.getElementById('subheading');
 
       sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          console.log('sectionObserver: ' + entry.target.id + ", " + entry.intersectionRatio);
+          // console.log('sectionObserver: ' + entry.target.id + ", " + entry.intersectionRatio);
 
           if (entry.target.id == "quick-links" && entry.intersectionRatio < 0.65 ) {
             return;
@@ -297,7 +297,7 @@ const subheading = document.getElementById('subheading');
         'an aspiring world-traveler',
         'an experimenter',
         'am a fan of minimalism',
-        'am an Apple &amp; Google (&amp; Microsoft Zune) fan',
+        // 'am an Apple &amp; Google (&amp; Microsoft Zune) fan',
         'am a foodie',
         'like pineapple on pizza',
         'am a whiskey drinker',
@@ -310,10 +310,11 @@ const subheading = document.getElementById('subheading');
         'am a photographer',
         'am a gamer'],
       typeSpeed: 40,
-      startDelay: 1000,
+      startDelay: 750,
       backSpeed: 20,
-      backDelay: 2000,
+      backDelay: 1000,
       loop: true,
+      loopCount: 999,
       shuffle: true
     });
   }

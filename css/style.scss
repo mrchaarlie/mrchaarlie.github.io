@@ -37,6 +37,10 @@ $playfair: 'Playfair Display', sans-serif;
   @media (min-width: 1400px) { @content; }
 }
 
+@mixin tall () {
+  @media (min-height: 1000px) { @content; }
+}
+
 
 
 
@@ -187,11 +191,20 @@ li {
 .section {
   min-height: 95vh;
   position: relative;
+
+  @include tall {
+    min-height: 60rem;
+  }
 }
 
 .section--small {
   min-height: 60vh;
+
+  @include tall {
+    min-height: 30rem;
+  }
 }
+
 
 .section__title {
   font-size: 10vmin;
@@ -270,6 +283,11 @@ li {
 
   @include large {
     grid-template-columns: 2.5fr minmax(auto, 800px) 1fr;
+  }
+
+  @include tall {
+    margin: 5rem 0;
+    padding: 5rem 1rem;
   }
 }
 

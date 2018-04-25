@@ -297,7 +297,7 @@ const subheading = document.getElementById('subheading');
         'an aspiring world-traveler',
         'an experimenter',
         'am a fan of minimalism',
-        // 'am an Apple &amp; Google (&amp; Microsoft Zune) fan',
+        'am an Apple &amp; Google (&amp; Microsoft Zune) fan',
         'am a foodie',
         'like pineapple on pizza',
         'am a whiskey drinker',
@@ -314,8 +314,7 @@ const subheading = document.getElementById('subheading');
       backSpeed: 20,
       backDelay: 1000,
       loop: true,
-      loopCount: 999,
-      shuffle: true
+      loopCount: 'infinite',
     });
   }
 }

@@ -84,6 +84,10 @@ $ease-out-cubic: cubic-bezier(0.22, 0.61, 0.36, 1);
   opacity: 0!important;
 }
 
+.text-left {
+  text-align: left!important;
+}
+
 .btn {
   color: #fff;
   background: $primary-color;
@@ -141,7 +145,7 @@ h1, h2, h3, h4, h5 {
 }
 
 h2 {
-  margin: 1em 0 .5em;
+  margin: 1em 0 .25em;
 }
 
 p {
@@ -252,7 +256,7 @@ li {
   font-size: 1.75rem;
   text-align: center;
   color: $grey;
-  margin: 0 0 1.5em;
+  margin: 0.5em 0 1.5em;
 }
 
 .section--intro {
@@ -290,7 +294,13 @@ li {
     padding: 5rem 1rem;
   }
 }
+.section__content--process {
+  font-size: 1.25rem;
 
+  .section__subtitle {
+    margin: 0 0 0.5em;
+  }
+}
 
 
 
@@ -616,6 +626,146 @@ li {
 
 
 
+/*********** SVG Animations ***********/
+.process__section {
+  text-align: center;
+
+  p { text-align: left; }
+
+  .svg {
+    height: 12rem;
+    width: 12rem;
+    margin: 2rem auto 0;
+    cursor: pointer;
+
+    &:hover > path {
+      stroke: $primary-color--light;
+    }
+
+    &:active > path {
+      stroke-linecap: unset;
+      animation: none !important;
+    }
+  }
+}
+
+.path {
+  stroke: $primary-color;
+  stroke-miterlimit: 0;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke .5s ease;
+}
+
+.path--search {
+  stroke-dasharray: 471;
+  stroke-dashoffset: 471;
+
+  &.path-animate {
+    animation: search-animation 2s $ease-out-cubic forwards;
+  }
+}
+@keyframes search-animation {
+  to {
+    stroke-dashoffset: 471*2;
+  }
+}
+.path--define {
+  stroke-dasharray: 665;
+  stroke-dashoffset: 665;
+
+  &.path-animate {
+    animation: define-animation 2s $ease-out-cubic forwards;
+  }
+}
+@keyframes define-animation {
+  to {
+    stroke-dashoffset: 665*2;
+  }
+}
+.path--map {
+  stroke-dasharray: 0 1038;
+  stroke-dashoffset: (1038 / 2);
+  stroke-linecap: unset;
+
+  &.path-animate {
+    stroke-linecap: round;
+    animation: map-animation 2s ease-out forwards;
+  }
+}
+@keyframes map-animation {
+  to {
+    stroke-dasharray: 1038 1038;
+    stroke-dashoffset: 1038*2;
+  }
+}
+.path--rocket {
+  stroke-dasharray: 0 339;
+  stroke-dashoffset: 178;
+  stroke-linecap: unset;
+
+  &.path-animate {
+    stroke-linecap: round;
+    animation: rocket-animation 2s $ease-out-cubic forwards;
+  }
+}
+@keyframes rocket-animation {
+  to {
+    stroke-dasharray: 339;
+    stroke-dashoffset: 339*2;
+  }
+}
+.path--gem {
+  stroke-dasharray: 808;
+  stroke-dashoffset: 808;
+
+  &.path-animate {
+    animation: gem-animation 2s $ease-out-cubic forwards;
+  }
+}
+@keyframes gem-animation {
+  to {
+    stroke-dashoffset: 808*2;
+  }
+}
+.path--cycle {
+  stroke-dasharray: 780 793;
+  stroke-dashoffset: 780;
+
+  &.path-animate {
+    animation: cycle-animation 2.5s $ease-out-cubic forwards;
+  }
+}
+@keyframes cycle-animation {
+  to {
+    stroke-dashoffset: 1595;
+  }
+}
+
+.path--glasses {
+  stroke-dasharray: 0 486;
+  stroke-dashoffset: 243;
+  stroke-linecap: unset;
+
+  &.path-animate {
+    stroke-linecap: round;
+    animation: glasses-animation 1.5s $ease-out-cubic forwards;
+  }
+}
+@keyframes glasses-animation {
+  to {
+    stroke-dasharray: 486 486;
+    stroke-dashoffset: 973;
+  }
+}
+
+
+
+
+
+
+
+
 /*********** Portfolio ***********/
 .content__top {
   width: 100%;
@@ -872,13 +1022,13 @@ li {
   margin: 1em 0 0.25em;
 }
 
-.quick-links__container {
+.profiles__container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(7rem, 0.5fr));
   grid-gap: 1rem;
 }
 
-.quick-link {
+.profile {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -896,7 +1046,7 @@ li {
   }
 }
 
-.quick-link__title {
+.profile__title {
   margin-top: 1rem;
   font-weight: 800;
   text-align: center;

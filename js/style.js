@@ -32,6 +32,9 @@ const subheading = document.getElementById('subheading');
     }
     enter(direction = 'down') {
       this.entertime = setTimeout(()=> {
+        if ( this.DOM.title.word == null )
+          return;
+
         this.DOM.title.word.style.opacity = 1;
         this.DOM.title.word.classList.add("section__title--active");
         // console.log
@@ -58,8 +61,11 @@ const subheading = document.getElementById('subheading');
       if ( this.entertime ) {
         clearTimeout(this.entertime);
       }
-      this.DOM.title.word.classList.remove("section__title--active");
 
+      if ( this.DOM.title.word == null )
+        return;
+
+      this.DOM.title.word.classList.remove("section__title--active");
 
       anime({
         targets: this.DOM.title.letters,

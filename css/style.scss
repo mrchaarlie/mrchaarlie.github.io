@@ -302,6 +302,19 @@ li {
   }
 }
 
+.footer {
+  min-height: 0;
+  margin: 2em auto;
+  text-align: center;
+  color: $light-grey;
+
+  .section__content {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+
 
 
 

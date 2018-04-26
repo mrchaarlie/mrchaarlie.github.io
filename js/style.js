@@ -78,11 +78,14 @@ const subheading = document.getElementById('subheading');
   }
 
   let sectionObserver;
+  let svgObserver = [];
   let current = -1;
   let sectionEntries = [];
+  let svgEntries = [];
 
   const bodyEl = document.body;
   const sections = Array.from(document.querySelectorAll('.section'));
+  const svgs = Array.from(document.querySelectorAll('.svg'));
   const contentImages = document.querySelectorAll('.content__image');
   const container = document.getElementById('container');
   const imgLoad = imagesLoaded(container);
@@ -99,7 +102,7 @@ const subheading = document.getElementById('subheading');
         entries.forEach(entry => {
           // console.log('sectionObserver: ' + entry.target.id + ", " + entry.intersectionRatio);
 
-          if (entry.target.id == "quick-links" && entry.intersectionRatio < 0.65 ) {
+          if (entry.target.id == "profiles" && entry.intersectionRatio < 0.65 ) {
             return;
           }
 
@@ -108,17 +111,19 @@ const subheading = document.getElementById('subheading');
             exception = true;
           else if (entry.target.id == "resume" && entry.intersectionRatio > 0.2 ) {
             exception = true;
+          } else if (entry.target.id == "process" && entry.intersectionRatio > 0.1 ) {
+            exception = true;
           }
 
           if (entry.intersectionRatio > 0.5 || exception) {
-              const newcurrent = sections.indexOf(entry.target);
-              if ( newcurrent === current ) return;
-              const direction = newcurrent > current;
-              if (current >= 0 ) {
-                  sectionEntries[current].exit(direction ? 'down' : 'up');
-              }
-              sectionEntries[newcurrent].enter(direction ? 'down' : 'up');
-              current = newcurrent;
+            const newcurrent = sections.indexOf(entry.target);
+            if ( newcurrent === current ) return;
+            const direction = newcurrent > current;
+            if (current >= 0 ) {
+                sectionEntries[current].exit(direction ? 'down' : 'up');
+            }
+            sectionEntries[newcurrent].enter(direction ? 'down' : 'up');
+            current = newcurrent;
           }
         });
       }, { threshold: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7] });
@@ -126,6 +131,30 @@ const subheading = document.getElementById('subheading');
       sections.forEach(section => sectionEntries.push(new Entry(section)));
     }
   });
+
+
+  const svgOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: [0.5, 0.75, 1]
+  }
+
+  if ('IntersectionObserver' in window) {
+
+    const targets = document.querySelectorAll('.process__section');
+
+    for (let i = 0; i < targets.length; i++) {
+      svgObserver[i] = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          // console.log('svgObserver: ' + entry.target.firstElementChild.id + ", " + entry.intersectionRatio);
+          if (entry.target.querySelector(".path") && entry.intersectionRatio > 0.5) {
+            entry.target.querySelector(".path").classList.add("path-animate");
+          }
+      });
+    }, svgOptions);
+      svgObserver[i].observe(targets[i]);
+    }
+  }
 
   function onProgress( imgLoad, image ) {
     if (image.isLoaded) {

@@ -49,7 +49,7 @@
     <script src="js/cookies.js" type="text/javascript"></script>
 
     <!-- LIVE RELOAD -->
-    <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+    // <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 
     <!-- AMP -->
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
@@ -71,18 +71,13 @@
           </div>
           <div class="logo-spacing logo-spacing--right" id="logoSpacingRight">
             <div class="heading font-playfair" id="heading">
-              <!-- <div class="title-group title-group--hide">I'm</div> -->
               <div class="title-group">Charles Wu</div><div class="title-group title-group--title" id="title">, UX Designer</div>
-              <!-- <div class="title-group title-group--hide">a</div> -->
 
             </div>
             <div class="subheading" id="subheading">I <span class="typed-me" id="about-rotation"></span></div>
             <div class="navigation">
               <a href="#portfolio">Portfolio</a>
-              <!-- <a href="#process">Process</a> -->
-              <!-- <a href="#skills">Skills</a> -->
               <a href="#resume">Resume</a>
-              <!-- <a href="#links">Links</a> -->
             </div>
           </div>
           </div>
@@ -146,35 +141,136 @@
                 </div>
               </a>
 
-              <!-- <a href="work/creative" class="content content__link pantone-card">
-                <div class="content__top">
-                  <div class="pantone-overlay"></div>
-                  <div class="content__image-container"><img src="https://images.unsplash.com/photo-1490806230066-f7e6f7bf5052?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2ca889535ea01f912f94ac4ddf0034e0&auto=format&fit=crop&w=1933&q=80" class="content__image" aria-hidden="true"></div>
-                </div>
-                <div class="content__text">
-                  <div class="content__title">Creative Art</div>
-                  <div class="content__description">Illustrations</div>
-                </div>
-              </a> -->
-
             </div>
           </div>
         </div>
       </div>
 
-<!--
+
       <div class="section" id="process">
         <h1 class="section__title">Process</h1>
-        <div class="section__content">
-          <div class="section__img img-placeholder"></div>
+        <div class="section__content section__content--process">
+          <div>
+            <div class="process__section">
+              <svg version="1.1" class="svg" id="svg-search" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve">
+                <path class="path path--search" fill="transparent" stroke="#000000" stroke-width="2.5" d="M91,86l-4.7-4.9c7.7-8.8,12.2-20.5,11.5-33.3c-1.3-23.4-20-42.2-43.4-43.7C26.4,2.3,3.3,25.4,5.1,53.4
+                c1.5,23.4,20.3,42.1,43.7,43.3c12.8,0.7,24.5-3.8,33.3-11.5l5,5l-1,1c-1.2,1.2-1.2,3.1,0,4.2l10.4-10.3l28.6,28.5L114.7,124
+                c1.2,1.2,3.1,1.2,4.2,0l6.2-6.2c1.2-1.2,1.2-3.1,0-4.2L114.7,124L86.1,95.4l10.4-10.3c-1.2-1.2-3.1-1.2-4.2,0l-1.1,1.1L91,86z"/>
+              </svg>
+
+              <h2 class="section__subtitle">Conducting the Research</h2>
+              <p>Having enough context and doing the right research can make all the difference in the successful implementation of a product. For me, this usually involves looking at publications, analyzing best practices &amp; competitors, and interviewing target users. From the information I gather, I jot down my findings and start creating user persona, storyboards, and user-flows. It's also vital to consider and discuss business goals at this point, to ensure mutual understanding between all stakeholders.</p>
+              <p>Occasionally, team brainstorming sessions or even a <em>design sprint</em> may be necessary depending on the scope and scale of the project. After the data and information has all been recorded, I filter out and refine the ideas for creating a requirements document.</p>
+            </div>
+
+
+            <div class="process__section">
+              <svg version="1.1" class="svg" id="svg-define" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve">
+                <path class="path path--define" fill="transparent" stroke="#000000" stroke-width="2.5" d="M110.3,108H18.2L28,82.6l15.2,15.2l65.6-65.4c2.1-2.1,2.2-5.6,0-7.8l-7.5-7.5c-2.1-2.1-5.6-2.1-7.8,0L28,82.6
+                l15.2,15.2l-16.5,6.8l-5.1-5.1l-3.3,8.5l8.4-3.4"/>
+              </svg>
+              <h2 class="section__subtitle">Defining the Requirements</h2>
+              <p>After condensing the research down to the personas/storyboards/user-flows, I present them along with other key findings to the development team and any stakeholders. It's not always enough to be just "good", or "in accordance with best practices or industry standards", so I try to work in extra value for the user that isn't offered anywhere else; sometimes this involves taking risks, but it can also just be ensuring fast and iterative cycles that continuously adapt and improve.</p>
+
+              <p>If necessary, it's at this point that compromises need to be made between business and user needs. By having both a technical and business understanding, I can consult and resolve issues here between parties. When all is said and done, I create a requirements doc, tasks, and issues, using a project management system (be it Asana, Atlassian, GitHub, etc.), and assign them to team members appropriately.</p>
+            </div>
+
+
+            <div class="process__section">
+              <svg version="1.1" class="svg" id="svg-map" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve">
+                <path class="path path--map" fill="transparent" stroke="#000000" stroke-width="2"d="M64.7,113.3h14.7c1.1,0,2-0.9,2-2V96.6c0-1.1-0.9-2-2-2H64.3V82.2h42.4c1.1,0,2,0.9,2,2v10.4H93.5
+                c-1.1,0-2,0.9-2,2v14.7c0,1.1,0.9,2,2,2h30.3c1.1,0,2-0.9,2-2V96.6c0-1.1-0.9-2-2-2h-15.2V84.2c0-1.1-0.9-2-2-2H83.2v-12h15.2
+                c1.1,0,2-0.9,2-2V53.5c0-1.1-0.9-2-2-2H68c-1.1,0-2,0.9-2,2v14.7c0,1.1,0.9,2,2,2h30.3c1.1,0,2-0.9,2-2V53.5c0-1.1-0.9-2-2-2H83.2
+                v-10c0-1.1-0.9-2-2-2H64V27.1h15.2c1.1,0,2-0.9,2-2V10.4c0-1.1-0.9-2-2-2H64.4h-0.8H48.9c-1.1,0-2,0.9-2,2v14.7c0,1.1,0.9,2,2,2H64
+                v12.4H44.8c-1.1,0-2,0.9-2,2v10H27.6c-1.1,0-2,0.9-2,2v14.7c0,1.1,0.9,2,2,2h30.3c1.1,0,2-0.9,2-2V53.5c0-1.1-0.9-2-2-2H27.6
+                c-1.1,0-2,0.9-2,2v14.7c0,1.1,0.9,2,2,2h15.2v12H21.9c-1.1,0-2,0.9-2,2v10.4H4.7c-1.1,0-2,0.9-2,2v14.7c0,1.1,0.9,2,2,2h30.4
+                c1.1,0,2-0.9,2-2V96.6c0-1.1-0.9-2-2-2H19.9V84.2c0-1.1,0.9-2,2-2h20.9h21.5v12.4H49.1c-1.1,0-2,0.9-2,2v14.7c0,1.1,0.9,2,2,2h15.3
+                H64.7z"/>
+              </svg>
+              <h2 class="section__subtitle">Creating the Plan</h2>
+              <p>I usually start off with a site map or information architecture flow to help organize the requirements visually. Creating something fast and sharing with peers is a great way of fine-tuning the details. I also test experimental hypotheses (How-Might-We's, stretch goals) at this point too, and user-test certain user interactions and flows.</p>
+            </div>
+
+
+            <div class="process__section">
+              <svg version="1.1" class="svg" id="svg-rocket" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve">
+                <path class="path path--rocket" fill="transparent" stroke="#000000" stroke-width="2.5"  d="M67.7,120.6c0.4,0,0.7-0.1,0.9-0.3c0.6-0.5-1-4.6,1.6-10.6c2.3-5.3,8.7-8.6,9.1-12.7c0.6-7-5.1-12.2-12.6-12.2
+  H64v-1.6h2l2.5-3.2h4.6c0.4,0,0.7-0.2,0.8-0.6l3.6-8.5c0.2-0.4,0.7-0.7,1.1-0.5L90.3,74c0.6,0.2,1.2-0.3,1.2-0.9v-7.9
+  c0-5.4-3-10.1-7.5-12.6l-0.1-1.4c-0.4-7.1-2.1-14.1-4.8-20.7C76.8,25,73.7,19.7,70,15l-6-7.6L58,15c-3.8,4.8-6.8,10-9.2,15.7
+  c-2.7,6.6-4.3,13.6-4.8,20.7v1.4c-4.4,2.4-7.5,7.1-7.5,12.6v7.9c0,0.6,0.6,1,1.2,0.9l11.6-3.7c0.4-0.1,0.9,0.1,1.1,0.5l3.6,8.5
+  c0.1,0.3,0.5,0.6,0.8,0.6h4.6l2.5,3.2H64v-0.1v1.5h-2.6c-4.4,0-8.6,1.3-11.2,5.1c-1.9,2.7-2.4,5.2-2,9.3c0.4,3.4,2.3,5.9,3,5.9
+  s3.6-4.7,5.2-4.7c1.6,0,0.7,2.5,1.1,6.6c0.2,2.9,1,6.5,3.2,9.3c2.1,2.8,5.1,4.4,6.8,4.4L67.7,120.6z"/>
+              </svg>
+
+              <h2 class="section__subtitle">Designing the Interface</h2>
+              <p>Wireframes, mockups, prototypes. All with rapid review and iteration cycles in between. I make and share designs as quickly as possible to garner feedback and perspectives. For certain interactions or interfaces, I code the prototypes myself for interactive prototypes for "pixel perfect" design, animation, and timing.</p>
+              <p>They say a picture is worth a thousand words. Well an interactive prototype is worth 100 hours of meetings and deliberation. Why show, when you can experience?</p>
+            </div>
+
+
+            <div class="process__section">
+              <svg version="1.1" class="svg" id="svg-gem" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve">
+                <path class="path path--gem" fill="transparent" stroke="#000000" stroke-width="2"  d="M96.3,37.1l-0.2-0.2c1.1-6.7,6.9-11.7,13.8-11.7c-7.8,0-14-6.3-14-14c0,7.8-6.3,14-14,14
+                c6.7,0,12.3,4.7,13.7,11l-3.4-4.9l-28.2-2.8L34.2,57H16.4h77.4h17.8H93.8L63.9,28.4l-28,2.8c0,0-1.6,25.2-1.7,25.7
+                c0,0.5,29.7,57.9,29.7,57.9L93.8,57l-1.7-25.7l-28.2-2.8l-28,2.8L16.4,57l47.5,57.9L111.6,57L97,38.1L96.3,37.1z"/>
+              </svg>
+
+              <h2 class="section__subtitle">Polishing the Experience</h2>
+              <p>Small issues can pile up. Some issues are so small, they can get ignored entirely. While there are definite benefits to having faster development cycles, it's good to stop every once in a while to take care of all the little things that can turn into huge problems later on (e.g. responsiveness, localization [i18n], accessibility [WCAG 2.0], design inconsistencies, etc.). During this time, I provide mentorship to the developers/designers to train everyone to be more attentive and to follow design/development guidelines.</p>
+            </div>
+
+
+            <div class="process__section">
+              <svg version="1.1" class="svg" id="svg-cycle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve">
+                <path class="path path--cycle" fill="transparent" stroke="#000000" stroke-width="2" d="M39.7,77.3l-10.4-3.5l-2.6,10.5l2.6-10.4l0.1,0l18.5,32l0.9,1.4c0.1,0.2,0.3,0.4,0.4,0.5
+                c4.5,6.2,11.8,10.3,20,10.3c9.1,0,17.1-4.9,21.3-12.3l0.3-0.5c2-3.5,3.1-7.6,3.1-11.9c0-13.6-11.1-24.7-24.7-24.7
+                S44.3,79.8,44.3,93.4s11.1,24.7,24.7,24.7c9.1,0,17.1-4.9,21.3-12.3l28.5-49.2l2.2-3.7c1.8-3.4,2.7-7.2,2.7-11.3
+                c0-13.6-11.1-24.7-24.7-24.7l-0.2,0C85.3,16.9,74.4,28,74.4,41.5c0,13.6,11.1,24.7,24.7,24.7s24.7-11.1,24.7-24.7
+                s-11.1-24.7-24.7-24.7l-17.5,0h-43C25.2,17,14.3,28,14.3,41.5c0,13.6,11.1,24.7,24.7,24.7s24.7-11.1,24.7-24.7
+                C63.7,28,52.8,17,39.4,16.8l-35.8,0"/>
+              </svg>
+              <h2 class="section__subtitle">Validating and Improving</h2>
+              <p>Conducting stability/stress tests, and re-evaluating the UX on a production server is crucial, as new problems can be uncovered that didn't exist before. I also conduct regular user testing and data collection to monitor the health of new and existing features. It's a good opportunity to learn about the ever-changing needs of users, while identifying pain points.</p>
+              <p>Metrics are an easy way of revealing trends and issues, but the hard part is recording and looking at the right data. I can filter out the noise to reveal what the biggest issues are, and prioritize them using a value vs difficulty decision matrix.</p>
+              <p>It goes without saying that design is iterative; no solution is ever perfect. After testing and issue documentation, I start all over again — unless there's new problems to tackle!</p>
+            </div>
+            <br>
+
+            <hr>
+
+            <div class="process__section">
+              <svg version="1.1" class="svg" id="svg-glasses" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve">
+                <path class="path path--glasses" fill="transparent" stroke="#000000" stroke-width="2.5" d="M126,64h-6.4c0,13.1-10.6,23.7-23.7,23.7S72.1,77.1,72.1,64l0-0.2c0.1-13,10.7-23.5,23.7-23.5
+  c13.1,0,23.7,10.6,23.7,23.7s-10.6,23.7-23.7,23.7S72.1,77.1,72.1,64l0,0c0-4.5-3.6-8.1-8.1-8.1s-8.1,3.6-8.1,8.1l0,0
+  c0,13.1-10.6,23.7-23.7,23.7S8.4,77.1,8.4,64s10.6-23.7,23.7-23.7c13,0,23.5,10.4,23.7,23.4l0,0.3c0,13.1-10.6,23.7-23.7,23.7
+  S8.4,77.1,8.4,64H2"/>
+              </svg>
+
+              <h2 class="section__subtitle">My Core References</h2>
+              <p>I owe a lot of what I know online publications and literature. Here are some of my favourite and most useful:</p>
+              <ul class="text-left">
+                <li><a href="https://www.amazon.ca/UX-Strategy-Innovative-Digital-Products/dp/1449372864" target="_blank"><em>UX Strategy</em></a> by Jaime Levy</li>
+                <li><a href="https://www.amazon.ca/Elements-User-Experience-User-Centered-Design/dp/0321683684" target="_blank"><em>The Elements of User Experience</em></a> by Jesse James Garrett</li>
+                <li><a href="https://www.amazon.ca/Hacking-Growth-Fastest-Growing-Companies-Breakout/dp/045149721X" target="_blank"><em>Hacking Growth</em></a> by Sean Ellis and Morgan Brown</li>
+                <li>
+                  <a href="https://www.amazon.ca/Visual-Display-Quantitative-Information-2nd/dp/0961392142" target="_blank"><em>The Visual Display of Quantitative Information</em></a>,
+                  <a href="https://www.amazon.ca/Envisioning-Information-R-Tufte/dp/0961392118" target="_blank"><em>Envisioning Information</em></a>, and
+                  <a href="https://www.amazon.ca/Beautiful-Evidence-Edward-R-Tufte/dp/0961392177" target="_blank"><em>Beautiful Evidence</em></a> by Edward Tufte</li>
+                <li><a href="https://www.amazon.ca/Hooked-How-Build-Habit-Forming-Products-ebook/dp/B00P8B75Z4" target="_blank"><em>Hooked</em></a> by Nir Eyal</li>
+              </ul>
+              <p>Honourable mention goes to <a href="https://www.amazon.ca/Design-Everyday-Things-Revised-Expanded/dp/0465050654" target="_blank"><em>Design of Everyday Things</em></a> by Don Norman and <a href="https://www.amazon.ca/Dont-Make-Think-Revisited-Usability/dp/0321965515" target="_blank"><em>Don't Make Me Think</em></a> by Don Norman, which were the books that got me interested in UX.</p>
+            </div>
+
+          </div>
         </div>
       </div>
- -->
+
+
       <div class="section section--small" id="skills">
         <h1 class="section__title">Skills</h1>
         <div class="section__content">
           <div>
-            <h2 class="section__subtitle">What I'm good at</h2>
+            <h2 class="section__subtitle">Areas of Expertise</h2>
             <ul class="skills-list">
               <li>Project Planning</li>
               <li>HTML/CSS/JS</li>
@@ -186,7 +282,6 @@
           </div>
 
         </div>
-        <!-- <p>Design Sprint, user testing, data analytics </p> -->
 
       </div>
 
@@ -288,26 +383,6 @@
                 <li>Organized and led user testing sessions</li>
               </ul>
 
-              <!-- <div class="resume__subheader">
-                <h4 class="resume__position-title"><b>UX Developer,</b> Raymond James Ltd.</h4>
-                <h4 class="resume__position-date">Apr 2012 – Aug 2012</h4>
-              </div>
-              <ul>
-                <li>Redesigned and developed the Canadian intranet site, improving on design clarity and news accessibility</li>
-                <li>Created and managed content for the Raymond James website, impacting hundreds of daily users</li>
-                <li>Worked with several senior level advisors to design and develop custom websites</li>
-              </ul> -->
-
-              <!-- <div class="resume__subheader">
-                <h4 class="resume__position-title"><b>UX Developer,</b> Regional Municipality of York</h4>
-                <h4 class="resume__position-date">Sep 2011 – Dec 2011</h4>
-              </div>
-              <ul>
-                <li>Developed a new user feedback system that was then implemented in senior assistance centres</li>
-                <li>Simplified and converted complex workflows from a paper to a digital medium</li>
-                <li>Improved user experience through simplification and the reduction of required clicks per action</li>
-              </ul> -->
-
               <div class="resume__header">
                 <h3 class="resume__title">Education</h3>
               </div>
@@ -333,15 +408,6 @@
                 <li>InFit: Developed a fitness tracking app to process biometric data</li>
               </ul>
 
-<!--
-              <div class="resume__subheader">
-                <h4 class="resume__position-title"><b>Volunteer</b></h4>
-              </div>
-              <ul>
-                <li>Engineering Society Class Rep for Systems Design 2015</li>
-                <li>Waterloo Orientation Week Director in 2013 &amp; 2014</li>
-              </ul>
- -->
               <div class="resume__subheader">
                 <h4 class="resume__position-title"><b>Recreation</b></h4>
               </div>
@@ -353,49 +419,42 @@
       </div>
 
 
-      <div class="section section--small" id="quick-links">
+      <div class="section section--small" id="profiles">
         <div class="section__content">
-          <!-- <div class="section__img img-placeholder"></div> -->
-          <h1 class="section__title">Quick Links</h1>
+          <h1 class="section__title">Profiles</h1>
 
           <div>
             <h2 class="section__subtitle">Profiles I have on other platforms</h2>
 
-            <div class="quick-links__container">
+            <div class="profiles__container">
 
-              <a href="https://www.linkedin.com/in/charliedwu" target="_blank" class="quick-link">
+              <a href="https://www.linkedin.com/in/charliedwu" target="_blank" class="profile">
                 <img src="img/linkedin.svg" alt="LinkedIn">
-                <span class="quick-link__title">LinkedIn</span>
+                <span class="profile__title">LinkedIn</span>
               </a>
-              <a href="https://github.com/mrchaarlie" target="_blank" class="quick-link">
+              <a href="https://github.com/mrchaarlie" target="_blank" class="profile">
                 <img src="img/github.svg" alt="Github">
-                <span class="quick-link__title">Github</span>
+                <span class="profile__title">Github</span>
               </a>
-              <a href="http://stackexchange.com/users/1308737/mrcharlie" target="_blank" class="quick-link">
+              <a href="http://stackexchange.com/users/1308737/mrcharlie" target="_blank" class="profile">
                 <img src="img/stack-exchange.svg" alt="Stack Exchange">
-                <span class="quick-link__title">Stack Exchange</span>
+                <span class="profile__title">Stack Exchange</span>
               </a>
-              <a href="https://dribbble.com/MrCharlie" target="_blank" class="quick-link">
+              <a href="https://dribbble.com/MrCharlie" target="_blank" class="profile">
                 <img src="img/dribbble.svg" alt="Dribbble">
-                <span class="quick-link__title">Dribbble</span>
+                <span class="profile__title">Dribbble</span>
               </a>
-              <a href="https://www.behance.net/mrcharlie" target="_blank" class="quick-link">
+              <a href="https://www.behance.net/mrcharlie" target="_blank" class="profile">
                 <img src="img/behance.svg" alt="Behance">
-                <span class="quick-link__title">Behance</span>
+                <span class="profile__title">Behance</span>
               </a>
-              <a href="https://www.flickr.com/mr-charlie/" target="_blank" class="quick-link">
+              <a href="https://www.flickr.com/mr-charlie/" target="_blank" class="profile">
                 <img src="img/flickr.svg" alt="Flickr">
-                <span class="quick-link__title">Flickr</span>
+                <span class="profile__title">Flickr</span>
               </a>
-              <!-- <a href="https://500px.com/mstrcharlie" target="_blank" class="quick-link">
-                <img src="img/500px.svg" alt="500px">
-                <img src="img/500px-hover.svg">
-                <span class="quick-link__title">500px</span>
-              </a> -->
             </div>
           </div>
         </div>
-
       </div>
 
       <div class="section" id="FAQ">

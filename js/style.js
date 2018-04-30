@@ -314,6 +314,20 @@ const subheading = document.getElementById('subheading');
   }
 }
 
+
+
+
+
+{
+  function toggleAESTHETIC() {
+    document.querySelector('body').classList.toggle('vaporwave')
+  }
+}
+
+
+
+
+
 {
   function typeMe() {
     var typed = new Typed('#about-rotation', {

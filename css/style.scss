@@ -14,8 +14,7 @@ $primary-color--dark: #2C215D;
 $secondary-color: $teal;
 $text-color: $dark-grey;
 $text-color--light: $grey;
-
-$menu-bg: rgba(249, 247, 253, 0.95);
+$menu-bg: linear-gradient(to top, rgba(249, 247, 253, 0.95), rgba(249, 247, 253, 0.95));
 $border-radius: 4px;
 $max-width: 900px;
 $lato: 'Lato', sans-serif;
@@ -123,6 +122,11 @@ $ease-out-cubic: cubic-bezier(0.22, 0.61, 0.36, 1);
   }
 }
 
+.hidden-link {
+  color: inherit;
+  text-decoration: none;
+
+}
 
 
 /*********** Styles ***********/
@@ -968,12 +972,11 @@ li {
 
   li {
     line-height: 1.4;
-    margin-bottom: .25em;
+    margin: .25em 0;
   }
 
   h4 {
     font-family: 'Lato', sans-serif;
-    margin: .25em 0;
   }
 }
 .resume__name {
@@ -1134,3 +1137,6 @@ li {
     opacity: 1;
   }
 }
+
+
+@import 'vaporwave.scss';

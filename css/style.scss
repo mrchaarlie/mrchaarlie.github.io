@@ -340,6 +340,7 @@ li {
   justify-content: center;
   align-items: flex-start;
   transition: background 0.25s $ease-out-cubic;
+  will-change: padding;
 }
 
 .logo-animation {
@@ -393,6 +394,7 @@ li {
   color: $primary-color;
   display: flex;
   transition: font-size 0.25s $ease-out-cubic;
+  will-change: font-size;
 
   /*background: -webkit-linear-gradient(45deg, #2C215D, #6D5B97);
   background: linear-gradient(45deg, #2C215D, #6D5B97);
@@ -1137,6 +1139,3 @@ li {
     opacity: 1;
   }
 }
-
-
-@import 'vaporwave.scss';

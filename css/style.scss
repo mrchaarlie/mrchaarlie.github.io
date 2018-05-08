@@ -888,11 +888,12 @@ li {
   /*&:nth-of-type(2) .pantone-overlay { filter: hue-rotate(135deg); }*/
   /*&:nth-of-type(3) .pantone-overlay { filter: hue-rotate(225deg); }*/
   /*&:nth-of-type(4) .pantone-overlay { filter: hue-rotate(315deg); }*/
-  &:nth-of-type(5) .pantone-overlay { filter: hue-rotate(90deg); }
+  /*&:nth-of-type(5) .pantone-overlay { filter: hue-rotate(90deg); }*/
   &:nth-of-type(6) .pantone-overlay { filter: hue-rotate(180deg); }
   &:nth-of-type(7) .pantone-overlay { filter: hue-rotate(270deg); }
 }
 
+.pantone-card--netflix .pantone-overlay { filter: brightness(0.9); }
 .pantone-card--careerjsm .pantone-overlay { filter: hue-rotate(195deg) brightness(1.5); }
 .pantone-card--crowdcurio .pantone-overlay { filter: hue-rotate(265deg) brightness(0.35); }
 .pantone-card--divenetworks .pantone-overlay { filter: hue-rotate(227deg) brightness(0.7) saturate(2); }

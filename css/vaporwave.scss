@@ -1,9 +1,9 @@
 @import 'style.scss';
 
-$azure: #60CBB7;
-$aqua: #00FFFF;
-$pink: #FFCEF5;
-$purple: #C15EE4;
+$azure: #60cbb7;
+$aqua: #00ffff;
+$pink: #ffcef5;
+$purple: #c15ee4;
 
 .vaporwave {
   color: #fff;
@@ -25,7 +25,8 @@ $purple: #C15EE4;
   .section__subtitle,
   .section__title {
     color: #fff;
-    text-shadow: -0.05em 1px 0 rgba(197, 72, 212, 0.4), 0.05em -1px 0 rgba(0, 200, 200, 0.4);
+    text-shadow: -0.05em 1px 0 rgba(197, 72, 212, 0.4),
+      0.05em -1px 0 rgba(0, 200, 200, 0.4);
   }
 
   a {
@@ -59,15 +60,15 @@ $purple: #C15EE4;
     top: -10vh;
     left: 0;
     z-index: -1;
-    background:
-      repeating-linear-gradient(
-        to bottom,
-        transparent 0px,
-        transparent 3px,
-        rgba(0, 0, 0, 0.1) 8px,
-        rgba(0, 0, 0, 0.1) 13px,
-        transparent 16px,
-        transparent 21px);
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 3px,
+      rgba(0, 0, 0, 0.1) 8px,
+      rgba(0, 0, 0, 0.1) 13px,
+      transparent 16px,
+      transparent 21px
+    );
     animation: bar-scroll 5s linear infinite;
   }
 
@@ -77,8 +78,9 @@ $purple: #C15EE4;
     .heading {
       color: #fff;
       text-transform: uppercase;
-      text-shadow: -4px 1px 0 rgba(200, 0, 0, 0.4), 4px -1px 0 rgba(0, 200, 200, 0.4);
-      letter-spacing: 0.5px
+      text-shadow: -4px 1px 0 rgba(200, 0, 0, 0.4),
+        4px -1px 0 rgba(0, 200, 200, 0.4);
+      letter-spacing: 0.5px;
     }
 
     .subheading {
@@ -110,17 +112,39 @@ $purple: #C15EE4;
 }
 
 @keyframes vapor-glitch-animation {
-  0% { text-shadow: -2px 2px 0 $azure; }
-  10% { text-shadow: 1px -2px 0 $pink; }
-  20% { text-shadow: -2px -2px 0 $aqua; }
-  30% { text-shadow: -2px 2px 0 $pink; }
-  40% { text-shadow: 2px 2px 0 $azure; }
-  50% { text-shadow: 2px -2px 0 $pink; }
-  60% { text-shadow: -2px 2px 0 $aqua; }
-  70% { text-shadow: 1px -2px 0 $purple; }
-  80% { text-shadow: 2px 2px 0 $azure; }
-  90% { text-shadow: -2px 2px 0 $pink; }
-  100% { text-shadow: 2px -2px 0 $aqua; }
+  0% {
+    text-shadow: -2px 2px 0 $azure;
+  }
+  10% {
+    text-shadow: 1px -2px 0 $pink;
+  }
+  20% {
+    text-shadow: -2px -2px 0 $aqua;
+  }
+  30% {
+    text-shadow: -2px 2px 0 $pink;
+  }
+  40% {
+    text-shadow: 2px 2px 0 $azure;
+  }
+  50% {
+    text-shadow: 2px -2px 0 $pink;
+  }
+  60% {
+    text-shadow: -2px 2px 0 $aqua;
+  }
+  70% {
+    text-shadow: 1px -2px 0 $purple;
+  }
+  80% {
+    text-shadow: 2px 2px 0 $azure;
+  }
+  90% {
+    text-shadow: -2px 2px 0 $pink;
+  }
+  100% {
+    text-shadow: 2px -2px 0 $aqua;
+  }
 }
 
 @keyframes bar-scroll {

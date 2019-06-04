@@ -137,7 +137,7 @@ $ease-out-cubic: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 html {
-  font-size: 16px;
+  font-size: 18px;
   -webkit-font-smoothing: antialiased;
   font-family: 'Lato', 'Helvetica Neue', 'Hevletica', 'Arial', sans-serif;
   line-height: 1.5;
@@ -257,7 +257,7 @@ li {
 }
 
 .section__subtitle {
-  font-size: 1.75rem;
+  font-size: 1.875rem;
   text-align: center;
   color: $grey;
   margin: 0.5em 0 1.5em;

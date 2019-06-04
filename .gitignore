@@ -1,11 +1,12 @@
 .DS_Store
 *.DS_Store
-favicon.ai
 *.psd
 *.ai
-test.html
 *.db
-.sass-cache
 *.css.map
 *!working/
+.vscode
 2018/
+.sass-cache
+test.html
+favicon.ai

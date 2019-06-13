@@ -6,6 +6,7 @@
 *.css.map
 *!working/
 .vscode
+/node_modules
 2018/
 .sass-cache
 test.html

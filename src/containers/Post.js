@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { useRouteData } from 'react-static'
 //
 import { Link } from 'components/Router'

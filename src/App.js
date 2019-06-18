@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Root, Routes, addPrefetchExcludes } from 'react-static'
 import { Link, Router } from 'components/Router'
 
@@ -8,21 +8,18 @@ import GlobalStyle, { theme } from './GlobalStyle'
 import Loading from 'components/Loading'
 import Layout from 'Layout'
 
+const App = () => (
+  <ThemeProvider theme={theme}>
+    <Root>
+      <Layout>
+        <GlobalStyle />
 
-function App() {
-  return (
-    <ThemeProvider theme={theme}>
-      <Root>
-        <Layout>
-          <GlobalStyle />
-
-          <React.Suspense fallback={<Loading />}>
-            <Routes path="*" />
-          </React.Suspense>
-        </Layout>
-      </Root>
-    </ThemeProvider>
-  )
-}
+        <React.Suspense fallback={<Loading />}>
+          <Routes path="*" />
+        </React.Suspense>
+      </Layout>
+    </Root>
+  </ThemeProvider>
+)
 
 export default App

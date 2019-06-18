@@ -25,6 +25,11 @@ export const theme = {
     heading: 'Playfair Display',
     body: 'Lora',
   },
+  screens: {
+    small: '600px',
+    medium: '900px',
+    large: '1200px',
+  },
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -34,9 +39,15 @@ const GlobalStyle = createGlobalStyle`
     overflow-y: scroll;
     overflow-x: hidden;
     line-height: 1.6;
+    color: ${theme.colors.black};
     font-weight: 400;
     font-family: ${theme.fonts.body}, 'Helvetica Neue', Arial, sans-serif;
-    color: ${theme.colors.black};
+    font-variant-numeric: lining-nums;
+    font-size: 16px;
+
+    @media screen and (min-width: ${theme.screens.large}) {
+      font-size: 20px;
+    }
   }
 
   html,
@@ -59,6 +70,7 @@ const GlobalStyle = createGlobalStyle`
   h6 {
     font-family: ${theme.fonts.heading}, 'Times New Roman', serif;
     line-height: 1.333;
+    margin: 0 0 0.4em;
   }
  
   h1 {

@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import styled from 'styled-components'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
@@ -11,6 +11,7 @@ const Wrapper = styled.div`
 `
 const Main = styled.div`
   flex-grow: 1;
+  min-height: 400px;
 `
 
 const Layout = ({ children }) => (

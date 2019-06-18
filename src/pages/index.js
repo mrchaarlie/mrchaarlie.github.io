@@ -1,7 +1,10 @@
-import React from 'react'
+import * as React from 'react'
+import styled from 'styled-components'
+
+import Hero from 'components/Hero'
 
 export default () => (
-  <div style={{ textAlign: 'center' }}>
-    <h1>Welcome to React-Static</h1>
+  <div>
+    <Hero />
   </div>
 )

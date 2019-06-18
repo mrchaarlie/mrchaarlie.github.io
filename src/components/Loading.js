@@ -1,5 +1,4 @@
-import React from 'react'
-import { Link } from 'components/Router'
+import * as React from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`

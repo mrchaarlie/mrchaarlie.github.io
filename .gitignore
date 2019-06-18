@@ -1,13 +1,6 @@
 .DS_Store
 *.DS_Store
-*.psd
-*.ai
 *.db
-*.css.map
-*!working/
 .vscode
 /node_modules
-2018/
-.sass-cache
-test.html
-favicon.ai
+/tmp

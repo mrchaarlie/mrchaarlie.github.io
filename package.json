@@ -1,22 +1,26 @@
 {
-  "name": "react-static-example-basic",
+  "name": "charles-wu-website",
   "private": true,
   "scripts": {
     "start": "react-static start",
     "stage": "react-static build --staging",
     "build": "react-static build",
     "analyze": "react-static build --analyze",
-    "serve": "serve dist -p 3000"
+    "serve": "serve dist -p 3000",
+    "format": "prettier --write src/**/*.js"
   },
   "dependencies": {
     "@reach/router": "^1.2.1",
     "axios": "^0.18.0",
+    "prettier": "^1.18.2",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-static": "^7.0.0",
     "react-static-plugin-reach-router": "^7.0.0",
     "react-static-plugin-sitemap": "^7.0.0",
-    "react-static-plugin-source-filesystem": "^7.0.0"
+    "react-static-plugin-source-filesystem": "^7.0.0",
+    "ress": "^1.2.2",
+    "styled-components": "^4.3.1"
   },
   "devDependencies": {
     "babel-eslint": "9.x",

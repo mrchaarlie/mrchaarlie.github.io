@@ -2,20 +2,24 @@ import { createGlobalStyle } from 'styled-components'
 
 export const theme = {
   colors: {
-    brand: '#FF3449',
-    primaryBlue: '#357FFA',
-    secondaryBlue: '#F4FEFF',
-    primaryYellow: '#F3D33F',
-    secondaryPink: '#FADEF5',
-    secondaryGreen: '#50BFA8',
     black: '#222',
     darkerGrey: '#4F4F4F',
     darkGrey: '#828282',
     grey: '#BDBDBD',
     lightGrey: '#E0E0E0',
     lighterGrey: '#F2F2F2',
-    offWhite: '#F9F7F6',
     white: '#FFF',
+    offWhite: '#F9F7F6',
+
+    primary: '#3396AE',
+    primaryLight: '#48D6FA',
+    primaryDark: '#205E6E',
+    secondary: '#4F408C',
+    secondaryLight: '#826AE6',
+    secondaryDark: '#292147',
+    accent: '#FF6F61',
+    accentDark: '#803730',
+    success: '#219653',
   },
   fonts: {
     heading: 'Playfair Display',

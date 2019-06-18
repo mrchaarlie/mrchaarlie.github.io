@@ -1,33 +1,25 @@
 import React from 'react'
 import { Root, Routes, addPrefetchExcludes } from 'react-static'
 import { Link, Router } from 'components/Router'
-import Dynamic from 'containers/Dynamic'
 
 import { ThemeProvider } from 'styled-components'
 import GlobalStyle, { theme } from './GlobalStyle'
 
-// Any routes that start with 'dynamic' will be treated as non-static routes
-addPrefetchExcludes(['dynamic'])
+import Loading from 'components/Loading'
+import Layout from 'Layout'
+
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <Root>
-        <nav>
-          <Link to="/portfolio">Portfolio</Link>
-          <a href to="#resume">
-            Resume
-          </a>
-        </nav>
+        <Layout>
+          <GlobalStyle />
 
-        <div className="content">
-          <React.Suspense fallback={<em>Loading...</em>}>
-            <Router>
-              <Dynamic path="dynamic" />
-              <Routes path="*" />
-            </Router>
+          <React.Suspense fallback={<Loading />}>
+            <Routes path="*" />
           </React.Suspense>
-        </div>
+        </Layout>
       </Root>
     </ThemeProvider>
   )

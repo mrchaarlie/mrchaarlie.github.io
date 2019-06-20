@@ -10,13 +10,13 @@ const Wrapper = styled.div`
   }
 `
 
-const HeroTitle = styled.div` 
+const HeroTitle = styled.div`
   text-align: center;
   padding: 0 1rem;
   margin-bottom: 2rem;
 
   animation: zoomOut 1s cubic-bezier(0.17, 0.84, 0.44, 1) 0s forwards;
-  
+
   @keyframes zoomOut {
     0% {
       opacity: 0;
@@ -25,11 +25,11 @@ const HeroTitle = styled.div`
       opacity: 0;
       transform: scale(1.5);
     }
-    100% {  
+    100% {
       transform: scale(1);
       opacity: 1;
     }
-  } 
+  }
 `
 const Name = styled.h1`
   position: relative;
@@ -81,7 +81,7 @@ const HeroIntro = styled.div`
     bottom: 0;
     width: 100%;
     height: 100%;
-    background: #fff; 
+    background: #fff;
     animation: slideOutDown 0.8s cubic-bezier(0.17, 0.84, 0.44, 1) 1.2s forwards;
   }
 
@@ -106,10 +106,10 @@ const Hero = () => (
     <WidthWrapper small>
       <HeroIntro>
         <p>
-          Hi! I'm a product designer/developer with 7+ years of experience in building digital products. I'm good at asking questions, and then finding out the answers—which is what I've been doing at Highline Beta for the past year.
+          Hi! I'm a product designer/developer with 7+ years of experience in building digital products. I'm good at asking the right questions, and then finding out the answers—which is what I've been doing at Highline Beta for the past year.
       </p>
         <p>
-          Building successful products is a continuous journey, where I validate problems, solutions, and then execute on delivery. With my technical knowledge in front-end dev, I can work closely and efficiently with various roles.
+          Building successful products is a continuous journey where I validate problems, solutions, and then execute on delivery. With my technical knowledge in front-end dev, I can work closely and efficiently with various roles to deliver value.
         </p></HeroIntro>
     </WidthWrapper>
   </Wrapper>

@@ -8,6 +8,7 @@ import logoMask from '../img/logo-mask.svg'
 
 const Wrapper = styled.header`
   position: fixed;
+  z-index: 9999;
   display: flex;
   align-items: center;
   width: 100vw;

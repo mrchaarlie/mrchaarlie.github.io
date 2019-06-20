@@ -72,7 +72,7 @@ const GlobalStyle = createGlobalStyle`
   h5,
   h6 {
     font-family: ${theme.fonts.heading}, 'Times New Roman', serif;
-    line-height: 1.333;
+    line-height: 1.2;
     margin: 0 0 0.4em;
   }
  

@@ -20,7 +20,7 @@ const InnerWrapper = styled.div`
   `
 
 const WidthWrapper = ({ children }) => (
-  <OuterWrapper>  
+  <OuterWrapper>
     <InnerWrapper>{children}</InnerWrapper>
   </OuterWrapper>
 )

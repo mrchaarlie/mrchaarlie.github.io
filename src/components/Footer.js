@@ -8,12 +8,15 @@ const Wrapper = styled.footer`
 
 const SocialLinkWrapper = styled.div`
   margin-bottom: 1rem;
-  
+
   a {
     display: inline-block;
     margin-right: 1rem;
   }
-  `
+`
+const MadeIn = styled.div`
+  font-size: 12px;
+`
 
 const SocialLinks = () => (
   <SocialLinkWrapper>
@@ -24,17 +27,11 @@ const SocialLinks = () => (
     <a href="#">Easter Egg</a>
   </SocialLinkWrapper>
 )
-const Center = styled.div`
-  // text-align: center;
-`
 const Footer = () => (
   <Wrapper>
     <WidthWrapper>
-      <Center>
-        
       <SocialLinks />
-      <div>Made with ♥ by Charlie, in Toronto, Canada.</div>
-      </Center>
+      <MadeIn>Made with ♥ by Charlie, in Toronto, Canada.</MadeIn>
     </WidthWrapper>
   </Wrapper>
 )

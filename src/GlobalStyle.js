@@ -10,13 +10,12 @@ export const theme = {
     lighterGrey: '#F2F2F2',
     white: '#FFF',
     offWhite: '#F9F7F6',
-
-    primary: '#3396AE',
-    primaryLight: '#48D6FA',
-    primaryDark: '#205E6E',
-    secondary: '#4F408C',
-    secondaryLight: '#826AE6',
-    secondaryDark: '#292147',
+    primary: '#4F408C',
+    primaryLight: '#826AE6',
+    primaryDark: '#292147',
+    secondary: '#3396AE',
+    secondaryLight: '#48D6FA',
+    secondaryDark: '#205E6E',
     accent: '#FF6F61',
     accentDark: '#803730',
     success: '#219653',
@@ -29,6 +28,10 @@ export const theme = {
     small: '600px',
     medium: '900px',
     large: '1200px',
+  },
+  heights: {
+    header: '4rem',
+    footer: '4rem',
   },
 }
 

@@ -2,6 +2,7 @@
 let ticking = false;
 let usingTouch = false;
 let continuousAnimation = "";
+const debug = false;
 
 let windowHeight = window.innerHeight;
 let windowWidth = window.innerWidth;
@@ -18,10 +19,11 @@ const subheading = document.getElementById('subheading');
 {
   class Entry {
     constructor(el) {
-      this.DOM = {el: el};
+      this.DOM = { el: el };
       this.DOM.image = this.DOM.el.querySelector('.content-container');
-      this.DOM.title = {word: this.DOM.el.querySelector('.section__title')};
-      if (this.DOM.title.word){
+      this.DOM.title = { word: this.DOM.el.querySelector('.section__title') };
+
+      if (this.DOM.title.word) {
         charming(this.DOM.title.word);
         this.DOM.title.letters = Array.from(this.DOM.title.word.querySelectorAll('span'));
         this.DOM.title.letters.forEach(letter => letter.dataset.initial = letter.innerHTML);
@@ -30,24 +32,25 @@ const subheading = document.getElementById('subheading');
 
       sectionObserver.observe(this.DOM.el);
     }
+
     enter(direction = 'down') {
-      this.entertime = setTimeout(()=> {
-        if ( this.DOM.title.word == null )
+      this.entertime = setTimeout(() => {
+
+        if (this.DOM.title.word == null)
           return;
 
         this.DOM.title.word.style.opacity = 1;
         this.DOM.title.word.classList.add("section__title--active");
-        // console.log
 
         anime.remove(this.DOM.title.letters);
         anime({
           targets: this.DOM.title.letters,
           duration: 400,
-          delay: (target,index) => index*25,
+          delay: (target, index) => index * 25,
           easing: 'easeOutSine',
           translateY: [direction === 'down' ? '1rem' : '-1rem', '0'],
           opacity: {
-            value: [0,1],
+            value: [0, 1],
             duration: 100,
             easing: 'linear'
           }
@@ -58,11 +61,11 @@ const subheading = document.getElementById('subheading');
     }
     exit(direction = 'down') {
       anime.remove(this.DOM.title.letters);
-      if ( this.entertime ) {
+      if (this.entertime) {
         clearTimeout(this.entertime);
       }
 
-      if ( this.DOM.title.word == null )
+      if (this.DOM.title.word == null)
         return;
 
       this.DOM.title.word.classList.remove("section__title--active");
@@ -70,11 +73,11 @@ const subheading = document.getElementById('subheading');
       anime({
         targets: this.DOM.title.letters,
         duration: 200,
-        delay: (target,index) => index*15,
+        delay: (target, index) => index * 15,
         easing: 'easeOutCubic',
-        translateY: ['0%',direction === 'down' ? '-1rem' : '1rem'],
+        translateY: ['0%', direction === 'down' ? '-1rem' : '1rem'],
         opacity: {
-          value: [1,0],
+          value: [1, 0],
           duration: 150,
           easing: 'linear'
         },
@@ -106,30 +109,35 @@ const subheading = document.getElementById('subheading');
 
       sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          // console.log('sectionObserver: ' + entry.target.id + ", " + entry.intersectionRatio);
+          debug && console.log('sectionObserver: ' + entry.target.id + ", " + entry.intersectionRatio);
 
-          if (entry.target.id == "profiles" && entry.intersectionRatio < 0.65 ) {
+          if (entry.target.id == "profiles" && entry.intersectionRatio < 0.65) {
             return;
           }
 
           let exception = false;
-          if ( entry.target.id == "portfolio" && entry.intersectionRatio > 0.4 )
+          const INTERSECTION_PORTFOLIO = windowWidth < 500 ? 0.15 : 0.4;
+          const INTERSECTION_RESUME = 0.2;
+          const INTERSECTION_PROCESS = 0.1;
+
+          if (entry.target.id == "portfolio" && entry.intersectionRatio > INTERSECTION_PORTFOLIO) {
             exception = true;
-          else if (entry.target.id == "resume" && entry.intersectionRatio > 0.2 ) {
+          } else if (entry.target.id == "resume" && entry.intersectionRatio > INTERSECTION_RESUME) {
             exception = true;
-          } else if (entry.target.id == "process" && entry.intersectionRatio > 0.1 ) {
+          } else if (entry.target.id == "process" && entry.intersectionRatio > INTERSECTION_PROCESS) {
             exception = true;
           }
 
+
           if (entry.intersectionRatio > 0.5 || exception) {
-            const newcurrent = sections.indexOf(entry.target);
-            if ( newcurrent === current ) return;
-            const direction = newcurrent > current;
-            if (current >= 0 ) {
-                sectionEntries[current].exit(direction ? 'down' : 'up');
+            const newCurrent = sections.indexOf(entry.target);
+            if (newCurrent === current) return;
+            const direction = newCurrent > current;
+            if (current >= 0) {
+              sectionEntries[current].exit(direction ? 'down' : 'up');
             }
-            sectionEntries[newcurrent].enter(direction ? 'down' : 'up');
-            current = newcurrent;
+            sectionEntries[newCurrent].enter(direction ? 'down' : 'up');
+            current = newCurrent;
           }
         });
       }, { threshold: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7] });
@@ -152,24 +160,24 @@ const subheading = document.getElementById('subheading');
     for (let i = 0; i < targets.length; i++) {
       svgObserver[i] = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          // console.log('svgObserver: ' + entry.target.firstElementChild.id + ", " + entry.intersectionRatio);
+          // debug && console.log('svgObserver: ' + entry.target.firstElementChild.id + ", " + entry.intersectionRatio);
           if (entry.target.querySelector(".path") && entry.intersectionRatio > 0.5) {
             entry.target.querySelector(".path").classList.add("path-animate");
           }
-      });
-    }, svgOptions);
+        });
+      }, svgOptions);
       svgObserver[i].observe(targets[i]);
     }
   }
 
-  function onProgress( imgLoad, image ) {
+  function onProgress(imgLoad, image) {
     if (image.isLoaded) {
       image.img.parentNode.classList.remove('is-loading');
       image.img.parentNode.classList.add('done');
     }
   }
 
-  imgLoad.on( 'progress', onProgress );
+  imgLoad.on('progress', onProgress);
 }
 
 
@@ -177,9 +185,9 @@ const subheading = document.getElementById('subheading');
 
 
 {
-  window.addEventListener('scroll', function(e) {
+  window.addEventListener('scroll', function (e) {
     if (!ticking) {
-      window.requestAnimationFrame(function() {
+      window.requestAnimationFrame(function () {
         repositionLogo();
         ticking = false;
       });
@@ -188,23 +196,27 @@ const subheading = document.getElementById('subheading');
     }
   });
 
-  window.addEventListener('touchstart', function(e) {
+  window.addEventListener('touchstart', function (e) {
     if (!usingTouch) {
+      debug && this.console.log("Using Touch True")
+
       usingTouch = true;
       repositionLogo();
     }
   });
 
-  window.addEventListener('resize', function(e) {
+  window.addEventListener('resize', function (e) {
     windowHeight = window.innerHeight;
     windowWidth = window.innerWidth;
     repositionLogo();
   });
 
-  function repositionLogo () {
+  function repositionLogo() {
     let scrollAction = "";
     const scrollAnimStart = 50;
-    const scrollAnimEnd = windowHeight*0.5;
+    const scrollAnimEnd = windowWidth < 500 ? 60 : windowHeight * 0.5;
+
+    // debug && this.console.log(`window.scrollY: ${window.scrollY}, windowHeight: ${windowHeight}`);
 
     if (window.scrollY >= 0 && window.scrollY < scrollAnimStart) {
       scrollAction = "big";
@@ -213,18 +225,18 @@ const subheading = document.getElementById('subheading');
         navWrapper.style.cssText = `position: sticky`;
 
     } else if (window.scrollY >= scrollAnimStart && window.scrollY < scrollAnimEnd) {
-        if (!usingTouch) {
-          scrollAction = "shrinking";
-        } else {
-          scrollAction = "big";
-          navWrapper.style.cssText = `position: sticky`;
-        }
+      if (!usingTouch) {
+        scrollAction = "shrinking";
+      } else {
+        scrollAction = "big";
+        navWrapper.style.cssText = `position: sticky`;
+      }
 
     } else {
       scrollAction = -1;
     }
 
-    switch(scrollAction) {
+    switch (scrollAction) {
       // Deprecated, because I should show stuff on initial load
       // case "textSlide":
       //   bigView();
@@ -253,14 +265,14 @@ const subheading = document.getElementById('subheading');
       default:
         if (continuousAnimation != "default")
           defaultView();
-          navWrapper.removeAttribute("style");
+        navWrapper.removeAttribute("style");
 
         continuousAnimation = "default";
         break;
     }
   }
 
-  function resetStyles () {
+  function resetStyles() {
     logoSpacingLeft.removeAttribute("style");
     logoSpacingRight.removeAttribute("style");
     logoContainer.removeAttribute("style");
@@ -270,12 +282,12 @@ const subheading = document.getElementById('subheading');
     subheading.removeAttribute("style");
   }
 
-  function bigView () {
+  function bigView() {
     resetStyles();
     logoContainer.classList.add('logo-container--big');
   }
 
-  function defaultView () {
+  function defaultView() {
     resetStyles();
   }
 
@@ -295,7 +307,7 @@ const subheading = document.getElementById('subheading');
     } else if (windowWidth < 1024) {
       logoAddHeight = 5;
       logoMaxRadius = 0.25;
-   }
+    }
 
     const leftSpacing = ((scrollDiff - window.scrollY + scrollStart) / scrollDiff) * 5;
     const rightPadding = ((scrollDiff - window.scrollY + scrollStart) / scrollDiff) * 1.5 + 1.5;

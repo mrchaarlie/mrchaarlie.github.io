@@ -266,14 +266,6 @@ li {
 .section--intro {
   min-height: 75vh;
   margin: 0 0 10vh;
-
-  @include small {
-    min-height: 65vh;
-  }
-
-  @include mobile {
-    min-height: 85vh;
-  }
 }
 
 .section__content {

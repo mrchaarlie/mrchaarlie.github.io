@@ -52,7 +52,7 @@ const Name = styled.h1`
 `
 const Title = styled.div`
   font-size: 2.5rem;
-  color: ${props => props.theme.colors.darkerGrey};
+  color: ${props => props.theme.colors.darkGrey};
   position: relative;
   margin-top: -0.75rem;
   z-index: 1;

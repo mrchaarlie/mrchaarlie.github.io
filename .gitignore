@@ -10,3 +10,5 @@
 .sass-cache
 test.html
 favicon.ai
+/node_modules
+/tmp

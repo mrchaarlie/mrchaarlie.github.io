@@ -19,7 +19,7 @@ $menu-bg: linear-gradient(
   rgba(249, 247, 253, 0.95),
   rgba(249, 247, 253, 0.95)
 );
-$border-radius: 4px;
+$border-radius: 3px;
 $max-width: 900px;
 $lato: 'Lato', sans-serif;
 $playfair: 'Playfair Display', sans-serif;
@@ -56,6 +56,12 @@ $ease-out-cubic: cubic-bezier(0.22, 0.61, 0.36, 1);
 /*********** Utility Classes ***********/
 .m-0 {
   margin: 0 !important;
+}
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+.mt-0 {
+  margin-top: 0 !important;
 }
 
 .font--heavy {
@@ -137,11 +143,20 @@ $ease-out-cubic: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 html {
-  font-size: 18px;
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   font-family: 'Lato', 'Helvetica Neue', 'Hevletica', 'Arial', sans-serif;
   line-height: 1.5;
   color: #444;
+
+  @include large {
+    font-size: 18px;
+  }
+  
+  @include small {
+    font-size: 14px;
+    line-height: 1.3;
+  }
 }
 
 h1,
@@ -159,12 +174,19 @@ h2 {
 p {
   margin: 0.5em 0;
 }
-@media (max-width: 768px) {
-  html {
-    font-size: 13px;
-    line-height: 1.3;
-  }
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  background: $primary-color--light;
+  padding: 0; 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+
 
 body {
   background: #fff;
@@ -194,8 +216,8 @@ a {
 }
 
 li {
-  margin: 0.5em 0;
-  line-height: 1.3;
+  margin: 0 0 0.625em;
+  line-height: 1.4;
 }
 
 .section {
@@ -772,42 +794,32 @@ li {
   top: 0;
   z-index: 1;
   border-radius: $border-radius $border-radius 0 0;
-
-  &:before {
-    content: '';
-    transition: all 0.35s $ease-out-cubic;
-    width: 100%;
-    height: 21rem;
-    border: 0 solid rgba(255, 255, 255, 0);
-    border-radius: $border-radius;
-    position: absolute;
-    z-index: 50;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, 0rem);
-    will-change: transform;
-  }
 }
 
 .content__image-container {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  text-align: center;
   border-radius: $border-radius $border-radius 0 0;
   opacity: 1;
   transition: opacity 0.25s $ease-out-cubic;
 }
 
 .content__image {
-  width: 100%;
   height: 100%;
-  object-fit: cover;
+  width: 80%;
+  object-fit: contain;
   z-index: 1;
   backface-visibility: hidden;
   transform: translateZ(0) scale(1, 1);
   transition: all 0.75s $ease-out-cubic;
   will-change: transform;
   filter: grayscale(0.1) contrast(0.3) brightness(1.6);
+}
+.content__image--large {
+  width: 100%;
+  object-fit: cover;
 }
 
 .content__text {
@@ -840,14 +852,7 @@ li {
 
   &:hover,
   &:focus {
-    box-shadow: 2px 2px 10px $primary-color;
-
-    .content__top:before {
-      width: calc(100% - 4rem);
-      height: 17rem;
-      transform: translate(-50%, 1.5rem);
-      border: 0.5rem solid #fff;
-    }
+    box-shadow: 2px 2px 10px $dark-grey;
 
     .content__image {
       transform: translateZ(0) scale(1.1, 1.1);
@@ -855,37 +860,34 @@ li {
     }
 
     .pantone-overlay {
-      opacity: 0.4;
+      opacity: 0.1;
     }
-  }
-
-  /*&:nth-of-type(1) .pantone-overlay { filter: hue-rotate(45deg); }*/
-  /*&:nth-of-type(2) .pantone-overlay { filter: hue-rotate(135deg); }*/
-  /*&:nth-of-type(3) .pantone-overlay { filter: hue-rotate(225deg); }*/
-  /*&:nth-of-type(4) .pantone-overlay { filter: hue-rotate(315deg); }*/
-  /*&:nth-of-type(5) .pantone-overlay { filter: hue-rotate(90deg); }*/
-  &:nth-of-type(6) .pantone-overlay {
-    filter: hue-rotate(180deg);
-  }
-  &:nth-of-type(7) .pantone-overlay {
-    filter: hue-rotate(270deg);
   }
 }
 
-.pantone-card--netflix .pantone-overlay {
-  filter: brightness(0.9);
+.pantone-card--100-accelerator .pantone-overlay {
+  filter: brightness(1.1)  contrast(0.7);
+}
+.pantone-card--female-funders .pantone-overlay {
+  filter: hue-rotate(175deg) brightness(1.7);
+}
+.pantone-card--agile-blockchain .pantone-overlay {
+  filter: hue-rotate(81deg) brightness(2.3) saturate(0.7);
 }
 .pantone-card--careerjsm .pantone-overlay {
   filter: hue-rotate(195deg) brightness(1.5);
 }
-.pantone-card--crowdcurio .pantone-overlay {
-  filter: hue-rotate(265deg) brightness(0.35);
-}
 .pantone-card--divenetworks .pantone-overlay {
   filter: hue-rotate(227deg) brightness(0.7) saturate(2);
 }
+.pantone-card--crowdcurio .pantone-overlay {
+  filter: hue-rotate(265deg) brightness(0.35);
+}
 .pantone-card--ubernow .pantone-overlay {
   filter: hue-rotate(245deg) brightness(0.2) contrast(0.8);
+}
+.pantone-card--netflix .pantone-overlay {
+  filter: brightness(0.9);
 }
 
 .pantone-overlay {

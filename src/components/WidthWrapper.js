@@ -4,9 +4,8 @@ import styled from 'styled-components'
 const OuterWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
-  width: ${props => props.small ? '80%' : '100%'};
+  width: ${props => (props.small ? '80%' : '100%')};
 
-  
   @media screen and (min-width: ${props => props.theme.screens.medium}) {
     max-width: calc(${props => props.theme.screens.medium} - 2rem);
     max-width: ${props => props.small && '600px'};

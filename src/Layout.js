@@ -22,25 +22,9 @@ const Test = styled.div`
 `
 
 const Layout = ({ children }) => {
-  const [scrollPos, setScrollPos] = useState(0)
-
-  const handleScroll = () => {
-    setScrollPos(window.scrollY)
-  }
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-    console.log('use effect')
-  })
-
   return (
-    <Wrapper id="main" onScroll={() => setScrollPos(getYScrollPos())}>
-      <Header />
-
-      <Main>
-        <Test>{scrollPos}</Test>
-        {children}
-      </Main>
+    <Wrapper id="main">
+      <Main>{children}</Main>
       <Footer />
     </Wrapper>
   )

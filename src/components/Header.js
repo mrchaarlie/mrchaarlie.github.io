@@ -1,23 +1,39 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import { transparentize } from 'polished'
 import { Link } from 'components/Router'
 import IAmA from 'components/IAmA'
 import WidthWrapper from 'components/WidthWrapper'
 
 import logoMask from '../img/logo-mask.svg'
 
+const getAnimationStyle = ({ isVisible, fadeOut }) => {
+  const animationName = isVisible ? 'fadeInDown' : fadeOut ? 'fadeOut' : 'none'
+
+  return isVisible
+    ? `fadeInDown 0.5s cubic-bezier(0.17, 0.84, 0.44, 1) 0s forwards`
+    : fadeOut
+    ? `fadeOut 0.2s ease-out 0s forwards`
+    : 'none'
+}
+
 const Wrapper = styled.header`
   position: fixed;
   z-index: 9999;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   width: 100vw;
   height: ${props => props.theme.heights.header};
-  background: ${props => props.theme.colors.white};
-
-  > * {
-    outline: 1px solid red;
-  }
+  background: ${props => transparentize(0.05, props.theme.colors.primaryLight)};
+  opacity: ${props => (props.fadeOut || props.isVisible ? '1' : '0')};
+  animation: ${props =>
+    getAnimationStyle({
+      isVisible: props.isVisible,
+      fadeOut: props.fadeOut,
+    })};
+  ${props => props.disabled && 'display: none; visibility: none'};
 `
 const NavContainer = styled.div`
   display: flex;
@@ -35,7 +51,7 @@ const LogoContainer = styled.div`
   margin-right: 1rem;
 `
 const Logo = styled.img`
-  position: relative  
+  position: relative
   height: 100%;
   width: 100%;
   z-index: 10;
@@ -60,8 +76,8 @@ const Nav = styled.nav`
   }
 `
 
-const Header = () => (
-  <Wrapper>
+const Header = ({ isVisible, fadeOut, disabled }) => (
+  <Wrapper isVisible={isVisible} fadeOut={fadeOut} disabled={disabled}>
     <WidthWrapper>
       <NavContainer>
         <LogoText>

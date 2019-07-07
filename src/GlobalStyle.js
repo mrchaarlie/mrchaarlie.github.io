@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { css, createGlobalStyle } from 'styled-components'
 
 export const theme = {
   colors: {
@@ -10,8 +10,8 @@ export const theme = {
     lighterGrey: '#F2F2F2',
     white: '#FFF',
     offWhite: '#F9F7F6',
-    primary: '#4F408C',
-    primaryLight: '#826AE6',
+    primary: '#6D5B97',
+    primaryLight: '#f9f7fd',
     primaryDark: '#292147',
     secondary: '#3396AE',
     secondaryLight: '#48D6FA',
@@ -34,6 +34,28 @@ export const theme = {
     footer: '4rem',
   },
 }
+
+const animations = css`
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translate(0, -4rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+`
 
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Playfair+Display:400,700');
@@ -75,7 +97,7 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.2;
     margin: 0 0 0.4em;
   }
- 
+
   h1 {
     font-size: 4.21rem;
     font-weight: 700;
@@ -119,5 +141,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${theme.fonts.body}, 'Helvetica Neue', Arial, sans-serif;
     color: ${theme.colors.black};
   }
+
+  ${animations};
 `
+
 export default GlobalStyle

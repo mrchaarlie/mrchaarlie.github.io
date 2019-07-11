@@ -4,7 +4,7 @@ import { Link } from 'components/Router'
 import IAmA from 'components/IAmA'
 import WidthWrapper from 'components/WidthWrapper'
 
-import logoMask from '../img/logo-mask.svg'
+import logoMask from '../img/logo-mask-purple.svg'
 
 const getAnimationStyle = ({ isVisible, fadeOut }) => {
   const animationName = isVisible ? 'fadeInDown' : fadeOut ? 'fadeOut' : 'none'
@@ -63,7 +63,6 @@ const LogoBackground = styled.div`
   height: 90%;
   width: 90%;
   z-index: 1;
-  background: ${props => props.theme.colors.primary};
 `
 const ScrollingAbout = styled.div`
   display: inline-block;

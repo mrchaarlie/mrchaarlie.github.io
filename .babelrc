@@ -1,3 +1,7 @@
 {
-  "presets": ["react-static/babel-preset.js"]
+  "presets": [
+    "react-static/babel-preset.js",
+    "@babel/preset-react"
+  ],
+  "plugins": ["@babel/plugin-proposal-object-rest-spread"]
 }

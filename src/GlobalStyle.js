@@ -30,7 +30,7 @@ export const theme = {
     large: '1200px',
   },
   heights: {
-    header: '4rem',
+    header: '3.5rem',
     footer: '4rem',
   },
 }

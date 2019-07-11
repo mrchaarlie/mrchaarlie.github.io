@@ -16,8 +16,8 @@ const StickyTitle = styled.h2`
     background: rgb(255, 255, 255);
     background: linear-gradient(
       0deg,
-      rgba(255, 255, 255, 0.5) 0%,
-      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(255, 255, 255, 0.6) 50%,
       rgba(255, 255, 255, 0.9) 51%,
       rgba(255, 255, 255, 0.9) 100%
     );

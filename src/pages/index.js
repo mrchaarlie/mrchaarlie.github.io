@@ -15,30 +15,28 @@ export default () => (
   <div>
     <Hero />
 
-    <WidthWrapper>
-      <Section>
-        <Portfolio />
-      </Section>
+    <Section>
+      <Portfolio />
+    </Section>
 
-      <Section>
-        <Process />
-      </Section>
+    <Section>
+      <Process />
+    </Section>
 
-      <Section>
-        <Skills />
-      </Section>
+    <Section>
+      <Skills />
+    </Section>
 
-      <Section>
-        <Resume />
-      </Section>
+    <Section>
+      <Resume />
+    </Section>
 
-      <Section>
-        <Faq />
-      </Section>
+    <Section>
+      <Faq />
+    </Section>
 
-      <Section>
-        <Profiles />
-      </Section>
-    </WidthWrapper>
+    <Section>
+      <Profiles />
+    </Section>
   </div>
 )

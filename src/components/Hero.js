@@ -88,7 +88,7 @@ const HeroIntro = styled.div`
     height: 100%;
     background: #fff;
     animation: slideOutDown 1.2s cubic-bezier(0.17, 0.84, 0.44, 1)
-      ${TITLE_ANIM_DURATION + 0.35}s forwards;
+      ${TITLE_ANIM_DURATION + 0.4}s forwards;
   }
 
   @keyframes slideOutDown {

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import WidthWrapper from 'components/WidthWrapper'
+import WidthWrapper from './WidthWrapper'
 
 const Wrapper = styled.footer`
   padding: 1rem 0;

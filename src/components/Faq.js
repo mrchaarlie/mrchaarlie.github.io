@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import WidthWrapper from 'components/WidthWrapper'
-import StickyTitle from 'components/StickyTitle'
+import WidthWrapper from './WidthWrapper'
+import StickyTitle from './StickyTitle'
 
 const _Faq = styled.div``
 

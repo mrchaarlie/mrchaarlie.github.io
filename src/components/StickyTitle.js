@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import BackgroundHeader from 'components/BackgroundHeader'
-import Header from 'components/Header'
-import WidthWrapper from 'components/WidthWrapper'
+import BackgroundHeader from './BackgroundHeader'
+import Header from './Header'
+import WidthWrapper from './WidthWrapper'
 
 const StickyTitle = styled.h2`
   position: sticky;

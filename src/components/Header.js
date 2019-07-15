@@ -1,8 +1,8 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { Link } from 'components/Router'
-import IAmA from 'components/IAmA'
-import WidthWrapper from 'components/WidthWrapper'
+import { Link } from './Router'
+import IAmA from './IAmA'
+import WidthWrapper from './WidthWrapper'
 
 import logoMask from '../img/logo-mask-purple.svg'
 
@@ -25,7 +25,7 @@ const Wrapper = styled.header`
   align-items: center;
   width: 100vw;
   height: ${props => props.theme.heights.header};
-  background: ${props => props.theme.colors.primaryLight};
+  background: ${props => props.theme.colors.nav};
   opacity: ${props => (props.fadeOut || props.isVisible ? '1' : '0')};
   animation: ${props =>
     getAnimationStyle({

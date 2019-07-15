@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { Link } from 'components/Router'
-import WidthWrapper from 'components/WidthWrapper'
+import { Link } from './Router'
+import WidthWrapper from './WidthWrapper'
 
 const Wrapper = styled.div`
   position: absolute;

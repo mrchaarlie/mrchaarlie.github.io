@@ -134,6 +134,7 @@ const GlobalStyle = createGlobalStyle`
   ol,
   ul {
     font-size: 1rem;
+    margin-top: 0;
     margin-bottom: 0.5rem;
     line-height: 1.6;
   }

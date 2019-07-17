@@ -7,6 +7,7 @@ import WidthWrapper from './WidthWrapper'
 import img100 from '../img/portfolio/100a-home.png'
 import imgFf from '../img/portfolio/ff-home.jpg'
 import BorderTopLeft from './common/BorderTopLeft'
+import BorderBottomLeft from './common/BorderBottomLeft'
 
 const portfolioData = {
   oneHundredAccelerator: {
@@ -97,13 +98,34 @@ const PortfolioWrapper = styled.div`
 // Faux border radius because real one causes performance problems
 const PortfolioBorderRadius = styled.div`
   position: absolute;
-  top: 0;
+  height: ${props => `${props.size || 16}px`};
+  width: ${props => `${props.size || 16}px`};
   left: calc((100vw - 900px + 2rem) / 2);
-  height: 1rem;
-  width: 1rem;
   background: ${props => props.theme.colors.white};
-  clip-path: url(#mask);
+  pointer-events: none;
 `
+const _PortfolioBorderRadiusTL = styled(PortfolioBorderRadius)`
+  top: 0;
+  clip-path: url(#maskTopLeft);
+`
+const _PortfolioBorderRadiusBL = styled(PortfolioBorderRadius)`
+  bottom: 0;
+  clip-path: url(#maskBottomLeft);
+`
+const PortfolioBorderRadiusTL = ({ size, clipId }) => (
+  <>
+    <BorderTopLeft size={size} clipId="maskTopLeft" />
+    <_PortfolioBorderRadiusTL size={size} />
+  </>
+)
+
+const PortfolioBorderRadiusBL = ({ size, clipId }) => (
+  <>
+    <BorderBottomLeft size={size} clipId="maskBottomLeft" />
+    <_PortfolioBorderRadiusBL size={size} />
+  </>
+)
+
 const PortfolioInnerWrapper = styled.div`
   flex: 0 0 45rem;
   scroll-snap-align: start;
@@ -153,7 +175,6 @@ const Portfolio = () => (
 
     <OuterWrapper>
       <PortfolioWrapper>
-        <BorderTopLeft />
         {Object.values(portfolioData).map(item => (
           <PortfolioInnerWrapper>
             <PortfolioItem>
@@ -165,7 +186,8 @@ const Portfolio = () => (
           </PortfolioInnerWrapper>
         ))}
       </PortfolioWrapper>
-      <PortfolioBorderRadius />
+      <PortfolioBorderRadiusTL size="20" />
+      <PortfolioBorderRadiusBL size="12" />
     </OuterWrapper>
   </div>
 )

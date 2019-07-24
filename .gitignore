@@ -2,6 +2,8 @@
 *.DS_Store
 *.db
 .vscode
+.sass-cache
+/css
 /node_modules
 /tmp
 /dist

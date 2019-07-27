@@ -94,6 +94,8 @@ const PortfolioWrapper = styled.div`
   @media screen and (min-width: ${props => props.theme.screens.small}) {
     height: 70vh;
     max-height: 30rem;
+  }
+  @media screen and (min-width: ${props => props.theme.screens.medium}) {
     margin-left: ${MED_LEFT_MARGIN};
   }
 
@@ -199,7 +201,7 @@ const ScrollButton = styled.button`
   transform: translateY(-50%);
   z-index: 9999;
   width: 2rem;
-  height: 2rem;
+  height: 4rem;
   margin: 0;
   padding: 0;
   border-radius: 1rem;
@@ -229,8 +231,12 @@ const ScrollButton = styled.button`
 `
 
 const PrevButton = styled(ScrollButton)`
-  left: calc(${MED_LEFT_MARGIN} + 0.25rem);
+  left: 1.25rem;
   background-image:url(${leftArrow});
+
+  @media screen and (min-width: ${props => props.theme.screens.medium}) {
+    left: calc(${MED_LEFT_MARGIN} + 0.25rem);
+  }
 `
 
 const NextButton = styled(ScrollButton)`
@@ -281,6 +287,7 @@ const Portfolio = () => {
     portfolioEl.addEventListener('scroll', () => {
       setPortfolioScrollPos(portfolioEl.scrollLeft)
     })
+
   })
 
   // update Next Button  

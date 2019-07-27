@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import StickyTitle from './StickyTitle'
 
@@ -6,65 +6,68 @@ import WidthWrapper from './WidthWrapper'
 
 import img100 from '../img/portfolio/100a-home.png'
 import imgFf from '../img/portfolio/ff-home.jpg'
+import leftArrow from '../img/left-arrow.svg'
+import rightArrow from '../img/right-arrow.svg'
+
 import BorderTopLeft from './common/BorderTopLeft'
 import BorderBottomLeft from './common/BorderBottomLeft'
 
 const portfolioData = {
   oneHundredAccelerator: {
-    name: '100+ Accelerator',
+    title: '100+ Accelerator',
     category: 'Accelerator Website',
     image: img100,
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, ea.',
+    keywords:
+      'Interface Design | Copywriting | Branding | Development',
   },
   femaleFunders: {
-    name: 'Female Funders',
+    title: 'Female Funders',
     category: 'Education Website',
     image: imgFf,
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, ea.',
+    keywords:
+      'Information architecture | Branding | SEO | Accessibility/Responsive design | Development',
   },
   agileBlockchain: {
-    name: 'Agile Blockchain Corporation',
+    title: 'Agile Blockchain Corporation',
     category: 'Logistic App',
     image: imgFf,
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, ea.',
+    keywords:
+      'UX Research | Information Architecture | Interface Design | Prototyping',
   },
   careerJsm: {
-    name: 'CareerJSM',
+    title: 'CareerJSM',
     category: 'Job Management App',
     image: imgFf,
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, ea.',
+    keywords:
+      'Interface Design | User Interviews | User Research | Copywriting | Branding | Development',
   },
   diveNetworks: {
-    name: 'Dive Networks',
+    title: 'Dive Networks',
     category: 'Digital Signage App',
     image: imgFf,
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, ea.',
+    keywords:
+      'Responsive/Interaction design | User Research | Branding | Development',
   },
   netflixLogo: {
-    name: 'Netflix Logo',
+    title: 'Netflix Logo',
     category: 'CSS Experiment',
     image: imgFf,
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, ea.',
+    keywords:
+      'Motion Design',
   },
   crowdCurio: {
-    name: 'Crowd Curio',
+    title: 'Crowd Curio',
     category: 'Citizen Science Platform',
     image: imgFf,
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, ea.',
+    keywords:
+      'User Research | User Interviews | Interface Design | Prototyping | Development',
   },
   uberEverything: {
-    name: 'Uber Everything',
+    title: 'Uber Everything',
     category: 'Design Challenge',
     image: imgFf,
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, ea.',
+    keywords:
+      'UX Design | Product Design',
   },
 }
 
@@ -86,9 +89,11 @@ const PortfolioWrapper = styled.div`
   overflow-x: scroll;
   display: flex;
   background-color: ${props => props.theme.colors.lighterGrey};
+  scrollbar-color: ${props => `${props.theme.colors.darkGrey} ${props.theme.colors.lighterGrey}`};
 
   @media screen and (min-width: ${props => props.theme.screens.small}) {
     height: 70vh;
+    max-height: 30rem;
     margin-left: ${MED_LEFT_MARGIN};
   }
 
@@ -97,7 +102,7 @@ const PortfolioWrapper = styled.div`
     background-color: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: ${props => props.theme.colors.grey};
+    background: ${props => props.theme.colors.darkGrey};
     border-radius: 16px;
   }
 `
@@ -146,7 +151,7 @@ const PortfolioInnerWrapper = styled.div`
 
   @media screen and (min-width: ${props => props.theme.screens.medium}) {
     flex: 0 0 45rem;
-    margin-right: 2rem;
+    padding-right: 2rem;
   }
 `
 const PortfolioItem = styled.div`
@@ -157,6 +162,7 @@ const PortfolioItem = styled.div`
   padding: 1rem 2rem;
   height: calc(100% - 3rem);
   position: relative;
+  text-align: center;
 `
 const PImage = styled.img`
   width: 100%;
@@ -164,15 +170,15 @@ const PImage = styled.img`
   object-fit: contain;
 
   @media screen and (min-width: ${props => props.theme.screens.small}) {
-    height: 60%;
+    height: 65%;
   }
 `
-const PName = styled.div`
+const PTitle = styled.div`
   font-family: ${props => props.theme.fonts.heading};
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.15;
-  color: ${props => props.theme.colors.darkGrey};
+  color: ${props => props.theme.colors.primary};
 
   @media screen and (min-width: ${props => props.theme.screens.medium}) {
     font-size: 2.25rem;
@@ -180,34 +186,153 @@ const PName = styled.div`
 `
 const PCategory = styled.div`
   font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   color: ${props => props.theme.colors.darkGrey};
 `
-const PDescription = styled.p``
+const PKeywords = styled.p`
+  font-size: 0.875rem;
+`
 
-const Portfolio = () => (
-  <div>
-    <WidthWrapper>
-      <StickyTitle>Portfolio</StickyTitle>
-    </WidthWrapper>
+const ScrollButton = styled.button`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+  width: 2rem;
+  height: 2rem;
+  margin: 0;
+  padding: 0;
+  border-radius: 1rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-size: 1rem;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  color: ${props => props.theme.colors.white};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: ${props => props.disabled ? 0.1 : 1};
+  transition: background 0.25s ease-out, box-shadow 0.25s ease-out, opacity 0.25s ease-out;
+  border: 0;
 
-    <OuterWrapper>
-      <PortfolioWrapper>
-        {Object.values(portfolioData).map(item => (
-          <PortfolioInnerWrapper>
-            <PortfolioItem>
-              <PImage src={item.image} />
-              <PName>{item.name}</PName>
-              <PCategory>{item.category}</PCategory>
-              <PDescription>{item.description}</PDescription>
-            </PortfolioItem>
-          </PortfolioInnerWrapper>
-        ))}
-      </PortfolioWrapper>
-      <PortfolioBorderRadiusTL size="20" />
-      <PortfolioBorderRadiusBL size="10" />
-    </OuterWrapper>
-  </div>
-)
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 1px 1px #fff, 0 0 3px 3px ${props => props.theme.colors.primary};
+    outline: 0;
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+
+`
+
+const PrevButton = styled(ScrollButton)`
+  left: calc(${MED_LEFT_MARGIN} + 0.25rem);
+  background-image:url(${leftArrow});
+`
+
+const NextButton = styled(ScrollButton)`
+  right: 1rem;
+  background-image:url(${rightArrow});
+`
+
+const Portfolio = () => {
+  const [portfolioScrollPos, setPortfolioScrollPos] = useState(0)
+  const [portfolioItemWidth, setPortfolioItemWidth] = useState(900)
+  const [portfolioItems, setPortfolioItems] = useState(8)
+  const [prevButtonEnabled, setPrevButtonEnabled] = useState(false)
+  const [nextButtonEnabled, setNextButtonEnabled] = useState(true)
+  const portfolioWrapperRef = useRef(null)
+  const PORTFOLIO_MIN_WIDTH = 0
+  let PORTFOLIO_MAX_WIDTH = portfolioItemWidth * (portfolioItems - 1)
+
+  let portfolioEl = null
+
+  const scrollPortfolioTo = (position) => {
+    portfolioEl.scroll({
+      top: 0,
+      left: position,
+      behavior: 'smooth'
+    });
+  }
+
+  const nextItem = () => {
+    if (portfolioScrollPos < PORTFOLIO_MAX_WIDTH) {
+      const newPos = portfolioScrollPos + portfolioItemWidth
+      scrollPortfolioTo(newPos)
+    }
+  }
+  const prevItem = () => {
+    if (portfolioScrollPos > PORTFOLIO_MIN_WIDTH) {
+      const newPos = portfolioScrollPos - portfolioItemWidth
+      scrollPortfolioTo(newPos)
+    }
+  }
+
+  // init
+  useEffect(() => {
+    portfolioEl = portfolioWrapperRef.current
+    setPortfolioItems(portfolioEl.children.length)
+    setPortfolioItemWidth(portfolioEl.firstElementChild.offsetWidth)
+    PORTFOLIO_MAX_WIDTH = portfolioItemWidth * (portfolioItems - 1)
+
+    portfolioEl.addEventListener('scroll', () => {
+      setPortfolioScrollPos(portfolioEl.scrollLeft)
+    })
+  })
+
+  // update Next Button  
+  useEffect(() => {
+    if (portfolioEl.scrollLeft >= PORTFOLIO_MAX_WIDTH) {
+      setNextButtonEnabled(false)
+    } else {
+      const timer = setTimeout(() => {
+        setNextButtonEnabled(true)
+      }, 20)
+      return () => clearTimeout(timer)
+    }
+  })
+  // update Prev Button  
+  useEffect(() => {
+    if (portfolioEl.scrollLeft <= PORTFOLIO_MIN_WIDTH) {
+      setPrevButtonEnabled(false)
+    } else {
+      const timer = setTimeout(() => {
+        setPrevButtonEnabled(true)
+      }, 20)
+      return () => clearTimeout(timer)
+    }
+  })
+
+  return (
+    <div>
+      <WidthWrapper>
+        <StickyTitle>Portfolio</StickyTitle>
+      </WidthWrapper>
+
+      <OuterWrapper>
+        <PrevButton onClick={prevItem} disabled={!prevButtonEnabled} />
+        <NextButton onClick={nextItem} disabled={!nextButtonEnabled} />
+        <PortfolioWrapper ref={portfolioWrapperRef} id="test">
+
+          {Object.values(portfolioData).map(item => (
+            <PortfolioInnerWrapper key={item.title}>
+              <PortfolioItem>
+                <PImage src={item.image} />
+                <PTitle>{item.title}</PTitle>
+                <PCategory>{item.category}</PCategory>
+                <PKeywords>{item.keywords}</PKeywords>
+              </PortfolioItem>
+            </PortfolioInnerWrapper>
+          ))}
+        </PortfolioWrapper>
+        <PortfolioBorderRadiusTL size="20" />
+        <PortfolioBorderRadiusBL size="10" />
+      </OuterWrapper>
+    </div>
+  )
+}
 
 export default Portfolio

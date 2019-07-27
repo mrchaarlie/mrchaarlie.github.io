@@ -20,8 +20,8 @@ const BorderBottomLeft = ({ size = 16, clipId = 'mask' }) => {
       style={{ position: 'absolute' }}>
       <clipPath id={clipId}>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d={pathSize}
           fill="black"
           style={pathStyle}

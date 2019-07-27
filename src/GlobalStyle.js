@@ -144,6 +144,10 @@ const GlobalStyle = createGlobalStyle`
     color: ${theme.colors.black};
   }
 
+  button {
+    cursor: pointer;
+  }
+
   ${animations};
 `
 

@@ -130,7 +130,6 @@ const Hero = () => {
     window.addEventListener('scroll', () => setScrollPos(window.scrollY))
 
     // disable the Navbar after it transitions out.
-
     if (heroTitleRef.current.getBoundingClientRect().bottom < 16) {
       showNavBar()
     } else {
@@ -138,7 +137,8 @@ const Hero = () => {
 
       const navTimer = setTimeout(() => {
         setNavBarDisabled(true)
-      }, 200)
+      }, 20)
+
       return () => clearTimeout(navTimer)
     }
   })

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import BackgroundHeader from './BackgroundHeader'
-import Header from './Header'
+import { Header, BackgroundHeader } from './Header'
 import WidthWrapper from './WidthWrapper'
 
 const Wrapper = styled.div`
@@ -23,20 +22,6 @@ const HeroTitle = styled.div`
 
   animation: zoomOut ${TITLE_ANIM_DURATION}s cubic-bezier(0.17, 0.84, 0.44, 1)
     0s forwards;
-
-  @keyframes zoomOut {
-    0% {
-      opacity: 0;
-    }
-    10% {
-      opacity: 0;
-      transform: scale(1.25);
-    }
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
 `
 const Name = styled.h1`
   position: relative;
@@ -65,17 +50,6 @@ const Title = styled.div`
   opacity: 0;
   animation: slideInDown 0.75s cubic-bezier(0.17, 0.84, 0.44, 1)
     ${TITLE_ANIM_DURATION + 0.15}s forwards;
-
-  @keyframes slideInDown {
-    0% {
-      transform: translateY(-4rem);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
 `
 const HeroIntro = styled.div`
   position: relative;
@@ -92,15 +66,6 @@ const HeroIntro = styled.div`
     background: #fff;
     animation: slideOutDown 1.2s cubic-bezier(0.17, 0.84, 0.44, 1)
       ${TITLE_ANIM_DURATION + 0.4}s forwards;
-  }
-
-  @keyframes slideOutDown {
-    0% {
-      height: 100%;
-    }
-    100% {
-      height: 0%;
-    }
   }
 `
 

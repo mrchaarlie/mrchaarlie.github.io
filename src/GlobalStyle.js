@@ -10,10 +10,9 @@ export const theme = {
     lighterGrey: '#F2F2F2',
     white: '#FFF',
     offWhite: '#F9F7F6',
-    nav: '#F9F7Fd',
     primary: '#6D5B97',
     primaryLight: '#D3CCE3',
-    primaryDark: '#292147',
+    primaryDark: '#483C63',
     secondary: '#3396AE',
     secondaryLight: '#93E5FA',
     secondaryDark: '#205E6E',
@@ -34,6 +33,20 @@ export const theme = {
     header: '3.5rem',
     footer: '4rem',
   },
+  shadows: {
+    one: `0 2px 2px 0 rgba(0,0,0,0.14),
+          0 3px 1px -2px rgba(0,0,0,0.12),
+          0 1px 5px 0 rgba(0,0,0,0.2)`,
+    two: `0 4px 5px 0 rgba(0,0,0,0.14),
+          0 1px 10px 0 rgba(0,0,0,0.12),
+          0 2px 4px -1px rgba(0,0,0,0.3)`,
+    three: `0 8px 14px 2px rgba(0,0,0,0.14),
+          0 3px 10px 2px rgba(0,0,0,0.12),
+          0 5px 5px -3px rgba(0,0,0,0.2)`,
+    four: `0 16px 24px 2px rgba(0,0,0,0.14),
+          0 6px 30px 5px rgba(0,0,0,0.12),
+          0 8px 10px -7px rgba(0,0,0,0.2)`,
+  },
 }
 
 const animations = css`
@@ -46,6 +59,14 @@ const animations = css`
     }
   }
 
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
   @keyframes fadeInDown {
     0% {
       opacity: 0;
@@ -54,6 +75,38 @@ const animations = css`
     100% {
       opacity: 1;
       transform: translate(0, 0);
+    }
+  }
+  @keyframes slideInDown {
+    0% {
+      transform: translateY(-4rem);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slideOutDown {
+    0% {
+      height: 100%;
+    }
+    100% {
+      height: 0%;
+    }
+  }
+
+  @keyframes zoomOut {
+    0% {
+      opacity: 0;
+    }
+    10% {
+      opacity: 0;
+      transform: scale(1.25);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
     }
   }
 `

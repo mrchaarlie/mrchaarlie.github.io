@@ -160,6 +160,7 @@ const PortfolioBorderRadiusBL = ({ size, clipId }) => (
 const PortfolioInnerWrapper = styled.div`
   scroll-snap-align: start;
   flex: 0 0 90vw;
+  margin-bottom: 0.5rem;
 
   &:last-of-type {
     padding-right: calc((100vw - 900px - 2rem) / 2);
@@ -167,20 +168,25 @@ const PortfolioInnerWrapper = styled.div`
 
   @media screen and (min-width: ${props => props.theme.screens.medium}) {
     flex: 0 0 45rem;
-    padding-right: 2rem;
+    padding-right: 1rem;
   }
 `
 const PortfolioItem = styled.div`
   background: ${props => props.theme.colors.white};
   border-radius: 12px;
   margin: 0.5rem;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: ${props => props.theme.shadows.one};
   padding: 1rem 2rem;
   height: calc(100% - 3rem);
   position: relative;
   display: flex;
   flex-direction: column;
   text-align: center;
+  transition: box-shadow 0.25s ease-out;
+
+  &:hover {
+    box-shadow: ${props => props.theme.shadows.three};
+  }
 `
 const PImage = styled.img`
   max-width: 90%;
@@ -191,7 +197,7 @@ const PImage = styled.img`
   object-fit: contain;
 
   @media screen and (min-width: ${props => props.theme.screens.small}) {
-    max-height: 60%;
+    max-height: 58%;
   }
 `
 const PBody = styled.div`
@@ -231,6 +237,12 @@ const PLink = styled(Link)`
   padding: 0.375rem 2rem;
   border-radius: 2rem;
   text-decoration: none;
+  transition: background 0.25s ease-out;
+
+  &:hover,
+  &:focus {
+    background: ${props => props.theme.colors.secondaryDark};
+  }
 `
 
 const ScrollButton = styled.button`

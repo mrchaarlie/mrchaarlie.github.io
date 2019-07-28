@@ -4,15 +4,13 @@ import { Link } from './Router'
 import IAmA from './IAmA'
 import WidthWrapper from './WidthWrapper'
 
-import logoMask from '../img/logo-mask-purple.svg'
+import logo from '../img/logo.svg'
 
 const getAnimationStyle = ({ isVisible, fadeOut }) => {
-  const animationName = isVisible ? 'fadeInDown' : fadeOut ? 'fadeOut' : 'none'
-
   return isVisible
     ? `fadeInDown 0.5s cubic-bezier(0.17, 0.84, 0.44, 1) 0s forwards`
     : fadeOut
-    ? `fadeOut 0.2s ease-out 0s forwards`
+    ? `fadeOut 0.25s ease-out 0s forwards`
     : 'none'
 }
 
@@ -25,7 +23,8 @@ const Wrapper = styled.header`
   align-items: center;
   width: 100vw;
   height: ${props => props.theme.heights.header};
-  background: ${props => props.theme.colors.nav};
+  background: ${props => props.theme.colors.primaryDark};
+  color: ${props => props.theme.colors.white};
   opacity: ${props => (props.fadeOut || props.isVisible ? '1' : '0')};
   animation: ${props =>
     getAnimationStyle({
@@ -67,11 +66,22 @@ const LogoBackground = styled.div`
 const ScrollingAbout = styled.div`
   display: inline-block;
 `
-const Nav = styled.nav`
+const _Nav = styled.nav`
   a {
     display: inline-block;
     margin-left: 1rem;
+    color: inherit;
   }
+`
+const Nav = () => (
+  <_Nav>
+    <HeaderLink to="/portfolio">Portfolio</HeaderLink>
+    <HeaderLink to="#resume">Resume</HeaderLink>
+  </_Nav>
+)
+const HeaderLink = styled(Link)`
+  text-decoration: none;
+  font-weight: 700;
 `
 
 const Header = ({ isVisible, fadeOut, disabled }) => (
@@ -81,7 +91,7 @@ const Header = ({ isVisible, fadeOut, disabled }) => (
         <LogoText>
           <LogoContainer>
             <Link to="/">
-              <Logo src={logoMask} />
+              <Logo src={logo} />
             </Link>
             <LogoBackground />
           </LogoContainer>
@@ -90,13 +100,30 @@ const Header = ({ isVisible, fadeOut, disabled }) => (
           </ScrollingAbout>
         </LogoText>
 
-        <Nav>
-          <Link to="/portfolio">Portfolio</Link>
-          <Link to="#resume">Resume</Link>
-        </Nav>
+        <Nav />
       </NavContainer>
     </WidthWrapper>
   </Wrapper>
 )
 
-export default Header
+const BgHeaderWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: ${props => props.theme.heights.header};
+  display: flex;
+  align-items: center;
+  text-align: right;
+  color: ${props => props.theme.colors.primaryDark};
+  border-bottom: 1px solid ${props => props.theme.colors.lighterGrey};
+`
+const BackgroundHeader = ({ isVisible, fadeOut }) => (
+  <BgHeaderWrapper>
+    <WidthWrapper>
+      <Nav />
+    </WidthWrapper>
+  </BgHeaderWrapper>
+)
+
+export { Header, BackgroundHeader }

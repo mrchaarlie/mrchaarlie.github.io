@@ -25,9 +25,8 @@ const portfolioData = {
     title: '100+ Accelerator',
     category: 'Accelerator Website',
     image: img100,
-    keywords:
-      'Interface Design | Copywriting | Branding | Development',
-    linkTo: '/'
+    keywords: 'Interface Design | Copywriting | Branding | Development',
+    linkTo: '/',
   },
   femaleFunders: {
     title: 'Female Funders',
@@ -35,7 +34,7 @@ const portfolioData = {
     image: imgFF,
     keywords:
       'Information Architecture | Branding | SEO | Accessibility/Responsive Design | Development',
-    linkTo: '/'
+    linkTo: '/',
   },
   agileBlockchain: {
     title: 'Agile Blockchain Corporation',
@@ -43,7 +42,7 @@ const portfolioData = {
     image: imgABC,
     keywords:
       'UX Research | Information Architecture | Interface Design | Prototyping',
-    linkTo: '/'
+    linkTo: '/',
   },
   careerJsm: {
     title: 'CareerJSM',
@@ -51,7 +50,7 @@ const portfolioData = {
     image: imgCareerJSM,
     keywords:
       'Interface Design | User Interviews | User Research | Copywriting | Branding | Development',
-    linkTo: '/'
+    linkTo: '/',
   },
   diveNetworks: {
     title: 'Dive Networks',
@@ -59,15 +58,14 @@ const portfolioData = {
     image: imgDive,
     keywords:
       'Responsive/Interaction Design | User Research | Branding | Development',
-    linkTo: '/'
+    linkTo: '/',
   },
   netflixLogo: {
     title: 'Netflix Logo',
     category: 'CSS Experiment',
     image: imgNetflix,
-    keywords:
-      'Motion Design',
-    linkTo: '/'
+    keywords: 'Motion Design',
+    linkTo: '/',
   },
   crowdCurio: {
     title: 'Crowd Curio',
@@ -75,15 +73,14 @@ const portfolioData = {
     image: imgCurio,
     keywords:
       'User Research | User Interviews | Interface Design | Prototyping | Development',
-    linkTo: '/'
+    linkTo: '/',
   },
   uberEverything: {
     title: 'Uber Everything',
     category: 'Design Challenge',
     image: imgUberEverything,
-    keywords:
-      'UX Design | Product Design',
-    linkTo: '/'
+    keywords: 'UX Design | Product Design',
+    linkTo: '/',
   },
 }
 
@@ -105,7 +102,8 @@ const PortfolioWrapper = styled.div`
   overflow-x: scroll;
   display: flex;
   background-color: ${props => props.theme.colors.lighterGrey};
-  scrollbar-color: ${props => `${props.theme.colors.darkGrey} ${props.theme.colors.lighterGrey}`};
+  scrollbar-color: ${props =>
+    `${props.theme.colors.darkGrey} ${props.theme.colors.lighterGrey}`};
 
   @media screen and (min-width: ${props => props.theme.screens.small}) {
     height: 70vh;
@@ -253,26 +251,27 @@ const ScrollButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: ${props => props.disabled ? 0.1 : 1};
-  transition: background 0.25s ease-out, box-shadow 0.25s ease-out, opacity 0.25s ease-out;
+  opacity: ${props => (props.disabled ? 0.1 : 1)};
+  transition: background 0.25s ease-out, box-shadow 0.25s ease-out,
+    opacity 0.25s ease-out;
   border: 0;
 
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
     background-color: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 1px 1px #fff, 0 0 3px 3px ${props => props.theme.colors.primary};
+    box-shadow: 0 0 1px 1px #fff,
+      0 0 3px 3px ${props => props.theme.colors.primary};
     outline: 0;
   }
 
   &:disabled {
     cursor: default;
   }
-
 `
 
 const PrevButton = styled(ScrollButton)`
   left: 1.25rem;
-  background-image:url(${leftArrow});
+  background-image: url(${leftArrow});
 
   @media screen and (min-width: ${props => props.theme.screens.medium}) {
     left: calc(${MED_LEFT_MARGIN} + 0.25rem);
@@ -281,7 +280,7 @@ const PrevButton = styled(ScrollButton)`
 
 const NextButton = styled(ScrollButton)`
   right: 1rem;
-  background-image:url(${rightArrow});
+  background-image: url(${rightArrow});
 `
 
 const Portfolio = () => {
@@ -296,12 +295,12 @@ const Portfolio = () => {
 
   let portfolioEl = null
 
-  const scrollPortfolioTo = (position) => {
+  const scrollPortfolioTo = position => {
     portfolioEl.scroll({
       top: 0,
       left: position,
-      behavior: 'smooth'
-    });
+      behavior: 'smooth',
+    })
   }
 
   const nextItem = () => {
@@ -327,10 +326,9 @@ const Portfolio = () => {
     portfolioEl.addEventListener('scroll', () => {
       setPortfolioScrollPos(portfolioEl.scrollLeft)
     })
-
   })
 
-  // update Next Button  
+  // update Next Button
   useEffect(() => {
     if (portfolioEl.scrollLeft >= PORTFOLIO_MAX_WIDTH) {
       setNextButtonEnabled(false)
@@ -341,7 +339,7 @@ const Portfolio = () => {
       return () => clearTimeout(timer)
     }
   })
-  // update Prev Button  
+  // update Prev Button
   useEffect(() => {
     if (portfolioEl.scrollLeft <= PORTFOLIO_MIN_WIDTH) {
       setPrevButtonEnabled(false)
@@ -363,9 +361,8 @@ const Portfolio = () => {
         <PrevButton onClick={prevItem} disabled={!prevButtonEnabled} />
         <NextButton onClick={nextItem} disabled={!nextButtonEnabled} />
         <PortfolioWrapper ref={portfolioWrapperRef}>
-
           {Object.values(portfolioData).map(item => (
-            <PortfolioInnerWrapper key={item.title} >
+            <PortfolioInnerWrapper key={item.title}>
               <PortfolioItem>
                 <PImage src={item.image} />
                 <PBody>

@@ -164,7 +164,9 @@ const Hero = () => {
       <WidthWrapper small>
         <HeroIntro>
           <p>
-            Hi, I'm a digital user experience designer with over 7 years of experience. I have an engineering background and worked as a developer before transitioning into UX.
+            Hi, I'm a digital user experience designer with over 7 years of
+            experience. I have an engineering background and worked as a
+            developer before transitioning into UX.
           </p>
         </HeroIntro>
       </WidthWrapper>

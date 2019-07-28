@@ -1,11 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { Link } from 'components/Router'
 import styled from 'styled-components'
 import StickyTitle from './StickyTitle'
 
 import WidthWrapper from './WidthWrapper'
 
-import img100 from '../img/portfolio/100a-home.png'
-import imgFf from '../img/portfolio/ff-home.jpg'
+import img100 from '../img/portfolio/100a.png'
+import imgABC from '../img/portfolio/abc.png'
+import imgCareerJSM from '../img/portfolio/careerjsm.png'
+import imgCurio from '../img/portfolio/curio.jpg'
+import imgDive from '../img/portfolio/dive.jpg'
+import imgFF from '../img/portfolio/ff.jpg'
+import imgNetflix from '../img/portfolio/netflix.png'
+import imgUberEverything from '../img/portfolio/uber-everything.jpg'
+
 import leftArrow from '../img/left-arrow.svg'
 import rightArrow from '../img/right-arrow.svg'
 
@@ -19,55 +27,63 @@ const portfolioData = {
     image: img100,
     keywords:
       'Interface Design | Copywriting | Branding | Development',
+    linkTo: '/'
   },
   femaleFunders: {
     title: 'Female Funders',
     category: 'Education Website',
-    image: imgFf,
+    image: imgFF,
     keywords:
-      'Information architecture | Branding | SEO | Accessibility/Responsive design | Development',
+      'Information Architecture | Branding | SEO | Accessibility/Responsive Design | Development',
+    linkTo: '/'
   },
   agileBlockchain: {
     title: 'Agile Blockchain Corporation',
     category: 'Logistic App',
-    image: imgFf,
+    image: imgABC,
     keywords:
       'UX Research | Information Architecture | Interface Design | Prototyping',
+    linkTo: '/'
   },
   careerJsm: {
     title: 'CareerJSM',
     category: 'Job Management App',
-    image: imgFf,
+    image: imgCareerJSM,
     keywords:
       'Interface Design | User Interviews | User Research | Copywriting | Branding | Development',
+    linkTo: '/'
   },
   diveNetworks: {
     title: 'Dive Networks',
     category: 'Digital Signage App',
-    image: imgFf,
+    image: imgDive,
     keywords:
-      'Responsive/Interaction design | User Research | Branding | Development',
+      'Responsive/Interaction Design | User Research | Branding | Development',
+    linkTo: '/'
   },
   netflixLogo: {
     title: 'Netflix Logo',
     category: 'CSS Experiment',
-    image: imgFf,
+    image: imgNetflix,
     keywords:
       'Motion Design',
+    linkTo: '/'
   },
   crowdCurio: {
     title: 'Crowd Curio',
     category: 'Citizen Science Platform',
-    image: imgFf,
+    image: imgCurio,
     keywords:
       'User Research | User Interviews | Interface Design | Prototyping | Development',
+    linkTo: '/'
   },
   uberEverything: {
     title: 'Uber Everything',
     category: 'Design Challenge',
-    image: imgFf,
+    image: imgUberEverything,
     keywords:
       'UX Design | Product Design',
+    linkTo: '/'
   },
 }
 
@@ -82,7 +98,7 @@ const PortfolioWrapper = styled.div`
   scroll-snap-type: x proximity;
   text-align: left;
   position: relative;
-  height: 50vh;
+  height: 60vh;
   min-height: 26rem;
   margin-top: 1rem;
   margin-left: 1rem;
@@ -164,20 +180,35 @@ const PortfolioItem = styled.div`
   padding: 1rem 2rem;
   height: calc(100% - 3rem);
   position: relative;
+  display: flex;
+  flex-direction: column;
   text-align: center;
 `
 const PImage = styled.img`
-  width: 100%;
-  height: 40%;
+  max-width: 90%;
+  max-height: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  flex: 0 1 50%;
   object-fit: contain;
 
   @media screen and (min-width: ${props => props.theme.screens.small}) {
-    height: 65%;
+    max-height: 60%;
   }
 `
+const PBody = styled.div`
+  flex: 1 0 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+`
 const PTitle = styled.div`
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
   font-family: ${props => props.theme.fonts.heading};
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 700;
   line-height: 1.15;
   color: ${props => props.theme.colors.primary};
@@ -187,19 +218,28 @@ const PTitle = styled.div`
   }
 `
 const PCategory = styled.div`
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   margin-bottom: 0.75rem;
   color: ${props => props.theme.colors.darkGrey};
 `
 const PKeywords = styled.p`
-  font-size: 0.875rem;
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+  color: ${props => props.theme.colors.grey};
+`
+const PLink = styled(Link)`
+  background: ${props => props.theme.colors.secondary};
+  color: ${props => props.theme.colors.white};
+  padding: 0.375rem 2rem;
+  border-radius: 2rem;
+  text-decoration: none;
 `
 
 const ScrollButton = styled.button`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 9999;
+  z-index: 10;
   width: 2rem;
   height: 4rem;
   margin: 0;
@@ -314,7 +354,7 @@ const Portfolio = () => {
   })
 
   return (
-    <div>
+    <>
       <WidthWrapper>
         <StickyTitle>Portfolio</StickyTitle>
       </WidthWrapper>
@@ -322,15 +362,18 @@ const Portfolio = () => {
       <OuterWrapper>
         <PrevButton onClick={prevItem} disabled={!prevButtonEnabled} />
         <NextButton onClick={nextItem} disabled={!nextButtonEnabled} />
-        <PortfolioWrapper ref={portfolioWrapperRef} id="test">
+        <PortfolioWrapper ref={portfolioWrapperRef}>
 
           {Object.values(portfolioData).map(item => (
-            <PortfolioInnerWrapper key={item.title}>
+            <PortfolioInnerWrapper key={item.title} >
               <PortfolioItem>
                 <PImage src={item.image} />
-                <PTitle>{item.title}</PTitle>
-                <PCategory>{item.category}</PCategory>
-                <PKeywords>{item.keywords}</PKeywords>
+                <PBody>
+                  <PTitle>{item.title}</PTitle>
+                  <PCategory>{item.category}</PCategory>
+                  <PKeywords>{item.keywords}</PKeywords>
+                  <PLink to={item.linkTo}>Read details</PLink>
+                </PBody>
               </PortfolioItem>
             </PortfolioInnerWrapper>
           ))}
@@ -338,7 +381,7 @@ const Portfolio = () => {
         <PortfolioBorderRadiusTL size="20" />
         <PortfolioBorderRadiusBL size="10" />
       </OuterWrapper>
-    </div>
+    </>
   )
 }
 

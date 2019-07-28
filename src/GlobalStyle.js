@@ -23,7 +23,7 @@ export const theme = {
   },
   fonts: {
     heading: 'Playfair Display',
-    body: 'Lora',
+    body: 'Lato',
   },
   screens: {
     small: '600px',
@@ -70,6 +70,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${theme.fonts.body}, 'Helvetica Neue', Arial, sans-serif;
     font-variant-numeric: lining-nums;
     font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
     @media screen and (min-width: ${theme.screens.large}) {
       font-size: 20px;

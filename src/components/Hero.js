@@ -18,6 +18,8 @@ const HeroTitle = styled.div`
   text-align: center;
   padding: 0 1rem;
   margin-bottom: 6rem;
+  position: relative;
+  z-index: 999;
 
   animation: zoomOut ${TITLE_ANIM_DURATION}s cubic-bezier(0.17, 0.84, 0.44, 1)
     0s forwards;
@@ -81,10 +83,11 @@ const HeroIntro = styled.div`
   &:after {
     content: '';
     pointer-events: none;
-    position: absolute;
-    left: 0;
+    position: fixed;
+    z-index: 20;
+    left: -5%;
     bottom: 0;
-    width: 100%;
+    width: 110%;
     height: 100%;
     background: #fff;
     animation: slideOutDown 1.2s cubic-bezier(0.17, 0.84, 0.44, 1)
@@ -116,12 +119,12 @@ const Hero = () => {
 
   const heroTitleRef = useRef(null)
 
-  const showNavBar = () => {
+  const showTopNavBar = () => {
     setNavBarVisible(true)
     setNavBarDisabled(false)
   }
 
-  const hideNavBar = () => {
+  const hideTopNavBar = () => {
     navBarVisible && setNavBarFadeOut(true)
     setNavBarVisible(false)
   }
@@ -131,9 +134,9 @@ const Hero = () => {
 
     // disable the Navbar after it transitions out.
     if (heroTitleRef.current.getBoundingClientRect().bottom < 16) {
-      showNavBar()
+      showTopNavBar()
     } else {
-      hideNavBar()
+      hideTopNavBar()
 
       const navTimer = setTimeout(() => {
         setNavBarDisabled(true)
@@ -161,14 +164,7 @@ const Hero = () => {
       <WidthWrapper small>
         <HeroIntro>
           <p>
-            Hi, I'm a problem solver that focuses on designing, developing, and
-            building experiences.
-          </p>
-          <p>
-            My 7+ years of experience in designing digital products has been
-            fuelled by my love of technology. The past several companies I've
-            worked at have been startups, where I've used lean methodologies and
-            workflows to maximize impact and efficiency.
+            Hi, I'm a digital user experience designer with over 7 years of experience. I have an engineering background and worked as a developer before transitioning into UX.
           </p>
         </HeroIntro>
       </WidthWrapper>

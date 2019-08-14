@@ -92,7 +92,7 @@ const OuterWrapper = styled.div`
 `
 
 const PortfolioWrapper = styled.div`
-  scroll-snap-type: x proximity;
+  scroll-snap-type: x mandatory
   text-align: left;
   position: relative;
   height: 60vh;
@@ -218,7 +218,7 @@ const PTitle = styled.div`
   color: ${props => props.theme.colors.primary};
 
   @media screen and (min-width: ${props => props.theme.screens.medium}) {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
 `
 const PCategory = styled.div`

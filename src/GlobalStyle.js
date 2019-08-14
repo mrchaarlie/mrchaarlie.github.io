@@ -95,6 +95,19 @@ const animations = css`
       height: 0%;
     }
   }
+  @keyframes fadeOutSlideOutDown {
+    0% {
+      height: 100%;
+      opacity: 1;
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      height: 0%;
+      opacity: 0.2;
+    }
+  }
 
   @keyframes zoomOut {
     0% {
@@ -126,6 +139,10 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
+    @media screen and (min-width: ${theme.screens.medium}) {
+      font-size: 18px;
+    }
+
     @media screen and (min-width: ${theme.screens.large}) {
       font-size: 20px;
     }
@@ -155,32 +172,33 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-size: 4.21rem;
+    font-size: 4.21em;
     font-weight: 700;
     color: ${theme.colors.darkerGrey};
   }
 
   h2 {
-    font-size: 3.16rem;
+    font-size: 3.16em;
     font-weight: 700;
     color: ${theme.colors.darkerGrey};
   }
 
   h3 {
-    font-size: 2.37rem;
+    font-size: 2.37em;
   }
 
   h4 {
-    font-size: 1.78rem;
+    font-size: 1.78em;
   }
 
   h5 {
-    font-size: 1.33rem;
+    font-size: 1.33em;
   }
 
   h6 {
     font-weight: 1.33;
     font-weight: 700;
+    font-size: 1.33em;
     text-transform: uppercase;
     letter-spacing: 0.1px;
   }
@@ -188,7 +206,7 @@ const GlobalStyle = createGlobalStyle`
   p,
   ol,
   ul {
-    font-size: 1rem;
+    font-size: 1em;
     margin-top: 0;
     margin-bottom: 0.5rem;
     line-height: 1.6;
@@ -201,6 +219,15 @@ const GlobalStyle = createGlobalStyle`
 
   button {
     cursor: pointer;
+  }
+
+  a {
+    color: ${theme.colors.primary};
+
+    &:hover,
+    &:focus {
+      color: ${theme.colors.primaryDark};
+    }
   }
 
   ${animations};

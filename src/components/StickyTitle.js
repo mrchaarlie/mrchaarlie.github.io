@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 const StickyTitle = styled.h2`
   position: sticky;
+  z-index: 50;
   margin-bottom: 0;
   top: ${props => props.theme.heights.header};
   background: rgba(255, 255, 255, 0.98);

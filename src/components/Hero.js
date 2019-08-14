@@ -25,7 +25,7 @@ const HeroTitle = styled.div`
 `
 const Name = styled.h1`
   position: relative;
-  z-index: 10;
+  z-index: 150;
   font-size: 3rem;
   color: ${props => props.theme.colors.primary};
   margin-bottom: 0.5rem;
@@ -58,13 +58,13 @@ const HeroIntro = styled.div`
     content: '';
     pointer-events: none;
     position: fixed;
-    z-index: 20;
+    z-index: 100;
     left: -5%;
     bottom: 0;
     width: 110%;
     height: 100%;
     background: #fff;
-    animation: slideOutDown 1.2s cubic-bezier(0.17, 0.84, 0.44, 1)
+    animation: fadeOutSlideOutDown 0.25s cubic-bezier(0.17, 0.84, 0.44, 1)
       ${TITLE_ANIM_DURATION + 0.4}s forwards;
   }
 `

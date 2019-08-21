@@ -12,3 +12,5 @@ test.html
 favicon.ai
 /node_modules
 /tmp
+artifacts/
+dist/

@@ -71,6 +71,29 @@ const _Nav = styled.nav`
     display: inline-block;
     margin-left: 1rem;
     color: inherit;
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 2px;
+      opacity: 0;
+      background: currentColor;
+      transition: all 0.25s ease-out;
+    }
+
+    &:hover,
+    &:focus {
+      color: inherit;
+
+      &:after {
+        opacity: 1;
+      }
+    }
   }
 `
 const Nav = () => (

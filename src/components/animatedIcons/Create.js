@@ -18,8 +18,8 @@ const Wrapper = styled(SVGWrapper)`
   }
 `
 
-const Create = () => (
-  <Wrapper>
+const Create = ({ ...props }) => (
+  <Wrapper {...props}>
     <_Create />
   </Wrapper>
 )

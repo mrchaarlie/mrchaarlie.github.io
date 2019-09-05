@@ -63,7 +63,7 @@ const HeroIntro = styled.div`
     bottom: 0;
     width: 110%;
     height: 100%;
-    background: #fff;
+    background: ${props => props.theme.colors.white};
     animation: slideOutDown 0.35s cubic-bezier(0.17, 0.84, 0.44, 1)
       ${TITLE_ANIM_DURATION + 0.4}s forwards;
   }
@@ -94,8 +94,12 @@ const Hero = () => {
     setNavBarVisible(false)
   }
 
+  const scrollListener = () => {
+    setScrollPos(window.scrollY)
+  }
+
   useEffect(() => {
-    window.addEventListener('scroll', () => setScrollPos(window.scrollY))
+    window.addEventListener('scroll', scrollListener)
 
     // disable the Navbar after it transitions out.
     if (heroTitleRef.current.getBoundingClientRect().bottom < 16) {
@@ -108,6 +112,10 @@ const Hero = () => {
       }, 20)
 
       return () => clearTimeout(navTimer)
+    }
+
+    return () => {
+      window.removeEventListener('scroll', scrollListener)
     }
   })
 

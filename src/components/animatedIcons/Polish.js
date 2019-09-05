@@ -17,8 +17,8 @@ const Wrapper = styled(SVGWrapper)`
   }
 `
 
-const IconPolish = () => (
-  <Wrapper>
+const IconPolish = ({ ...props }) => (
+  <Wrapper {...props}>
     <_IconPolish />
   </Wrapper>
 )

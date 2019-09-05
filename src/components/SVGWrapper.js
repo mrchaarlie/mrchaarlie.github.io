@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const SVGWrapper = styled.div`
+const _SVGWrapper = styled.div`
   height: 100%;
   width: 100%;
 
@@ -17,11 +17,8 @@ const SVGWrapper = styled.div`
     stroke-linejoin: round;
     transition: stroke 0.5s ease;
 
-    /*TODO*/
-    &.animate {
-      /*stroke-linecap: unset;*/
-      stroke-linecap: round;
-    }
+    stroke-linecap: ${props => (props.hide ? 'unset' : 'round')};
+    ${props => props.hide && 'animation: none !important'};
   }
 
   @keyframes animation-create {
@@ -63,5 +60,9 @@ const SVGWrapper = styled.div`
     }
   }
 `
-
+const SVGWrapper = ({ hide = false, children, ...rest }) => (
+  <_SVGWrapper hide={hide} {...rest}>
+    {children}
+  </_SVGWrapper>
+)
 export default SVGWrapper

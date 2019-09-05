@@ -17,8 +17,8 @@ const Wrapper = styled(SVGWrapper)`
   }
 `
 
-const IconValidate = () => (
-  <Wrapper>
+const IconValidate = ({ ...props }) => (
+  <Wrapper {...props}>
     <_IconValidate />
   </Wrapper>
 )

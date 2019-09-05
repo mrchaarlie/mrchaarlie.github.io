@@ -7,7 +7,8 @@
     "build": "react-static build",
     "analyze": "react-static build --analyze",
     "serve": "serve dist -p 3000",
-    "format": "prettier --write src/**/*.js"
+    "format": "prettier --write src/**/*.js",
+    "lint": "eslint src/"
   },
   "dependencies": {
     "@reach/router": "^1.2.1",
@@ -29,14 +30,22 @@
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "9.x",
     "eslint": "5.x",
+    "eslint-config-prettier": "4.1.0",
     "eslint-config-react-app": "^3.0.8",
     "eslint-config-react-tools": "1.x.x",
+    "eslint-config-standard": "^12.0.0",
     "eslint-plugin-flowtype": "2.x",
     "eslint-plugin-import": "2.x",
     "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "7.x",
+    "eslint-plugin-standard": "^4.0.1",
     "serve": "10.1.2",
     "webpack": "^4.35.3",
     "webpack-cli": "^3.3.5"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   }
 }

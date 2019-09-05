@@ -1,4 +1,5 @@
 import * as React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const OuterWrapper = styled.div`
@@ -24,10 +25,14 @@ const InnerWrapper = styled.div`
   }
 `
 
-const WidthWrapper = ({ children, small }) => (
+const WidthWrapper = ({ small, children }) => (
   <OuterWrapper small={small}>
     <InnerWrapper>{children}</InnerWrapper>
   </OuterWrapper>
 )
 
+WidthWrapper.propTypes = {
+  small: PropTypes.bool,
+  children: PropTypes.any,
+}
 export default WidthWrapper

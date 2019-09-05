@@ -7,7 +7,7 @@ const Wrapper = styled(SVGWrapper)`
   path {
     stroke-dasharray: 471;
     stroke-dashoffset: 471;
-    animation: animation-research 2s ease-out forwards;
+    animation: animation-research 1.5s ease-out forwards;
   }
 
   @keyframes animation-research {

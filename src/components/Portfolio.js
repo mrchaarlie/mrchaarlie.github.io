@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'components/Router'
 import styled from 'styled-components'
 import StickyTitle from './StickyTitle'
@@ -149,6 +150,10 @@ const PortfolioBorderRadiusTL = ({ size, clipId }) => (
     <_PortfolioBorderRadiusTL size={size} />
   </>
 )
+PortfolioBorderRadiusTL.propTypes = {
+  size: PropTypes.number,
+  clipId: PropTypes.string,
+}
 
 const PortfolioBorderRadiusBL = ({ size, clipId }) => (
   <>
@@ -156,6 +161,10 @@ const PortfolioBorderRadiusBL = ({ size, clipId }) => (
     <_PortfolioBorderRadiusBL size={size} />
   </>
 )
+PortfolioBorderRadiusBL.propTypes = {
+  size: PropTypes.number,
+  clipId: PropTypes.string,
+}
 
 const PortfolioInnerWrapper = styled.div`
   scroll-snap-align: start;

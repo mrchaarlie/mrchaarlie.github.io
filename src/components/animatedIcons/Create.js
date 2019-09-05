@@ -7,7 +7,7 @@ const Wrapper = styled(SVGWrapper)`
   path {
     stroke-dasharray: 0 1038;
     stroke-dashoffset: ${1038 / 2};
-    animation: animation-create 2s ease-out forwards;
+    animation: animation-create 1.5s ease-out forwards;
   }
 
   @keyframes animation-create {

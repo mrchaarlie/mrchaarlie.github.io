@@ -1,4 +1,5 @@
 import * as React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Link } from './Router'
 import IAmA from './IAmA'
@@ -128,6 +129,11 @@ const Header = ({ isVisible, fadeOut, disabled }) => (
     </WidthWrapper>
   </Wrapper>
 )
+Header.propTypes = {
+  isVisible: PropTypes.bool,
+  fadeOut: PropTypes.bool,
+  disabled: PropTypes.bool,
+}
 
 const BgHeaderWrapper = styled.div`
   position: absolute;
@@ -148,5 +154,9 @@ const BackgroundHeader = ({ isVisible, fadeOut }) => (
     </WidthWrapper>
   </BgHeaderWrapper>
 )
+BackgroundHeader.propTypes = {
+  isVisible: PropTypes.bool,
+  fadeOut: PropTypes.bool,
+}
 
 export { Header, BackgroundHeader }

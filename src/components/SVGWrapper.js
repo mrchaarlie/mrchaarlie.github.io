@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const _SVGWrapper = styled.div`
@@ -65,4 +66,10 @@ const SVGWrapper = ({ hide = false, children, ...rest }) => (
     {children}
   </_SVGWrapper>
 )
+
+SVGWrapper.propTypes = {
+  hide: PropTypes.bool,
+  children: PropTypes.any,
+}
+
 export default SVGWrapper

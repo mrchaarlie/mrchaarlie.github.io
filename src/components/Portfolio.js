@@ -105,11 +105,11 @@ const PortfolioWrapper = styled.div`
   scrollbar-color: ${props =>
     `${props.theme.colors.darkGrey} ${props.theme.colors.lighterGrey}`};
 
-  @media screen and (min-width: ${props => props.theme.screens.small}) {
+  @media ${props => props.theme.media.small} {
     height: 70vh;
     max-height: 30rem;
   }
-  @media screen and (min-width: ${props => props.theme.screens.medium}) {
+  @media ${props => props.theme.media.medium} {
     margin-left: ${MED_LEFT_MARGIN};
   }
 
@@ -131,7 +131,7 @@ const PortfolioBorderRadius = styled.div`
   pointer-events: none;
   left: 1rem;
 
-  @media screen and (min-width: ${props => props.theme.screens.medium}) {
+  @media ${props => props.theme.media.medium} {
     left: ${MED_LEFT_MARGIN};
   }
 `
@@ -166,7 +166,7 @@ const PortfolioInnerWrapper = styled.div`
     padding-right: calc((100vw - 900px - 2rem) / 2);
   }
 
-  @media screen and (min-width: ${props => props.theme.screens.medium}) {
+  @media ${props => props.theme.media.medium} {
     flex: 0 0 45rem;
     padding-right: 1rem;
   }
@@ -187,6 +187,12 @@ const PortfolioItem = styled.div`
   &:hover {
     box-shadow: ${props => props.theme.shadows.three};
   }
+
+  @media ${props => props.theme.media.short} {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1.3fr 1fr;
+  }
 `
 const PImage = styled.img`
   max-width: 90%;
@@ -196,8 +202,14 @@ const PImage = styled.img`
   flex: 0 1 50%;
   object-fit: contain;
 
-  @media screen and (min-width: ${props => props.theme.screens.small}) {
-    max-height: 58%;
+  @media (min-width: ${props => props.theme.media.small}) {
+    max-height: 53%;
+  }
+  @media ${props => props.theme.media.short} {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
   }
 `
 const PBody = styled.div`
@@ -207,6 +219,11 @@ const PBody = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
+
+  @media ${props => props.theme.media.short} {
+    text-align: left;
+    align-items: flex-start;
+  }
 `
 const PTitle = styled.div`
   margin-top: 0.75rem;
@@ -217,7 +234,7 @@ const PTitle = styled.div`
   line-height: 1.15;
   color: ${props => props.theme.colors.primary};
 
-  @media screen and (min-width: ${props => props.theme.screens.medium}) {
+  @media ${props => props.theme.media.medium} {
     font-size: 2rem;
   }
 `
@@ -285,7 +302,7 @@ const PrevButton = styled(ScrollButton)`
   left: 1.25rem;
   background-image: url(${leftArrow});
 
-  @media screen and (min-width: ${props => props.theme.screens.medium}) {
+  @media ${props => props.theme.media.medium} {
     left: calc(${MED_LEFT_MARGIN} + 0.25rem);
   }
 `

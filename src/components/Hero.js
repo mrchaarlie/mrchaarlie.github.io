@@ -6,7 +6,7 @@ import WidthWrapper from './WidthWrapper'
 const Wrapper = styled.div`
   margin: 4rem 0;
 
-  @media screen and (min-width: ${props => props.theme.screens.medium}) {
+  @media ${props => props.theme.media.medium} {
     margin: 7rem 0;
   }
 `
@@ -37,7 +37,7 @@ const Name = styled.h1`
     rgba(255, 255, 255, 1) 100%
   );
 
-  @media screen and (min-width: ${props => props.theme.screens.medium}) {
+  @media ${props => props.theme.media.medium} {
     font-size: 4rem;
   }
 `
@@ -64,7 +64,7 @@ const HeroIntro = styled.div`
     width: 110%;
     height: 100%;
     background: #fff;
-    animation: fadeOutSlideOutDown 0.25s cubic-bezier(0.17, 0.84, 0.44, 1)
+    animation: slideOutDown 0.35s cubic-bezier(0.17, 0.84, 0.44, 1)
       ${TITLE_ANIM_DURATION + 0.4}s forwards;
   }
 `

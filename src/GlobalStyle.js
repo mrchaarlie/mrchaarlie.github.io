@@ -28,6 +28,13 @@ export const theme = {
     small: '600px',
     medium: '900px',
     large: '1200px',
+    short: '700px',
+  },
+  media: {
+    small: 'screen and (min-width: 600px)',
+    medium: 'screen and (min-width: 900px)',
+    large: 'screen and (min-width: 1200px)',
+    short: 'screen and (min-width: 900px) and (max-height: 700px)',
   },
   heights: {
     header: '3.5rem',
@@ -95,19 +102,6 @@ const animations = css`
       height: 0%;
     }
   }
-  @keyframes fadeOutSlideOutDown {
-    0% {
-      height: 100%;
-      opacity: 1;
-    }
-    10% {
-      opacity: 1;
-    }
-    100% {
-      height: 0%;
-      opacity: 0.2;
-    }
-  }
 
   @keyframes zoomOut {
     0% {
@@ -139,11 +133,11 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    @media screen and (min-width: ${theme.screens.medium}) {
+    @media ${theme.screens.medium} {
       font-size: 18px;
     }
 
-    @media screen and (min-width: ${theme.screens.large}) {
+    @media ${theme.screens.large} {
       font-size: 20px;
     }
   }

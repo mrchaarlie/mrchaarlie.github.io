@@ -27,7 +27,7 @@ const portfolioData = {
     category: 'Accelerator Website',
     image: img100,
     keywords: 'Interface Design | Copywriting | Branding | Development',
-    linkTo: '/',
+    linkTo: '/portfolio/100-accelerator',
   },
   femaleFunders: {
     title: 'Female Funders',
@@ -268,6 +268,10 @@ const PLink = styled(Link)`
   &:hover,
   &:focus {
     background: ${props => props.theme.colors.secondaryDark};
+    color: ${props => props.theme.colors.white};
+  }
+  &:active {
+    color: ${props => props.theme.colors.white};
   }
 `
 

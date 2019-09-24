@@ -36,6 +36,7 @@ const Section = styled.section`
 `
 const SectionIcon = styled.div`
   grid-area: i;
+  margin-top: 0.5rem;
 `
 const SectionTitle = styled.div`
   grid-area: t;

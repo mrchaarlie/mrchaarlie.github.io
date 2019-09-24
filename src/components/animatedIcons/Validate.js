@@ -7,7 +7,7 @@ const Wrapper = styled(SVGWrapper)`
   path {
     stroke-dasharray: 780 793;
     stroke-dashoffset: 780;
-    animation: animation-validate 1.5s ease-out forwards;
+    animation: animation-validate 1.75s ease-out forwards;
   }
 
   @keyframes animation-validate {

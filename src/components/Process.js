@@ -24,7 +24,8 @@ const Section = styled.section`
     'c c c c';
   grid-gap: 0.75rem;
 
-  @media screen and (min-width: ${props => props.theme.screens.medium}) {
+  @media screen and ${props => props.theme.media.medium} {
+
     grid-gap: 1rem 1.5rem;
     grid-template-columns: 6rem repeat(3, 1fr);
     grid-template-rows: 2.5rem repeat(2, 1fr);
@@ -47,7 +48,7 @@ const SectionTitle = styled.div`
   font-size: 2rem;
   color: ${props => props.theme.colors.darkGrey};
 
-  @media screen and (min-width: ${props => props.theme.screens.medium}) {
+  @media screen and ${props => props.theme.media.medium} {
   }
 `
 const SectionContent = styled.div`

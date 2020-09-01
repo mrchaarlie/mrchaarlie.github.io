@@ -84,6 +84,17 @@ const animations = css`
       transform: translate(0, 0);
     }
   }
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
   @keyframes slideInDown {
     0% {
       transform: translateY(-4rem);
@@ -133,15 +144,16 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    @media ${theme.screens.medium} {
+    @media ${theme.media.medium} {
       font-size: 18px;
     }
 
-    @media ${theme.screens.large} {
+    @media ${theme.media.large} {
       font-size: 20px;
     }
   }
 
+  
   html,
   body,
   #root,

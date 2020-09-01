@@ -13,32 +13,35 @@ const Wrapper = styled.div`
 
 const TITLE_ANIM_DURATION = 0.7
 
-const HeroTitle = styled.div`
+const HeroContainer = styled.div`
   text-align: center;
-  padding: 0 1rem;
-  margin-bottom: 6rem;
+  padding: 0 2rem;
+  margin: 0 auto 6rem;
+  max-width: 50rem;
   position: relative;
   z-index: 999;
-
-  animation: zoomOut ${TITLE_ANIM_DURATION}s cubic-bezier(0.17, 0.84, 0.44, 1)
-    0s forwards;
+  animation: zoomOut ${TITLE_ANIM_DURATION}s cubic-bezier(0.17, 0.84, 0.44, 1) 0s forwards;
 `
-const Name = styled.h1`
+const HeroText = styled.h1`
   position: relative;
   z-index: 150;
-  font-size: 3rem;
-  color: ${props => props.theme.colors.primary};
-  margin-bottom: 0.5rem;
-  background: rgb(255, 255, 255);
-  background: linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 1) 20%,
-    rgba(255, 255, 255, 1) 100%
-  );
+  font-size: 2rem;
+  // color: ${props => props.theme.colors.primary};
+  background: linear-gradient(135deg, #b56893, #272f7d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  // margin-bottom: 0.5rem;
+  // background: rgb(255, 255, 255);
+  // background: linear-gradient(
+  //   0deg,
+  //   rgba(255, 255, 255, 0) 0%,
+  //   rgba(255, 255, 255, 1) 20%,
+  //   rgba(255, 255, 255, 1) 100%
+  // );
 
   @media ${props => props.theme.media.medium} {
-    font-size: 4rem;
+    font-size: 2.5rem;
   }
 `
 const Title = styled.div`
@@ -129,10 +132,9 @@ const Hero = () => {
         disabled={navBarDisabled}
       />
 
-      <HeroTitle id="HeroTitle" ref={heroTitleRef}>
-        <Name>Charles Wu</Name>
-        <Title>UX Engineer</Title>
-      </HeroTitle>
+      <HeroContainer id="Hero-Title" ref={heroTitleRef}>
+        <HeroText>Hi, I'm Charles. I'm a product designer with a knack for simplicity.</HeroText>
+      </HeroContainer>
 
       <WidthWrapper small>
         <HeroIntro>

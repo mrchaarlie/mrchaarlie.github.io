@@ -7,6 +7,8 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  color: ${props => props.theme.colors.lighterGrey};
+  animation: fadeInOut 1s cubic-bezier(0.17, 0.84, 0.44, 1) 0s forwards;
 `
 
 const Loading = () => (

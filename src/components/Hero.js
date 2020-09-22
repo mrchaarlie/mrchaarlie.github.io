@@ -27,9 +27,10 @@ const HeroText = styled.h1`
   z-index: 150;
   font-size: 2rem;
   // color: ${props => props.theme.colors.primary};
-  background: linear-gradient(135deg, #b56893, #272f7d);
+  background: linear-gradient(173deg, ${props => props.theme.colors.primary} 15%, ${props => props.theme.colors.secondary} 50%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-attachment: fixed;
 
   // margin-bottom: 0.5rem;
   // background: rgb(255, 255, 255);
@@ -133,7 +134,7 @@ const Hero = () => {
       />
 
       <HeroContainer id="Hero-Title" ref={heroTitleRef}>
-        <HeroText>Hi, I'm Charles. I'm a product designer with a knack for simplicity.</HeroText>
+        <HeroText>Hi, I'm Charles. I'm a product designer with a love for simplicity.</HeroText>
       </HeroContainer>
 
       <WidthWrapper small>

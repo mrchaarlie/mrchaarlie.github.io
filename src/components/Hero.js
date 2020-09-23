@@ -26,20 +26,14 @@ const HeroText = styled.h1`
   position: relative;
   z-index: 150;
   font-size: 2rem;
-  // color: ${props => props.theme.colors.primary};
-  background: linear-gradient(173deg, ${props => props.theme.colors.primary} 15%, ${props => props.theme.colors.secondary} 50%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-attachment: fixed;
+  color: ${props => props.theme.colors.primary};
 
-  // margin-bottom: 0.5rem;
-  // background: rgb(255, 255, 255);
-  // background: linear-gradient(
-  //   0deg,
-  //   rgba(255, 255, 255, 0) 0%,
-  //   rgba(255, 255, 255, 1) 20%,
-  //   rgba(255, 255, 255, 1) 100%
-  // );
+  @supports (-webkit-background-clip: text) {
+    background: linear-gradient(173deg, ${props => props.theme.colors.primary} 15%, ${props => props.theme.colors.secondary} 50%);
+    background-attachment: fixed;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
   @media ${props => props.theme.media.medium} {
     font-size: 2.5rem;

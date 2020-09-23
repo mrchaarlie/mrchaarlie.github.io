@@ -1,6 +1,7 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { transparentize } from 'polished'
 import { Link } from './Router'
 import IAmA from './IAmA'
 import WidthWrapper from './WidthWrapper'
@@ -24,7 +25,7 @@ const Wrapper = styled.header`
   align-items: center;
   width: 100vw;
   height: ${props => props.theme.heights.header};
-  background: ${props => props.theme.colors.primaryDark};
+  background: ${props => transparentize(0.1, props.theme.colors.primaryDark)};
   color: ${props => props.theme.colors.white};
   opacity: ${props => (props.fadeOut || props.isVisible ? '1' : '0')};
   animation: ${props =>
@@ -39,7 +40,7 @@ const NavContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 `
-const LogoText = styled.div`
+const LogoAndText = styled.div`
   display: flex;
   align-items: center;
 `
@@ -112,7 +113,7 @@ const Header = ({ isVisible, fadeOut, disabled }) => (
   <Wrapper isVisible={isVisible} fadeOut={fadeOut} disabled={disabled}>
     <WidthWrapper>
       <NavContainer>
-        <LogoText>
+        <LogoAndText>
           <LogoContainer>
             <Link to="/">
               <Logo src={logo} />
@@ -122,7 +123,7 @@ const Header = ({ isVisible, fadeOut, disabled }) => (
           <ScrollingAbout>
             <IAmA />
           </ScrollingAbout>
-        </LogoText>
+        </LogoAndText>
 
         <Nav />
       </NavContainer>

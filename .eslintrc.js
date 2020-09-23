@@ -1,35 +1,35 @@
 module.exports = {
-  plugins: ['standard', 'react'],
-
-  extends: ['standard', 'prettier', 'prettier/standard'],
-
-  settings: {
-    react: {
-      version: '16.8',
-    },
+  env: {
+    browser: true,
+    es6: true,
   },
-
   parser: 'babel-eslint',
-
+  extends: ['airbnb', 'prettier', 'prettier/react'],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+  },
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
+      modules: true,
     },
+    ecmaVersion: 2018,
+    sourceType: 'module',
   },
-
+  plugins: ['react', 'prettier'],
+  rules: {
+    'prettier/prettier': 'error',
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/forbid-prop-types': [0, { forbid: ['any'] }],
+    'react/prop-types': 0,
+  },
   env: {
     jest: true,
     browser: true,
+    node: true,
   },
-
-  rules: {
-    'no-var': 2,
-    'no-trailing-spaces': 2,
-    'eol-last': 2,
-    'react/jsx-max-props-per-line': [2, { maximum: 1, when: 'multiline' }],
-    'react/jsx-indent-props': [2, 2],
-    'react/jsx-uses-react': 1,
-    'react/jsx-uses-vars': 'error',
-    'react/prop-types': 1,
-  },
-}
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },  
+};

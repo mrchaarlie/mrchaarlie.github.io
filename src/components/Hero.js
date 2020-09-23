@@ -14,10 +14,8 @@ const Wrapper = styled.div`
 const TITLE_ANIM_DURATION = 0.7
 
 const HeroContainer = styled.div`
-  text-align: center;
-  padding: 0 2rem;
+  text-align: left;
   margin: 0 auto 6rem;
-  max-width: 50rem;
   position: relative;
   z-index: 999;
   animation: zoomOut ${TITLE_ANIM_DURATION}s cubic-bezier(0.17, 0.84, 0.44, 1) 0s forwards;
@@ -127,16 +125,16 @@ const Hero = () => {
         disabled={navBarDisabled}
       />
 
+     <WidthWrapper>
       <HeroContainer id="Hero-Title" ref={heroTitleRef}>
         <HeroText>Hi, I'm Charles. I'm a product designer with a love for simplicity.</HeroText>
       </HeroContainer>
+      </WidthWrapper>
 
-      <WidthWrapper small>
+      <WidthWrapper>
         <HeroIntro>
           <p>
-            Hi, I'm a digital user experience designer with over 7 years of
-            experience. I have an engineering background and worked as a
-            developer before transitioning into UX.
+            Currently, I'm at LivePerson building the future of <em>intent-driven</em> business.
           </p>
         </HeroIntro>
       </WidthWrapper>

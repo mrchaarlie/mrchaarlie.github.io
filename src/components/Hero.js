@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import { Header, BackgroundHeader } from './Header'
+import { Header } from './Header'
 import WidthWrapper from './WidthWrapper'
 
 const Wrapper = styled.div`
@@ -73,60 +73,61 @@ const Test = styled.div`
 `
 
 const Hero = () => {
-  const [scrollPos, setScrollPos] = useState(0)
-  const [navBarVisible, setNavBarVisible] = useState(false)
-  const [navBarDisabled, setNavBarDisabled] = useState(false)
-  const [navBarFadeOut, setNavBarFadeOut] = useState(false)
+  // const [scrollPos, setScrollPos] = useState(0)
+  // const [navBarVisible, setNavBarVisible] = useState(false)
+  // const [navBarDisabled, setNavBarDisabled] = useState(false)
+  // const [navBarFadeOut, setNavBarFadeOut] = useState(false)
 
-  const heroTitleRef = useRef(null)
+  // const heroTitleRef = useRef(null);
 
-  const showTopNavBar = () => {
-    setNavBarVisible(true)
-    setNavBarDisabled(false)
-  }
+  // const showTopNavBar = () => {
+  //   setNavBarVisible(true)
+  //   setNavBarDisabled(false)
+  // }
 
-  const hideTopNavBar = () => {
-    navBarVisible && setNavBarFadeOut(true)
-    setNavBarVisible(false)
-  }
+  // const hideTopNavBar = () => {
+  //   navBarVisible && setNavBarFadeOut(true)
+  //   setNavBarVisible(false)
+  // }
 
-  const scrollListener = () => {
-    setScrollPos(window.scrollY)
-  }
+  // const scrollListener = () => {
+  //   setScrollPos(window.scrollY)
+  // }
 
-  useEffect(() => {
-    window.addEventListener('scroll', scrollListener)
+  // useEffect(() => {
+  //   window.addEventListener('scroll', scrollListener)
 
-    // disable the Navbar after it transitions out.
-    if (heroTitleRef.current.getBoundingClientRect().bottom < 16) {
-      showTopNavBar()
-    } else {
-      hideTopNavBar()
+  //   // disable the Navbar after it transitions out.
+  //   if (heroTitleRef.current.getBoundingClientRect().bottom < 16) {
+  //     showTopNavBar()
+  //   } else {
+  //     hideTopNavBar()
 
-      const navTimer = setTimeout(() => {
-        setNavBarDisabled(true)
-      }, 20)
+  //     const navTimer = setTimeout(() => {
+  //       setNavBarDisabled(true)
+  //     }, 20)
 
-      return () => clearTimeout(navTimer)
-    }
+  //     return () => clearTimeout(navTimer)
+  //   }
 
-    return () => {
-      window.removeEventListener('scroll', scrollListener)
-    }
-  })
+  //   return () => {
+  //     window.removeEventListener('scroll', scrollListener)
+  //   }
+  //})
 
   return (
     <Wrapper>
-      <Test>{scrollPos}</Test>
-      <BackgroundHeader />
-      <Header
+      {/* <Test>{scrollPos}</Test> */}
+      <Header />
+      {/* <Header
         isVisible={navBarVisible}
         fadeOut={navBarFadeOut}
         disabled={navBarDisabled}
-      />
+      /> */}
 
      <WidthWrapper>
-      <HeroContainer id="Hero-Title" ref={heroTitleRef}>
+      {/* <HeroContainer id="Hero-Title" ref={heroTitleRef}> */}
+      <HeroContainer id="Hero-Title" >
         <HeroText>Hi, I'm Charles. I'm a product designer with a love for simplicity.</HeroText>
       </HeroContainer>
       </WidthWrapper>

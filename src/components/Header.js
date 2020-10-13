@@ -109,7 +109,7 @@ const HeaderLink = styled(Link)`
   font-weight: 700;
 `
 
-const Header = ({ isVisible, fadeOut, disabled }) => (
+const ScrolledHeader = ({ isVisible, fadeOut, disabled }) => (
   <Wrapper isVisible={isVisible} fadeOut={fadeOut} disabled={disabled}>
     <WidthWrapper>
       <NavContainer>
@@ -130,14 +130,15 @@ const Header = ({ isVisible, fadeOut, disabled }) => (
     </WidthWrapper>
   </Wrapper>
 )
-Header.propTypes = {
+ScrolledHeader.propTypes = {
   isVisible: PropTypes.bool,
   fadeOut: PropTypes.bool,
   disabled: PropTypes.bool,
 }
 
-const BgHeaderWrapper = styled.div`
-  position: absolute;
+const HeaderWrapper = styled.div`
+  position: fixed;
+  z-index: 9999;
   top: 0;
   left: 0;
   width: 100vw;
@@ -145,19 +146,21 @@ const BgHeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   text-align: right;
+  background: ${props => props.theme.colors.white};
   color: ${props => props.theme.colors.primaryDark};
   border-bottom: 1px solid ${props => props.theme.colors.lighterGrey};
 `
-const BackgroundHeader = ({ isVisible, fadeOut }) => (
-  <BgHeaderWrapper>
+const Header = ({ isVisible, fadeOut }) => (
+  <HeaderWrapper>
     <WidthWrapper>
       <Nav />
     </WidthWrapper>
-  </BgHeaderWrapper>
+  </HeaderWrapper>
 )
-BackgroundHeader.propTypes = {
+
+Header.propTypes = {
   isVisible: PropTypes.bool,
   fadeOut: PropTypes.bool,
 }
 
-export { Header, BackgroundHeader }
+export { Header, ScrolledHeader }

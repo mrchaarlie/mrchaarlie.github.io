@@ -1,7 +1,8 @@
-import * as React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 
 import WidthWrapper from 'components/WidthWrapper'
+import { Header } from 'components/Header'
 import Hero from 'components/Hero'
 import Section from 'components/Section'
 import Portfolio from 'components/Portfolio'
@@ -11,32 +12,59 @@ import Resume from 'components/Resume'
 import Profiles from 'components/Profiles'
 import Faq from 'components/Faq'
 
-export default () => (
-  <div>
-    <Hero />
+const Test = styled.div`
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  color: red;
+`
 
-    <Section>
-      <Portfolio />
-    </Section>
+export default () => {
+  const [scrollPos, setScrollPos] = useState(0)
+ 
+  const scrollListener = () => {
+    setScrollPos(window.scrollY)
+  }
 
-    <Section>
-      <Process />
-    </Section>
+  useEffect(() => {
+    window.addEventListener('scroll', scrollListener)
 
-    <Section>
-      <Skills />
-    </Section>
+  
+    return () => {
+      window.removeEventListener('scroll', scrollListener)
+    }
+  })
 
-    <Section>
-      <Resume />
-    </Section>
+  return (
+    <div>
+      <Test>{scrollPos}</Test>
 
-    <Section>
-      <Faq />
-    </Section>
-
-    <Section>
-      <Profiles />
-    </Section>
-  </div>
-)
+      <Header />
+      <Hero />
+  
+      <Section>
+        <Portfolio />
+      </Section>
+  
+      <Section>
+        <Process />
+      </Section>
+  
+      <Section>
+        <Skills />
+      </Section>
+  
+      <Section>
+        <Resume />
+      </Section>
+  
+      <Section>
+        <Faq />
+      </Section>
+  
+      <Section>
+        <Profiles />
+      </Section>
+    </div>
+  )  
+}

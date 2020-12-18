@@ -151,13 +151,16 @@ const HeaderContainer = styled.div`
   color: ${props => props.theme.colors.primaryDark};
   
 `
-
+const setShadow = ({ hasShadow }) => {
+  return hasShadow ? `translateY(0)`: `translateY(-4px)`
+}
 const HeaderWrapper = styled(WidthWrapper)`
   height: 100%;  
   display: flex;
   justify-content: flex-end;
   align-items: center;
   
+
   &:before {
     content: "";
     position: absolute;
@@ -166,6 +169,7 @@ const HeaderWrapper = styled(WidthWrapper)`
     bottom: 4px; 
     width: 100%;
     z-index: -1;
+    background: ${props => props.theme.colors.white};
   }
 
   &:after {
@@ -177,22 +181,22 @@ const HeaderWrapper = styled(WidthWrapper)`
     right: -24px;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.15);
     border-radius: 200px/7px;
-    transform: translateZ(-1px);
+    transition: transform 0.5s ease-out;
+    transform: ${props => setShadow({ hasShadow: props.hasShadow })};
     z-index: -2;
   }
 `
 
-const Header = ({ isVisible, fadeOut }) => (
+const Header = ({ hasShadow }) => (
   <HeaderContainer>
-    <HeaderWrapper>
+    <HeaderWrapper hasShadow={hasShadow}>
       <Nav />
     </HeaderWrapper>
   </HeaderContainer>
 )
 
 Header.propTypes = {
-  isVisible: PropTypes.bool,
-  fadeOut: PropTypes.bool,
+  hasShadow: PropTypes.bool,
 }
 
 export { Header, ScrolledHeader }

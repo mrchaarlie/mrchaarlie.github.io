@@ -21,14 +21,15 @@ const Test = styled.div`
 
 export default () => {
   const [scrollPos, setScrollPos] = useState(0)
+  const [shadow, setShadow ] = useState(false);
  
   const scrollListener = () => {
-    setScrollPos(window.scrollY)
+    setScrollPos(window.scrollY);
+    setShadow(window.scrollY > 60 ? true : false);
   }
 
   useEffect(() => {
     window.addEventListener('scroll', scrollListener)
-
   
     return () => {
       window.removeEventListener('scroll', scrollListener)
@@ -39,7 +40,7 @@ export default () => {
     <div>
       <Test>{scrollPos}</Test>
 
-      <Header />
+      <Header hasShadow={shadow}/>
       <Hero />
   
       <Section>

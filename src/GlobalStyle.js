@@ -149,7 +149,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     @media ${theme.media.large} {
-      font-size: 20px;
+      font-size: 18px;
     }
   }
 

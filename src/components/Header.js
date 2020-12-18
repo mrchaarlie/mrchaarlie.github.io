@@ -109,6 +109,7 @@ const HeaderLink = styled(Link)`
   font-weight: 700;
 `
 
+// NO LONGER USED
 const ScrolledHeader = ({ isVisible, fadeOut, disabled }) => (
   <Wrapper isVisible={isVisible} fadeOut={fadeOut} disabled={disabled}>
     <WidthWrapper>
@@ -136,7 +137,7 @@ ScrolledHeader.propTypes = {
   disabled: PropTypes.bool,
 }
 
-const HeaderWrapper = styled.div`
+const HeaderContainer = styled.div`
   position: fixed;
   z-index: 9999;
   top: 0;
@@ -148,14 +149,45 @@ const HeaderWrapper = styled.div`
   text-align: right;
   background: ${props => props.theme.colors.white};
   color: ${props => props.theme.colors.primaryDark};
-  border-bottom: 1px solid ${props => props.theme.colors.lighterGrey};
+  
 `
+
+const HeaderWrapper = styled(WidthWrapper)`
+  height: 100%;  
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  
+  &:before {
+    content: "";
+    position: absolute;
+    box-shadow: -48px 7px 0 -1px #fff, 48px 7px 0 -1px #fff;
+    top: -4px;
+    bottom: 4px; 
+    width: 100%;
+    z-index: -1;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -24px;
+    right: -24px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.15);
+    border-radius: 200px/7px;
+    transform: translateZ(-1px);
+    z-index: -2;
+  }
+`
+
 const Header = ({ isVisible, fadeOut }) => (
-  <HeaderWrapper>
-    <WidthWrapper>
+  <HeaderContainer>
+    <HeaderWrapper>
       <Nav />
-    </WidthWrapper>
-  </HeaderWrapper>
+    </HeaderWrapper>
+  </HeaderContainer>
 )
 
 Header.propTypes = {

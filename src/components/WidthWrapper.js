@@ -6,6 +6,7 @@ const OuterWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: ${props => (props.small ? '80%' : '100%')};
+  position: relative;
 
   @media ${props => props.theme.media.medium} {
     max-width: calc(${props => props.theme.screens.medium} - 2rem);
@@ -25,8 +26,8 @@ const InnerWrapper = styled.div`
   }
 `
 
-const WidthWrapper = ({ small, children }) => (
-  <OuterWrapper small={small}>
+const WidthWrapper = ({ small, children, ...rest }) => (
+  <OuterWrapper small={small} {...rest}>
     <InnerWrapper>{children}</InnerWrapper>
   </OuterWrapper>
 )

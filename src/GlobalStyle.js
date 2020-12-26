@@ -54,9 +54,14 @@ export const theme = {
           0 6px 30px 5px rgba(0,0,0,0.12),
           0 8px 10px -7px rgba(0,0,0,0.2)`,
   },
+  easings: {
+    easeOutQuad: `cubic-bezier(0.5, 1, 0.89, 1)`,
+    easeOutCubic: `cubic-bezier(0.33, 1, 0.68, 1)`,
+  }
 }
 
 const animations = css`
+
   @keyframes fadeOut {
     0% {
       opacity: 1;
@@ -93,6 +98,26 @@ const animations = css`
     }
     100% {
       opacity: 0;
+    }
+  }
+  @keyframes fadeInToRight {
+    0% {
+      opacity: 0;
+      transform: translate(-3rem, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translate(0, -4rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0, 0);
     }
   }
   @keyframes slideInDown {
@@ -175,39 +200,39 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${theme.fonts.heading}, 'Times New Roman', serif;
     line-height: 1.2;
     margin: 0 0 0.4em;
+    color: ${theme.colors.darkerGrey};
   }
 
+  // Font size uses Perfect Fourth scaling
   h1 {
-    font-size: 4.21em;
+    font-size: 4.209em;
     font-weight: 700;
-    color: ${theme.colors.darkerGrey};
   }
 
   h2 {
-    font-size: 3.16em;
+    font-size: 3.157em;
     font-weight: 700;
-    color: ${theme.colors.darkerGrey};
   }
 
   h3 {
-    font-size: 2.37em;
+    font-size: 2.369em;
   }
 
   h4 {
-    font-size: 1.78em;
+    font-size: 1.777em;
   }
 
   h5 {
-    font-size: 1.33em;
+    font-size: 1.333em;
   }
 
   h6 {
-    font-weight: 1.33;
     font-weight: 700;
-    font-size: 1.33em;
+    font-size: 1em;
     text-transform: uppercase;
     letter-spacing: 0.1px;
   }
+
 
   p,
   ol,

@@ -11,19 +11,18 @@ const Wrapper = styled.div`
   }
 `
 
-const TITLE_ANIM_DURATION = 0.7
+const TITLE_ANIM_DURATION = 0.7;
 
 const HeroContainer = styled.div`
   text-align: left;
   margin: 0 auto 6rem;
   position: relative;
   z-index: 999;
-  animation: zoomOut ${TITLE_ANIM_DURATION}s cubic-bezier(0.17, 0.84, 0.44, 1) 0s forwards;
+  animation: zoomOut ${TITLE_ANIM_DURATION}s ${props => props.theme.easings.easeOutCubic} 0s forwards;
 `
-const HeroText = styled.h1`
+const HeroText = styled.h2`
   position: relative;
   z-index: 150;
-  font-size: 2rem;
   color: ${props => props.theme.colors.primary};
 
   @supports (-webkit-background-clip: text) {
@@ -34,7 +33,6 @@ const HeroText = styled.h1`
   }
 
   @media ${props => props.theme.media.medium} {
-    font-size: 2.5rem;
   }
 `
 const Title = styled.div`
@@ -44,7 +42,7 @@ const Title = styled.div`
   margin-top: -0.75rem;
   z-index: 1;
   opacity: 0;
-  animation: slideInDown 0.75s cubic-bezier(0.17, 0.84, 0.44, 1)
+  animation: slideInDown 0.75s ${props => props.theme.easings.easeOutCubic}
     ${TITLE_ANIM_DURATION + 0.15}s forwards;
 `
 const HeroIntro = styled.div`
@@ -60,7 +58,7 @@ const HeroIntro = styled.div`
     width: 110%;
     height: 100%;
     background: ${props => props.theme.colors.white};
-    animation: slideOutDown 0.35s cubic-bezier(0.17, 0.84, 0.44, 1)
+    animation: slideOutDown 0.35s ${props => props.theme.easings.easeOutCubic}
       ${TITLE_ANIM_DURATION + 0.4}s forwards;
   }
 `
@@ -70,6 +68,12 @@ const Test = styled.div`
   z-index: 10000;
   top: 0;
   color: red;
+`
+const WaveEmoji = styled.span`
+  -webkit-text-fill-color: #000;
+  display: inline-block;
+  opacity: 0;
+  animation: fadeInToRight 0.5s ease-out 2s forwards;
 `
 
 const Hero = () => {
@@ -128,7 +132,8 @@ const Hero = () => {
      <WidthWrapper>
       {/* <HeroContainer id="Hero-Title" ref={heroTitleRef}> */}
       <HeroContainer id="Hero-Title" >
-        <HeroText>Hi, I'm Charles. I'm a product designer with a love for simplicity.</HeroText>
+        <HeroText>Hi, I'm Charles. <WaveEmoji>👋</WaveEmoji><br />
+        I'm a product designer.</HeroText>
       </HeroContainer>
       </WidthWrapper>
 
@@ -138,6 +143,8 @@ const Hero = () => {
             Currently, I'm at LivePerson building the future of <em>intent-driven</em> business.
           </p>
         </HeroIntro>
+
+
       </WidthWrapper>
     </Wrapper>
   )

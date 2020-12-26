@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
   return (
     <Wrapper id="main">
       <Main>{children}</Main>
-      <Footer />
+      {/* <Footer /> */}
     </Wrapper>
   )
 }

@@ -147,7 +147,7 @@ const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   text-align: right;
-  background: ${props => props.theme.colors.white};
+  background: ${props => props.theme.colors.offWhite};
   color: ${props => props.theme.colors.primaryDark};
   
 `
@@ -164,12 +164,14 @@ const HeaderWrapper = styled(WidthWrapper)`
   &:before {
     content: "";
     position: absolute;
-    box-shadow: -48px 7px 0 -1px #fff, 48px 7px 0 -1px #fff;
+    box-shadow:
+      -48px 7px 0 -1px ${props => props.theme.colors.offWhite},
+       48px 7px 0 -1px ${props => props.theme.colors.offWhite};
     top: -4px;
     bottom: 4px; 
     width: 100%;
     z-index: -1;
-    background: ${props => props.theme.colors.white};
+    background: ${props => props.theme.colors.offWhite};
   }
 
   &:after {

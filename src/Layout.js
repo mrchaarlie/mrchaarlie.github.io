@@ -10,10 +10,11 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 `
-const Main = styled.div`
+const Body = styled.div`
   flex-grow: 1;
   min-height: 400px;
   margin-top: ${props => props.theme.heights.header};
+  background: ${props => props.theme.colors.offWhite};
 `
 const Test = styled.div`
   position: fixed;
@@ -25,7 +26,7 @@ const Test = styled.div`
 const Layout = ({ children }) => {
   return (
     <Wrapper id="main">
-      <Main>{children}</Main>
+      <Body>{children}</Body>
       {/* <Footer /> */}
     </Wrapper>
   )

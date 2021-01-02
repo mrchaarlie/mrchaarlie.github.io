@@ -5,7 +5,7 @@ const StickyTitle = styled.h2`
   z-index: 50;
   margin-bottom: 0;
   top: ${props => props.theme.heights.header};
-  background: rgba(255, 255, 255, 0.98);
+  background: ${props => props.theme.colors.offWhite};
   padding: 0.5rem 0 0.375rem;
 
   &:after {

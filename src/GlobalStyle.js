@@ -216,14 +216,17 @@ const GlobalStyle = createGlobalStyle`
 
   h3 {
     font-size: 2.369em;
+    font-weight: 400;
   }
 
   h4 {
     font-size: 1.777em;
+    font-weight: 400;
   }
 
   h5 {
     font-size: 1.333em;
+    font-weight: 400;
   }
 
   h6 {

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { Header } from './Header'
 import WidthWrapper from './WidthWrapper'
+import _RightArrow from './icons/RightArrowInCircle'
 
 const Wrapper = styled.div`
   margin: 4rem 0;
@@ -10,15 +11,13 @@ const Wrapper = styled.div`
     margin: 7rem 0;
   }
 `
-
 const TITLE_ANIM_DURATION = 0.7;
 
 const HeroContainer = styled.div`
   text-align: left;
   margin: 0 auto 6rem;
   position: relative;
-  z-index: 999;
-  animation: zoomOut ${TITLE_ANIM_DURATION}s ${props => props.theme.easings.easeOutCubic} 0s forwards;
+  z-index: 10;
 `
 const HeroText = styled.h2`
   position: relative;
@@ -35,19 +34,10 @@ const HeroText = styled.h2`
   @media ${props => props.theme.media.medium} {
   }
 `
-const Title = styled.div`
-  font-size: 2.25rem;
-  color: ${props => props.theme.colors.darkGrey};
-  position: relative;
-  margin-top: -0.75rem;
-  z-index: 1;
-  opacity: 0;
-  animation: slideInDown 0.75s ${props => props.theme.easings.easeOutCubic}
-    ${TITLE_ANIM_DURATION + 0.15}s forwards;
-`
 const HeroIntro = styled.div`
   position: relative;
 
+  // White screen sliding down effect
   &:after {
     content: '';
     pointer-events: none;
@@ -59,7 +49,7 @@ const HeroIntro = styled.div`
     height: 100%;
     background: ${props => props.theme.colors.white};
     animation: slideOutDown 0.35s ${props => props.theme.easings.easeOutCubic}
-      ${TITLE_ANIM_DURATION + 0.4}s forwards;
+      0s forwards;
   }
 `
 
@@ -74,6 +64,13 @@ const WaveEmoji = styled.span`
   display: inline-block;
   opacity: 0;
   animation: fadeInToRight 0.5s ease-out 2s forwards;
+`
+
+const RightArrow = styled(_RightArrow)`
+  width: 1.125em;
+  height: 1.125em;
+  margin: 0 0 -0.25em 0.125em;
+  color: ${props => props.theme.colors.primaryDark};
 `
 
 const Hero = () => {
@@ -139,9 +136,10 @@ const Hero = () => {
 
       <WidthWrapper>
         <HeroIntro>
-          <p>
-            Currently, I'm at LivePerson building the future of <em>intent-driven</em> business.
-          </p>
+          <h4>
+          Currently, I’m at LivePerson building the future of conversational commerce. <br /><br />
+          Check out some of my work <RightArrow  />
+          </h4>
         </HeroIntro>
 
 

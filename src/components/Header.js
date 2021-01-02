@@ -100,6 +100,7 @@ const _Nav = styled.nav`
 `
 const Nav = () => (
   <_Nav>
+    <HeaderLink to="/">Home</HeaderLink>
     <HeaderLink to="/portfolio">Portfolio</HeaderLink>
     <HeaderLink to="#resume">Resume</HeaderLink>
   </_Nav>
@@ -152,7 +153,7 @@ const HeaderContainer = styled.div`
   
 `
 const setShadow = ({ hasShadow }) => {
-  return hasShadow ? `translateY(0)`: `translateY(-4px)`
+  return hasShadow ? `translateY(0)`: `translateY(-8px)`
 }
 const HeaderWrapper = styled(WidthWrapper)`
   height: 100%;  
@@ -181,7 +182,7 @@ const HeaderWrapper = styled(WidthWrapper)`
     bottom: 0;
     left: -24px;
     right: -24px;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.15);
+    box-shadow: 0 6px 4px 0 rgba(0,0,0,.15);
     border-radius: 200px/7px;
     transition: transform 0.5s ease-out;
     transform: ${props => setShadow({ hasShadow: props.hasShadow })};

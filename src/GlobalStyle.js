@@ -37,7 +37,7 @@ export const theme = {
     short: 'screen and (min-width: 900px) and (max-height: 700px)',
   },
   heights: {
-    header: '3.5rem',
+    header: '4rem',
     footer: '4rem',
   },
   shadows: {
@@ -216,7 +216,7 @@ const GlobalStyle = createGlobalStyle`
 
   h3 {
     font-size: 2.369em;
-    font-weight: 400;
+    font-weight: 700;
   }
 
   h4 {

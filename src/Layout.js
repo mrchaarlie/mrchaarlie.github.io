@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 const Body = styled.div`
   flex-grow: 1;
   min-height: 400px;
-  margin-top: ${props => props.theme.heights.header};
+  padding-top: ${props => props.theme.heights.header};
   background: ${props => props.theme.colors.offWhite};
 `
 const Test = styled.div`

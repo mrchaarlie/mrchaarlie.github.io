@@ -5,7 +5,7 @@ import WidthWrapper from 'components/WidthWrapper'
 import Header from 'components/Header'
 import Hero from 'components/Hero'
 import Section from 'components/Section'
-import Portfolio from 'components/Portfolio'
+import Work from 'components/Work'
 import Process from 'components/Process'
 import Skills from 'components/Skills'
 import Resume from 'components/Resume'
@@ -44,13 +44,9 @@ export default () => {
       <Hero />
   
       <Section>
-        <Portfolio />
+        <Work />
       </Section>
-  
-      <Section>
-        <Process />
-      </Section>
-  
+    
       <Section>
         <Skills />
       </Section>

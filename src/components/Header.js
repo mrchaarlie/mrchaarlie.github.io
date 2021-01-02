@@ -41,8 +41,8 @@ const _Nav = styled.nav`
 const Nav = () => (
   <_Nav>
     <HeaderLink to="/">Home</HeaderLink>
-    <HeaderLink to="/portfolio">Portfolio</HeaderLink>
-    <HeaderLink to="#resume">Resume</HeaderLink>
+    <HeaderLink to="/work">Work</HeaderLink>
+    <HeaderLink to="/about">About</HeaderLink>
   </_Nav>
 )
 const HeaderLink = styled(Link)`

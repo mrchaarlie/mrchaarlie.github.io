@@ -11,7 +11,6 @@ const Wrapper = styled.div`
     margin: 7rem 0;
   }
 `
-const TITLE_ANIM_DURATION = 0.7;
 
 const HeroContainer = styled.div`
   text-align: left;
@@ -34,7 +33,7 @@ const HeroText = styled.h2`
   @media ${props => props.theme.media.medium} {
   }
 `
-const HeroIntro = styled.div`
+const HeroIntro = styled.h4`
   position: relative;
 
   // White screen sliding down effect
@@ -66,68 +65,95 @@ const WaveEmoji = styled.span`
   animation: fadeInToRight 0.5s ease-out 2s forwards;
 `
 
-const RightArrow = styled(_RightArrow)`
+const RightArrow1 = styled(_RightArrow)`
   width: 1.125em;
   height: 1.125em;
   margin: 0 0 -0.25em 0.125em;
   color: ${props => props.theme.colors.primaryDark};
 `
 
+const ARROW_POSITION_BEFORE = 40;
+const ARROW_POSITION_AFTER = 25;
+const RightArrow = styled.div`
+  position: relative;
+  display: inline-block;
+  width: 0.75em;
+  height: 0.75em;
+  margin: 0 0 -0.05em 0.125em;
+  border-radius: 2em;
+  border: 2px solid${props => props.theme.colors.primaryDark};
+  transition: all 0.25s ${props => props.theme.easings.easeOutQuad};
+
+  // arrow stem
+  &:before {
+    content: '';
+    display: block;
+    width: 3px;
+    height: 0;
+    right: 120%;
+    position: absolute;
+    border-top: 2px solid ${props => props.theme.colors.primaryDark};
+    opacity: 0;
+    top: calc( 50% - 0.5px );
+    transition: all 0.25s ${props => props.theme.easings.easeOutQuad};
+  }
+
+  // arrow point
+  &:after {
+    content: '';
+    display: block;
+    width: 30%;
+    height: 30%;
+    position: absolute;
+    top: 50%;
+    right: ${ARROW_POSITION_BEFORE}%;
+    transform: translateY(-50%) rotate(-45deg);
+    transition: all 0.25s ${props => props.theme.easings.easeOutQuad};
+    border-right: 2px solid ${props => props.theme.colors.primaryDark};
+    border-bottom: 2px solid ${props => props.theme.colors.primaryDark};
+  }
+`
+const WorkLink = styled.a`
+  transform: translateY(-50%) rotate(-45deg);
+  color: inherit;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    pointer: cursor;
+
+    ${RightArrow} {
+      background: ${props => props.theme.colors.primaryDark};
+
+      // arrow stem
+      &:before {
+        content: '';
+        width: 50%;
+        opacity: 1;
+        right: calc( ${ARROW_POSITION_AFTER}% + 0.5px );
+        border-color:  ${props => props.theme.colors.white};
+      }
+
+      // arrow point
+      &:after {
+        content: '';
+        right: ${ARROW_POSITION_AFTER}%;
+        transform: translateY(-50%) rotate(-45deg);
+        border-color:  ${props => props.theme.colors.white};
+      }
+    }
+
+  }
+`
+
 const Hero = () => {
-  // const [scrollPos, setScrollPos] = useState(0)
-  // const [navBarVisible, setNavBarVisible] = useState(false)
-  // const [navBarDisabled, setNavBarDisabled] = useState(false)
-  // const [navBarFadeOut, setNavBarFadeOut] = useState(false)
-
-  // const heroTitleRef = useRef(null);
-
-  // const showTopNavBar = () => {
-  //   setNavBarVisible(true)
-  //   setNavBarDisabled(false)
-  // }
-
-  // const hideTopNavBar = () => {
-  //   navBarVisible && setNavBarFadeOut(true)
-  //   setNavBarVisible(false)
-  // }
-
-  // const scrollListener = () => {
-  //   setScrollPos(window.scrollY)
-  // }
-
-  // useEffect(() => {
-  //   window.addEventListener('scroll', scrollListener)
-
-  //   // disable the Navbar after it transitions out.
-  //   if (heroTitleRef.current.getBoundingClientRect().bottom < 16) {
-  //     showTopNavBar()
-  //   } else {
-  //     hideTopNavBar()
-
-  //     const navTimer = setTimeout(() => {
-  //       setNavBarDisabled(true)
-  //     }, 20)
-
-  //     return () => clearTimeout(navTimer)
-  //   }
-
-  //   return () => {
-  //     window.removeEventListener('scroll', scrollListener)
-  //   }
-  //})
 
   return (
     <Wrapper>
-      {/* <Test>{scrollPos}</Test> */}
+    
       <Header />
-      {/* <Header
-        isVisible={navBarVisible}
-        fadeOut={navBarFadeOut}
-        disabled={navBarDisabled}
-      /> */}
-
+  
      <WidthWrapper>
-      {/* <HeroContainer id="Hero-Title" ref={heroTitleRef}> */}
       <HeroContainer id="Hero-Title" >
         <HeroText>Hi, I'm Charles. <WaveEmoji>👋</WaveEmoji><br />
         I'm a product designer.</HeroText>
@@ -136,10 +162,8 @@ const Hero = () => {
 
       <WidthWrapper>
         <HeroIntro>
-          <h4>
-          Currently, I’m at LivePerson building the future of conversational commerce. <br /><br />
-          Check out some of my work <RightArrow  />
-          </h4>
+            Currently, I’m at LivePerson building the future of conversational commerce. <br /><br />
+            <WorkLink href="#work"> Check out some of my work <RightArrow  /></WorkLink>
         </HeroIntro>
 
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import { Header } from './Header'
+import Header from './Header'
 import WidthWrapper from './WidthWrapper'
 import _RightArrow from './icons/RightArrowInCircle'
 

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Header from 'components/Header'
-import Footer from 'components/Footer'
+// import Header from 'components/Header'
+// import Footer from 'components/Footer'
 
 const Wrapper = styled.div`
   min-width: 100vw;

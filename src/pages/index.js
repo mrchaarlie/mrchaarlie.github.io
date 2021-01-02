@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 
 import WidthWrapper from 'components/WidthWrapper'
-import { Header } from 'components/Header'
+import Header from 'components/Header'
 import Hero from 'components/Hero'
 import Section from 'components/Section'
 import Portfolio from 'components/Portfolio'

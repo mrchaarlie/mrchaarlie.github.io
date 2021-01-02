@@ -8,66 +8,6 @@ import WidthWrapper from './WidthWrapper'
 
 import logo from '../img/logo.svg'
 
-const getAnimationStyle = ({ isVisible, fadeOut }) => {
-  return isVisible
-    ? `fadeInDown 0.5s cubic-bezier(0.17, 0.84, 0.44, 1) 0s forwards`
-    : fadeOut
-    ? `fadeOut 0.25s ease-out 0s forwards`
-    : 'none'
-}
-
-const Wrapper = styled.header`
-  position: fixed;
-  z-index: 9999;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  width: 100vw;
-  height: ${props => props.theme.heights.header};
-  background: ${props => transparentize(0.1, props.theme.colors.primaryDark)};
-  color: ${props => props.theme.colors.white};
-  opacity: ${props => (props.fadeOut || props.isVisible ? '1' : '0')};
-  animation: ${props =>
-    getAnimationStyle({
-      isVisible: props.isVisible,
-      fadeOut: props.fadeOut,
-    })};
-  ${props => props.disabled && 'display: none; visibility: none'};
-`
-const NavContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`
-const LogoAndText = styled.div`
-  display: flex;
-  align-items: center;
-`
-const LogoContainer = styled.div`
-  position: relative;
-  height: 3.5rem;
-  width: 3.5rem;
-  margin-right: 1rem;
-`
-const Logo = styled.img`
-  position: relative
-  height: 100%;
-  width: 100%;
-  z-index: 10;
-`
-const LogoBackground = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 5%;
-  height: 90%;
-  width: 90%;
-  z-index: 1;
-`
-const ScrollingAbout = styled.div`
-  display: inline-block;
-`
 const _Nav = styled.nav`
   a {
     display: inline-block;
@@ -109,34 +49,6 @@ const HeaderLink = styled(Link)`
   text-decoration: none;
   font-weight: 700;
 `
-
-// NO LONGER USED
-const ScrolledHeader = ({ isVisible, fadeOut, disabled }) => (
-  <Wrapper isVisible={isVisible} fadeOut={fadeOut} disabled={disabled}>
-    <WidthWrapper>
-      <NavContainer>
-        <LogoAndText>
-          <LogoContainer>
-            <Link to="/">
-              <Logo src={logo} />
-            </Link>
-            <LogoBackground />
-          </LogoContainer>
-          <ScrollingAbout>
-            <IAmA />
-          </ScrollingAbout>
-        </LogoAndText>
-
-        <Nav />
-      </NavContainer>
-    </WidthWrapper>
-  </Wrapper>
-)
-ScrolledHeader.propTypes = {
-  isVisible: PropTypes.bool,
-  fadeOut: PropTypes.bool,
-  disabled: PropTypes.bool,
-}
 
 const HeaderContainer = styled.div`
   position: fixed;
@@ -198,8 +110,5 @@ const Header = ({ hasShadow }) => (
   </HeaderContainer>
 )
 
-Header.propTypes = {
-  hasShadow: PropTypes.bool,
-}
 
-export { Header, ScrolledHeader }
+export default Header

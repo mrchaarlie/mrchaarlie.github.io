@@ -79,10 +79,20 @@ const animations = css`
       opacity: 1;
     }
   }
-  @keyframes fadeInDown {
+  @keyframes fadeInSlideDown {
     0% {
       opacity: 0;
-      transform: translate(0, -4rem);
+      transform: translate(0, -2rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+  @keyframes fadeInSlideDownSmall {
+    0% {
+      opacity: 0;
+      transform: translate(0, -0.25rem);
     }
     100% {
       opacity: 1;
@@ -100,20 +110,10 @@ const animations = css`
       opacity: 0;
     }
   }
-  @keyframes fadeInToRight {
+  @keyframes fadeInSlideRight {
     0% {
       opacity: 0;
       transform: translate(-3rem, 0);
-    }
-    100% {
-      opacity: 1;
-      transform: translate(0, 0);
-    }
-  }
-  @keyframes fadeInDown {
-    0% {
-      opacity: 0;
-      transform: translate(0, -4rem);
     }
     100% {
       opacity: 1;

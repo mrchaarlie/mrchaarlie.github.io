@@ -22,6 +22,7 @@
     "react-static-plugin-reach-router": "^7.0.0",
     "react-static-plugin-sitemap": "^7.0.0",
     "react-static-plugin-source-filesystem": "^7.0.0",
+    "react-tooltip": "^4.2.11",
     "ress": "^1.2.2",
     "styled-components": "^4.3.1"
   },

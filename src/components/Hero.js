@@ -1,22 +1,31 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React from 'react'
+import ReactTooltip from 'react-tooltip'
 import styled from 'styled-components'
 import Header from './Header'
 import WidthWrapper from './WidthWrapper'
-import _RightArrow from './icons/RightArrowInCircle'
+import DashedUnderline from './DashedUnderline'
 
 const Wrapper = styled.div`
   margin: 4rem 0;
 
   @media ${props => props.theme.media.medium} {
-    margin: 7rem 0;
+    margin: 4rem 0;
   }
 `
 
-const HeroContainer = styled.div`
+const Intro = styled.div`
+  min-height: 70vh;
+  display: flex;
+  flex-direction: columnn;
+  align-items: center;
+  animation: fadeInSlideDownSmall 0.5s ease-out;
+`
+
+const Title = styled.div`
   text-align: left;
-  margin: 0 auto 6rem;
   position: relative;
-  z-index: 10;
+  margin-bottom: 4em;
+  
 `
 const HeroText = styled.h2`
   position: relative;
@@ -24,7 +33,11 @@ const HeroText = styled.h2`
   color: ${props => props.theme.colors.primary};
 
   @supports (-webkit-background-clip: text) {
-    background: linear-gradient(173deg, ${props => props.theme.colors.primary} 15%, ${props => props.theme.colors.secondary} 50%);
+    background: linear-gradient(
+      173deg,
+      ${props => props.theme.colors.primary} 15%,
+      ${props => props.theme.colors.secondary} 50%
+    );
     background-attachment: fixed;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -33,47 +46,19 @@ const HeroText = styled.h2`
   @media ${props => props.theme.media.medium} {
   }
 `
-const HeroIntro = styled.h4`
+const Summary = styled.h4`
   position: relative;
-
-  // White screen sliding down effect
-  &:after {
-    content: '';
-    pointer-events: none;
-    position: fixed;
-    z-index: 100;
-    left: -5%;
-    bottom: 0;
-    width: 110%;
-    height: 100%;
-    background: ${props => props.theme.colors.white};
-    animation: slideOutDown 0.35s ${props => props.theme.easings.easeOutCubic}
-      0s forwards;
-  }
 `
 
-const Test = styled.div`
-  position: fixed;
-  z-index: 10000;
-  top: 0;
-  color: red;
-`
 const WaveEmoji = styled.span`
   -webkit-text-fill-color: #000;
   display: inline-block;
   opacity: 0;
-  animation: fadeInToRight 0.5s ease-out 2s forwards;
+  animation: fadeInSlideRight 0.5s ease-out 2s forwards;
 `
 
-const RightArrow1 = styled(_RightArrow)`
-  width: 1.125em;
-  height: 1.125em;
-  margin: 0 0 -0.25em 0.125em;
-  color: ${props => props.theme.colors.primaryDark};
-`
-
-const ARROW_POSITION_BEFORE = 40;
-const ARROW_POSITION_AFTER = 25;
+const ARROW_POSITION_BEFORE = 40
+const ARROW_POSITION_AFTER = 25
 const RightArrow = styled.div`
   position: relative;
   display: inline-block;
@@ -81,7 +66,7 @@ const RightArrow = styled.div`
   height: 0.75em;
   margin: 0 0 -0.05em 0.125em;
   border-radius: 2em;
-  border: 2px solid${props => props.theme.colors.primaryDark};
+  border: 2px solid ${props => props.theme.colors.primaryDark};
   transition: all 0.25s ${props => props.theme.easings.easeOutQuad};
 
   // arrow stem
@@ -94,7 +79,7 @@ const RightArrow = styled.div`
     position: absolute;
     border-top: 2px solid ${props => props.theme.colors.primaryDark};
     opacity: 0;
-    top: calc( 50% - 0.5px );
+    top: calc(50% - 0.5px);
     transition: all 0.25s ${props => props.theme.easings.easeOutQuad};
   }
 
@@ -105,7 +90,7 @@ const RightArrow = styled.div`
     width: 30%;
     height: 30%;
     position: absolute;
-    top: 50%;
+    top: calc(50% + 0.5px);
     right: ${ARROW_POSITION_BEFORE}%;
     transform: translateY(-50%) rotate(-45deg);
     transition: all 0.25s ${props => props.theme.easings.easeOutQuad};
@@ -130,8 +115,8 @@ const WorkLink = styled.a`
         content: '';
         width: 50%;
         opacity: 1;
-        right: calc( ${ARROW_POSITION_AFTER}% + 0.5px );
-        border-color:  ${props => props.theme.colors.white};
+        right: calc(${ARROW_POSITION_AFTER}% + 1px);
+        border-color: ${props => props.theme.colors.white};
       }
 
       // arrow point
@@ -139,35 +124,66 @@ const WorkLink = styled.a`
         content: '';
         right: ${ARROW_POSITION_AFTER}%;
         transform: translateY(-50%) rotate(-45deg);
-        border-color:  ${props => props.theme.colors.white};
+        border-color: ${props => props.theme.colors.white};
       }
     }
-
   }
 `
+
+const Tooltip = styled.p`
+  padding-top: 0.25em;
+  max-width: 25rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  color: ${props => props.theme.colors.white};
+`
+
+const HELLO_STRINGS = ["Hello","Hello","Hello","Hello","Hello","Hello","Hello","Hello","Hello","Bonjour","Hola", "Namaste", "Shalom", "Ni Hao"]
+
+const RandomHello = () => {
+
+}
 
 const Hero = () => {
 
   return (
     <Wrapper>
-    
       <Header />
-  
-     <WidthWrapper>
-      <HeroContainer id="Hero-Title" >
-        <HeroText>Hi, I'm Charles. <WaveEmoji>👋</WaveEmoji><br />
-        I'm a product designer.</HeroText>
-      </HeroContainer>
-      </WidthWrapper>
 
-      <WidthWrapper>
-        <HeroIntro>
-            Currently, I’m at LivePerson building the future of conversational commerce. <br /><br />
-            <WorkLink href="#work"> Check out some of my work <RightArrow  /></WorkLink>
-        </HeroIntro>
+      <Intro>
+        <WidthWrapper>
+          <Title id="title">
+            <HeroText>
+              Hi, I'm Charles. <WaveEmoji>👋</WaveEmoji>
+              <br />
+              I'm a product designer.
+            </HeroText>
+          </Title>
 
-
-      </WidthWrapper>
+          <Summary>
+            Currently, I’m at LivePerson building the future of {' '}
+            <DashedUnderline
+              data-tip
+              data-for="conversationalCommerece"
+              data-effect="solid"
+              data-place="bottom"
+              data-background-color="#000"
+              data-delay-show="100">
+              conversational commerce
+            </DashedUnderline>
+            . <br />
+            <br />
+            <WorkLink href="#work">
+              Check out some of my work <RightArrow />
+            </WorkLink>
+            <ReactTooltip id="conversationalCommerece" >
+                <Tooltip>Specifically, I'm helping enterprises understand their customers' needs via NLU-powered tools, so they can increase automation and improve customer engagement.</Tooltip>
+                <Tooltip>
+                  It's a complex industry; feel free to contact me to learn more! </Tooltip>
+              </ReactTooltip>
+          </Summary>
+        </WidthWrapper>
+      </Intro>
     </Wrapper>
   )
 }

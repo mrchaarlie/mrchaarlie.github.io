@@ -19,28 +19,48 @@ const Test = styled.div`
   color: red;
 `
 
+const getPageAnimation = ({ showAnimation }) => {
+  return showAnimation ? 'block' : 'none';
+}
+const PageRevealAnimation = styled.div`
+  display: ${props => getPageAnimation({ showAnimation: props.showAnimation})};
+  pointer-events: none;
+  position: fixed;
+  z-index: 100;
+  left: -5%;
+  bottom: 0;
+  width: 110%;
+  height: 100%;
+  background: ${props => props.theme.colors.offWhite};
+  animation: slideOutDown 0.35s ${props => props.theme.easings.easeOutCubic}
+  0s forwards;
+`
+
 export default () => {
-  const [scrollPos, setScrollPos] = useState(0)
-  const [shadow, setShadow ] = useState(false);
+  const [scrollPos, setScrollPos] = useState(0); // for debugging
+  const [navShadow, setNavShadow ] = useState(false);
+  // const [showAnimation, setShowAnimation ] = useState(true);
  
   const scrollListener = () => {
     setScrollPos(window.scrollY);
-    setShadow(window.scrollY > 60 ? true : false);
+    setNavShadow(window.scrollY > 60 ? true : false);
   }
 
   useEffect(() => {
     window.addEventListener('scroll', scrollListener)
+    // setTimeout(() => { setShowAnimation(false) }, 1000);
   
     return () => {
-      window.removeEventListener('scroll', scrollListener)
+      window.removeEventListener('scroll', scrollListener);
     }
-  })
+  }, []);
 
   return (
     <div>
       <Test>{scrollPos}</Test>
+      {/* <PageRevealAnimation showAnimation={showAnimation} /> */}
 
-      <Header hasShadow={shadow}/>
+      <Header showShadow={navShadow}/>
       <Hero />
   
       <Section>

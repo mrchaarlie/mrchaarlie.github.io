@@ -41,8 +41,8 @@ const _Nav = styled.nav`
 const Nav = () => (
   <_Nav>
     <HeaderLink to="/">Home</HeaderLink>
-    <HeaderLink to="/work">Work</HeaderLink>
-    <HeaderLink to="/about">About</HeaderLink>
+    <HeaderLink to="/#work">Work</HeaderLink>
+    <HeaderLink to="/#about">About</HeaderLink>
   </_Nav>
 )
 const HeaderLink = styled(Link)`
@@ -64,9 +64,7 @@ const HeaderContainer = styled.div`
   color: ${props => props.theme.colors.primaryDark};
   
 `
-const setShadow = ({ hasShadow }) => {
-  return hasShadow ? `translateY(0)`: `translateY(-8px)`
-}
+
 const HeaderWrapper = styled(WidthWrapper)`
   height: 100%;  
   display: flex;
@@ -97,14 +95,16 @@ const HeaderWrapper = styled(WidthWrapper)`
     box-shadow: 0 6px 4px 0 rgba(0,0,0,.15);
     border-radius: 200px/7px;
     transition: transform 0.5s ease-out;
-    transform: ${props => setShadow({ hasShadow: props.hasShadow })};
+    transform: ${props => props.showShadow ? `translateY(0)`: `translateY(-8px)` };
     z-index: -2;
   }
 `
 
-const Header = ({ hasShadow }) => (
+
+
+const Header = ({ showShadow }) => (
   <HeaderContainer>
-    <HeaderWrapper hasShadow={hasShadow}>
+    <HeaderWrapper showShadow={showShadow}>
       <Nav />
     </HeaderWrapper>
   </HeaderContainer>

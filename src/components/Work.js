@@ -417,8 +417,8 @@ const Portfolio = () => {
             </PortfolioInnerWrapper>
           ))}
         </PortfolioWrapper>
-        <PortfolioBorderRadiusTL size="20" />
-        <PortfolioBorderRadiusBL size="10" />
+        <PortfolioBorderRadiusTL size={20} />
+        <PortfolioBorderRadiusBL size={10} />
       </OuterWrapper>
     </>
   )

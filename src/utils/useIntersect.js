@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 
 export default ({ root = null, rootMargin, threshold = 0 }) => {
@@ -22,6 +22,11 @@ export default ({ root = null, rootMargin, threshold = 0 }) => {
       return () => currentObserver.disconnect();
       
     }, [node])
+
+    // disconnect once object is revealed
+    if (entry.intersectionRatio == 1) {
+      observer.current.disconnect();
+    }
   
     return [setNode, entry];
   };

@@ -325,7 +325,7 @@ const NextButton = styled(ScrollButton)`
   background-image: url(${rightArrow});
 `
 
-const Portfolio = () => {
+const Work = () => {
   const [portfolioScrollPos, setPortfolioScrollPos] = useState(0)
   const [portfolioItemWidth, setPortfolioItemWidth] = useState(900)
   const [portfolioItems, setPortfolioItems] = useState(8)
@@ -424,4 +424,4 @@ const Portfolio = () => {
   )
 }
 
-export default Portfolio
+export default Work

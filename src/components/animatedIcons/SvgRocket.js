@@ -7,11 +7,13 @@ const SvgRocket = props => {
     const [ref, entry] = useIntersect({
       threshold: 1.0
     });
+    
   
     return (
       <div {...props} ref={ref}>
-        <SvgIconWrapper name='rocket' showAnimation={(entry.intersectionRatio) == 1 ? true : false } strokeArray={339}>
+        <SvgIconWrapper name='rocket' showAnimation={(entry.intersectionRatio) == 1 ? true : false } strokeColor={props.color} strokeArray={339} delay={props.delay}>
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+            <title>Rocket, animated icon</title>
             <path
             fill="transparent"
             stroke="#000000"

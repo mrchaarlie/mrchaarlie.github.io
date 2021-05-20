@@ -62,26 +62,20 @@ export default () => {
 
       <Header showShadow={navShadow}/>
       <Hero />
-  
-      <Section>
-        <Work />
-      </Section>
-    
+      
       <Section>
         <Skills />
       </Section>
   
       <Section>
+        <Work />
+      </Section>
+    
+  
+      <Section>
         <Resume />
       </Section>
   
-      <Section>
-        <Faq />
-      </Section>
-  
-      <Section>
-        <Profiles />
-      </Section>
     </div>
   )  
 }

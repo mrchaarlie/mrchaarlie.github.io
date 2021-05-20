@@ -4,26 +4,45 @@ import WidthWrapper from './WidthWrapper'
 import StickyTitle from './StickyTitle'
 import useIntersect from '../utils/useIntersect'
 import SvgIconWrapper from './SvgIconWrapper'
-import SvgSearch from './animatedIcons/Search'
-import SvgWrite from './animatedIcons/Write'
-import SvgRocket from './animatedIcons/Rocket'
-import SvgGem from './animatedIcons/Gem'
-import SvgIterate from './animatedIcons/Iterate'
+import SvgSearch from './animatedIcons/SvgSearch'
+import SvgWrite from './animatedIcons/SvgWrite'
+import SvgRocket from './animatedIcons/SvgRocket'
+import SvgGem from './animatedIcons/SvgGem'
+import SvgIterate from './animatedIcons/SvgIterate'
 
-const _Skills = styled.div``
+const _Skills = styled.div`
+  margin-bottom: 8rem;
+`
 
 const Wrapper = styled.div`
   margin: 2rem 0;
 `
 
-const SkillRow = styled.div`
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 2rem;
+ `
+
+const SkillItem = styled.div`
+  align-self: center;
+  justify-self: center;
   display: flex;
   align-items: center;
-  margin: 1rem 0 1rem ${props => props.item *1.25}rem;
+  flex-direction: column;
+
+  svg {
+    cursor: pointer;
+    transition: all 0.25s ease-out;
+    
+    &:hover {
+      opacity: 0.6;
+    }
+  }
 `
 
-const Title = styled.h4`
-  margin-left: 1rem;
+const Caption = styled.div`
+  
 `
 
 
@@ -33,34 +52,34 @@ const Skills = () => {
     <_Skills>
       <WidthWrapper>
         
-        {/* <StickyTitle>Skills</StickyTitle> */}
-        <h3>Skills</h3>
-        
         <Wrapper>
-          <SkillRow item={1}>
-            <SvgSearch />
-            <Title>Research</Title>
-          </SkillRow>
+          <Grid>
+            <SkillItem item={1}>
+              <SvgSearch />
+              {/* <Caption>Research</Caption> */}
+            </SkillItem>
+  {/* 
+            <SkillItem item={2}>
+              <SvgWrite />
+              <Caption>Planning/Documentation</Caption>
+            </SkillItem> */}
 
-          <SkillRow item={2}>
-            <SvgWrite />
-            <Title>Planning/Documentation</Title>
-          </SkillRow>
+            <SkillItem item={2}>
+              <SvgRocket delay={0.25}/>
+              {/* <Caption>Design</Caption> */}
+            </SkillItem>
 
-          <SkillRow item={3}>
-            <SvgRocket />
-            <Title>Design</Title>
-          </SkillRow>
+            <SkillItem item={3}>
+              <SvgGem delay={0.5}/>
+              {/* <Caption>Polish</Caption> */}
+            </SkillItem>
 
-          <SkillRow item={4}>
-            <SvgGem />
-            <Title>Polish</Title>
-          </SkillRow>
-
-          <SkillRow item={5}>
-            <SvgIterate />
-            <Title>Support</Title>
-          </SkillRow>
+            <SkillItem item={4}>
+              <SvgIterate delay={0.75}/>
+              {/* <Caption>Validation</Caption> */}
+            </SkillItem>
+          </Grid>
+          
           
         </Wrapper>
         

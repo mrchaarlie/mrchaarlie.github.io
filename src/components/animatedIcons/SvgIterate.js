@@ -10,8 +10,9 @@ const SvgIterate = props => {
   
     return (
       <div {...props} ref={ref}>
-        <SvgIconWrapper name='iterate' showAnimation={(entry.intersectionRatio) == 1 ? true : false } strokeArray={780}>
+        <SvgIconWrapper name='iterate' showAnimation={(entry.intersectionRatio) == 1 ? true : false } strokeColor={props.color} strokeArray={780} delay={props.delay}>
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+            <title>Iteration, animated icon</title>
             <path
               fill="transparent"
               stroke="#000000"

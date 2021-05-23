@@ -19,7 +19,7 @@ const Wrapper = styled.div`
       transition: stroke 0.5s ease;
       animation: ${props => props.showAnimation ? `start-animation-${props.name} 2s forwards` : 'none'};
       animation-timing-function: ${props => props.theme.easings.easeOutCubic};
-      animation-delay: ${props => props.delay }s;
+      animation-delay: ${props => props.delay }ms;
     }
 
     &:active > path {

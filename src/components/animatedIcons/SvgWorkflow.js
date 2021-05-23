@@ -9,7 +9,7 @@ const SvgWorkflow = props => {
   
     return (
       <div {...props} ref={ref}>
-        <SvgIconWrapper name='iterate' showAnimation={(entry.intersectionRatio) == 1 ? true : false } strokeColor={props.color} strokeArray={780} delay={props.delay}>
+        <SvgIconWrapper name='workflow' showAnimation={(entry.intersectionRatio) == 1 ? true : false } strokeColor={props.color} strokeArray={780} delay={props.delay}>
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
           <title>Workflow, animated icon</title>
             <path

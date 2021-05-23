@@ -65,17 +65,17 @@ const Skills = () => {
             </SkillItem> */}
 
             <SkillItem item={2}>
-              <SvgRocket delay={500}/>
+              <SvgRocket delay={2*300}/>
               {/* <Caption>Design</Caption> */}
             </SkillItem>
 
             <SkillItem item={3}>
-              <SvgGem delay={1000}/>
+              <SvgGem delay={3*300}/>
               {/* <Caption>Polish</Caption> */}
             </SkillItem>
 
             <SkillItem item={4}>
-              <SvgIterate delay={1500}/>
+              <SvgIterate delay={4*300}/>
               {/* <Caption>Validation</Caption> */}
             </SkillItem>
           </Grid>

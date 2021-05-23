@@ -55,7 +55,7 @@ const Skills = () => {
         <Wrapper>
           <Grid>
             <SkillItem item={1}>
-              <SvgSearch />
+              <SvgSearch delay={0}/>
               {/* <Caption>Research</Caption> */}
             </SkillItem>
   {/* 
@@ -65,17 +65,17 @@ const Skills = () => {
             </SkillItem> */}
 
             <SkillItem item={2}>
-              <SvgRocket delay={0.25}/>
+              <SvgRocket delay={500}/>
               {/* <Caption>Design</Caption> */}
             </SkillItem>
 
             <SkillItem item={3}>
-              <SvgGem delay={0.5}/>
+              <SvgGem delay={1000}/>
               {/* <Caption>Polish</Caption> */}
             </SkillItem>
 
             <SkillItem item={4}>
-              <SvgIterate delay={0.75}/>
+              <SvgIterate delay={1500}/>
               {/* <Caption>Validation</Caption> */}
             </SkillItem>
           </Grid>

@@ -6,11 +6,11 @@ import Header from 'components/Header'
 import Hero from 'components/Hero'
 import Section from 'components/Section'
 import Work from 'components/Work'
-import Process from 'components/Process'
 import Skills from 'components/Skills'
 import Resume from 'components/Resume'
-import Profiles from 'components/Profiles'
-import Faq from 'components/Faq'
+// import Process from 'components/Process'
+// import Profiles from 'components/Profiles'
+// import Faq from 'components/Faq'
 
 const Test = styled.div`
   position: fixed;
@@ -70,7 +70,6 @@ export default () => {
       <Section>
         <Work />
       </Section>
-    
   
       <Section>
         <Resume />

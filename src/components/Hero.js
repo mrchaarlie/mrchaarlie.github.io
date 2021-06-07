@@ -64,7 +64,7 @@ const RightArrow = styled.div`
   display: inline-block;
   width: 0.75em;
   height: 0.75em;
-  margin: 0 0 -0.05em 0.125em;
+  margin: 0 0 -0.125em 0.125em;
   border-radius: 2em;
   border: 2px solid ${props => props.theme.colors.primaryDark};
   transition: all 0.25s ${props => props.theme.easings.easeOutQuad};

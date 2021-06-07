@@ -7,6 +7,7 @@ const Wrapper = styled.div`
   svg {
     width: 2.5rem;
     height: 2.5rem;
+    opacity: ${props => props.opacity};
 
     path {
       stroke: ${props => props.strokeColor};
@@ -34,8 +35,8 @@ const Wrapper = styled.div`
   }
 `
 
-const SvgIconWrapper = ({ name, showAnimation, strokeColor="#BDBDBD", strokeArray=500, delay=0, children, ...rest }) => (
-  <Wrapper {...rest} name={name} showAnimation={showAnimation} strokeColor={strokeColor} strokeArray={strokeArray} delay={delay}>
+const SvgIconWrapper = ({ name, showAnimation, strokeColor="#BDBDBD", strokeArray=500, delay=0, opacity=1, children, ...rest }) => (
+  <Wrapper {...rest} name={name} showAnimation={showAnimation} strokeColor={strokeColor} strokeArray={strokeArray} delay={delay} opacity={opacity}>
     {children}
   </Wrapper>
 )
@@ -46,6 +47,7 @@ SvgIconWrapper.propTypes = {
   strokeColor: PropTypes.string,
   strokeArray: PropTypes.number,
   delay: PropTypes.number,
+  opacity: PropTypes.number,
   children: PropTypes.any,
 }
 

@@ -10,7 +10,7 @@ const SvgSearch = props => {
   
     return (
       <div {...props} ref={ref}>
-        <SvgIconWrapper name='search' showAnimation={(entry.intersectionRatio) == 1 ? true : false } strokeColor={props.color} strokeArray={477} delay={props.delay} >
+        <SvgIconWrapper name='search' showAnimation={(entry.intersectionRatio) == 1 ? true : false } strokeColor={props.color} strokeArray={477} delay={props.delay} opacity={props.opacity}>
           <svg version="1.1" className="svg" id="svg-search" xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128"
             style={{enableBackground: 'new 0 0 128 128'}} xmlSpace="preserve">

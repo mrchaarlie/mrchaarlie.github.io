@@ -10,7 +10,7 @@ const SvgGem = props => {
   
     return (
       <div {...props} ref={ref}>
-        <SvgIconWrapper name='gem' showAnimation={(entry.intersectionRatio) == 1 ? true : false } strokeColor={props.color} strokeArray={808} delay={props.delay}>
+        <SvgIconWrapper name='gem' showAnimation={(entry.intersectionRatio) == 1 ? true : false } strokeColor={props.color} strokeArray={808} delay={props.delay} opacity={props.opacity}>
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
             <title>Polished gem, animated icon</title>
             <path

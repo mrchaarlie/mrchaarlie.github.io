@@ -30,6 +30,7 @@ const SkillItem = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-top: ${props => (props.item * 3) -7.5}rem;
 
   svg {
     cursor: pointer;
@@ -55,7 +56,7 @@ const Skills = () => {
         <Wrapper>
           <Grid>
             <SkillItem item={1}>
-              <SvgSearch delay={0}/>
+              <SvgSearch delay={0} color={props => props.theme.colors.darkGrey} opacity={0.4}/>
               {/* <Caption>Research</Caption> */}
             </SkillItem>
   {/* 
@@ -65,17 +66,17 @@ const Skills = () => {
             </SkillItem> */}
 
             <SkillItem item={2}>
-              <SvgRocket delay={2*300}/>
+              <SvgRocket delay={2*300} color={props => props.theme.colors.darkGrey} opacity={0.6}/>
               {/* <Caption>Design</Caption> */}
             </SkillItem>
 
             <SkillItem item={3}>
-              <SvgGem delay={3*300}/>
+              <SvgGem delay={4*300} color={props => props.theme.colors.darkGrey} opacity={0.8}/>
               {/* <Caption>Polish</Caption> */}
             </SkillItem>
 
             <SkillItem item={4}>
-              <SvgIterate delay={4*300}/>
+              <SvgIterate delay={6*300} color={props => props.theme.colors.darkGrey} opacity={1}/>
               {/* <Caption>Validation</Caption> */}
             </SkillItem>
           </Grid>

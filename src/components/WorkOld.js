@@ -88,24 +88,20 @@ const portfolioData = {
 const MED_LEFT_MARGIN = 'calc((100vw - 900px + 2rem) / 2)'
 
 const OuterWrapper = styled.div`
+  overflow-x: visible;
   position: relative;
-  display: grid;
-  grid: auto-flow / repeat(8, 1fr) 1fr;
-  grid-gap: 16px;
 `
 
 const PortfolioWrapper = styled.div`
-  position: relative;
-  display: grid;
-  grid: auto-flow / repeat(8, 1fr) 1fr;
-  grid-gap: 16px;
   scroll-snap-type: x mandatory
   text-align: left;
+  position: relative;
   height: 60vh;
   min-height: 26rem;
   margin-top: 1rem;
   margin-left: 1rem;
   overflow-x: scroll;
+  display: flex;
   background-color: ${props => props.theme.colors.lighterGrey};
   scrollbar-color: ${props =>
     `${props.theme.colors.darkGrey} ${props.theme.colors.lighterGrey}`};
@@ -403,27 +399,27 @@ const Work = () => {
         <StickyTitle>Portfolio</StickyTitle>
       </WidthWrapper>
 
-      
-      <WidthWrapper>
-         test
-        
+      <OuterWrapper>
+        <PrevButton onClick={prevItem} disabled={!prevButtonEnabled} />
+        <NextButton onClick={nextItem} disabled={!nextButtonEnabled} />
         <PortfolioWrapper ref={portfolioWrapperRef}>
-        {Object.values(portfolioData).map(item => (
+          {Object.values(portfolioData).map(item => (
             <PortfolioInnerWrapper key={item.title}>
-            <PortfolioItem>
+              <PortfolioItem>
                 <PImage src={item.image} />
                 <PBody>
-                <PTitle>{item.title}</PTitle>
-                <PCategory>{item.category}</PCategory>
-                <PKeywords>{item.keywords}</PKeywords>
-                <PLink to={item.linkTo}>Read details</PLink>
+                  <PTitle>{item.title}</PTitle>
+                  <PCategory>{item.category}</PCategory>
+                  <PKeywords>{item.keywords}</PKeywords>
+                  <PLink to={item.linkTo}>Read details</PLink>
                 </PBody>
-            </PortfolioItem>
+              </PortfolioItem>
             </PortfolioInnerWrapper>
-        ))}
+          ))}
         </PortfolioWrapper>
-      </WidthWrapper>
-
+        <PortfolioBorderRadiusTL size={20} />
+        <PortfolioBorderRadiusBL size={10} />
+      </OuterWrapper>
     </>
   )
 }

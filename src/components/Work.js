@@ -6,424 +6,265 @@ import StickyTitle from './StickyTitle'
 
 import WidthWrapper from './WidthWrapper'
 
-import img100 from '../img/portfolio/100a.png'
-import imgABC from '../img/portfolio/abc.png'
-import imgCareerJSM from '../img/portfolio/careerjsm.png'
-import imgCurio from '../img/portfolio/curio.jpg'
-import imgDive from '../img/portfolio/dive.jpg'
-import imgFF from '../img/portfolio/ff.jpg'
-import imgNetflix from '../img/portfolio/netflix.png'
-import imgUberEverything from '../img/portfolio/uber-everything.jpg'
+import imgTaxonomyAnnotatorHero from '../img/portfolio/taxonomy-annotator-hero.png'
+import imgJobTracker from '../img/portfolio/job-tracker-hero.png'
+import img100Accelerator from '../img/portfolio/100+-accelerator-hero.png'
+import imgFemaleFunders from '../img/portfolio/female-funders-hero.jpg'
 
-import leftArrow from '../img/left-arrow.svg'
-import rightArrow from '../img/right-arrow.svg'
-
-import BorderTopLeft from './common/BorderTopLeft'
-import BorderBottomLeft from './common/BorderBottomLeft'
-
-const portfolioData = {
+const workData = {
+  taxonomyAnnotator: {
+    title: 'Taxonomy Annotator',
+    subtitle: 'LivePerson',
+    image: imgTaxonomyAnnotatorHero,
+    category: 'Web tool',
+    linkTo: '/portfolio/100-accelerator',
+    className: 'position-1',
+  },
+  careerJsm: {
+    title: 'Job Tracker',
+    subtitle: 'CareerJSM',
+    image: imgJobTracker,
+    category: 'Web app',
+    linkTo: '/',
+    className: 'position-2',
+  },
   oneHundredAccelerator: {
     title: '100+ Accelerator',
-    category: 'Accelerator Website',
-    image: img100,
-    keywords: 'Interface Design | Copywriting | Branding | Development',
+    subtitle: 'Highline Beta + AB InBev',
+    image: img100Accelerator,
+    category: 'Website',
     linkTo: '/portfolio/100-accelerator',
+    className: 'position-3',
   },
   femaleFunders: {
     title: 'Female Funders',
-    category: 'Education Website',
-    image: imgFF,
-    keywords:
-      'Information Architecture | Branding | SEO | Accessibility/Responsive Design | Development',
+    subtitle: 'Highline Beta',
+    image: imgFemaleFunders,
+    category: 'Website',
     linkTo: '/',
-  },
-  agileBlockchain: {
-    title: 'Agile Blockchain Corporation',
-    category: 'Logistic App',
-    image: imgABC,
-    keywords:
-      'UX Research | Information Architecture | Interface Design | Prototyping',
-    linkTo: '/',
-  },
-  careerJsm: {
-    title: 'CareerJSM',
-    category: 'Job Management App',
-    image: imgCareerJSM,
-    keywords:
-      'Interface Design | User Interviews | User Research | Copywriting | Branding | Development',
-    linkTo: '/',
-  },
-  diveNetworks: {
-    title: 'Dive Networks',
-    category: 'Digital Signage App',
-    image: imgDive,
-    keywords:
-      'Responsive/Interaction Design | User Research | Branding | Development',
-    linkTo: '/',
-  },
-  netflixLogo: {
-    title: 'Netflix Logo',
-    category: 'CSS Experiment',
-    image: imgNetflix,
-    keywords: 'Motion Design',
-    linkTo: '/',
-  },
-  crowdCurio: {
-    title: 'Crowd Curio',
-    category: 'Citizen Science Platform',
-    image: imgCurio,
-    keywords:
-      'User Research | User Interviews | Interface Design | Prototyping | Development',
-    linkTo: '/',
-  },
-  uberEverything: {
-    title: 'Uber Everything',
-    category: 'Design Challenge',
-    image: imgUberEverything,
-    keywords: 'UX Design | Product Design',
-    linkTo: '/',
+    className: 'position-4',
   },
 }
 
 const MED_LEFT_MARGIN = 'calc((100vw - 900px + 2rem) / 2)'
 
-const OuterWrapper = styled.div`
+const WorkContainer = styled.div`
   position: relative;
+  margin: 2rem 0;
   display: grid;
-  grid: auto-flow / repeat(8, 1fr) 1fr;
-  grid-gap: 16px;
-`
-
-const PortfolioWrapper = styled.div`
-  position: relative;
-  display: grid;
-  grid: auto-flow / repeat(8, 1fr) 1fr;
-  grid-gap: 16px;
-  scroll-snap-type: x mandatory
+  grid: auto-flow / repeat(12, 1fr);
+  gap: 2rem;
   text-align: left;
-  height: 60vh;
-  min-height: 26rem;
-  margin-top: 1rem;
-  margin-left: 1rem;
-  overflow-x: scroll;
-  background-color: ${props => props.theme.colors.lighterGrey};
-  scrollbar-color: ${props =>
-    `${props.theme.colors.darkGrey} ${props.theme.colors.lighterGrey}`};
-
-  @media ${props => props.theme.media.small} {
-    height: 70vh;
-    max-height: 30rem;
-  }
-  @media ${props => props.theme.media.medium} {
-    margin-left: ${MED_LEFT_MARGIN};
-  }
-
-  ::-webkit-scrollbar {
-    height: 16px;
-    background-color: transparent;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: ${props => props.theme.colors.darkGrey};
-    border-radius: 16px;
-  }
+  
+  // @media ${props => props.theme.media.small} {
+  //   height: 70vh;
+  //   max-height: 30rem;
+  // }
+  // @media ${props => props.theme.media.medium} {
+  //   margin-left: ${MED_LEFT_MARGIN};
+  // }
 `
-// Faux border radius because real one causes performance problems
-const PortfolioBorderRadius = styled.div`
-  position: absolute;
-  height: ${props => `${props.size || 16}px`};
-  width: ${props => `${props.size || 16}px`};
-  background: ${props => props.theme.colors.white};
-  pointer-events: none;
-  left: 1rem;
 
-  @media ${props => props.theme.media.medium} {
-    left: ${MED_LEFT_MARGIN};
-  }
-`
-const _PortfolioBorderRadiusTL = styled(PortfolioBorderRadius)`
-  top: 0;
-  clip-path: url(#maskTopLeft);
-`
-const _PortfolioBorderRadiusBL = styled(PortfolioBorderRadius)`
-  bottom: 0;
-  clip-path: url(#maskBottomLeft);
-`
-const PortfolioBorderRadiusTL = ({ size, clipId }) => (
-  <>
-    <BorderTopLeft size={size} clipId="maskTopLeft" />
-    <_PortfolioBorderRadiusTL size={size} />
-  </>
-)
-PortfolioBorderRadiusTL.propTypes = {
-  size: PropTypes.number,
-  clipId: PropTypes.string,
-}
-
-const PortfolioBorderRadiusBL = ({ size, clipId }) => (
-  <>
-    <BorderBottomLeft size={size} clipId="maskBottomLeft" />
-    <_PortfolioBorderRadiusBL size={size} />
-  </>
-)
-PortfolioBorderRadiusBL.propTypes = {
-  size: PropTypes.number,
-  clipId: PropTypes.string,
-}
-
-const PortfolioInnerWrapper = styled.div`
-  scroll-snap-align: start;
-  flex: 0 0 90vw;
-  margin-bottom: 0.5rem;
-
-  &:last-of-type {
-    padding-right: calc((100vw - 900px - 2rem) / 2);
-  }
-
-  @media ${props => props.theme.media.medium} {
-    flex: 0 0 45rem;
-    padding-right: 1rem;
-  }
-`
-const PortfolioItem = styled.div`
-  background: ${props => props.theme.colors.white};
-  border-radius: 12px;
-  margin: 0.5rem;
-  box-shadow: ${props => props.theme.shadows.one};
-  padding: 1rem 2rem;
-  height: calc(100% - 3rem);
-  position: relative;
+const ItemBody = styled(Link)`
   display: flex;
   flex-direction: column;
-  text-align: center;
-  transition: box-shadow 0.25s ease-out;
+  justify-content: flex-end;
+  text-decoration: none;
+  color: ${props => props.theme.colors.darkGrey};
+  border-radius: 0.25rem;
 
   &:hover {
-    box-shadow: ${props => props.theme.shadows.three};
+    color: ${props => props.theme.colors.darkGrey};
   }
-
-  @media ${props => props.theme.media.short} {
-    display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: 1.3fr 1fr;
+  &:active,
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 1px 2px ${props => props.theme.colors.primaryDark};
   }
 `
-const PImage = styled.img`
-  max-width: 90%;
-  max-height: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  flex: 0 1 50%;
+const ItemImageWrapper = styled.div`
+  // transform-origin: 50% 50%;
+  // transition: all 0.5s ${props => props.theme.easings.easeOutCubic};
+  perspective: 900px;
+  ${props => props.theme.transforms.defaults}; 
+`
+const ItemImage = styled.img`
+  flex: 1;
+  height: auto;
+  width: 100%;
   object-fit: contain;
+  transition: all 0.4s ${props => props.theme.easings.easeOutCubic};
 
   @media (min-width: ${props => props.theme.media.small}) {
-    max-height: 53%;
   }
   @media ${props => props.theme.media.short} {
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
-    max-height: 100%;
   }
 `
-const PBody = styled.div`
-  flex: 1 0 40%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
+const ItemImageShadow = styled.div`
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  width: 100%;
+  height: 120%;
+  width: 130%;
+  // outline: 1px solid blue;
+`
 
-  @media ${props => props.theme.media.short} {
-    text-align: left;
-    align-items: flex-start;
-  }
-`
-const PTitle = styled.div`
-  margin-top: 0.75rem;
-  margin-bottom: 0.25rem;
-  font-family: ${props => props.theme.fonts.heading};
-  font-size: 1.75rem;
+const ItemTitle = styled.div`
+  font-family: ${props => props.theme.fonts.body};
+  line-height: 1;
+  font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.15;
-  color: ${props => props.theme.colors.primary};
+  color: ${props => props.theme.colors.darkerGrey};
+  border-bottom: 0.25rem solid ${props => props.theme.colors.primary};
+  transition: all 0.25s ease-out;
 
   @media ${props => props.theme.media.medium} {
     font-size: 2rem;
   }
 `
-const PCategory = styled.div`
+const ItemSubtitle = styled.div`
+  font-family: ${props => props.theme.fonts.body};
+  font-size: 1rem;
+  line-height: 1;
+`
+
+const ItemCategory = styled.div`
   font-size: 1.125rem;
-  margin-bottom: 0.75rem;
-  color: ${props => props.theme.colors.darkGrey};
 `
-const PKeywords = styled.p`
-  font-size: 0.75rem;
-  margin-bottom: 1rem;
-  color: ${props => props.theme.colors.grey};
-`
-const PLink = styled(Link)`
-  background: ${props => props.theme.colors.secondary};
-  color: ${props => props.theme.colors.white};
-  padding: 0.375rem 2rem;
-  border-radius: 2rem;
-  text-decoration: none;
-  transition: background 0.25s ease-out;
-
-  &:hover,
-  &:focus {
-    background: ${props => props.theme.colors.secondaryDark};
-    color: ${props => props.theme.colors.white};
-  }
-  &:active {
-    color: ${props => props.theme.colors.white};
-  }
-`
-
-const ScrollButton = styled.button`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  width: 2rem;
-  height: 4rem;
-  margin: 0;
-  padding: 0;
-  border-radius: 1rem;
-  background-color: rgba(0, 0, 0, 0.4);
-  background-size: 1rem;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  color: ${props => props.theme.colors.white};
+const WorkItem = styled.div`
+  position: relative;
+  margin: 2rem 0;
+  height: 40vh;
+  min-height: 12rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: ${props => (props.disabled ? 0.1 : 1)};
-  transition: background 0.25s ease-out, box-shadow 0.25s ease-out,
-    opacity 0.25s ease-out;
-  border: 0;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  // background: #fff;
+  // outline: 1px solid red;
 
-  &:hover:not(:disabled),
-  &:focus:not(:disabled) {
-    background-color: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 1px 1px #fff,
-      0 0 3px 3px ${props => props.theme.colors.primary};
-    outline: 0;
+  &.position-1 {
+    grid-column: 1 / span 5;
+  }
+  &.position-2 {
+    grid-column: 6 / span 5;
+  }
+  &.position-3 {
+    grid-column: 2 / span 5;
+  }
+  &.position-4 {
+    grid-column: 7 / span 5;
   }
 
-  &:disabled {
-    cursor: default;
+  //Odd
+  :nth-child(2n-1) {
+    ${ItemBody} {
+      align-items: flex-start;
+      @media ${props => props.theme.media.medium} {
+        transform: translate(-4rem);
+        width: calc(100% + 2rem);
+      }
+      @media ${props => props.theme.media.large} {
+        transform: translate(-8rem);
+        width: calc(100% + 6rem);
+      }
+    }
+
+    ${ItemImage} {
+      ${props => props.theme.transforms.isometricLeft};
+    }
+
+    ${ItemImageShadow} {
+      background: linear-gradient(
+        20deg,
+        rgba(249, 247, 246, 0.9) 10%,
+        rgba(249, 247, 246, 0.4) 30%,
+        rgba(249, 247, 246, 0) 75%
+      );
+      right: -5%;
+    }
   }
-`
 
-const PrevButton = styled(ScrollButton)`
-  left: 1.25rem;
-  background-image: url(${leftArrow});
+  //Even
+  :nth-child(2n) {
+    align-items: flex-end;
 
-  @media ${props => props.theme.media.medium} {
-    left: calc(${MED_LEFT_MARGIN} + 0.25rem);
+    ${ItemBody} {
+      align-items: flex-end;
+      text-align: right;
+
+      @media ${props => props.theme.media.medium} {
+        transform: translate(4rem);
+        width: calc(100% + 2rem);
+      }
+      @media ${props => props.theme.media.large} {
+        transform: translate(8rem);
+        width: calc(100% + 6rem);
+      }
+    }
+
+    ${ItemImage} {
+      ${props => props.theme.transforms.isometricRight};
+    }
+
+    ${ItemImageShadow} {
+      background: linear-gradient(
+        340deg,
+        rgba(249, 247, 246, 0.9) 10%,
+        rgba(249, 247, 246, 0.4) 30%,
+        rgba(249, 247, 246, 0) 75%
+      );
+      left: -5%;
+    }
   }
-`
 
-const NextButton = styled(ScrollButton)`
-  right: 1rem;
-  background-image: url(${rightArrow});
+  &:hover {
+    ${ItemTitle} {
+      border-bottom: 0.25rem solid ${props => props.theme.colors.primaryDark};
+    }
+
+    //Odd
+    :nth-child(2n-1) {
+      ${ItemImage} {
+        ${props => props.theme.transforms.isometricZeroA};
+      }
+    }
+
+    //Even
+    :nth-child(2n) {
+      ${ItemImage} {
+        ${props => props.theme.transforms.isometricZeroB};
+      }
+    }
+  }
 `
 
 const Work = () => {
-  const [portfolioScrollPos, setPortfolioScrollPos] = useState(0)
-  const [portfolioItemWidth, setPortfolioItemWidth] = useState(900)
-  const [portfolioItems, setPortfolioItems] = useState(8)
-  const [prevButtonEnabled, setPrevButtonEnabled] = useState(false)
-  const [nextButtonEnabled, setNextButtonEnabled] = useState(true)
-  const portfolioWrapperRef = useRef(null)
-  const PORTFOLIO_MIN_WIDTH = 0
-  let PORTFOLIO_MAX_WIDTH = portfolioItemWidth * (portfolioItems - 1)
-
-  let portfolioEl = null
-
-  const scrollPortfolioTo = position => {
-    portfolioEl.scroll({
-      top: 0,
-      left: position,
-      behavior: 'smooth',
-    })
-  }
-
-  const nextItem = () => {
-    if (portfolioScrollPos < PORTFOLIO_MAX_WIDTH) {
-      const newPos = portfolioScrollPos + portfolioItemWidth
-      scrollPortfolioTo(newPos)
-    }
-  }
-  const prevItem = () => {
-    if (portfolioScrollPos > PORTFOLIO_MIN_WIDTH) {
-      const newPos = portfolioScrollPos - portfolioItemWidth
-      scrollPortfolioTo(newPos)
-    }
-  }
-
-  // init
-  useEffect(() => {
-    portfolioEl = portfolioWrapperRef.current
-    setPortfolioItems(portfolioEl.children.length)
-    setPortfolioItemWidth(portfolioEl.firstElementChild.offsetWidth)
-    PORTFOLIO_MAX_WIDTH = portfolioItemWidth * (portfolioItems - 1)
-
-    portfolioEl.addEventListener('scroll', () => {
-      setPortfolioScrollPos(portfolioEl.scrollLeft)
-    })
-  })
-
-  // update Next Button
-  useEffect(() => {
-    if (portfolioEl.scrollLeft >= PORTFOLIO_MAX_WIDTH) {
-      setNextButtonEnabled(false)
-    } else {
-      const timer = setTimeout(() => {
-        setNextButtonEnabled(true)
-      }, 20)
-      return () => clearTimeout(timer)
-    }
-  })
-  // update Prev Button
-  useEffect(() => {
-    if (portfolioEl.scrollLeft <= PORTFOLIO_MIN_WIDTH) {
-      setPrevButtonEnabled(false)
-    } else {
-      const timer = setTimeout(() => {
-        setPrevButtonEnabled(true)
-      }, 20)
-      return () => clearTimeout(timer)
-    }
-  })
-
   return (
     <>
       <WidthWrapper>
-        <StickyTitle>Portfolio</StickyTitle>
-      </WidthWrapper>
+        <StickyTitle>Work</StickyTitle>
 
-      
-      <WidthWrapper>
-         test
-        
-        <PortfolioWrapper ref={portfolioWrapperRef}>
-        {Object.values(portfolioData).map(item => (
-            <PortfolioInnerWrapper key={item.title}>
-            <PortfolioItem>
-                <PImage src={item.image} />
-                <PBody>
-                <PTitle>{item.title}</PTitle>
-                <PCategory>{item.category}</PCategory>
-                <PKeywords>{item.keywords}</PKeywords>
-                <PLink to={item.linkTo}>Read details</PLink>
-                </PBody>
-            </PortfolioItem>
-            </PortfolioInnerWrapper>
-        ))}
-        </PortfolioWrapper>
+        <WorkContainer>
+          {Object.values(workData).map((item, index) => (
+            <WorkItem className={item.className} key={index}>
+              <ItemImageWrapper>
+                <ItemImage src={item.image} />
+              </ItemImageWrapper>
+              <ItemImageShadow />
+              <ItemBody to={item.linkTo}>
+                <ItemSubtitle>{item.subtitle}</ItemSubtitle>
+                <ItemTitle>{item.title}</ItemTitle>
+                <ItemCategory>
+                  {index} – {item.category}
+                </ItemCategory>
+              </ItemBody>
+            </WorkItem>
+          ))}
+        </WorkContainer>
       </WidthWrapper>
-
     </>
   )
 }

@@ -2,7 +2,6 @@ import * as React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-
 const Wrapper = styled.div`
   svg {
     width: 2.5rem;
@@ -15,12 +14,15 @@ const Wrapper = styled.div`
       stroke-miterlimit: 0;
       stroke-linecap: round;
       stroke-linejoin: round;
-      stroke-dasharray: ${props => props.strokeArray };
-      stroke-dashoffset: ${props => props.strokeArray };
+      stroke-dasharray: ${props => props.strokeArray};
+      stroke-dashoffset: ${props => props.strokeArray};
       transition: stroke 0.5s ease;
-      animation: ${props => props.showAnimation ? `start-animation-${props.name} 2s forwards` : 'none'};
+      animation: ${props =>
+        props.showAnimation
+          ? `start-animation-${props.name} 2s forwards`
+          : 'none'};
       animation-timing-function: ${props => props.theme.easings.easeOutCubic};
-      animation-delay: ${props => props.delay }ms;
+      animation-delay: ${props => props.delay}ms;
     }
 
     &:active > path {
@@ -30,13 +32,29 @@ const Wrapper = styled.div`
 
   @keyframes start-animation-${props => props.name} {
     to {
-      stroke-dashoffset: ${props => props.strokeArray * 2 } ;
+      stroke-dashoffset: ${props => props.strokeArray * 2} ;
     }
   }
 `
 
-const SvgIconWrapper = ({ name, showAnimation, strokeColor="#BDBDBD", strokeArray=500, delay=0, opacity=1, children, ...rest }) => (
-  <Wrapper {...rest} name={name} showAnimation={showAnimation} strokeColor={strokeColor} strokeArray={strokeArray} delay={delay} opacity={opacity}>
+const SvgIconWrapper = ({
+  name,
+  showAnimation,
+  strokeColor = '#BDBDBD',
+  strokeArray = 500,
+  delay = 0,
+  opacity = 1,
+  children,
+  ...rest
+}) => (
+  <Wrapper
+    {...rest}
+    name={name}
+    showAnimation={showAnimation}
+    strokeColor={strokeColor}
+    strokeArray={strokeArray}
+    delay={delay}
+    opacity={opacity}>
     {children}
   </Wrapper>
 )

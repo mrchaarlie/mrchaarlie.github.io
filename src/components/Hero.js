@@ -25,7 +25,6 @@ const Title = styled.div`
   text-align: left;
   position: relative;
   margin-bottom: 4em;
-  
 `
 const HeroText = styled.h2`
   position: relative;
@@ -138,14 +137,26 @@ const Tooltip = styled.p`
   color: ${props => props.theme.colors.white};
 `
 
-const HELLO_STRINGS = ["Hello","Hello","Hello","Hello","Hello","Hello","Hello","Hello","Hello","Bonjour","Hola", "Namaste", "Shalom", "Ni Hao"]
+const HELLO_STRINGS = [
+  'Hello',
+  'Hello',
+  'Hello',
+  'Hello',
+  'Hello',
+  'Hello',
+  'Hello',
+  'Hello',
+  'Hello',
+  'Bonjour',
+  'Hola',
+  'Namaste',
+  'Shalom',
+  'Ni Hao',
+]
 
-const RandomHello = () => {
-
-}
+const RandomHello = () => {}
 
 const Hero = () => {
-
   return (
     <Wrapper>
       <Header />
@@ -161,7 +172,7 @@ const Hero = () => {
           </Title>
 
           <Summary>
-            Currently, I’m at LivePerson building the future of {' '}
+            Currently, I’m at LivePerson building the future of{' '}
             <DashedUnderline
               data-tip
               data-for="conversationalCommerece"
@@ -176,11 +187,16 @@ const Hero = () => {
             <WorkLink href="#work">
               Check out some of my work <RightArrow />
             </WorkLink>
-            <ReactTooltip id="conversationalCommerece" >
-                <Tooltip>Specifically, I'm helping enterprises understand their customers' needs via NLU-powered tools, so they can increase automation and improve customer engagement.</Tooltip>
-                <Tooltip>
-                  It's a complex industry; feel free to contact me to learn more! </Tooltip>
-              </ReactTooltip>
+            <ReactTooltip id="conversationalCommerece">
+              <Tooltip>
+                Specifically, I'm helping enterprises understand their
+                customers' needs via NLU-powered tools, so they can increase
+                automation and improve customer engagement.
+              </Tooltip>
+              <Tooltip>
+                It's a complex industry; feel free to contact me to learn more!{' '}
+              </Tooltip>
+            </ReactTooltip>
           </Summary>
         </WidthWrapper>
       </Intro>

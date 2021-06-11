@@ -2,7 +2,7 @@ import * as React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { transparentize } from 'polished'
-import { Link } from './Router'
+import { Link } from '@reach/router'
 import IAmA from './IAmA'
 import WidthWrapper from './WidthWrapper'
 
@@ -38,17 +38,20 @@ const _Nav = styled.nav`
     }
   }
 `
-const Nav = () => (
-  <_Nav>
-    <HeaderLink to="/">Home</HeaderLink>
-    <HeaderLink to="/#work">Work</HeaderLink>
-    <HeaderLink to="/#about">About</HeaderLink>
-  </_Nav>
-)
-const HeaderLink = styled(Link)`
+
+const HeaderLink = styled.a`
   text-decoration: none;
   font-weight: 700;
 `
+
+const Nav = () => (
+  <_Nav>
+    <HeaderLink href="/#">Home</HeaderLink>
+    <HeaderLink href="/##work">Work</HeaderLink>
+    <HeaderLink href="/##about">About</HeaderLink>
+    {/* <Link to="/"> TEST</Link> */}
+  </_Nav>
+)
 
 const HeaderContainer = styled.div`
   position: fixed;
@@ -62,45 +65,41 @@ const HeaderContainer = styled.div`
   text-align: right;
   background: ${props => props.theme.colors.offWhite};
   color: ${props => props.theme.colors.primaryDark};
-  
 `
 
 const HeaderWrapper = styled(WidthWrapper)`
-  height: 100%;  
+  height: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
-    box-shadow:
-      -48px 7px 0 -1px ${props => props.theme.colors.offWhite},
-       48px 7px 0 -1px ${props => props.theme.colors.offWhite};
+    box-shadow: -48px 7px 0 -1px ${props => props.theme.colors.offWhite},
+      48px 7px 0 -1px ${props => props.theme.colors.offWhite};
     top: -4px;
-    bottom: 4px; 
+    bottom: 4px;
     width: 100%;
     z-index: -1;
     background: ${props => props.theme.colors.offWhite};
   }
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     bottom: 0;
     left: -24px;
     right: -24px;
-    box-shadow: 0 6px 4px 0 rgba(0,0,0,.15);
+    box-shadow: 0 6px 4px 0 rgba(0, 0, 0, 0.15);
     border-radius: 200px/7px;
     transition: transform 0.5s ease-out;
-    transform: ${props => props.showShadow ? `translateY(0)`: `translateY(-8px)` };
+    transform: ${props =>
+      props.showShadow ? `translateY(0)` : `translateY(-8px)`};
     z-index: -2;
   }
 `
-
-
 
 const Header = ({ showShadow }) => (
   <HeaderContainer>
@@ -109,6 +108,5 @@ const Header = ({ showShadow }) => (
     </HeaderWrapper>
   </HeaderContainer>
 )
-
 
 export default Header

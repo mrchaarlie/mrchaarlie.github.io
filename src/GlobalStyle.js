@@ -57,11 +57,33 @@ export const theme = {
   easings: {
     easeOutQuad: `cubic-bezier(0.5, 1, 0.89, 1)`,
     easeOutCubic: `cubic-bezier(0.33, 1, 0.68, 1)`,
-  }
+  },
+  transforms: {
+    defaults: `
+      backface-visibility: hidden;
+      transform-style: preserve-3d;`,
+    isometricZeroA: `transform: translate3d(-2rem, 0rem , 4rem)`,
+    isometricZeroB: `transform: translate3d(2rem, 0 , 6rem)`,
+    isometricLeft: `transform: rotate3d(1, 0.3, 0, 30deg) translate3d(-2rem, 4rem, 4rem);
+    transform-origin: 0 100%;`,
+    isometricRight: `transform: rotate3d(1,-0.3,0,30deg) translate3d(3rem,6rem,6rem);
+    transform-origin: 0% 100%;`,
+    scaleBig: `transform: scale(1.3)`,
+    scaleNormal: `transform: scale(1)`,
+    skewLeft: `
+    transform: skew(0, 20deg);
+    transform-origin: 100% 100%;`,
+    skewRight: `
+    transform: skew(0, -20deg);
+    transform-origin: 1px 0%;`,
+    isometricLeftZ: `transform: none;
+    transform-origin: 100% 100%;`,
+    isometricRightZ: `transform: none;
+     transform-origin: 0% 60%;`,
+  },
 }
 
 const animations = css`
-
   @keyframes fadeOut {
     0% {
       opacity: 1;

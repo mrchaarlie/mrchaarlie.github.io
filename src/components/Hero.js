@@ -48,12 +48,20 @@ const HeroText = styled.h2`
 const Summary = styled.h4`
   position: relative;
 `
-
-const WaveEmoji = styled.span`
+const WaveContainer = styled.span`
   -webkit-text-fill-color: #000;
   display: inline-block;
   opacity: 0;
   animation: fadeInSlideRight 0.5s ease-out 2s forwards;
+`
+const WaveEmoji = styled.span`
+  display: inline-block;
+  transform-origin: 100% 100%;
+
+  &:hover {
+    cursor: pointer;
+    animation: wave 1s ease-out 0s forwards;
+  }
 `
 
 const ARROW_POSITION_BEFORE = 40
@@ -165,7 +173,7 @@ const Hero = () => {
         <WidthWrapper>
           <Title id="title">
             <HeroText>
-              Hi, I'm Charles. <WaveEmoji>👋</WaveEmoji>
+              Hi, I'm Charles. <WaveContainer><WaveEmoji>👋</WaveEmoji></WaveContainer>
               <br />
               I'm a product designer.
             </HeroText>

@@ -174,6 +174,29 @@ const animations = css`
       opacity: 1;
     }
   }
+
+  @keyframes wave {
+    0% {
+      opacity: 1;
+      transform: none;
+    }
+    20% {
+      transform: rotate(10deg);
+    }
+    40% {
+      transform: rotate(-10deg);
+    }
+    60% {
+      transform: rotate(10deg);
+    }
+    80% {
+      transform: rotate(-10deg);
+    }
+    100% {
+      opacity: 1;
+      transform: rotate(0);
+    }
+  }
 `
 
 const GlobalStyle = createGlobalStyle`

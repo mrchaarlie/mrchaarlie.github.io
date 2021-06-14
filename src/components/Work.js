@@ -17,7 +17,8 @@ const workData = {
     subtitle: 'LivePerson',
     image: imgTaxonomyAnnotatorHero,
     category: 'Web tool',
-    linkTo: '/portfolio/100-accelerator',
+    linkTo:
+      '//www.figma.com/proto/dcvfNqQNpBMSNqUI9P5qkV/Charles-Wu-Taxonomy-Annotator?page-id=0%3A1&node-id=1%3A2&viewport=-720%2C-314%2C0.12367748469114304&scaling=min-zoom',
     className: 'position-1',
   },
   careerJsm: {
@@ -33,7 +34,7 @@ const workData = {
     subtitle: 'Highline Beta + AB InBev',
     image: img100Accelerator,
     category: 'Website',
-    linkTo: '/portfolio/100-accelerator',
+    linkTo: '/work/100-accelerator',
     className: 'position-3',
   },
   femaleFunders: {
@@ -45,8 +46,6 @@ const workData = {
     className: 'position-4',
   },
 }
-
-const MED_LEFT_MARGIN = 'calc((100vw - 900px + 2rem) / 2)'
 
 const WorkContainer = styled.div`
   position: relative;
@@ -272,17 +271,18 @@ const Work = () => {
 
         <WorkContainer>
           {Object.values(workData).map((item, index) => (
-            <WorkItem className={item.className} key={index}>
+            <WorkItem className={item.className} key={item.title}>
               <ItemImageWrapper>
                 <ItemImage src={item.image} />
               </ItemImageWrapper>
               <ItemImageShadow />
-              <ItemBody to={item.linkTo}>
+              <ItemBody
+                to={item.linkTo}
+                target="_blank"
+                rel="noopener noreferrer">
                 <ItemSubtitle>{item.subtitle}</ItemSubtitle>
                 <ItemTitle>{item.title}</ItemTitle>
-                <ItemCategory>
-                  {index} – {item.category}
-                </ItemCategory>
+                <ItemCategory>{item.category}</ItemCategory>
               </ItemBody>
             </WorkItem>
           ))}

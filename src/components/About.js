@@ -60,11 +60,6 @@ const About = () => (
       </p>
 
       <p>
-        My biggest regret is not buying bitcoin when it was $300, thinking it
-        was overvalued.
-      </p>
-
-      <p>
         In my free time, I like to hike, boulder, play (beach) volleyball,
         experiment with crypto, and play with my cat{' '}
         <DashedUnderline>
@@ -101,7 +96,7 @@ const About = () => (
       </ReactTooltip>
 
       <p>
-        Design is problem-solving. Design is for everyone. Design is never done.{' '}
+        Design is problem-solving. Design is for everyone. Design is never done.
       </p>
     </TextWrapper>
   </WidthWrapper>

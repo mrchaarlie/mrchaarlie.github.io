@@ -173,7 +173,10 @@ const Hero = () => {
         <WidthWrapper>
           <Title id="title">
             <HeroText>
-              Hi, I'm Charles. <WaveContainer><WaveEmoji>👋</WaveEmoji></WaveContainer>
+              Hi, I'm Charles.{' '}
+              <WaveContainer>
+                <WaveEmoji>👋</WaveEmoji>
+              </WaveContainer>
               <br />
               I'm a product designer.
             </HeroText>

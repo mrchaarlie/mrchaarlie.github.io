@@ -15,7 +15,7 @@ const OuterWrapper = styled.div`
 `
 
 const InnerWrapper = styled.div`
-  padding: 0 1rem;
+  padding: 0 1.5rem;
 
   @media ${props => props.theme.media.small} {
     padding: 0 2rem;

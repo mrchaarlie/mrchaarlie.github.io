@@ -52,25 +52,24 @@ const WorkContainer = styled.div`
   position: relative;
   margin: 2rem 0;
   display: grid;
-  grid: auto-flow / repeat(12, 1fr);
+  grid: auto-flow / repeat(6, 1fr);
   gap: 2rem;
   text-align: left;
-  
-  // @media ${props => props.theme.media.small} {
-  //   height: 70vh;
-  //   max-height: 30rem;
-  // }
-  // @media ${props => props.theme.media.medium} {
-  //   margin-left: ${MED_LEFT_MARGIN};
-  // }
+
+  @media ${props => props.theme.media.small} {
+    grid: auto-flow / repeat(12, 1fr);
+  }
 `
 
 const ItemBody = styled(Link)`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  width: 100%;
+  position: relative;
+  z-index: 100;
   text-decoration: none;
-  color: ${props => props.theme.colors.darkGrey};
+  color: ${props => props.theme.colors.darkerGrey};
   border-radius: 0.25rem;
 
   &:hover {
@@ -83,8 +82,16 @@ const ItemBody = styled(Link)`
   }
 `
 const ItemImageWrapper = styled.div`
+  width: 65%;
   perspective: 900px;
   ${props => props.theme.transforms.defaults};
+
+  @media ${props => props.theme.media.small} {
+    width: 80%;
+  }
+  @media ${props => props.theme.media.large} {
+    width: 100%;
+  }
 `
 const ItemImage = styled.img`
   flex: 1;
@@ -139,33 +146,43 @@ const WorkItem = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
-  // background: #fff;
-  // outline: 1px solid red;
+  grid-column: span 6;
 
-  &.position-1 {
-    grid-column: 1 / span 5;
-  }
-  &.position-2 {
-    grid-column: 6 / span 5;
-  }
-  &.position-3 {
-    grid-column: 2 / span 5;
-  }
-  &.position-4 {
-    grid-column: 7 / span 5;
+  @media ${props => props.theme.media.small} {
+    &.position-1 {
+      grid-column: 1 / span 5;
+    }
+    &.position-2 {
+      grid-column: 6 / span 5;
+    }
+    &.position-3 {
+      grid-column: 2 / span 5;
+    }
+    &.position-4 {
+      grid-column: 7 / span 5;
+    }
   }
 
   //Odd
   :nth-child(2n-1) {
     ${ItemBody} {
       align-items: flex-start;
-      @media ${props => props.theme.media.medium} {
-        transform: translate(-4rem);
-        width: calc(100% + 2rem);
-      }
+
       @media ${props => props.theme.media.large} {
         transform: translate(-8rem);
         width: calc(100% + 6rem);
+      }
+    }
+
+    ${ItemImageWrapper} {
+      transform: translate(5rem, -0.5rem);
+
+      @media ${props => props.theme.media.small} {
+        transform: translate(2rem, -2rem);
+      }
+
+      @media ${props => props.theme.media.medium} {
+        transform: none;
       }
     }
 
@@ -192,13 +209,21 @@ const WorkItem = styled.div`
       align-items: flex-end;
       text-align: right;
 
-      @media ${props => props.theme.media.medium} {
-        transform: translate(4rem);
-        width: calc(100% + 2rem);
-      }
       @media ${props => props.theme.media.large} {
         transform: translate(8rem);
         width: calc(100% + 6rem);
+      }
+    }
+
+    ${ItemImageWrapper} {
+      transform: translate(-5rem, -0.5rem);
+
+      @media ${props => props.theme.media.small} {
+        transform: translate(-2rem, -2rem);
+      }
+
+      @media ${props => props.theme.media.medium} {
+        transform: none;
       }
     }
 

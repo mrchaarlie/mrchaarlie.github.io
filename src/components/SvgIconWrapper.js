@@ -40,7 +40,7 @@ const Wrapper = styled.div`
 const SvgIconWrapper = ({
   name,
   showAnimation,
-  strokeColor = '#BDBDBD',
+  strokeColor = '#828282',
   strokeArray = 500,
   delay = 0,
   opacity = 1,

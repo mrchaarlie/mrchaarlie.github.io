@@ -1,11 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import WidthWrapper from './WidthWrapper'
-import StickyTitle from './StickyTitle'
-import useIntersect from '../utils/useIntersect'
-import SvgIconWrapper from './SvgIconWrapper'
 import SvgSearch from './animatedIcons/SvgSearch'
-import SvgWrite from './animatedIcons/SvgWrite'
 import SvgRocket from './animatedIcons/SvgRocket'
 import SvgGem from './animatedIcons/SvgGem'
 import SvgIterate from './animatedIcons/SvgIterate'
@@ -51,7 +47,7 @@ const Skills = () => {
         <Wrapper>
           <Grid>
             <SkillItem item={1}>
-              <SvgSearch delay={0} opacity={0.4} />
+              <SvgSearch delay={0} opacity={0.5} />
               {/* <Caption>Research</Caption> */}
             </SkillItem>
             {/* 
@@ -66,7 +62,7 @@ const Skills = () => {
             </SkillItem>
 
             <SkillItem item={3}>
-              <SvgGem delay={4 * 300} opacity={0.8} />
+              <SvgGem delay={4 * 300} opacity={0.9} />
               {/* <Caption>Polish</Caption> */}
             </SkillItem>
 

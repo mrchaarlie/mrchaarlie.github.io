@@ -10,4 +10,5 @@ export default styled.span`
   background-position: 0 1.2em;
   background-repeat: repeat-x;
   background-size: 8px 2px;
+  padding-bottom: 2px;
 `

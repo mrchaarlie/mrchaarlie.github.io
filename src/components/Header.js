@@ -47,9 +47,11 @@ const HeaderLink = styled.a`
 const Nav = () => (
   <_Nav>
     <HeaderLink href="/#">Home</HeaderLink>
-    <HeaderLink href="/##work">Work</HeaderLink>
-    <HeaderLink href="/##about">About</HeaderLink>
-    {/* <Link to="/"> TEST</Link> */}
+    <HeaderLink href="/#work">Work</HeaderLink>
+    <HeaderLink href="/#about">About</HeaderLink>
+    <HeaderLink href="https://www.linkedin.com/in/mrchaarlie/#experience-section">
+      Resume
+    </HeaderLink>
   </_Nav>
 )
 

@@ -175,7 +175,7 @@ const Hero = () => {
             Currently, I’m at LivePerson building the future of{' '}
             <DashedUnderline
               data-tip
-              data-for="conversationalCommerece"
+              data-for="conversational-commerce"
               data-effect="solid"
               data-place="bottom"
               data-background-color="#000"
@@ -187,7 +187,7 @@ const Hero = () => {
             <WorkLink href="#work">
               Check out some of my work <RightArrow />
             </WorkLink>
-            <ReactTooltip id="conversationalCommerece">
+            <ReactTooltip id="conversational-commerce">
               <Tooltip>
                 Specifically, I'm helping enterprises understand their
                 customers' needs via NLU-powered tools, so they can increase

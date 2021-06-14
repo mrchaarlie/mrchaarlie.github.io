@@ -83,10 +83,8 @@ const ItemBody = styled(Link)`
   }
 `
 const ItemImageWrapper = styled.div`
-  // transform-origin: 50% 50%;
-  // transition: all 0.5s ${props => props.theme.easings.easeOutCubic};
   perspective: 900px;
-  ${props => props.theme.transforms.defaults}; 
+  ${props => props.theme.transforms.defaults};
 `
 const ItemImage = styled.img`
   flex: 1;
@@ -107,7 +105,6 @@ const ItemImageShadow = styled.div`
   width: 100%;
   height: 120%;
   width: 130%;
-  // outline: 1px solid blue;
 `
 
 const ItemTitle = styled.div`
@@ -116,7 +113,7 @@ const ItemTitle = styled.div`
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.15;
-  color: ${props => props.theme.colors.darkerGrey};
+  color: ${props => props.theme.colors.black};
   border-bottom: 0.25rem solid ${props => props.theme.colors.primary};
   transition: all 0.25s ease-out;
 
@@ -223,6 +220,7 @@ const WorkItem = styled.div`
   &:hover {
     ${ItemTitle} {
       border-bottom: 0.25rem solid ${props => props.theme.colors.primaryDark};
+      color: ${props => props.theme.colors.primaryDark};
     }
 
     //Odd

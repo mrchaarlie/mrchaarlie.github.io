@@ -6,8 +6,6 @@ import { Link } from '@reach/router'
 import IAmA from './IAmA'
 import WidthWrapper from './WidthWrapper'
 
-import logo from '../img/logo.svg'
-
 const _Nav = styled.nav`
   a {
     display: inline-block;
@@ -43,6 +41,9 @@ const HeaderLink = styled.a`
   text-decoration: none;
   font-weight: 700;
 `
+const Title = styled.h3`
+  margin: 0;
+`
 
 const Nav = () => (
   <_Nav>
@@ -70,10 +71,20 @@ const HeaderContainer = styled.div`
 `
 
 const HeaderWrapper = styled(WidthWrapper)`
+  position: relative;
   height: 100%;
+  width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
+
+  & > div {
+    flex: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  }
 
   &:before {
     content: '';
@@ -103,9 +114,10 @@ const HeaderWrapper = styled(WidthWrapper)`
   }
 `
 
-const Header = ({ showShadow }) => (
+const Header = ({ showShadow, title }) => (
   <HeaderContainer>
     <HeaderWrapper showShadow={showShadow}>
+      <Title>{title}</Title>
       <Nav />
     </HeaderWrapper>
   </HeaderContainer>

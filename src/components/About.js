@@ -26,7 +26,7 @@ const goodPhrases = [
   'managed',
   'launched',
   'strategized',
-  '[numbers and percentages]'
+  '[numbers and percentages]',
 ]
 
 const TooltipContainer = styled.div`
@@ -62,10 +62,13 @@ const About = () => (
       </p>
       <ReactTooltip id="norman-doors">
         <TooltipContainer>
-        Doors that have the affordances that suggest the opposite of how the
-        door actually functions.
-        <br />
-        <SmallImg src={normanDoor} alt="A door with pull handles that say the word 'push'." />
+          Doors that have the affordances that suggest the opposite of how the
+          door actually functions.
+          <br />
+          <SmallImg
+            src={normanDoor}
+            alt="A door with pull handles that say the word 'push'."
+          />
         </TooltipContainer>
       </ReactTooltip>
       <p></p>

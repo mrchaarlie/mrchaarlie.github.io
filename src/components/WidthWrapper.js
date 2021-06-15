@@ -6,12 +6,14 @@ const OuterWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: ${props => (props.small ? '80%' : '100%')};
+  max-width: ${props => props.small && '600px'};
   position: relative;
 
   @media ${props => props.theme.media.medium} {
-    max-width: calc(${props => props.theme.screens.medium} - 2rem);
+    max-width: calc(
+      ${props => (props.small ? '600px' : props.theme.screens.medium)} - 2rem
+    );
   }
-  max-width: ${props => props.small && '600px'};
 `
 
 const InnerWrapper = styled.div`

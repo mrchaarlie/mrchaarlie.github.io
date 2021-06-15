@@ -6,10 +6,10 @@ import StickyTitle from './StickyTitle'
 
 import WidthWrapper from './WidthWrapper'
 
-import imgTaxonomyAnnotatorHero from '../img/portfolio/taxonomy-annotator-hero.png'
-import imgJobTracker from '../img/portfolio/job-tracker-hero.png'
-import img100Accelerator from '../img/portfolio/100+-accelerator-hero.png'
-import imgFemaleFunders from '../img/portfolio/female-funders-hero.jpg'
+import imgTaxonomyAnnotatorHero from '../img/work/taxonomy-annotator-hero.png'
+import imgJobTracker from '../img/work/job-tracker-hero.png'
+import img100Accelerator from '../img/work/100+-accelerator-hero.png'
+import imgFemaleFunders from '../img/work/female-funders-hero.jpg'
 
 const workData = {
   taxonomyAnnotator: {
@@ -18,7 +18,7 @@ const workData = {
     image: imgTaxonomyAnnotatorHero,
     category: 'Web tool',
     linkTo:
-      '//www.figma.com/proto/dcvfNqQNpBMSNqUI9P5qkV/Charles-Wu-Taxonomy-Annotator?page-id=0%3A1&node-id=1%3A2&viewport=-720%2C-314%2C0.12367748469114304&scaling=min-zoom',
+      '//www.figma.com/proto/dcvfNqQNpBMSNqUI9P5qkV/Charles-Wu-Taxonomy-Annotator?page-id=0%3A1&node-id=1%3A2&viewport=-720%2C-314%2C0.12367748469114304&scaling=contain',
     className: 'position-1',
   },
   careerJsm: {
@@ -26,7 +26,8 @@ const workData = {
     subtitle: 'CareerJSM',
     image: imgJobTracker,
     category: 'Web app',
-    linkTo: '/',
+    linkTo:
+      '//www.figma.com/proto/5dLkiVYyUAFQZViWR5kv7i/Portfolio-Charles-Wu-Job-Tracker?page-id=0%3A1&node-id=109%3A4826&viewport=-497%2C-2295%2C0.16505616903305054&scaling=contain',
     className: 'position-2',
   },
   oneHundredAccelerator: {
@@ -34,7 +35,7 @@ const workData = {
     subtitle: 'Highline Beta + AB InBev',
     image: img100Accelerator,
     category: 'Website',
-    linkTo: '/work/100-accelerator',
+    linkTo: '/100-accelerator',
     className: 'position-3',
   },
   femaleFunders: {
@@ -42,7 +43,7 @@ const workData = {
     subtitle: 'Highline Beta',
     image: imgFemaleFunders,
     category: 'Website',
-    linkTo: '/',
+    linkTo: '/female-funders',
     className: 'position-4',
   },
 }

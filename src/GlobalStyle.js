@@ -244,7 +244,7 @@ const GlobalStyle = createGlobalStyle`
   h6 {
     font-family: ${theme.fonts.heading}, 'Times New Roman', serif;
     line-height: 1.2;
-    margin: 0 0 0.4em;
+    margin: 0.75em 0 0.25em;
     color: ${theme.colors.darkerGrey};
   }
 
@@ -252,6 +252,7 @@ const GlobalStyle = createGlobalStyle`
   h1 {
     font-size: 4.209em;
     font-weight: 700;
+    margin-top: 0;
   }
 
   h2 {

@@ -9,11 +9,28 @@ import mauiImg1 from '../img/maui-1.jpg'
 import mauiImg2 from '../img/maui-2.jpg'
 import mauiImg3 from '../img/maui-3.jpg'
 import mauiImg4 from '../img/maui-4.jpg'
+import normanDoor from '../img/norman-door.jpg'
 
-const CatImg = styled.img`
+const SmallImg = styled.img`
   width: 12rem;
   height: 12rem;
   border-radius: 4px;
+`
+
+const goodPhrases = [
+  'platform-based skills',
+  'analyze',
+  'collaborated',
+  'evaluated',
+  'created',
+  'managed',
+  'launched',
+  'strategized',
+  '[numbers and percentages]'
+]
+
+const TooltipContainer = styled.div`
+  max-width: 16rem;
 `
 
 const About = () => (
@@ -44,8 +61,12 @@ const About = () => (
         thought and research, a solution will present itself.
       </p>
       <ReactTooltip id="norman-doors">
+        <TooltipContainer>
         Doors that have the affordances that suggest the opposite of how the
         door actually functions.
+        <br />
+        <SmallImg src={normanDoor} alt="A door with pull handles that say the word 'push'." />
+        </TooltipContainer>
       </ReactTooltip>
       <p></p>
 
@@ -80,19 +101,19 @@ const About = () => (
       </p>
 
       <ReactTooltip id="maui-1">
-        <CatImg src={mauiImg1} alt="My cat Maui" />
+        <SmallImg src={mauiImg1} alt="My cat Maui" />
       </ReactTooltip>
       <ReactTooltip id="maui-2">
-        <CatImg src={mauiImg2} alt="Maui curled in a ball, sleeping" />
+        <SmallImg src={mauiImg2} alt="Maui curled in a ball, sleeping" />
       </ReactTooltip>
       <ReactTooltip id="maui-3">
-        <CatImg
+        <SmallImg
           src={mauiImg3}
           alt="Maui lying on the ground with all 4 paws against the wall"
         />
       </ReactTooltip>
       <ReactTooltip id="maui-4">
-        <CatImg src={mauiImg4} alt="Maui with a cat-sized santa hat on" />
+        <SmallImg src={mauiImg4} alt="Maui with a cat-sized santa hat on" />
       </ReactTooltip>
 
       <p>

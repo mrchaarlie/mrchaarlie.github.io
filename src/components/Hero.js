@@ -62,6 +62,9 @@ const WaveEmoji = styled.span`
     cursor: pointer;
     animation: wave 1s ease-out 0s forwards;
   }
+  &:active {
+    animation: none;
+  }
 `
 
 const ARROW_POSITION_BEFORE = 40

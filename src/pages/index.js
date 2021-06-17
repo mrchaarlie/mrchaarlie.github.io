@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
+import { Helmet } from 'react-helmet'
 import Header from 'components/Header'
 import Hero from 'components/Hero'
 import Section from 'components/Section'
@@ -34,6 +35,9 @@ export default () => {
 
   return (
     <>
+      <Helmet>
+        <title>Charles Wu | Product Designer</title>
+      </Helmet>
       <Main>
         <Header showShadow={navShadow} />
         <Hero />

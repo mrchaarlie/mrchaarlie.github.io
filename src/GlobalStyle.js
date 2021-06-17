@@ -282,7 +282,6 @@ const GlobalStyle = createGlobalStyle`
     letter-spacing: 0.1px;
   }
 
-
   p,
   ol,
   ul {

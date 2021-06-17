@@ -12,9 +12,9 @@ import imgFormComparison from '../img/work/100a-form.png'
 export default () => (
   <>
     <Helmet>
-      <title>Charles Wu | 100+ Accelerator </title>
+      <title>Charles Wu | Female Funders </title>
     </Helmet>
-    <Header showShadow={true} title={'100+ Accelerator'} />
+    <Header showShadow={true} title={'Female Funders'} />
 
     <WidthWrapper>
       <Section first={true}>

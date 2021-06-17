@@ -13,6 +13,8 @@ const _ImageWrapper = styled.div`
 const _Img = styled.img`
   width: ${props => (props.fill ? '100%' : 'auto')};
   max-height: ${props => (props.fill ? 'auto' : '18rem')};
+  height: ${props =>
+    props.height ? `${props.height}; max-height: none;` : 'auto'};
   object-fit: contain;
   border-radius: 4px;
 `
@@ -26,6 +28,7 @@ const Caption = styled.div`
 
 const ImageWrapper = ({
   src,
+  height,
   alt,
   title,
   caption,
@@ -34,7 +37,7 @@ const ImageWrapper = ({
   ...rest
 }) => (
   <_ImageWrapper fill={fill}>
-    <_Img src={src} alt={alt} title={title} {...rest} />
+    <_Img src={src} height={height} alt={alt} title={title} {...rest} />
     <Caption>
       {caption} {children}
     </Caption>
@@ -43,6 +46,7 @@ const ImageWrapper = ({
 
 ImageWrapper.propTypes = {
   src: PropTypes.string,
+  height: PropTypes.string,
   alt: PropTypes.string,
   title: PropTypes.string,
   children: PropTypes.any,

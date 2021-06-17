@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Helmet } from 'react-helmet'
 import Header from 'components/Header'
 import Section from 'components/Section'
+import TwoColWrapper from 'components/TwoColWrapper'
 import WidthWrapper from 'components/WidthWrapper'
 import TextWrapper from 'components/TextWrapper'
 import ImageWrapper from 'components/ImageWrapper'
@@ -14,7 +15,7 @@ export default () => (
     <Helmet>
       <title>Charles Wu | 100+ Accelerator </title>
     </Helmet>
-    <Header showShadow={true} title={'100+ Accelerator'} />
+    <Header showShadow={true} title={'100+ Accelerator'} homeLink={true} />
 
     <WidthWrapper>
       <Section first={true}>
@@ -35,7 +36,13 @@ export default () => (
         </p>
         <p>
           You can view the current iteration of the site{' '}
-          <a href="https://100accelerator.com/">here</a>.
+          <a
+            href="https://100accelerator.com/"
+            target="_blank"
+            rel="noopener noreferrer">
+            here
+          </a>
+          .
         </p>
 
         <ImageWrapper
@@ -67,40 +74,44 @@ export default () => (
             this project and my preference for lean and agile methodologies, I
             opted to use a feature-driven development process for this project.
           </p>
-
-          <h4>Usability problems</h4>
-
-          <p>
-            There were a few issues that necessitated the need for this project:
-          </p>
-          <ol>
-            <li>The site was not mobile-optimized.</li>
-            <li>
-              The site did not meet accessibility (WCAG Level A) requirements.
-            </li>
-            <li>
-              The application process linked to an external page, that required
-              you to send an email to an address.
-            </li>
-            <li>
-              The site hierarchy hid several important links about the program,
-              such as mentors, and news.
-            </li>
-            <li>
-              There was no program timeline, nor mention of the cost (it was
-              free).
-            </li>
-            <li>
-              There was no way to subscribe to a mailing list to be alerted of
-              updates.
-            </li>
-          </ol>
         </TextWrapper>
 
-        <ImageWrapper
-          src={imgMobileComparison}
-          caption="A before (Aug 2018) and after (Jan 2019) screenshot of part of the landing page on mobile. The original implementation lacked color contrast, a nav-bar menu, and mobile optimization."
-        />
+        <TwoColWrapper>
+          <TextWrapper>
+            <h4>Usability problems</h4>
+
+            <p>
+              There were a few issues that necessitated the need for this
+              project:
+            </p>
+            <ol>
+              <li>The site was not mobile-optimized.</li>
+              <li>
+                The site did not meet accessibility (WCAG Level A) requirements.
+              </li>
+              <li>
+                The application process linked to an external page, that
+                required you to send an email to an address.
+              </li>
+              <li>
+                The site hierarchy hid several important links about the
+                program, such as mentors, and news.
+              </li>
+              <li>
+                There was no program timeline, nor mention of the cost (it was
+                free).
+              </li>
+              <li>
+                There was no way to subscribe to a mailing list to be alerted of
+                updates.
+              </li>
+            </ol>
+          </TextWrapper>
+          <ImageWrapper
+            src={imgMobileComparison}
+            caption="A before (Aug 2018) and after (Jan 2019) screenshot of part of the landing page on mobile. The original implementation lacked color contrast, a nav-bar menu, and mobile optimization."
+          />
+        </TwoColWrapper>
 
         <TextWrapper>
           <h4>Requirements &amp; constraints</h4>
@@ -219,10 +230,9 @@ export default () => (
 
           <h4>Results &amp; next steps</h4>
           <p>
-            After the weekly development cycles of building and iterating the
-            site was completed and launched. Overall there were significant
-            improvements to the site, as all the feature requirements were built
-            and integrated successfully into the site.
+            After the several sprint cycles of building and iterating, the site
+            was completed and launched. Overall there were significant
+            enhancements to the site, and all the feature requirements were met.
           </p>
           <p>
             Nevertheless, there were still improvements to be made in terms of

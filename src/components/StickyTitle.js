@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const StickyTitle = styled.h3`
+const StickyTitle = styled.h2`
   position: sticky;
   z-index: 990;
   display: inline-block;

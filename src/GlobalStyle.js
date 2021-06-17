@@ -41,6 +41,7 @@ export const theme = {
     footer: '4rem',
   },
   shadows: {
+    text: `0px 0px 12px rgb(255 255 255 / 95%), 0 0 4px rgb(255 255 255 / 50%)`,
     one: `0 2px 2px 0 rgba(0,0,0,0.14),
           0 3px 1px -2px rgba(0,0,0,0.12),
           0 1px 5px 0 rgba(0,0,0,0.2)`,
@@ -250,28 +251,28 @@ const GlobalStyle = createGlobalStyle`
 
   // Font size uses Perfect Fourth scaling
   h1 {
-    font-size: 4.209em;
+    font-size: 3.052rem;
     font-weight: 700;
     margin-top: 0;
   }
 
   h2 {
-    font-size: 3.157em;
+    font-size: 2.441rem;
     font-weight: 700;
   }
 
   h3 {
-    font-size: 2.369em;
-    font-weight: 700;
+    font-size: 1.953rem;
+    font-weight: 400;
   }
 
   h4 {
-    font-size: 1.777em;
+    font-size: 1.563rem;
     font-weight: 400;
   }
 
   h5 {
-    font-size: 1.333em;
+    font-size: 1.25em;
     font-weight: 400;
   }
 

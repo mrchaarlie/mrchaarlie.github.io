@@ -41,13 +41,17 @@ const HeaderLink = styled.a`
   text-decoration: none;
   font-weight: 700;
 `
-const Title = styled.h3`
+const Title = styled.h1`
   margin: 0;
+  font-size: 1.563rem;
+  font-weight: 700;
+  text-align: left;
+  white-space: nowrap;
+  text-decoration: none;
 `
 
 const Nav = () => (
   <_Nav>
-    <HeaderLink href="/#">Home</HeaderLink>
     <HeaderLink href="/#work">Work</HeaderLink>
     <HeaderLink href="/#about">About</HeaderLink>
     <HeaderLink href="https://www.linkedin.com/in/mrchaarlie/#experience-section">
@@ -114,10 +118,25 @@ const HeaderWrapper = styled(WidthWrapper)`
   }
 `
 
-const Header = ({ showShadow, title }) => (
+const NameLink = styled(Link)`
+  text-decoration: none;
+  color: ${props => props.theme.colors.darkGrey};
+  text-align: left;
+  line-height: 1.1;
+`
+
+const TitleWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+const Header = ({ homeLink, showShadow, title }) => (
   <HeaderContainer>
     <HeaderWrapper showShadow={showShadow}>
-      <Title>{title}</Title>
+      <TitleWrapper>
+        {homeLink && <NameLink to="/">Charles Wu</NameLink>}
+        <Title>{title}</Title>
+      </TitleWrapper>
       <Nav />
     </HeaderWrapper>
   </HeaderContainer>

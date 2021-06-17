@@ -115,14 +115,15 @@ const ItemImageShadow = styled.div`
 `
 
 const ItemTitle = styled.div`
-  font-family: ${props => props.theme.fonts.body};
+  font-family: ${props => props.theme.fonts.heading};
   line-height: 1;
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.953rem;
+  font-weight: 400;
   line-height: 1.15;
   color: ${props => props.theme.colors.black};
   border-bottom: 0.25rem solid ${props => props.theme.colors.primary};
   transition: all 0.25s ease-out;
+  text-shadow: ${props => props.theme.shadows.text};
 
   @media ${props => props.theme.media.medium} {
     font-size: 2rem;
@@ -130,6 +131,7 @@ const ItemTitle = styled.div`
 `
 const ItemSubtitle = styled.div`
   font-family: ${props => props.theme.fonts.body};
+  color: ${props => props.theme.colors.grey};
   font-size: 1rem;
   line-height: 1;
 `
@@ -193,8 +195,8 @@ const WorkItem = styled.div`
     ${ItemImageShadow} {
       background: linear-gradient(
         20deg,
-        rgba(249, 247, 246, 0.9) 10%,
-        rgba(249, 247, 246, 0.4) 30%,
+        rgba(249, 247, 246, 0.9) 15%,
+        rgba(249, 247, 246, 0.45) 35%,
         rgba(249, 247, 246, 0) 75%
       );
       right: -5%;
@@ -234,8 +236,8 @@ const WorkItem = styled.div`
     ${ItemImageShadow} {
       background: linear-gradient(
         340deg,
-        rgba(249, 247, 246, 0.9) 10%,
-        rgba(249, 247, 246, 0.4) 30%,
+        rgba(249, 247, 246, 0.9) 15%,
+        rgba(249, 247, 246, 0.45) 35%,
         rgba(249, 247, 246, 0) 75%
       );
       left: -5%;

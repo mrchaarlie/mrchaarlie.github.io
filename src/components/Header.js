@@ -54,7 +54,10 @@ const Nav = () => (
   <_Nav>
     <HeaderLink href="/#work">Work</HeaderLink>
     <HeaderLink href="/#about">About</HeaderLink>
-    <HeaderLink href="https://www.linkedin.com/in/mrchaarlie/#experience-section">
+    <HeaderLink
+      href="https://www.linkedin.com/in/mrchaarlie/#experience-section"
+      target="_blank"
+      rel="noopener noreferrer">
       Resume
     </HeaderLink>
   </_Nav>

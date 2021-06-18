@@ -19,7 +19,7 @@ const Main = styled.div`
 export default () => {
   const [scrollPos, setScrollPos] = useState(0)
   const [navShadow, setNavShadow] = useState(false)
-
+  
   const scrollListener = () => {
     if (typeof window !== 'undefined') {
       setScrollPos(window.scrollY)

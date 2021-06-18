@@ -1,8 +1,8 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { transparentize } from 'polished'
-import { Link } from '@reach/router'
+import { HashLink as Link } from 'react-router-hash-link'
+
 import IAmA from './IAmA'
 import WidthWrapper from './WidthWrapper'
 
@@ -41,6 +41,10 @@ const HeaderLink = styled.a`
   text-decoration: none;
   font-weight: 700;
 `
+const HeaderLinkInternal = styled(Link)`
+  text-decoration: none;
+  font-weight: 700;
+`
 const Title = styled.h1`
   margin: 0;
   font-size: 1.563rem;
@@ -50,7 +54,7 @@ const Title = styled.h1`
   text-decoration: none;
 `
 
-const Nav = () => (
+const NavHome = () => (
   <_Nav>
     <HeaderLink href="/#work">Work</HeaderLink>
     <HeaderLink href="/#about">About</HeaderLink>
@@ -62,6 +66,20 @@ const Nav = () => (
     </HeaderLink>
   </_Nav>
 )
+
+const Nav = () => (
+  <_Nav>
+    <HeaderLinkInternal to="/#work">Work</HeaderLinkInternal>
+    <HeaderLinkInternal to="/#about">About</HeaderLinkInternal>
+    <HeaderLink
+      href="https://www.linkedin.com/in/mrchaarlie/#experience-section"
+      target="_blank"
+      rel="noopener noreferrer">
+      Resume
+    </HeaderLink>
+  </_Nav>
+)
+
 
 const HeaderContainer = styled.div`
   position: fixed;
@@ -140,7 +158,7 @@ const Header = ({ homeLink, showShadow, title }) => (
         {homeLink && <NameLink to="/">Charles Wu</NameLink>}
         <Title>{title}</Title>
       </TitleWrapper>
-      <Nav />
+      {homeLink ? <Nav /> : <NavHome />}
     </HeaderWrapper>
   </HeaderContainer>
 )

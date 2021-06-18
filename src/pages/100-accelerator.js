@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Helmet } from 'react-helmet'
+import ScrollToTop from 'components/ScrollToTop'
 import Header from 'components/Header'
 import Section from 'components/Section'
 import TwoColWrapper from 'components/TwoColWrapper'
@@ -12,6 +13,7 @@ import imgFormComparison from '../img/work/100a-form.png'
 
 export default () => (
   <>
+    <ScrollToTop/>
     <Helmet>
       <title>Charles Wu | 100+ Accelerator </title>
     </Helmet>

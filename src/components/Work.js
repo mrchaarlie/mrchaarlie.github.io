@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'components/Router'
+import { Link } from 'react-router-dom'
+
 import styled from 'styled-components'
 import StickyTitle from './StickyTitle'
 
@@ -19,6 +20,7 @@ const workData = {
     category: 'Web tool',
     linkTo:
       '//www.figma.com/proto/dcvfNqQNpBMSNqUI9P5qkV/Charles-Wu-Taxonomy-Annotator?page-id=0%3A1&node-id=1%3A2&viewport=-720%2C-314%2C0.12367748469114304&scaling=contain',
+    externalLink: true,
     className: 'position-1',
   },
   careerJsm: {
@@ -28,6 +30,7 @@ const workData = {
     category: 'Web app',
     linkTo:
       '//www.figma.com/proto/5dLkiVYyUAFQZViWR5kv7i/Portfolio-Charles-Wu-Job-Tracker?page-id=0%3A1&node-id=109%3A4826&viewport=-497%2C-2295%2C0.16505616903305054&scaling=contain',
+    externalLink: true,
     className: 'position-2',
   },
   oneHundredAccelerator: {
@@ -36,6 +39,7 @@ const workData = {
     image: img100Accelerator,
     category: 'Website',
     linkTo: '/100-accelerator',
+    externalLink: false,
     className: 'position-3',
   },
   femaleFunders: {
@@ -44,6 +48,7 @@ const workData = {
     image: imgFemaleFunders,
     category: 'Website',
     linkTo: '/female-funders',
+    externalLink: false,
     className: 'position-4',
   },
 }
@@ -281,8 +286,9 @@ const Work = () => {
               <ItemImageShadow />
               <ItemBody
                 to={item.linkTo}
-                target="_blank"
-                rel="noopener noreferrer">
+                target={item.externalLink ? "_blank" : ''}
+                rel="noopener noreferrer"
+                >
                 <ItemSubtitle>{item.subtitle}</ItemSubtitle>
                 <ItemTitle>{item.title}</ItemTitle>
                 <ItemCategory>{item.category}</ItemCategory>

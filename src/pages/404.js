@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Helmet } from 'react-helmet'
-import { Link } from 'components/Router'
+import { Link } from 'react-router-dom'
+// import { Link } from 'components/Router'
 import WidthWrapper from '../components/WidthWrapper'
 import ImageWrapper from '../components/ImageWrapper'
 import imgMaui from '../img/maui-lost.jpg'

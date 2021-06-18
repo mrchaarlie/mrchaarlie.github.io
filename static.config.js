@@ -30,7 +30,7 @@ export default {
         location: './src/pages',
       },
     ],
-    require.resolve('react-static-plugin-reach-router'),
     require.resolve('react-static-plugin-sitemap'),
+    ['react-static-plugin-react-router'],
   ],
 }

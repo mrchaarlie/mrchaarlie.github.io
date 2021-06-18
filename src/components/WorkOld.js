@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'components/Router'
+import { Link } from 'react-router-dom'
+// import { Link } from 'components/Router'
 import styled from 'styled-components'
 import StickyTitle from './StickyTitle'
 

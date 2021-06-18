@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Helmet } from 'react-helmet'
+import ScrollToTop from 'components/ScrollToTop'
 import Header from 'components/Header'
 import Section from 'components/Section'
 import TwoColWrapper from 'components/TwoColWrapper'
@@ -16,6 +17,7 @@ import imgFFNewsletter from '../img/work/ff-newsletter.png'
 
 export default () => (
   <>
+    <ScrollToTop/>
     <Helmet>
       <title>Charles Wu | Female Funders </title>
     </Helmet>

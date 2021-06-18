@@ -21,15 +21,19 @@ export default () => {
   const [navShadow, setNavShadow] = useState(false)
 
   const scrollListener = () => {
-    setScrollPos(window.scrollY)
-    setNavShadow(window.scrollY > 60 ? true : false)
+    if (typeof window !== 'undefined') {
+      setScrollPos(window.scrollY)
+      setNavShadow(window.scrollY > 60 ? true : false)
+    } 
   }
 
   useEffect(() => {
-    window.addEventListener('scroll', scrollListener)
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', scrollListener)
 
-    return () => {
-      window.removeEventListener('scroll', scrollListener)
+      return () => {
+        window.removeEventListener('scroll', scrollListener)
+      }
     }
   }, [])
 

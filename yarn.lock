@@ -7258,12 +7258,12 @@ react-side-effect@^2.1.0:
   resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-2.1.1.tgz#66c5701c3e7560ab4822a4ee2742dee215d72eb3"
   integrity sha512-2FoTQzRNTncBVtnzxFOk2mCpcfxQpenBMbk5kSVBg5UcPqV9fRbgY2zhb7GTWWOlpFmAxhClBDlIq8Rsubz1yQ==
 
-react-static-plugin-react-router@^7.5.3:
+react-static-plugin-react-router@^7.5.0:
   version "7.5.3"
   resolved "https://registry.yarnpkg.com/react-static-plugin-react-router/-/react-static-plugin-react-router-7.5.3.tgz#6e85ccb272979c656638a9d684850789fbffd01f"
   integrity sha512-JBZokWeYGTkA3WrU1OME0RB3GDHRv3xeodbZk+BT97XhRW3qYBUSkQ727M+FUpmjT5KXEuguwlcBUiZ93GI8TQ==
 
-react-static-plugin-sitemap@^7.0.0:
+react-static-plugin-sitemap@^7.5.0:
   version "7.5.3"
   resolved "https://registry.yarnpkg.com/react-static-plugin-sitemap/-/react-static-plugin-sitemap-7.5.3.tgz#78a1c9d7de215353dd40a82dd704cf53420dad88"
   integrity sha512-JGqpqhN9mhhPkIlrPYgaT/uaP5WYTBGQ6XZZjPn/512OIS2NcCDBmgQz5hmzPiXcvudUKG6J0H2yVsqAt683QQ==
@@ -7271,7 +7271,7 @@ react-static-plugin-sitemap@^7.0.0:
     chalk "^2.4.2"
     fs-extra "^8.1.0"
 
-react-static-plugin-source-filesystem@^7.0.0:
+react-static-plugin-source-filesystem@^7.5.0:
   version "7.5.3"
   resolved "https://registry.yarnpkg.com/react-static-plugin-source-filesystem/-/react-static-plugin-source-filesystem-7.5.3.tgz#bcd5fda8db382883c9f760ee9ce8ef5c5ea27dde"
   integrity sha512-ZRGrjWQgIsJekajr9dS92W3HFhNjM9A2qdnSmBiUYN7Npjmx7tbtB0RtOftQ/9p4kjua6cp23Wx2ijxmTVgRFg==
@@ -7279,7 +7279,7 @@ react-static-plugin-source-filesystem@^7.0.0:
     chokidar "^3.0.2"
     glob "^7.1.4"
 
-react-static@^7.0.0:
+react-static@^7.5.0:
   version "7.5.3"
   resolved "https://registry.yarnpkg.com/react-static/-/react-static-7.5.3.tgz#4262e95aabbee4fa7fec44d60c23458874fe99d7"
   integrity sha512-coA9MuNPfN+8TyFj7aOycw2e5W9t+sSgFOUyK30oDrh2MWWWHLjY0I4V1puyCconC2arggfDE2GYXvqOTCGv9Q==

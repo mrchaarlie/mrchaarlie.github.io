@@ -80,7 +80,6 @@ const Nav = () => (
   </_Nav>
 )
 
-
 const HeaderContainer = styled.div`
   position: fixed;
   z-index: 900;

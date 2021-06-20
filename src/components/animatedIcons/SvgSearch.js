@@ -26,7 +26,9 @@ const SvgSearch = props => {
           y="0px"
           viewBox="0 0 128 128"
           style={{ enableBackground: 'new 0 0 128 128' }}
-          xmlSpace="preserve">
+          xmlSpace="preserve"
+          height="128px"
+          width="128px">
           <title>Search, animated icon</title>
           <path
             className="path path--search"

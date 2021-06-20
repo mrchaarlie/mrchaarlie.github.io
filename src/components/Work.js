@@ -89,6 +89,8 @@ const ItemBody = styled(Link)`
 const ItemImageWrapper = styled.div`
   width: 65%;
   perspective: 900px;
+  position: relative;
+  z-index: 10;
   ${props => props.theme.transforms.defaults};
 
   @media ${props => props.theme.media.small} {
@@ -117,6 +119,7 @@ const ItemImageShadow = styled.div`
   width: 100%;
   height: 120%;
   width: 130%;
+  z-index: 50;
 `
 
 const ItemTitle = styled.div`
@@ -286,9 +289,8 @@ const Work = () => {
               <ItemImageShadow />
               <ItemBody
                 to={item.linkTo}
-                target={item.externalLink ? "_blank" : ''}
-                rel="noopener noreferrer"
-                >
+                target={item.externalLink ? '_blank' : ''}
+                rel="noopener noreferrer">
                 <ItemSubtitle>{item.subtitle}</ItemSubtitle>
                 <ItemTitle>{item.title}</ItemTitle>
                 <ItemCategory>{item.category}</ItemCategory>

@@ -13,7 +13,7 @@ import imgFormComparison from '../img/work/100a-form.png'
 
 export default () => (
   <>
-    <ScrollToTop/>
+    <ScrollToTop />
     <Helmet>
       <title>Charles Wu | 100+ Accelerator </title>
     </Helmet>

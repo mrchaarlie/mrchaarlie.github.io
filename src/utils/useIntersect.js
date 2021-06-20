@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 export default ({ root = null, rootMargin, threshold = 0 }) => {
   const [entry, updateEntry] = useState({})
   const [node, setNode] = useState(null)
-  let observer = null;
+  let observer = null
 
   if (typeof window !== 'undefined') {
     observer = useRef(

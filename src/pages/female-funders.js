@@ -17,7 +17,7 @@ import imgFFNewsletter from '../img/work/ff-newsletter.png'
 
 export default () => (
   <>
-    <ScrollToTop/>
+    <ScrollToTop />
     <Helmet>
       <title>Charles Wu | Female Funders </title>
     </Helmet>

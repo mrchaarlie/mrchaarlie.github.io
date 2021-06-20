@@ -106,11 +106,6 @@ const ItemImage = styled.img`
   width: 100%;
   object-fit: contain;
   transition: all 0.4s ${props => props.theme.easings.easeOutCubic};
-
-  @media (min-width: ${props => props.theme.media.small}) {
-  }
-  @media ${props => props.theme.media.short} {
-  }
 `
 const ItemImageShadow = styled.div`
   position: absolute;
@@ -150,13 +145,14 @@ const ItemCategory = styled.div`
 const WorkItem = styled.div`
   position: relative;
   margin: 2rem 0;
-  height: 40vh;
+  height: 30vh;
   min-height: 12rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
   grid-column: span 6;
+  overflow: hidden;
 
   @media ${props => props.theme.media.small} {
     &.position-1 {
@@ -171,6 +167,11 @@ const WorkItem = styled.div`
     &.position-4 {
       grid-column: 7 / span 5;
     }
+  }
+
+  @media ${props => props.theme.media.small} {
+    height: 40vh;
+    overflow: unset;
   }
 
   //Odd

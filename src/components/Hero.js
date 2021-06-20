@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 `
 
 const Intro = styled.div`
-  min-height: 70vh;
+  min-height: 60vh;
   display: flex;
   flex-direction: columnn;
   align-items: center;

@@ -2,6 +2,7 @@ import * as React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { HashLink as Link } from 'react-router-hash-link'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 import IAmA from './IAmA'
 import WidthWrapper from './WidthWrapper'
@@ -12,6 +13,8 @@ const _Nav = styled.nav`
     margin-left: 1rem;
     color: inherit;
     position: relative;
+    text-decoration: none;
+    font-weight: 700;
 
     &:after {
       content: '';
@@ -37,14 +40,6 @@ const _Nav = styled.nav`
   }
 `
 
-const HeaderLink = styled.a`
-  text-decoration: none;
-  font-weight: 700;
-`
-const HeaderLinkInternal = styled(Link)`
-  text-decoration: none;
-  font-weight: 700;
-`
 const Title = styled.h1`
   margin: 0;
   font-size: 1.563rem;
@@ -54,29 +49,29 @@ const Title = styled.h1`
   text-decoration: none;
 `
 
-const NavHome = () => (
+const NavHomePage = () => (
   <_Nav>
-    <HeaderLink href="/#work">Work</HeaderLink>
-    <HeaderLink href="/#about">About</HeaderLink>
-    <HeaderLink
+    <AnchorLink href="#work">Work</AnchorLink>
+    <AnchorLink href="#about">About</AnchorLink>
+    <a
       href="https://www.linkedin.com/in/mrchaarlie/#experience-section"
       target="_blank"
       rel="noopener noreferrer">
       Resume
-    </HeaderLink>
+    </a>
   </_Nav>
 )
 
 const Nav = () => (
   <_Nav>
-    <HeaderLinkInternal to="/#work">Work</HeaderLinkInternal>
-    <HeaderLinkInternal to="/#about">About</HeaderLinkInternal>
-    <HeaderLink
+    <Link to="/#work">Work</Link>
+    <Link to="/#about">About</Link>
+    <a
       href="https://www.linkedin.com/in/mrchaarlie/#experience-section"
       target="_blank"
       rel="noopener noreferrer">
       Resume
-    </HeaderLink>
+    </a>
   </_Nav>
 )
 
@@ -157,7 +152,7 @@ const Header = ({ homeLink, showShadow, title }) => (
         {homeLink && <NameLink to="/">Charles Wu</NameLink>}
         <Title>{title}</Title>
       </TitleWrapper>
-      {homeLink ? <Nav /> : <NavHome />}
+      {homeLink ? <Nav /> : <NavHomePage />}
     </HeaderWrapper>
   </HeaderContainer>
 )

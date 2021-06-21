@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Charlie Wu</title>
+
+	<meta charset="utf-8">
+	<meta property="og:title" content="Charlie Wu" />
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content="http://charleswu.ca/img/headshot_thumb_grey.jpg" />
+	<meta property="og:url" content="http://charleswu.ca" />
+	<meta property="og:description"
+	 content="UX Designer, Front-End Developer, Systems Design Engineer Graduate" />
+	<meta name="author" content="Charlie Wu" />
+	<meta name="description" content="My Website" />
+	<meta name="keywords" content="UX, Designer, Developer, Toronto, New York, Waterloo" />
+	<meta name="robots" content="index, follow" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" href="favicon.png" />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-33834473-1', 'charleswu.ca');
+		ga('require', 'displayfeatures');
+		ga('send', 'pageview');
+	</script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<!-- <script src="js/jquery.min.js"></script> -->
+	<script src="js/jquery-ui.js"></script>
+
+	</head>
+
+	<body id="home">
+	<div class="header">
+		<div class="nav">
+			<div class="home"><a href="#"><b>C</b><span>harlie </span><b>W</b><span>u</span></a></div>
+			<div class="links">
+				<a href="#home" class="active">Home</a>
+				<a href="#portfolio">Portfolio</a>
+				<a href="#about">About</a>
+				<a href="#resume">Resume</a>
+			</div>
+		</div>
+		<div class="scroll-nav">
+			<div class="home"><a href="#"><b>C</b><span>harlie </span><b>W</b><span>u</span></a></div>
+			<div class="links">
+				<a href="#home" id="home-linke" class="active">Home</a>
+				<a href="#portfolio" id="portfolio-link" >Portfolio</a>
+				<a href="#about" id="about-link" >About</a>
+				<a href="#resume" id="resume-link" >Resume</a>
+			</div>
+		</div>
+		<div class="intro transition">
+			<h1>Charlie Wu</h1>
+			<h3>UX Designer/Developer, Photographer</h3>
+			<a href="#resume" class="portfolio-link transition">View Resume</a>
+		</div>
+		<div class="color-overlay"></div>
+		<div class="bg"></div>
+	</div>
+
+	<div class="main">
+		<div class="section1">
+			<div class="container">
+				<!-- <h1>Life is evolving; so should art and design.</h1> -->
+				<h1 id="portfolio">Portfolio</h1>
+				<!-- <h3>Simple Design + User Research = Better Results</h3> -->
+				<div class="filters">
+					<!-- <h3>Filter</h3> -->
+					<div class="filter active" data-filter="all">All</div>
+					<div class="filter" data-filter=".dev">Development</div>
+					<div class="filter" data-filter=".design">Design</div>
+				</div>
+				<div class="cards" id="cards">
+					<div class="card mix dev curio">
+						<div class="card-container">
+							<div class="dark-bg">
+								<h2>Curio</h2>
+								<p>Designed and developed interfaces for a crowd-sourcing citizen science project.</p>
+								<span class="tools">HTML, CSS, JQuery, Django, Git</span>
+							</div>
+						</div>
+					</div>
+					<div class="card mix design fox">
+						<div class="card-container">
+							<div class="dark-bg">
+								<h2>Low-Poly Fox</h2>
+								<p>I really liked the low-poly art style, so I made a fox!</p>
+								<span class="tools">Photoshop, Illustrator</span>
+							</div>
+						</div>
+					</div>
+					<div class="card mix design animal">
+						<div class="card-container">
+							<div class="dark-bg">
+								<h2>Animal Icons</h2>
+								<p>A simple project I did for fun, developed from doodles.</p>
+								<span class="tools">Illustrator</span>
+							</div>
+						</div>
+					</div>
+					<div class="card mix dev yelp">
+						<div class="card-container">
+							<div class="dark-bg">
+								<h2>Yelp Redesign</h2>
+								<p>An unsolicited redesign for Yelp's Web Interface to improve the user interface.</p>
+								<span class="tools">Photoshop, Illustrator</span>
+							</div>
+						</div>
+					</div>
+					<div class="card mix dev focus">
+						<div class="card-container">
+							<div class="dark-bg">
+								<h2>Focus Android App</h2>
+								<p>An Android project I worked on for fun that helps with productivity.</p>
+								<span class="tools">Java, Photoshop</span>
+							</div>
+						</div>
+					</div>
+					<div class="card mix dev uw">
+						<div class="card-container">
+							<div class="dark-bg">
+								<h2>Waterloo Orientation</h2>
+								<p>A site made for the entire incoming first year engineering students at the University of Waterloo in the year 2013.</p>
+								<span class="tools">HTML, CSS, Jquery</span>
+							</div>
+						</div>
+					</div>
+					<div class="card mix dev ashcity">
+						<div class="card-container">
+							<div class="dark-bg">
+								<h2>Ash City iOS App</h2>
+								<p>An iOS app I designed and developed independently on my 4th co-op term for Ash City.</p>
+								<span class="tools">Obj-C, Photoshop</span>
+							</div>
+						</div>
+					</div>
+					<div class="card mix design odette">
+						<div class="card-container">
+							<div class="dark-bg">
+								<h2>Odette Annable Art</h2>
+								<p>A vectorized image of Odette Annable.</p>
+								<span class="tools">Photoshop, Illustrator</span>
+							</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="story">
+					<div class="x transition">X</div>
+					<div class="content">
+						<h2 class="title">Title</h2>
+						<div class="text">(Please enable Javascript if you see this)
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="section2">
+			<div class="intro">
+				<!-- <h1>Design Process</h1> -->
+				<h1 id="about">About Me</h1>
+				<h3><i>"Ideas are cheap, execution is everything."</i></h3>
+				<!-- <h3>UX Designer/Developer, Photographer</h3> -->
+			</div>
+
+			<div class="color-overlay"></div>
+			<div class="bg"></div>
+		</div>
+
+		<div class="section3">
+			<div class="container">
+				<h1>Who am I?</h1>
+				<p>Raised in Toronto and Waterloo, Ontario, I started my journey learning about systems (human, mechanical, and digital). I discovered how things worked in different industries, but what caught my attention was how inefficient they sometimes were. From that point on, I sought to eliminate confusing interfaces and create better products.</p>
+
+				<p>I love understanding the nitty-gritty details of various problems, and I also love creating solutions for said problems. I do so by <b>conducting research, analyzing tasks, creating wireframes &amp; prototypes, and developing code.</b></p>
+
+				<p>You can reach me at +1.226.789.8768, or at <a href="mailto:charlie.wu@uwaterloo.ca">charlie.wu@uwaterloo.ca</a>.</p>
+
+				<h1 class="skills">Skills</h1>
+				<div class="legend">
+					<div class="legend-high"></div><span>Proficient</span>
+					<div class="legend-medium"></div><span>Intermediate</span>
+				</div>
+				<p class="skills"><b>Development:</b> <span class="high">HTML, CSS, JQuery, </span><span class="medium">Django, Android (Java), iOS (Objective-C)</span></p>
+				<p class="skills"><b>UX: </b><span class="high">User Research, Problem Analysis, Wireframing/Prototyping (Adobe PS &amp; Ai)</span></p>
+				<p class="skills"><b>Other: </b><span class="high">Cognitive Ergonomics, </span><span class="medium">Machine Intelligence, Production Management</span></p>
+
+				<h1>Accounts</h1>
+				<div class="accounts">
+					<a href="https://www.behance.net/mrcharlie" class="behance"></a>
+					<a href="http://stackexchange.com/users/1308737/mrcharlie?tab=accounts" class="stackexchange"></a>
+					<a href="https://ca.linkedin.com/in/charliedwu" class="linkedin"></a>
+					<a href="https://github.com/mrchaarlie/" class="github"></a>
+					<a href="https://500px.com/mstrcharlie" class="fivehundred"></a>
+					<a href="https://www.flickr.com/photos/mr-charlie/" class="flickr"></a>
+				</div>
+
+				<!-- Resume -->
+				<h1 id="resume">Resume</h1>
+				<a href="docs/Charles-Wu-Resume.pdf" target="_blank" class="resume-link">Download PDF</a>
+
+				<div class="paper">
+					<h1>Charlie Wu</h1>
+					<h3>UX Designer & Developer</h3>
+					<div class="contact">
+						<h5>Phone: 1.226.789.8768</h5>
+						<h5>Email: <a href="mailto:charlie.wu@uwaterloo.ca">charlie.wu@uwaterloo.ca</a></h5>
+					</div>
+					<hr/>
+
+					<h2>Objective</h2>
+						<p>I aim to solve interaction problems through the use of research and prototyping, ensuring beautiful and effective results.</p>
+
+					<h2>Skills</h2>
+						<div class="skills">
+							<p><b>UX:</b> User Research, Problem Analysis, Prototyping (Adobe Ps, Ai, Flash)</p>
+							<p><b>Dev:</b> HTML5, CSS, JS, JQuery, Django, Python, PHP, Obj-C, Java</p>
+							<p><b>Other:</b> Cognitive Ergonomics, Machine	Intelligence, Production Management</p>
+						</div>
+
+					<div class="experience">
+						<h2>Experience</h2>
+						<p><b>UX Designer and Web Developer</b> Crowd Curio<span class="date">Jan-Jun 2015</span></p>
+						<ul>
+							<li>Created wireframes and web interfaces, designed specifically for crowd-sourcing citizen science project</li>
+							<li>Developed front-end code to implement designs, and integrated using Git and Django</li>
+						</ul>
+
+						<p><b>UI Designer</b> McKinsey Digital<span class="date">Jun–Aug 2014</span></p>
+						<ul>
+							<li>Developed customer requirements by defining and creating objectives, data-driven designs, and interactive prototypes</li>
+							<li>Designed wireframes, storyboards, and high level mock-ups for several Fortune 500 companies</li>
+						</ul>
+
+						<p><b>UX/Android Developer</b> Intelligent Mechatronics Systems<span class="date">Sep–Dec 2013</span></p>
+						<ul>
+							<li>Conducted user research and needs analyses to redesign a vehicle infotainment app and improve customer experience</li>
+							<li>Analyzed, developed, and improved Android codebase, decreasing load time by over 50%</li>
+						</ul>
+
+						<p><b>iOS Mobile Developer</b> Ash City Worldwide<span class="date">Jan-Apr 2013</span></p>
+						<ul>
+							<li>Managed product development lifecycle, prototyping, development, and testing of company inventory app</li>
+							<li>Single-handedly developed, designed, and published product</li>
+						</ul>
+
+						<p><b>Web Content Developer</b> Raymond James Ltd.<span class="date">May-Aug 2012</span></p>
+						<ul>
+							<li>Worked with several senior level advisors to design and develop custom websites</li>
+							<li>Redesigned the Canada Intranet site using HTML5, CSS3, JS, Photoshop, and Flash</li>
+							<li>Created and managed content for the Raymond James website, impacting hundreds of daily users</li>
+						</ul>
+
+						<p><b>Business Project Assistant</b> York Region Municipality<span class="date">Sept-Dec 2011</span></p>
+						<ul>
+							<li>Developed a new user feedback system that was then implemented in senior assistance centres</li>
+							<li>Simplified complex workflows by migrating to a digital medium</li>
+							<li>Improved user experience through simplification and the reduction of required clicks per action</li>
+						</ul>
+					</div>
+
+					<h2>Education</h2>
+						<p><b>Bachelors of Applied Science (BASc), Systems Design Engineering, 2015</b> <br/> Option in Management Science
+						<span class="date">University of Waterloo, Canada</p>
+
+					<div class="projects">
+						<h2>Projects and Interests</h2>
+						<p><b>Projects</b></p>
+						<ul>
+							<li>Curio-X: A citizen science and gamification project (UX design and web-dev)</li>
+							<li> BufferBox (acquired by Google): Student Designer and Team Lead</li>
+							<li>Co-op Storage: Co-Founder &amp; Designer</li>
+							<li>Proxima: Created a device to wirelessly transfer data via gestures</li>
+							<li>Focus: Developed and published an Android study tool</li>
+							<li>InFit: Developed a fitness tracking app to process sensor data</li>
+						</ul>
+
+						<p><b>Volunteer</b></p>
+						<ul>
+							<li>Engineering Society Class Rep for Systems Design 2015 <span class="date">2010 - 2015</span></li>
+							<li>Orientation Week Leader and Director <span class="date">	2012 - 2014</span></li>
+						</ul>
+
+						<p><b>Recreation</b></p>
+						<ul><li>Photography, Bartending, Biking, Volleyball, Frisbee, Piano, Cinema, Short walks on the beach</li></ul>
+					</div>
+				</div>
+
+			</div>
+			<div class="flair">
+				<span id="c">C</span><span id="w">W</span><span id="wing">– –</span>
+			</div>
+			<!-- <div style="background:red; height:500px; width:100%;"></div> -->
+
+		</div>
+	</div>
+
+
+
+	<script src="js/jquery.mixitup.min.js"></script>
+	<script src="js/style.js"></script>
+
+</body>
+</html>

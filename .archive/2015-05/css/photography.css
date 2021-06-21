@@ -1,0 +1,322 @@
+@font-face {
+    font-family: 'WebSymbolsRegular';
+    src: url('../fonts/websymbols-regular-webfont.eot');
+    src: url('../fonts/websymbols-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/websymbols-regular-webfont.woff') format('woff'),
+         url('../fonts/websymbols-regular-webfont.ttf') format('truetype'),
+         url('../fonts/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.WebFont{font-family: 'WebSymbolsRegular';}
+/*
+font-family: 'Poiret One', cursive;
+font-family: 'Comfortaa', sans-serif;
+font-family: 'Italianno', cursive;
+*/
+
+body{
+	background:#011f18;
+	color:#eee;
+}
+
+div {  
+  border-color: white;
+  border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+}
+
+#Menu{
+	color:#080808;
+	display:inline-table;
+}
+
+#Menu > div{
+	padding: 3px 0 3px 0;
+	
+}
+
+#Menu > #About{
+	border-radius:0 0 0 5px;
+}
+
+#Menu > #Time{
+	border-radius:0 0 5px 0;
+}
+
+/* -------------- Backgrounds -------------- */
+
+img.bgimage{
+	position:fixed;
+	left:0px;
+	top:0px;
+	width:100%;
+	opacity:0.8;
+	display:none;
+}
+.overlay{
+	width:100%;
+	height:100%;
+	position:fixed;
+	top:0px;
+	left:0px;
+	z-index:7;/* make this lower than 5 to disable*/
+	background:transparent url(../img/pattern.png) repeat top left;
+}
+.loading{
+	position:relative;
+	margin:auto;
+	top:180px;
+	background:#000 url(../img/loader.gif) no-repeat center center;
+	width:50px;
+	height:50px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px 10px 10px 10px;
+	z-index:5;
+	opacity:0.7;
+}
+.noDisplay{display:none;
+	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;}
+
+#browserCheck{
+	z-index:15;
+	text-align:justify;
+	position:relative;
+	color:black;
+	background: url("../img/feature.png");
+	width:400px;
+	margin:auto;
+	padding:15px;
+}
+.showhide{
+	font-weight: 400;
+}
+/* -------------- Scroll box -------------- */
+.buttonLocation{z-index: 20;
+	display:block;
+	float:right;
+	position:absolute;
+	font-size:15px;
+	padding:3px 5px;
+	right:5px;
+	bottom:305px;
+	background: url("../img/feature.png");
+	transition: all 0.2s ease-in-out;
+		-webkit-transition: all 0.4s ease-in-out;
+		-moz-transition: all 0.4s ease-in-out;
+		-ms-transition: all 0.4s ease-in-out;
+		-o-transition: all 0.4s ease-in-out;}
+.moveBottom{color:#fff;bottom:20px;}
+.hidePattern{z-index:5}
+
+#page-wrap {
+	position: relative;
+	z-index: 2;
+	width: 600px;
+	margin: 50px auto;
+	padding: 20px;
+	-moz-box-shadow: 2px 2px 20px black;
+	-webkit-box-shadow:2px 2px 20px black;
+	box-shadow: 2px 2px 20px black;
+}
+/*
+.testTransition { 
+	border-left:solid red 4px;
+	padding: 8px;
+	margin: 1px 10px 0px 2px;
+	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2S ease-in-out;
+}
+.testTransition:hover {  
+ background-color: #F2F5FE; border-color: white; margin-left:5px; 
+ //-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=50)"; 
+  //filter: alpha(opacity=50);
+  //opacity: 0.5;  
+}/
+*/
+.transition:active{background-color:#c9ccd4}
+
+#container{
+	background: url("../img/feature.png");
+	position:absolute;
+	height:240px;
+	width:800px;
+	right:0;
+	bottom:100px;
+	z-index:12;
+ 	border-radius: 10px 0 0 10px;
+	-khtml-border-radius: 10px 0 0 10px
+	-webkit-border-radius: 10px 0 0 10px
+	-moz-border-radius: 10px 0 0 10px
+}
+#container > h2{
+	margin:10px 0 0 10px;
+}
+
+#notice{
+	width:500px;
+	position:relative;
+	z-index:20;
+	text-align:center;
+	top:40px;
+	margin:0 auto;
+	padding:20px;
+	font-size: 1.5em;
+	background:grey;
+}
+
+#horiz_container_outer{
+	width:790px;
+	overflow-x:hidden;
+	overflow-y:hidden;
+	position:relative;
+	height:260px;
+	z-index:14;
+	margin:0 10px 0 10px;
+	
+}
+
+#horiz_container{
+	width:3260px;
+	margin:0px;
+	padding:0px;
+	height:240px;
+}
+
+#horiz_container ul{
+	margin:0px; padding:0px;
+	float:left;
+}
+
+#horiz_container_inner{
+	padding:5px;
+	margin-top:20px;
+	padding-left:0px;
+}
+
+#horiz_container li{
+	list-style:none;
+	display: inline-table;
+	margin:0px;
+}
+
+#horiz_container img
+{	
+	height:170px;
+	padding:5px 10px 0 0;
+	margin:0px;
+}
+
+
+/**************************************************
+*
+*	SCROLLING STYLES
+*
+**************************************************/
+
+#scrollbar 
+{ 	
+    position:absolute; 
+	right:15px;
+	bottom:5px;
+    width:770px; height:12px;
+	z-index:15;
+}
+
+#track 
+{ 
+    position:absolute; left:0px; top:0;
+    width:770px; height:12px; 
+    background: #676767;
+    -webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+
+#dragBar 
+{background:white;
+    position:absolute; left:0px; top:0px;
+    width:20px; height:10px; 
+    -webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.39, rgb(229,229,229)),
+    color-stop(0.7, rgb(245,245,245))
+);
+background-image: -moz-linear-gradient(
+    center bottom,
+    rgb(229,229,229) 39%,
+    rgb(245,245,245) 70%
+);
+
+}  
+  
+#left_scroll
+{ 
+	position:absolute; 
+	border-color: transparent gray transparent transparent;
+	border-style: solid;
+	border-width: 6px;
+	width: 0;
+	height: 0px;
+	cursor:pointer;
+	top:0px;
+	left:-15px;
+}  
+
+#right_scroll 
+{ 
+	position:absolute; 
+	right:-15px; 
+	top:1px;
+	border-color: transparent transparent transparent gray;
+	border-style: solid;
+	border-width: 5px;
+	width: 0;
+	height: 0px;
+	cursor:pointer;
+}
+
+/* preload images*/
+div#preload{display: none;}
+
+/* Prevent selection problem */
+#scrollbar, #track, #dragBar, #left, #right {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+}
+
+/*END TEST*/
+#bg {
+	position:fixed; 
+	top:-50%; 
+	left:-50%; 
+	width:200%; 
+	height:200%;
+	z-index:6;
+}
+#bg img {
+	position:absolute; 
+	top:0; 
+	left:0; 
+	right:0; 
+	bottom:0; 
+	margin:auto; 
+	min-width:50%;
+	min-height:50%;
+}

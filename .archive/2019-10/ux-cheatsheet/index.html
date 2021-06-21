@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Charlie's UX Cheatsheet</title>
+
+	<meta charset="utf-8">
+	<meta property="og:title" content="Charlie's UX Cheatsheet" />
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content="http://charleswu.ca/img/headshot_thumb_grey.jpg" />
+	<meta property="og:url" content="http://charleswu.ca/ux-cheatsheet" />
+	<meta property="og:description"
+	 content="UX Designer, Front-End Developer, Systems Design Engineer Graduate" />
+	<meta name="author" content="Charlie Wu" />
+	<meta name="description" content="Charlie's UX Cheatsheet" />
+	<meta name="keywords" content="UX, Designer, Developer, Toronto, New York, Waterloo, Reference, Cheatsheet, Styleguide, Manual" />
+	<meta name="robots" content="index, follow" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" href="favicon.png" />
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-33834473-1', 'charleswu.ca');
+		ga('require', 'displayfeatures');
+		ga('send', 'pageview');
+	</script>
+
+	</head>
+
+	<body>
+
+	<div class="nav">
+		<a href="/#home"><div class="home">
+			<img src="../img/CW.png">
+			<div class="home-text">Charles Wu</div></div></a>
+		<div class="internal-links">
+			<a href="/#about">About</a>
+			<a href="/#portfolio">Portfolio</a>
+			<a href="/#resume">Resume</a>
+		</div>
+	</div>
+
+	<div class="wrapper">
+		<div>
+			<h1>Charlie's UX Cheatsheet</h1>
+
+			<p>This is a page that has a collection of industry standards best practices, which I have personally revised, edited, and created. Using this as a <i>single source of truth</i> ensures consistency, and a basic standard.</p>
+		</div>
+
+		<!-- <div class="table-of-contents">
+			<h2>Table of Contents</h2>
+			<p>[TODO]</p>
+		</div> -->
+
+		<div class="section" id="accessibility">
+			<h2>Accessibility</h2>
+			<div class="subsection">
+				<h3>Web</h3>
+				<p>This is a big topic — here's a short list that are the most important:</p>
+				<ul>
+					<li>Use semantic tags (e.g., <code>h1</code> for headers)</li>
+					<li>Avoid using placeholders</li>
+					<li>Show text with icons, or text only; reserve independent icon use for home, logos, or ubiquitous imagery (e.g. Save, Exit, etc.)</li>
+					<li>Always show labels</li>
+					<li>Ensure color contrast is both pleasant, and strong enough</li>
+				</ul>
+			</div>
+
+		</div>
+
+		<div class="section" id="copy">
+			<h2>Copy</h2>
+			<div class="subsection">
+				<h3>Use of "We" vs "You"</h3>
+				<p>Use "you" most of the time: it focuses on the user and is stronger. Use "we" sparingly, e.g.: "We promise...", or when you have a close or intimate relation with the user.</p>
+			</div>
+			<div class="subsection">
+				<h3>Passive vs Active Voice</h3>
+				<p>Use passive voice for web headings. Use active voice for everything else.</p>
+			</div>
+		</div>
+
+		<div class="section" id="forms">
+			<h2>Forms</h2>
+			<div class="subsection">
+				<h3>Layout</h3>
+				<p>Use a vertical single column for most cases. </p>
+			</div>
+
+			<div class="subsection">
+				<h3>General</h3>
+				<p>Don’t hide basic helper text (e.g., always show password requirements)</p>
+			</div>
+
+			<div class="subsection">
+				<h3>Confirmation</h3>
+				<p>Don't have redundant confirmation fields (e.g., an <code>email</code> field and then a <code>confirm-email</code> field.
+						You do need to make sure your Reset Password function work properly though!</p>
+			</div>
+
+			<div class="subsection">
+				<h3>Password</h3>
+				<p>Have a <code>toggle mask</code> option. Use condensed text if possible instead of an icon.</p>
+			</div>
+
+			<div class="subsection">
+				<h3>Validation &amp; Errors</h3>
+				<p>Use inline validation <em>BUT</em> don't validate as a user is typing, validate only when the field loses focus.</p>
+			</div>
+
+			<div><a href="https://uxdesign.cc/design-better-forms-96fadca0f49c">More reading</a></div>
+		</div>
+
+		<div class="section" id="accessibility">
+			<h2>General Design</h2>
+
+			<div class="subsection">
+				<h3 id="progress-bar">Progress Bars</h3>
+				<p>A completion meter can increase user satisfaction and engagement. Showing it can make long load times seem shorter. Use an indeterminate load bar if you don't know how long something will take.</p>
+				<p>Related: <a href="#zeignarik-effect">Zeigarnik effect</a>.</p>
+			</div>
+
+			<div class="subsection">
+				<h3 id="zeignarik-effect">Zeigarnik Effect</h3>
+				<p>People remember incomplete or interrupted tasks better than completed tasks. People will usually want to complete a task (to effectively forget about them).</p><p>Related: <a href="#progress-bar">Progress Bar</a>.</p>
+			</div>
+
+		</div>
+
+		<div class="section" id="animation">
+			<h2>Animation</h2>
+
+			<div class="subsection">
+				<h3>CSS/HTML Optimization</h3>
+				<p>Get 60fps! <a href="https://medium.com/outsystems-experts/how-to-achieve-60-fps-animations-with-css3-db7b98610108">Do it properly. Here's a summary:</a></p>
+				<ul>
+					<li>Don't use transitions with <code>left/top/right/bottom</code> properties, use <code>transform</code></li>
+					<li>Include <code>will-change: transform;</code></li>
+					<li>Isolate animating elements so it doesn't have any siblings</li>
+				</ul>
+			</div>
+
+			<div class="subsection">
+				<h3>Easing</h3>
+				<p>Make sure to use the correct easing. Usually use <code>ease-out-cubic</code> for intros, and <code>ease-out-cubic</code> for outros.</p>
+			</div>
+
+		</div>
+
+
+	<script src="../js/style.js"></script>
+
+</body>
+</html>

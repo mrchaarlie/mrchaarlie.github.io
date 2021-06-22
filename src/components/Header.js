@@ -149,7 +149,7 @@ const Header = ({ homeLink, showShadow, title }) => (
   <HeaderContainer>
     <HeaderWrapper showShadow={showShadow}>
       <TitleWrapper>
-        {homeLink && <NameLink to="/">Charles Wu</NameLink>}
+        {homeLink && <NameLink to="/">Home</NameLink>}
         <Title>{title}</Title>
       </TitleWrapper>
       {homeLink ? <Nav /> : <NavHomePage />}

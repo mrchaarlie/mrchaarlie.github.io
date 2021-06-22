@@ -66,26 +66,35 @@ const WorkContainer = styled.div`
   }
 `
 
-const ItemBody = styled(Link)`
+const ItemBody = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   width: 100%;
   position: relative;
   z-index: 100;
-  text-decoration: none;
   color: ${props => props.theme.colors.darkerGrey};
   border-radius: 0.25rem;
 
-  &:hover {
-    color: ${props => props.theme.colors.darkGrey};
-  }
-  &:active,
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 1px 2px ${props => props.theme.colors.primaryDark};
+  a {
+    text-decoration: none;
+
+    &:hover {
+      color: ${props => props.theme.colors.darkGrey};
+    }
+    &:active,
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 1px 2px ${props => props.theme.colors.primaryDark};
+    }
   }
 `
+
+const ItemCategory = styled.div`
+  font-size: 1.125rem;
+  color: ${props => props.theme.colors.darkerGrey};
+`
+
 const ItemImageWrapper = styled.div`
   width: 65%;
   perspective: 900px;
@@ -139,9 +148,6 @@ const ItemSubtitle = styled.div`
   line-height: 1;
 `
 
-const ItemCategory = styled.div`
-  font-size: 1.125rem;
-`
 const WorkItem = styled.div`
   position: relative;
   margin: 2rem 0;
@@ -288,13 +294,21 @@ const Work = () => {
                 <ItemImage src={item.image} />
               </ItemImageWrapper>
               <ItemImageShadow />
-              <ItemBody
-                to={item.linkTo}
-                target={item.externalLink ? '_blank' : ''}
-                rel="noopener noreferrer">
-                <ItemSubtitle>{item.subtitle}</ItemSubtitle>
-                <ItemTitle>{item.title}</ItemTitle>
-                <ItemCategory>{item.category}</ItemCategory>
+              <ItemBody>
+                {item.externalLink ?
+                  <a href={item.linkTo}
+                  target='_blank'
+                  rel="noopener noreferrer">
+                    <ItemSubtitle>{item.subtitle}</ItemSubtitle>
+                    <ItemTitle>{item.title}</ItemTitle>
+                    <ItemCategory>{item.category}</ItemCategory>
+                  </a> :
+                  <Link to={item.linkTo}>
+                    <ItemSubtitle>{item.subtitle}</ItemSubtitle>
+                    <ItemTitle>{item.title}</ItemTitle>
+                    <ItemCategory>{item.category}</ItemCategory>
+                  </Link>
+                  }
               </ItemBody>
             </WorkItem>
           ))}

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Header from './Header'
 import WidthWrapper from './WidthWrapper'
 import DashedUnderline from './DashedUnderline'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 const Wrapper = styled.div`
   margin: 4rem 0;
@@ -108,7 +109,7 @@ const RightArrow = styled.div`
     border-bottom: 2px solid ${props => props.theme.colors.primaryDark};
   }
 `
-const WorkLink = styled.a`
+const WorkLink = styled(AnchorLink)`
   transform: translateY(-50%) rotate(-45deg);
   color: inherit;
   text-decoration: none;

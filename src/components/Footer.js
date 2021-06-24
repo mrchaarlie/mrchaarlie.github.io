@@ -50,7 +50,7 @@ const SocialLinks = () => (
     <a href="https://twitter.com/MrChaarlie">Twitter</a>
     <a href="https://github.com/mrchaarlie">GitHub</a>
     <a href="https://dribbble.com/mrchaarlie">Dribble</a>
-    <a href="https://stackexchange.com/users/1308737/mrchaarlie">
+    <a href="https://ux.stackexchange.com/users/51594/mrchaarlie">
       Stack Exchange
     </a>
   </SocialLinkWrapper>

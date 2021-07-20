@@ -49,7 +49,7 @@ const SocialLinks = () => (
     <a href="https://www.linkedin.com/in/mrchaarlie">LinkedIn</a>
     <a href="https://twitter.com/MrChaarlie">Twitter</a>
     <a href="https://github.com/mrchaarlie">GitHub</a>
-    <a href="https://dribbble.com/mrchaarlie">Dribble</a>
+    <a href="https://dribbble.com/mrchaarlie">Dribbble</a>
     <a href="https://ux.stackexchange.com/users/51594/mrchaarlie">
       Stack Exchange
     </a>

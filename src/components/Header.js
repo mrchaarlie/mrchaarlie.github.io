@@ -54,7 +54,7 @@ const NavHomePage = () => (
     <AnchorLink href="#work">Work</AnchorLink>
     <AnchorLink href="#about">About</AnchorLink>
     <a
-      href="https://www.linkedin.com/in/mrchaarlie/#experience-section"
+      href="/Charles-Wu-Resume.pdf"
       target="_blank"
       rel="noopener noreferrer">
       Resume

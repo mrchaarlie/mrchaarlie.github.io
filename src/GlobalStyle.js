@@ -62,11 +62,22 @@ export const theme = {
   transforms: {
     defaults: `
       backface-visibility: hidden;
-      transform-style: preserve-3d;`,
-    isometricZeroA: `transform: translate3d(-2rem, 0rem , 4rem)`,
-    isometricZeroB: `transform: translate3d(2rem, 0 , 6rem)`,
-    isometricLeft: `transform: rotate3d(1, 0.3, 0, 30deg) translate3d(-2rem, 4rem, 4rem);
-    transform-origin: 0 100%;`,
+      transform-style: preserve-3d;
+      transform:translate3d(0,0,0);
+      -webkit-transform:translate3d(0,0,0);`
+  ,
+    isometricZeroA: `
+      transform: translate3d(-2rem, 0rem , 4rem);
+      -webkit-transform: translate3d(-2rem, 0rem , 4rem)
+    `,
+    isometricZeroB: `
+      transform: translate3d(2rem, 0 , 6rem);
+      -webkit-transform: translate3d(2rem, 0 , 6rem),`,
+    isometricLeft: `
+      transform: rotate3d(1, 0.3, 0, 30deg)
+      translate3d(-2rem,5rem,8rem)
+      scale(0.9);
+      transform-origin: 0 100%;`,
     isometricRight: `transform: rotate3d(1,-0.3,0,30deg) translate3d(3rem,6rem,6rem);
     transform-origin: 0% 100%;`,
     scaleBig: `transform: scale(1.3)`,

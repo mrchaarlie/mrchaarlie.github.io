@@ -124,6 +124,7 @@ const ItemImageShadow = styled.div`
   height: 120%;
   width: 130%;
   z-index: 50;
+  transform: translate3d(0, 0, 13rem);
 `
 
 const ItemTitle = styled.div`
@@ -143,7 +144,7 @@ const ItemTitle = styled.div`
 `
 const ItemSubtitle = styled.div`
   font-family: ${props => props.theme.fonts.body};
-  color: ${props => props.theme.colors.grey};
+  color: ${props => props.theme.colors.darkerGrey};
   font-size: 1rem;
   line-height: 1;
 `
@@ -186,16 +187,18 @@ const WorkItem = styled.div`
       align-items: flex-start;
 
       @media ${props => props.theme.media.large} {
-        transform: translate(-8rem);
+        transform: translate3d(-8rem, 0, 15rem);
         width: calc(100% + 6rem);
       }
     }
 
     ${ItemImageWrapper} {
-      transform: translate(5rem, -0.5rem);
+      transform: translate3d(5rem, -0.5rem, 0);
+      -webkit-transform: translate3d(5rem, -0.5rem, 0);
 
       @media ${props => props.theme.media.small} {
-        transform: translate(2rem, -2rem);
+        transform: translate3d(2rem, -2rem, 0);
+        -webkit-transform: translate3d(2rem, -2rem, 0);
       }
 
       @media ${props => props.theme.media.medium} {
@@ -227,16 +230,18 @@ const WorkItem = styled.div`
       text-align: right;
 
       @media ${props => props.theme.media.large} {
-        transform: translate(8rem);
+        transform: translate3d(8rem, 0, 15rem);
         width: calc(100% + 6rem);
       }
     }
 
     ${ItemImageWrapper} {
-      transform: translate(-5rem, -0.5rem);
+      transform: translate3d(-5rem, -0.5rem, 0);
+      -webkit-transform: translate3d(-5rem, -0.5rem, 0);
 
       @media ${props => props.theme.media.small} {
-        transform: translate(-2rem, -2rem);
+        transform: translate3d(-2rem, -2rem, 0);
+        -webkit-transform: translate3d(-2rem, -2rem, 0);
       }
 
       @media ${props => props.theme.media.medium} {
@@ -295,20 +300,22 @@ const Work = () => {
               </ItemImageWrapper>
               <ItemImageShadow />
               <ItemBody>
-                {item.externalLink ?
-                  <a href={item.linkTo}
-                  target='_blank'
-                  rel="noopener noreferrer">
+                {item.externalLink ? (
+                  <a
+                    href={item.linkTo}
+                    target="_blank"
+                    rel="noopener noreferrer">
                     <ItemSubtitle>{item.subtitle}</ItemSubtitle>
                     <ItemTitle>{item.title}</ItemTitle>
                     <ItemCategory>{item.category}</ItemCategory>
-                  </a> :
+                  </a>
+                ) : (
                   <Link to={item.linkTo}>
                     <ItemSubtitle>{item.subtitle}</ItemSubtitle>
                     <ItemTitle>{item.title}</ItemTitle>
                     <ItemCategory>{item.category}</ItemCategory>
                   </Link>
-                  }
+                )}
               </ItemBody>
             </WorkItem>
           ))}

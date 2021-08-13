@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 
     path {
       stroke: ${props => props.strokeColor};
-      stroke-width: 3px;
+      stroke-width: 2px;
       stroke-miterlimit: 0;
       stroke-linecap: round;
       stroke-linejoin: round;
@@ -40,7 +40,7 @@ const Wrapper = styled.div`
 const SvgIconWrapper = ({
   name,
   showAnimation,
-  strokeColor = '#828282',
+  strokeColor = '#2C358C',
   strokeArray = 500,
   delay = 0,
   opacity = 1,

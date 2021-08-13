@@ -53,10 +53,7 @@ const NavHomePage = () => (
   <_Nav>
     <AnchorLink href="#work">Work</AnchorLink>
     <AnchorLink href="#about">About</AnchorLink>
-    <a
-      href="/Charles-Wu-Resume.pdf"
-      target="_blank"
-      rel="noopener noreferrer">
+    <a href="/Charles-Wu-Resume.pdf" target="_blank" rel="noopener noreferrer">
       Resume
     </a>
   </_Nav>
@@ -77,7 +74,7 @@ const Nav = () => (
 
 const HeaderContainer = styled.div`
   position: fixed;
-  z-index: 900;
+  z-index: 9000;
   top: 0;
   left: 0;
   width: 100vw;
@@ -87,6 +84,7 @@ const HeaderContainer = styled.div`
   text-align: right;
   background: ${props => props.theme.colors.offWhite};
   color: ${props => props.theme.colors.primaryDark};
+  transform: translateZ(20rem);
 `
 
 const HeaderWrapper = styled(WidthWrapper)`

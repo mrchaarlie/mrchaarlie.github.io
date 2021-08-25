@@ -143,10 +143,14 @@ const WorkLink = styled(AnchorLink)`
 
 const Tooltip = styled.p`
   padding-top: 0.25em;
-  max-width: 25rem;
+  max-width: 80vw;
   font-size: 1rem;
   line-height: 1.2;
   color: ${props => props.theme.colors.white};
+  
+  @media ${props => props.theme.media.medium} {
+    max-width: 25rem;
+  }
 `
 
 const HELLO_STRINGS = [

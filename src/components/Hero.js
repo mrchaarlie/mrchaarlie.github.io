@@ -147,7 +147,7 @@ const Tooltip = styled.p`
   font-size: 1rem;
   line-height: 1.2;
   color: ${props => props.theme.colors.white};
-  
+
   @media ${props => props.theme.media.medium} {
     max-width: 25rem;
   }

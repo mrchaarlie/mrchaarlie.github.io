@@ -41,6 +41,7 @@ export default () => {
     <>
       <Helmet>
         <title>Charles Wu | Product Designer</title>
+        <script src="/ga.js" type="text/javascript" />
       </Helmet>
       <Main>
         <Header showShadow={navShadow} />

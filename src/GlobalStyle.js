@@ -64,8 +64,7 @@ export const theme = {
       backface-visibility: hidden;
       transform-style: preserve-3d;
       transform:translate3d(0,0,0);
-      -webkit-transform:translate3d(0,0,0);`
-  ,
+      -webkit-transform:translate3d(0,0,0);`,
     isometricZeroA: `
       transform: translate3d(-2rem, 0rem , 4rem);
       -webkit-transform: translate3d(-2rem, 0rem , 4rem)

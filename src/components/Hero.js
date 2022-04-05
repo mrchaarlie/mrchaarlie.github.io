@@ -3,7 +3,6 @@ import ReactTooltip from 'react-tooltip'
 import styled from 'styled-components'
 import Header from './Header'
 import WidthWrapper from './WidthWrapper'
-import DashedUnderline from './DashedUnderline'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 const Wrapper = styled.div`
@@ -191,31 +190,13 @@ const Hero = () => {
           </Title>
 
           <Summary>
-            Currently, I’m at LivePerson building the future of{' '}
-            <DashedUnderline
-              data-tip
-              data-for="conversational-commerce"
-              data-effect="solid"
-              data-place="bottom"
-              data-background-color="#000"
-              data-delay-show="100">
-              conversational commerce
-            </DashedUnderline>
-            . <br />
-            <br />
+            Currently, I’m at Calendly building Analytics tools and other enterprise features.<br /><br />
+
+            Previously, I was at LivePerson building AI-products.<br /><br />
+            
             <WorkLink href="#work">
               Check out some of my work <RightArrow />
             </WorkLink>
-            <ReactTooltip id="conversational-commerce">
-              <Tooltip>
-                Specifically, I'm helping enterprises understand their
-                customers' needs via NLU-powered tools, so they can increase
-                automation and improve customer engagement.
-              </Tooltip>
-              <Tooltip>
-                It's a complex industry; feel free to contact me to learn more!{' '}
-              </Tooltip>
-            </ReactTooltip>
           </Summary>
         </WidthWrapper>
       </Intro>

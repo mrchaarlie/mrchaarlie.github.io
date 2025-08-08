@@ -1,10 +1,7 @@
+node_modules
+dist
+.vite
 .DS_Store
-*.DS_Store
-*.db
-.vscode
-.sass-cache
-/css
-/node_modules
-/tmp
-/dist
-/artifacts
+.env
+.env.*
+!.env.sample

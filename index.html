@@ -1,50 +1,14 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <style>
-      body {
-        width: 100vw;
-        height: 100vh;
-        margin: 0 0 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        color: #afafaf;
-      }
-
-      h2 {
-        margin-bottom: 0;
-      }
-
-      .message{
-        margin: 5vh 24px 30vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-      }
-
-    </style>
-    <meta http-equiv="refresh" content="0; url='https://charleswu.framer.ai/'" />
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Charles Wu — Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="robots" content="index,follow" />
   </head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XS0NCEYM0X"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-XS0NCEYM0X');
-  </script>
-
   <body>
-    <div class="message">
-      <h2>Loading...</h2>
-      <p>You are about to be redirected to my new site</p>
-    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

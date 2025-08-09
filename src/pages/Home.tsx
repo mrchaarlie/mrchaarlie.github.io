@@ -1,13 +1,16 @@
 import Card from '../components/Card'
 import { portfolioItems } from '../data/portfolio'
 import { usePassword } from '../auth/PasswordProvider'
+import BackgroundTopo from '../components/BackgroundTopo'
+import GlitchText from '../components/GlitchText'
 
 export default function Home() {
   const { isAuthed, logout } = usePassword()
   return (
     <main>
+      <BackgroundTopo />
       <header>
-        <h1>Charles Wu — Product Designer</h1>
+        <h1><GlitchText>Charles Wu — Staff Product Designer</GlitchText></h1>
         <nav>
           <a href="/Charles-Wu-Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
           {isAuthed ? (

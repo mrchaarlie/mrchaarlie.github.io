@@ -258,7 +258,7 @@ export default function BackgroundTopo() {
       for (let k = 1; k <= numLevels; k++) levels.push(minV + k * step)
 
       rctx.lineWidth = 0.3
-      rctx.strokeStyle = 'rgba(180, 188, 200, 0.09)'
+      rctx.strokeStyle = 'rgba(180, 188, 200, 0.2)'
       rctx.lineJoin = 'round'
       rctx.lineCap = 'round'
 

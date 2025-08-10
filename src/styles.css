@@ -1,5 +1,5 @@
 :root {
-    --bg: #0b0c10;
+    --bg: #201d24;
     --fg: #e5e7eb;
     --muted: #9aa0a6;
     --brand: #64b5f6;
@@ -234,4 +234,87 @@ button {
     100% {
         transform: skew(0)
     }
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(6px);
+  background: color-mix(in oklab, var(--bg), transparent 60%);
+  border-bottom: 1px solid var(--border);
+}
+.site-header .inner {
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.site-header h1 { margin: 0; font-size: 22px; }
+.site-header nav a { color: var(--muted); text-decoration: none; margin-left: 16px; }
+
+/* Avatar in site header */
+.site-header .brand { display: inline-flex; align-items: center; }
+.site-header .avatar { border-radius: 999px; border: 1px solid var(--border); display: block; }
+
+/* Hero */
+.hero {
+  min-height: 90vh;
+  display: grid;
+  align-items: center;
+  padding: 40px 0;
+}
+.hero-content {
+  max-width: 900px;
+}
+.hero-name {
+  margin: 0 0 6px 0;
+  font-size: 48px;
+  line-height: 1.1;
+}
+.hero-title {
+  margin: 0 0 12px 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+.hero-headline {
+  margin: 12px 0 12px 0;
+  font-size: 26px;
+  color: #c8cfdd;
+  font-weight: 650;
+}
+.hero-description {
+  margin: 0 0 20px 0;
+  color: var(--muted);
+  max-width: 700px;
+}
+.hero-ctas { display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--brand);
+  color: #0a0a0a;
+  text-decoration: none;
+  font-weight: 650;
+  border: 1px solid color-mix(in oklab, var(--brand), black 10%);
+}
+.btn:hover { filter: brightness(1.05); }
+.btn-secondary {
+  background: transparent;
+  color: var(--fg);
+  border: 1px solid var(--border);
+}
+.btn-secondary:hover { border-color: #2b3242; }
+
+@media (max-width: 640px) {
+  .hero-name { font-size: 36px; }
+  .hero-headline { font-size: 22px; }
 }

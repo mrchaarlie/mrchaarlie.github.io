@@ -1,27 +1,26 @@
 import Card from '../components/Card'
 import { portfolioItems } from '../data/portfolio'
-import { usePassword } from '../auth/PasswordProvider'
 import BackgroundTopo from '../components/BackgroundTopo'
-import GlitchText from '../components/GlitchText'
 
 export default function Home() {
-  const { isAuthed, logout } = usePassword()
   return (
     <main>
       <BackgroundTopo />
-      <header>
-        <h1><GlitchText>Charles Wu — Staff Product Designer</GlitchText></h1>
-        <nav>
-          <a href="/Charles-Wu-Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
-          {isAuthed ? (
-            <a href="#" onClick={(e) => { e.preventDefault(); logout() }}>Lock</a>
-          ) : null}
-        </nav>
-      </header>
 
-      <p className="intro">
-        I design coherent product experiences that balance user needs with business impact. Below are select case studies. Some work is password-protected for confidentiality.
-      </p>
+      <section className="hero">
+        <div className="hero-content">
+          <h1 className="hero-name">Charles Wu</h1>
+          <p className="hero-title">Staff Product Designer</p>
+          <h2 className="hero-headline">I design scalable systems for enterprise software and AI‑powered workflows.</h2>
+          <p className="hero-description">
+            I'm currently a lead designer at <a href="https://asana.com" target="_blank" rel="noopener noreferrer">Asana</a>, building scalable access controls.
+          </p>
+          <div className="hero-ctas">
+            <a className="btn" href="https://www.linkedin.com/in/mrchaarlie/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+            <a className="btn btn-secondary" href="/Charles-Wu-Resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
+          </div>
+        </div>
+      </section>
 
       <h2 className="section-title">Selected Work</h2>
       <div className="grid">

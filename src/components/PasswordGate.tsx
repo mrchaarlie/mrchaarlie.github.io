@@ -7,6 +7,14 @@ export default function PasswordGate({ onSuccess }: { onSuccess?: () => void }) 
   const [password, setPassword] = useState('')
   const [error, setError] = useState<string | null>(null)
   const [ephemeralStatus, setEphemeralStatus] = useState<KineticStatus | null>(null)
+  const [failedAttempts, setFailedAttempts] = useState(0)
+  
+  const errorMessages = [
+    'Hmm...Wrong password. Try again?',
+    'Nope, that\'s not it. Are you sure you have the right password?',
+    'Okay, this is the final attempt...',
+    'Email me at hi@charleswu.ca for the password.'
+  ]
 
   const n = useMemo(() => Math.min(password.length, 6), [password.length])
   const computedStatus: KineticStatus = useMemo(() => {
@@ -23,13 +31,11 @@ export default function PasswordGate({ onSuccess }: { onSuccess?: () => void }) 
     setError(null)
     const ok = await verify(password)
     if (ok) {
-      // Show success animation before redirect
-      setEphemeralStatus('success')
-      setTimeout(() => {
-        onSuccess?.()
-      }, 800)
+      onSuccess?.()
     } else {
-      setError('Incorrect password. Please try again.')
+      setFailedAttempts(prev => prev + 1)
+      const messageIndex = Math.min(failedAttempts, errorMessages.length - 1)
+      setError(errorMessages[messageIndex])
       setEphemeralStatus('failure')
       setTimeout(() => setEphemeralStatus(null), 600)
     }

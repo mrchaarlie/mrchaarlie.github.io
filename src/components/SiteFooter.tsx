@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from 'react'
-import { usePassword } from '../auth/PasswordProvider'
 
 function getResolvedTheme(): 'light' | 'dark' {
   const attr = document.documentElement.getAttribute('data-theme') as 'light' | 'dark' | null
@@ -8,11 +7,11 @@ function getResolvedTheme(): 'light' | 'dark' {
   return isSystemDark ? 'dark' : 'light'
 }
 
-export default function SiteHeader() {
-  const { isAuthed, logout } = usePassword()
+export default function SiteFooter() {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => getResolvedTheme())
 
   useEffect(() => {
+    // If user hasn't overridden, keep reflecting system changes
     if (!localStorage.getItem('theme')) {
       const mql = window.matchMedia('(prefers-color-scheme: dark)')
       const onChange = () => setTheme(getResolvedTheme())
@@ -31,23 +30,13 @@ export default function SiteHeader() {
   }, [])
 
   return (
-    <header className="site-header">
+    <footer className="site-footer">
       <div className="inner">
-        <a href="/" className="brand" aria-label="Home">
-          <img src="/face.avif" alt="Charles Wu" className="avatar" width={32} height={32} loading="eager" decoding="async" />
-        </a>
-        <nav>
-        {isAuthed ? (
-            <a href="#" onClick={(e) => { e.preventDefault(); logout() }}>Lock</a>
-          ) : null}
-          <a className="icon-btn" href="/Charles-Wu-Resume.pdf" target="_blank" rel="noreferrer" aria-label="Open resume PDF">
-            <img className="theme-icon" src="/doc.svg" alt="" width={20} height={20} />
-          </a>
-          <button className="icon-btn" onClick={toggleTheme} aria-label={`Activate ${theme === 'dark' ? 'light' : 'dark'} theme`}>
-            <img className="theme-icon" src="/moon.svg" alt="" width={20} height={20} />
-          </button>
-        </nav>
+        <small>© {new Date().getFullYear()} Charles Wu</small>
+        <button className="btn btn-secondary" onClick={toggleTheme} aria-label={`Activate ${theme === 'dark' ? 'light' : 'dark'} theme`}>
+          {theme === 'dark' ? 'Switch to Light' : 'Switch to Dark'}
+        </button>
       </div>
-    </header>
+    </footer>
   )
 } 

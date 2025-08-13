@@ -1,3 +1,20 @@
+/* Domaine Display local fonts */
+@font-face {
+  font-family: "Domaine Display";
+  src: url("/fonts/DomaineDisplay-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Domaine Display";
+  src: url("/fonts/DomaineDisplay-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
     --bg: #201d24;
     --fg: #e5e7eb;
@@ -5,8 +22,55 @@
     --brand: #64b5f6;
     --card: #111216;
     --border: #1f2430;
-    --glitch-duration: 600ms; --glitch-total: 3000ms
+    --glitch-duration: 600ms;
+    --glitch-total: 3000ms
 }
+
+:root[data-theme="light"] {
+--bg: #f7f9fc;
+--fg: #0a0a0a;
+--muted: #667085;
+--brand: #64b5f6;
+--card: #ffffff;
+--border: #e5e7eb;
+--topo-stroke: rgba(10, 20, 40, 0.06);
+}
+
+:root[data-theme="dark"] {
+--bg: #201d24;
+--fg: #e5e7eb;
+--muted: #9aa0a6;
+--brand: #64b5f6;
+--card: #111216;
+--border: #1f2430;
+--topo-stroke: rgba(180, 188, 200, 0.09);
+}
+
+:root {
+    color-scheme: light dark;
+    /* Light (default) */
+    --bg: #f7f9fc;
+    --fg: #0a0a0a;
+    --muted: #667085;
+    --brand: #64b5f6;
+    --card: #ffffff;
+    --border: #e5e7eb;
+    --topo-stroke: rgba(10, 20, 40, 0.06);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      /* Dark */
+      --bg: #201d24;
+      --fg: #e5e7eb;
+      --muted: #9aa0a6;
+      --brand: #64b5f6;
+      --card: #111216;
+      --border: #1f2430;
+      --topo-stroke: rgba(180, 188, 200, 0.09);
+    }
+  }
+  
 
 * {
     box-sizing: border-box
@@ -20,9 +84,10 @@ body,
 
 body {
     margin: 0;
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+    font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
     background: var(--bg);
-    color: var(--fg)
+    color: var(--fg);
+    transition: background-color 500ms ease, color 500ms ease;
 }
 
 main {
@@ -243,6 +308,7 @@ button {
   backdrop-filter: blur(6px);
   background: color-mix(in oklab, var(--bg), transparent 60%);
   border-bottom: 1px solid var(--border);
+  transition: background-color 500ms ease, border-color 500ms ease;
 }
 .site-header .inner {
   margin: 0 auto;
@@ -255,6 +321,29 @@ button {
 }
 .site-header h1 { margin: 0; font-size: 22px; }
 .site-header nav a { color: var(--muted); text-decoration: none; margin-left: 16px; }
+
+/* Icon button for theme toggle */
+.icon-btn { 
+  appearance: none; 
+  background: transparent; 
+  border: 1px solid var(--border); 
+  color: inherit; 
+  padding: 8px; 
+  border-radius: 8px; 
+  cursor: pointer; 
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  margin-right: 12px;
+  transition: background-color 200ms ease, border-color 200ms ease;
+}
+.icon-btn:hover { border-color: #2b3242; }
+.theme-icon { display: block; filter: invert(0); }
+:root[data-theme="dark"] .theme-icon { filter: invert(1); }
+
+.muted {
+    color: var(--muted);
+  }
 
 /* Avatar in site header */
 .site-header .brand { display: inline-flex; align-items: center; }
@@ -270,21 +359,24 @@ button {
 .hero-content {
   max-width: 900px;
 }
-.hero-name {
+h1.hero-name {
   margin: 0 0 6px 0;
-  font-size: 48px;
+  font-size: 24px;  
+  font-family: "Poppins", serif;
   line-height: 1.1;
+  font-weight: 400;
 }
+
 .hero-title {
   margin: 0 0 12px 0;
   color: var(--muted);
-  font-weight: 600;
+  font-weight: 200;
+  text-transform: uppercase;
 }
 .hero-headline {
   margin: 12px 0 12px 0;
-  font-size: 26px;
-  color: #c8cfdd;
-  font-weight: 650;
+  font-size: 100px;
+  font-weight: 400;
 }
 .hero-description {
   margin: 0 0 20px 0;
@@ -318,3 +410,31 @@ button {
   .hero-name { font-size: 36px; }
   .hero-headline { font-size: 22px; }
 }
+
+.spacer {
+    height: 100vh;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+  background: color-mix(in oklab, var(--bg), transparent 0%);
+}
+.site-footer .inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.site-footer small { color: var(--muted); }
+
+  /* Heading fonts */
+  h1, h2, h3, h4, h5, h6,
+  .section-title,
+  .hero-name {
+    font-family: "Domaine Display", serif;
+  }

@@ -9,9 +9,8 @@ export default function Home() {
 
       <section className="hero">
         <div className="hero-content">
-          <h1 className="hero-name">Charles Wu</h1>
-          <p className="hero-title">Staff Product Designer</p>
-          <h2 className="hero-headline">I design scalable systems for enterprise software and AI‑powered workflows.</h2>
+          <h1 className="hero-name">Charles Wu, <span className="muted">Staff Product Designer</span></h1>
+          <h2 className="hero-headline">Solving complexity at scale</h2>
           <p className="hero-description">
             I'm currently a lead designer at <a href="https://asana.com" target="_blank" rel="noopener noreferrer">Asana</a>, building scalable access controls.
           </p>
@@ -28,6 +27,10 @@ export default function Home() {
           <Card key={p.slug} to={`/work/${p.slug}`} title={p.title} description={p.description} />
         ))}
       </div>
+
+      <div className="spacer">temp</div>
+
+      <div className="footer">insert footer here</div>
     </main>
   )
 } 

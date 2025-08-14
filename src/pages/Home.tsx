@@ -1,8 +1,22 @@
-import Card from '../components/Card'
+import Item from '../components/Item'
 import { portfolioItems } from '../data/portfolio'
 import BackgroundTopo from '../components/BackgroundTopo'
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import DecisionModal from '../components/DecisionModal'
 
 export default function Home() {
+  const navigate = useNavigate()
+  const [modalOpen, setModalOpen] = useState(false)
+
+  function handleItemClick(slug: string) {
+    if (slug === 'asana') {
+      setModalOpen(true)
+      return
+    }
+    navigate(`/work/${slug}`)
+  }
+
   return (
     <main>
       <BackgroundTopo />
@@ -10,23 +24,33 @@ export default function Home() {
       <section className="hero">
         <div className="hero-content">
           <h1 className="hero-name">Charles Wu, <span className="muted">Staff Product Designer</span></h1>
-          <h2 className="hero-headline">Solving complexity at scale</h2>
+          <h2 className="hero-headline">Making enterprise software human</h2>
           <p className="hero-description">
-            I'm currently a lead designer at <a href="https://asana.com" target="_blank" rel="noopener noreferrer">Asana</a>, building scalable access controls.
+            Design Lead at <a href="https://asana.com" target="_blank" rel="noopener noreferrer">Asana</a>, crafting scalable access control systems that are simple, secure, and used by millions.
           </p>
-          <div className="hero-ctas">
-            <a className="btn" href="https://www.linkedin.com/in/mrchaarlie/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
-            <a className="btn btn-secondary" href="/Charles-Wu-Resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
-          </div>
         </div>
       </section>
 
-      <h2 className="section-title">Selected Work</h2>
-      <div className="grid">
-        {portfolioItems.map((p) => (
-          <Card key={p.slug} to={`/work/${p.slug}`} title={p.title} description={p.description} />
-        ))}
-      </div>
+      <section className="case-studies">
+        <div className="content">
+          {portfolioItems.map((p, idx) => (
+            <Item
+              key={p.slug}
+              index={idx}
+              to={`/work/${p.slug}`}
+              title={p.title}
+              description={p.description}
+              onClick={(e) => { e.preventDefault(); handleItemClick(p.slug) }}
+            />
+          ))}
+        </div>
+      </section>
+
+      <DecisionModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        onContinue={() => { setModalOpen(false); navigate('/work/asana') }}
+      />
 
       <div className="spacer">temp</div>
 

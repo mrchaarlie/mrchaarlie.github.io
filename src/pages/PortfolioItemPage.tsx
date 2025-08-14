@@ -10,13 +10,19 @@ export default function PortfolioItemPage() {
   const { isAuthed } = usePassword()
   const [unlocked, setUnlocked] = useState(false)
 
+  const shouldGate = slug === 'asana'
+
   useEffect(() => {
     if (!slug) navigate('/')
   }, [slug, navigate])
 
   useEffect(() => {
-    if (isAuthed) setUnlocked(true)
-  }, [isAuthed])
+    if (!shouldGate) {
+      setUnlocked(true)
+    } else if (isAuthed) {
+      setUnlocked(true)
+    }
+  }, [shouldGate, isAuthed])
 
   const ItemComponent = useMemo(() => (slug ? portfolioComponentBySlug[slug] : undefined), [slug])
 
@@ -28,7 +34,7 @@ export default function PortfolioItemPage() {
     )
   }
 
-  if (!unlocked) {
+  if (shouldGate && !unlocked) {
     return (
       <main>
         <PasswordGate onSuccess={() => setUnlocked(true)} />

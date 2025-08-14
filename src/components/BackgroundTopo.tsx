@@ -254,20 +254,18 @@ export default function BackgroundTopo() {
             }
         }
         
-        function resizeAndDraw() {
-            const dpr = window.devicePixelRatio || 1
-            const { innerWidth, innerHeight } = window
-            canvas.width = Math.floor(innerWidth * dpr)
-            canvas.height = Math.floor(innerHeight * dpr)
-            canvas.style.width = `${innerWidth}px`
-            canvas.style.height = `${innerHeight}px`
-            const rctx = ctxRef.current
-            if (!rctx) return
-            rctx.setTransform(1, 0, 0, 1, 0, 0)
-            rctx.scale(dpr, dpr)
-            peaks = generatePeaks(innerWidth, innerHeight, rand)
-            draw()
-        }
+        		function resizeCanvas() {
+			const dpr = window.devicePixelRatio || 1
+			const { innerWidth, innerHeight } = window
+			canvas.width = Math.floor(innerWidth * dpr)
+			canvas.height = Math.floor(innerHeight * dpr)
+			canvas.style.width = `${innerWidth}px`
+			canvas.style.height = `${innerHeight}px`
+			const rctx = ctxRef.current
+			if (!rctx) return
+			rctx.setTransform(1, 0, 0, 1, 0, 0)
+			rctx.scale(dpr, dpr)
+		}
         
         function draw() {
             const rctx = ctxRef.current
@@ -409,16 +407,18 @@ export default function BackgroundTopo() {
             scrollPositionRef.current = window.scrollY
         }
         
-        window.addEventListener('resize', resizeAndDraw)
-        window.addEventListener('scroll', handleScroll, { passive: true })
-        const onThemeChange = () => draw()
-        window.addEventListener('themechange', onThemeChange)
+        		window.addEventListener('resize', resizeCanvas)
+		window.addEventListener('scroll', handleScroll, { passive: true })
+		const onThemeChange = () => draw()
+		window.addEventListener('themechange', onThemeChange)
         
-        resizeAndDraw()
+        resizeCanvas()
+        peaks = generatePeaks(window.innerWidth, window.innerHeight, rand)
+        draw()
         animate() // Start animation loop
         
         return () => { 
-            window.removeEventListener('resize', resizeAndDraw)
+            window.removeEventListener('resize', resizeCanvas)
             window.removeEventListener('scroll', handleScroll)
             window.removeEventListener('themechange', onThemeChange)
             if (animationFrameRef.current) {

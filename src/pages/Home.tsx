@@ -17,6 +17,7 @@ export default function Home() {
     navigate(`/work/${slug}`)
   }
 
+
   return (
     <main>
       <BackgroundTopo />
@@ -24,9 +25,9 @@ export default function Home() {
       <section className="hero">
         <div className="hero-content">
           <h1 className="hero-name">Charles Wu, <span className="muted">Staff Product Designer</span></h1>
-          <h2 className="hero-headline">Making enterprise software human</h2>
+          <h2 className="hero-headline">Making enterprise software, human</h2>
           <p className="hero-description">
-            Design Lead at <a href="https://asana.com" target="_blank" rel="noopener noreferrer">Asana</a>, crafting scalable access control systems that are simple, secure, and used by millions.
+            Currently, design lead at <a href="https://asana.com" target="_blank" rel="noopener noreferrer">Asana</a>, focused on simplifying complex enterprise systems. I specialize in access controls and AI-driven workflows, creating secure, intuitive solutions used by millions. 
           </p>
         </div>
       </section>
@@ -39,6 +40,13 @@ export default function Home() {
               index={idx}
               to={`/work/${p.slug}`}
               title={p.title}
+              company={p.company}
+              companyLogo={p.companyLogo}
+              metric1Big={p.metric1Big}
+              metric1Description={p.metric1Description}
+              metric2Big={p.metric2Big}
+              metric2Description={p.metric2Description}
+              thumbnail={p.thumbnail}
               description={p.description}
               onClick={(e) => { e.preventDefault(); handleItemClick(p.slug) }}
             />

@@ -234,10 +234,12 @@ export default function BackgroundTopo() {
             const scrollY = scrollPositionRef.current
             const documentHeight = document.documentElement.scrollHeight
             const viewportHeight = window.innerHeight
-            const maxScrollDistance = documentHeight - viewportHeight
+            const rawMaxScroll = documentHeight - viewportHeight
+            // Avoid division by zero/Infinity on short pages
+            const maxScrollDistance = rawMaxScroll > 0 ? rawMaxScroll : 1
             
             // Calculate scroll progress (0 to 1) based on total page scroll
-            const scrollProgress = Math.min(scrollY / maxScrollDistance, 1)     
+            const scrollProgress = Math.min(scrollY / maxScrollDistance, 1)
             // Return intensity from MAX_INTENSITY (max vibration) to MIN_INTENSITY (minimal vibration)
             return Math.max(MIN_INTENSITY, MAX_INTENSITY - (scrollProgress * (MAX_INTENSITY - MIN_INTENSITY)))
         }

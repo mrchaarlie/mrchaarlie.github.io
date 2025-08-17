@@ -4,6 +4,7 @@ import BackgroundTopo from '../components/BackgroundTopo'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import DecisionModal from '../components/DecisionModal'
+import SiteFooter from '../components/SiteFooter'
 
 export default function Home() {
   const navigate = useNavigate()
@@ -60,9 +61,7 @@ export default function Home() {
         onContinue={() => { setModalOpen(false); navigate('/work/asana') }}
       />
 
-      <div className="spacer">temp</div>
-
-      <div className="footer">insert footer here</div>
+      <SiteFooter />
     </main>
   )
 } 

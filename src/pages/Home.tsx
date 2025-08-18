@@ -47,6 +47,8 @@ export default function Home() {
               metric1Description={p.metric1Description}
               metric2Big={p.metric2Big}
               metric2Description={p.metric2Description}
+              metric3Big={p.metric3Big}
+              metric3Description={p.metric3Description}
               thumbnail={p.thumbnail}
               description={p.description}
               onClick={(e) => { e.preventDefault(); handleItemClick(p.slug) }}

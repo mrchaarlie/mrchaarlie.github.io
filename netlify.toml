@@ -10,4 +10,9 @@
 [[headers]]
   for = "/index.html"
   [headers.values]
-    Cache-Control = "no-cache, no-store, must-revalidate" 
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+# Edge Functions
+[[edge_functions]]
+path = "/api/chat"
+function = "chat" 

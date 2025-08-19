@@ -1,15 +1,15 @@
 import { useEffect, useRef } from 'react'
 
 
-const DOT_COLOR = 'rgba(180, 188, 200, 0.25)';
+const DOT_COLOR = 'rgba(82, 82, 78, 0.08)';
 const PASSIVE_SPHERE_RADIUS = 300
-const PASSIVE_SPHERE_AMPLITUDE = 3.5
+const PASSIVE_SPHERE_AMPLITUDE = 3
 
 // Grid and interaction configuration
-const GRID_CELL = 13
+const GRID_CELL = 15
 const CURSOR_INFLUENCE_PX = 250
 const MAX_CURSOR_DISPLACEMENT_PX = 10
-const SPHERE_SPEED_MULTIPLIER = 1.8
+const SPHERE_SPEED_MULTIPLIER = 1.6
 const SPHERE_EDGE_MARGIN_FACTOR = 0.05
 
 // Deterministic pseudo-random generator

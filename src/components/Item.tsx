@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom'
+import AsanaLogo from './logos/AsanaLogo'
 
 type ItemProps = {
   to: string
   company: string
   companyLogo: string
   title: string
-  thumbnail: string
+  thumbnail1: string
+  thumbnail2?: string
+  thumbnail3?: string
   description: string
   metric1Big: string
   metric1Description: string
@@ -17,13 +20,22 @@ type ItemProps = {
   onClick?: (e: React.MouseEvent) => void
 }
 
-export default function Item({ to, company, companyLogo, title, description, thumbnail, metric1Big, metric1Description, metric2Big, metric2Description, metric3Big, metric3Description, index = 0, onClick }: ItemProps) {
+export default function Item({ to, company, companyLogo, title, description, thumbnail1, thumbnail2, thumbnail3, metric1Big, metric1Description, metric2Big, metric2Description, metric3Big, metric3Description, index = 0, onClick }: ItemProps) {
   const isReverse = index % 2 === 1
+  const renderLogo = () => {
+    if (companyLogo === 'asana.svg') {
+      return <AsanaLogo className="asana-logo" width={120} height={24} />
+    }
+    return <img src={`/images/logos/${companyLogo}`} alt={`${company} logo`} />
+  }
   return (
     <div className={`portfolio-item${isReverse ? ' reverse' : ''}`}>
-      <div className="thumb"><img src={`/images/portfolio/${thumbnail}`} alt={`Image for ${title} case study`} /></div>
+      <div className="thumbnails">
+        <img src={`/images/portfolio/${thumbnail1}`} alt={`Image for ${title} case study`} className="thumbnail-1" />
+        {thumbnail2 && <img src={`/images/portfolio/${thumbnail2}`} alt={`Image for ${title} case study`} className="thumbnail-2" />}
+      </div>
       <div className="content">
-        <div className="company-logo"><img src={`/images/logos/${companyLogo}`} alt={`${company} logo`} /></div>
+        <div className="company-logo">{renderLogo()}</div>
         <h3 className="case-study-title">{title}</h3>
         <p className="case-study-description">{description}</p>
         <Link to={to} className="button" onClick={onClick}>Read more</Link>

@@ -40,10 +40,11 @@ export default function SiteHeader() {
         {isAuthed ? (
             <a href="#" onClick={(e) => { e.preventDefault(); logout() }}>Lock</a>
           ) : null}
-          <a className="icon-btn" href="/Charles-Wu-Resume.pdf" target="_blank" rel="noreferrer" aria-label="Open resume PDF">
+          
+          <a className="icon-button icon-button--large" href="/Charles-Wu-Resume.pdf" target="_blank" rel="noreferrer" aria-label="Open resume PDF">
             <img className="theme-icon" src="/doc.svg" alt="" width={20} height={20} />
           </a>
-          <button className="icon-btn" onClick={toggleTheme} aria-label={`Activate ${theme === 'dark' ? 'light' : 'dark'} theme`}>
+          <button className="icon-button icon-button--large" onClick={toggleTheme} aria-label={`Activate ${theme === 'dark' ? 'light' : 'dark'} theme`}>
             <img className="theme-icon" src="/moon.svg" alt="" width={20} height={20} />
           </button>
         </nav>

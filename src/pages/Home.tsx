@@ -1,6 +1,6 @@
 import Item from '../components/Item'
 import { portfolioItems } from '../data/portfolio'
-import BackgroundTopo from '../components/BackgroundTopo'
+import BackgroundDots from '../components/BackgroundDots'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import DecisionModal from '../components/DecisionModal'
@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <main>
-      <BackgroundTopo />
+      <BackgroundDots />
 
       <section className="hero">
         <div className="hero-content">
@@ -49,7 +49,9 @@ export default function Home() {
               metric2Description={p.metric2Description}
               metric3Big={p.metric3Big}
               metric3Description={p.metric3Description}
-              thumbnail={p.thumbnail}
+              thumbnail1={p.thumbnail1}
+              thumbnail2={p.thumbnail2}
+              thumbnail3={p.thumbnail3}
               description={p.description}
               onClick={(e) => { e.preventDefault(); handleItemClick(p.slug) }}
             />

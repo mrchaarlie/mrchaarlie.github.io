@@ -31,8 +31,8 @@ export default function Item({ to, company, companyLogo, title, description, thu
   return (
     <div className={`portfolio-item${isReverse ? ' reverse' : ''}`}>
       <div className="thumbnails">
-        <img src={`/images/portfolio/${thumbnail1}`} alt={`Image for ${title} case study`} className="thumbnail-1" />
-        {thumbnail2 && <img src={`/images/portfolio/${thumbnail2}`} alt={`Image for ${title} case study`} className="thumbnail-2" />}
+        <img src={`/images/portfolio/${thumbnail1}`} alt={`Image for ${title} case study`} className="thumbnail thumbnail-1" />
+        {thumbnail2 && <img src={`/images/portfolio/${thumbnail2}`} alt={`Image for ${title} case study`} className="thumbnail  thumbnail-2" />}
       </div>
       <div className="content">
         <div className="company-logo">{renderLogo()}</div>

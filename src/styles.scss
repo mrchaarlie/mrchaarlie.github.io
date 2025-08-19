@@ -30,6 +30,7 @@
     --text-color-inverted: #f0f0f0;
     --muted: #75787e;
     --brand: #7565B1;
+    --brand-text: #6d5bae;
     --card: #ffffff;
     --card-header: #f0f0f0;
     --border: rgba(0, 0, 0, 0.08);
@@ -45,10 +46,11 @@
     --bg2: rgba(20, 20, 24, 0.5);
     --fg: #e5e7eb;
     --modal-bg: rgba(199, 199, 199, 0.1);
-    --text-color: #dfdfdf;
+    --text-color: #c7c7c7;
     --text-color-inverted: #2b2b2b;
-    --muted: #a4a7ab;
-    --brand: #9284c5;
+    --muted: #acaeb1;
+    --brand: #524192;
+    --brand-text: #9b8adb;
     --card: rgb(49, 47, 47);
     --card-header: rgb(61, 59, 61);
     --border: rgba(125, 125, 125, 0.14);
@@ -165,7 +167,7 @@ header {
 }
 
 a {
-    color: var(--brand);
+    color: var(--brand-text);
     text-decoration: none;
 }
 
@@ -176,7 +178,7 @@ a {
     align-items: center;
     gap: 0.5rem;
     background: var(--brand);
-    color: var(--text-color-inverted);
+    color: var(--text-color);
     padding: 0.625rem 0.875rem;
     border-radius: 0.25rem;
     font-weight: 600;
@@ -232,15 +234,16 @@ a {
     }
 
     &.reverse {
-        .thumbnails img {
+        .thumbnail {
             right: auto;
             left: 0;
         }
 
         .thumbnail-2 {
             width: 100%;
+            left: 1rem;
             object-position: left bottom;
-            transform: translate3d(2rem, 2rem, 0);
+            // transform: translate3d(2rem, 2rem, 0);
         }
 
         @media (min-width: $BREAKPOINT-3) {
@@ -566,6 +569,13 @@ button {
     filter: invert(1);
 }
 
+/* System dark preference on first load when no explicit data-theme is set */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) .theme-icon {
+        filter: invert(1);
+    }
+}
+
 .muted {
     color: var(--muted);
 }
@@ -721,8 +731,14 @@ button {
     height: 24px;
 }
 
-:root[data-theme="dark"] .company-logo .asana-logo {
+:root[data-theme="dark"] .company-logo svg {
     color: var(--fg);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) .company-logo svg {
+        color: var(--fg);
+    }
 }
 
 
@@ -1056,7 +1072,8 @@ button {
     position: absolute;
     inset: 0;
     border-radius: 32px;
-    background: linear-gradient(151deg, #417C89 4.51%, #46367F 99.31%);
+    // background: linear-gradient(151deg, #417C89 4.51%, #46367F 99.31%);
+    background: var(--brand);
     transition: all 750ms cubic-bezier(0.33, 1, 0.68, 1);
 }
 

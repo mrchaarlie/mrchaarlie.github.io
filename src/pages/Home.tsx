@@ -52,6 +52,7 @@ export default function Home() {
               thumbnail1={p.thumbnail1}
               thumbnail2={p.thumbnail2}
               thumbnail3={p.thumbnail3}
+              thumbnailExplode={p.thumbnailExplode}
               description={p.description}
               onClick={(e) => { e.preventDefault(); handleItemClick(p.slug) }}
             />

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 
 
-const DOT_COLOR = 'rgba(82, 82, 78, 0.12)';
+const DOT_COLOR = 'rgba(95, 95, 91, 0.12)';
 const PASSIVE_SPHERE_RADIUS = 300
 const PASSIVE_SPHERE_AMPLITUDE = 3
 

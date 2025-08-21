@@ -49,6 +49,13 @@ export default function SiteHeader() {
           </button>
         </nav>
       </div>
+      <div className="progressive-blur">
+        <span className="pg-item pg-5"></span>
+        <span className="pg-item pg-4"></span>
+        <span className="pg-item pg-3"></span>
+        <span className="pg-item pg-2"></span>
+        <span className="pg-item pg-1"></span>
+      </div>
     </header>
   )
 } 

@@ -6,6 +6,7 @@
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: "Domaine Display";
     src: url("/fonts/DomaineDisplay-Medium.otf") format("opentype");
@@ -13,6 +14,7 @@
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: "Domaine Display";
     src: url("/fonts/DomaineDisplay-Bold.otf") format("opentype");
@@ -31,6 +33,7 @@
     --muted: #75787e;
     --brand: #7565B1;
     --brand-text: #6d5bae;
+    --button-text: #f0f0f0;
     --card: #ffffff;
     --card-header: #f0f0f0;
     --border: rgba(0, 0, 0, 0.08);
@@ -51,6 +54,7 @@
     --muted: #acaeb1;
     --brand: #524192;
     --brand-text: #9b8adb;
+    --button-text: #f0f0f0;
     --card: rgb(49, 47, 47);
     --card-header: rgb(61, 59, 61);
     --border: rgba(125, 125, 125, 0.14);
@@ -178,7 +182,7 @@ a {
     align-items: center;
     gap: 0.5rem;
     background: var(--brand);
-    color: var(--text-color);
+    color: var(--button-text);
     padding: 0.625rem 0.875rem;
     border-radius: 0.25rem;
     font-weight: 600;
@@ -214,13 +218,15 @@ a {
     display: grid;
     grid-template-columns: 1fr;
     margin-bottom: 4rem;
-    gap: 1.5rem;
+    gap: 3rem;
     text-decoration: none;
     color: inherit;
     padding: 0 1rem;
+    min-height: 600px;
 
     @media (min-width: $BREAKPOINT-3) {
         grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+        gap: 1.5rem;
         margin-bottom: 0;
         align-items: start;
         padding: 0 4rem 0 0;
@@ -243,7 +249,6 @@ a {
             width: 100%;
             left: 1rem;
             object-position: left bottom;
-            // transform: translate3d(2rem, 2rem, 0);
         }
 
         @media (min-width: $BREAKPOINT-3) {
@@ -293,15 +298,17 @@ a {
 
         .thumbnail-1 {
             width: 100%;
+            height: 100%;
+            object-position: top center;
         }
 
         .thumbnail-2 {
             width: 100%;
             height: auto;
             position: absolute;
-            bottom: 0;
             right: 1rem;
             object-position: right bottom;
+            display: none;
         }
 
         @media (min-width: $BREAKPOINT-3) {
@@ -314,11 +321,14 @@ a {
 
             .thumbnail-1 {
                 width: 125%;
+                height: auto;
             }
 
             .thumbnail-2 {
                 width: 100%;
-
+                display: block;
+                height: auto;
+                bottom: 1rem;
             }
         }
 
@@ -339,8 +349,30 @@ a {
 
             .thumbnail-2 {
                 width: 100%;
+                bottom: -2rem;
             }
 
+        }
+        .thumbnail-explode {
+            height: 70%;
+            top: 0;
+            object-fit: contain;
+            object-position: center center;
+
+            &.thumbnail-1 {
+                width: 100%;
+                right: 10%
+            }
+
+            &.thumbnail-2 {
+                right: 20%;
+                bottom: 10%;
+                // top: auto;
+            }
+
+            &.thumbnail-3 {
+                bottom: 0;
+            }
         }
     }
 
@@ -536,8 +568,7 @@ button {
     width: 100%;
     top: 0;
     z-index: 10;
-    backdrop-filter: blur(2px);
-    background: color-mix(in oklab, var(--bg), transparent 60%);
+
 
     .inner {
         margin: 0 auto;
@@ -558,6 +589,54 @@ button {
     margin: 0;
     font-size: 1.375rem;
 }
+
+
+.progressive-blur {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.pg-item {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    mask: linear-gradient(to top, transparent, black 30%);
+    backdrop-filter: blur(0.5px);
+}
+.pg-1 {
+    backdrop-filter: blur(0.5px);
+    bottom: -20%;
+    height: 120%;
+    background:  linear-gradient(to top, transparent, rgba(80, 85, 100, 0.1));
+
+}
+.pg-2 {
+    backdrop-filter: blur(1px);
+    bottom: 20%;
+    height: calc(100% - 20%);
+}
+.pg-3 {
+    backdrop-filter: blur(3px);
+    bottom: 40%;
+    height: calc(100% - 40%);
+}
+.pg-4 {
+    backdrop-filter: blur(4px);
+    bottom: 60%;
+    height: calc(100% - 60%);
+}
+.pg-5 {
+    backdrop-filter: blur(5px);
+    bottom: 80%;
+    height: calc(100% - 80%);
+}
+
 
 /* Icon button for theme toggle */
 .theme-icon {

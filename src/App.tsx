@@ -1,9 +1,9 @@
 import { Route, Routes, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, lazy, Suspense } from 'react'
 import { PasswordProvider } from './auth/PasswordProvider'
-import Home from './pages/Home'
-import PortfolioItemPage from './pages/PortfolioItemPage'
-import NotFound from './pages/NotFound'
+const Home = lazy(() => import('./pages/Home'))
+const PortfolioItemPage = lazy(() => import('./pages/PortfolioItemPage'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 import SiteHeader from './components/SiteHeader'
 import ChatWidget from './components/ChatWidget'
 
@@ -27,11 +27,13 @@ export default function App() {
   return (
     <PasswordProvider>
       <HeaderSwitcher />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/work/:slug" element={<PortfolioItemPage />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/work/:slug" element={<PortfolioItemPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
       <ChatWidget />
     </PasswordProvider>
   )

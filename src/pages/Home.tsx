@@ -1,10 +1,11 @@
 import Item from '../components/Item'
 import { portfolioItems } from '../data/portfolio'
-import BackgroundDots from '../components/BackgroundDots'
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, lazy, Suspense } from 'react'
 import DecisionModal from '../components/DecisionModal'
 import SiteFooter from '../components/SiteFooter'
+
+const BackgroundDots = lazy(() => import('../components/BackgroundDots'))
 
 export default function Home() {
   const navigate = useNavigate()
@@ -21,7 +22,9 @@ export default function Home() {
 
   return (
     <main>
-      <BackgroundDots />
+      <Suspense fallback={null}>
+        <BackgroundDots />
+      </Suspense>
 
       <section className="hero">
         <div className="hero-content">

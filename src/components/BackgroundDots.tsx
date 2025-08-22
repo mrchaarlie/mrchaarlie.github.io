@@ -7,7 +7,7 @@ const PASSIVE_SPHERE_AMPLITUDE = 3
 
 // Grid and interaction configuration
 const GRID_CELL = 15
-const CURSOR_INFLUENCE_PX = 250
+const CURSOR_INFLUENCE_PX = 150
 const MAX_CURSOR_DISPLACEMENT_PX = 10
 const SPHERE_SPEED_MULTIPLIER = 1.6
 const SPHERE_EDGE_MARGIN_FACTOR = 0.05
@@ -77,6 +77,7 @@ export default function BackgroundTopo() {
     const sphereRef = useRef<{ x: number; y: number; vx: number; vy: number }>({ x: 0, y: 0, vx: 120, vy: 90 })
     const lastFrameTimeRef = useRef<number | null>(null)
     const sphereAnimRef = useRef<number | null>(null)
+    const prefersReducedMotion = useRef<boolean>(false)
 
     useEffect(() => {
         const canvas = canvasRef.current!
@@ -89,7 +90,12 @@ export default function BackgroundTopo() {
 
         let peaks: EllipticalPeak[] = []
 
-
+        // Check reduced motion
+        const media = window.matchMedia('(prefers-reduced-motion: reduce)')
+        const updateMotion = () => { prefersReducedMotion.current = media.matches }
+        updateMotion()
+        const onMediaChange = () => { updateMotion(); requestDraw(); if (prefersReducedMotion.current) stopAnimating(); else startAnimating() }
+        media.addEventListener?.('change', onMediaChange)
 
         function resizeCanvas() {
             const dpr = window.devicePixelRatio || 1
@@ -144,7 +150,7 @@ export default function BackgroundTopo() {
             rctx.fillStyle = stroke
 
             const mouse = mouseRef.current
-            const INFLUENCE = CURSOR_INFLUENCE_PX
+            const INFLUENCE = CURSOR_INFLUENCE_PX * 1.4
             const MAX_DISP = MAX_CURSOR_DISPLACEMENT_PX
 
             const sphere = sphereRef.current
@@ -162,7 +168,7 @@ export default function BackgroundTopo() {
                     const dist = Math.hypot(dx, dy)
                     if (dist > 0 && dist < INFLUENCE) {
                         const t = 1 - dist / INFLUENCE
-                        const force = t * t // stronger near the cursor
+                        const force = Math.pow(Math.max(0, t), 1.5) + 0.05 * (t > 0 ? 1 : 0)
                         const ux = dx / dist
                         const uy = dy / dist
                         px += ux * MAX_DISP * force
@@ -174,8 +180,8 @@ export default function BackgroundTopo() {
                 const sdx = px - sphere.x
                 const sdy = py - sphere.y
                 const sdist = Math.hypot(sdx, sdy)
-                let extra = 0
-                if (sdist < R) {
+                let extra = prefersReducedMotion.current ? 0 : 0
+                if (!prefersReducedMotion.current && sdist < R) {
                     const t = 1 - sdist / R
                     extra = AMP * (t * t)
                 }
@@ -187,6 +193,12 @@ export default function BackgroundTopo() {
         }
 
         function animate(time: number) {
+            if (prefersReducedMotion.current || document.hidden) {
+                // If hidden or reduced motion, draw static and stop loop
+                draw()
+                sphereAnimRef.current = null
+                return
+            }
             const prev = lastFrameTimeRef.current ?? time
             const dt = Math.min(0.05, (time - prev) / 1000)
             lastFrameTimeRef.current = time
@@ -209,6 +221,18 @@ export default function BackgroundTopo() {
             sphereAnimRef.current = requestAnimationFrame(animate)
         }
 
+        function startAnimating() {
+            if (sphereAnimRef.current == null) {
+                sphereAnimRef.current = requestAnimationFrame(animate)
+            }
+        }
+        function stopAnimating() {
+            if (sphereAnimRef.current != null) {
+                cancelAnimationFrame(sphereAnimRef.current)
+                sphereAnimRef.current = null
+            }
+        }
+
         function requestDraw() {
             if (rafRef.current != null) return
             rafRef.current = requestAnimationFrame(() => {
@@ -227,12 +251,21 @@ export default function BackgroundTopo() {
         }
 
         function onThemeChange() { requestDraw() }
+        function onVisibilityChange() {
+            if (document.hidden) {
+                stopAnimating()
+                requestDraw()
+            } else if (!prefersReducedMotion.current) {
+                startAnimating()
+            }
+        }
 
         function handleResize() { resizeCanvas(); buildDots(); requestDraw() }
         window.addEventListener('resize', handleResize)
         window.addEventListener('mousemove', handleMouseMove, { passive: true })
         window.addEventListener('mouseleave', handleMouseLeave)
         window.addEventListener('themechange', onThemeChange)
+        document.addEventListener('visibilitychange', onVisibilityChange)
 
         resizeCanvas()
         buildDots()
@@ -248,14 +281,18 @@ export default function BackgroundTopo() {
             }
         }
         draw()
-        sphereAnimRef.current = requestAnimationFrame(animate)
+        if (!prefersReducedMotion.current && !document.hidden) {
+            startAnimating()
+        }
 
         return () => {
             window.removeEventListener('mousemove', handleMouseMove)
             window.removeEventListener('mouseleave', handleMouseLeave)
             window.removeEventListener('themechange', onThemeChange)
             window.removeEventListener('resize', handleResize)
-            if (sphereAnimRef.current != null) cancelAnimationFrame(sphereAnimRef.current)
+            document.removeEventListener('visibilitychange', onVisibilityChange)
+            media.removeEventListener?.('change', onMediaChange)
+            stopAnimating()
             if (rafRef.current != null) cancelAnimationFrame(rafRef.current)
         }
     }, [])

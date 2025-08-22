@@ -224,6 +224,11 @@ a {
     padding: 0 1rem;
     min-height: 600px;
 
+    @media (min-width: $BREAKPOINT-2) {
+        padding: 0 2rem;
+    }
+
+
     @media (min-width: $BREAKPOINT-3) {
         grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
         gap: 1.5rem;
@@ -231,12 +236,160 @@ a {
         align-items: start;
         padding: 0 4rem 0 0;
         min-height: 60vh;
-
     }
 
     @media (min-width: $BREAKPOINT-4) {
         padding: 0;
         grid-template-columns: 2.5fr 2fr;
+    }
+
+    .thumbnails {
+        border-radius: 0.5rem;
+        position: relative;
+        display: flex;
+        width: 100%;
+        height: auto;
+        min-height: 300px;
+        max-height: 400px;
+        align-items: center;
+        justify-content: center;
+        color: #7f8796;
+        font-size: 0.75rem;
+
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            object-position: left center;
+            display: block;
+            transition: all 500ms ease;
+            position: absolute;
+        }
+
+        .thumbnail-1 {
+            width: 100%;
+            height: 100%;
+            object-position: top center;
+        }
+
+        .thumbnail-2 {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            right: 8%;
+            object-position: right bottom;
+            display: none;
+        }
+
+        .thumbnail-3 {
+            display: none;
+        }
+
+        @media (min-width: $BREAKPOINT-3) {
+            height: 100%;
+            max-height: none;
+
+            img {
+                right: 0;
+            }
+
+            &:hover {
+                .thumbnail-explode.thumbnail-1 {
+                    transform: translate3d(0.5rem, -1.5rem, 0) scale(1.02) !important;
+                }
+
+                .thumbnail-explode.thumbnail-2 {
+                    transform: translate3d(-1.5rem, -48%, 0) scale(1.02) !important;
+                }
+
+                .thumbnail-explode.thumbnail-3 {
+                    transform: translate3d(0.25rem, 2rem, 0) scale(1.02) !important;
+                }
+
+                .thumbnail-1 {
+                    transform: translate3d(0, -1rem, 0) scale(1.02);
+                }
+
+                .thumbnail-2 {
+                    transform: translate3d(-0.5rem, 0.5rem, 0) scale(1.02);
+                }
+            }
+
+            .thumbnail-1 {
+                width: 150%;
+                object-position: 50% 30%;
+            }
+
+            .thumbnail-2 {
+                width: 100%;
+                display: block;
+                height: auto;
+                object-position: 10% 70%;
+            }
+
+            .thumbnail-3 {
+                display: block;
+            }
+
+            .thumbnail-explode {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+    
+                &.thumbnail-1 {
+                    top: 0;
+                    right: 10%;
+                    transform: translate3d(0, 0, 0) scale(1.00);
+                }
+    
+                &.thumbnail-2 {
+                    top: 50%;
+                    right: 20%;
+                    transform: translate3d(0, -50%, 0) scale(1.00);
+                }
+    
+                &.thumbnail-3 {
+                    bottom: 0;
+                    transform: translate3d(0, 0, 0) scale(1.00);
+                }
+            }
+
+        }
+
+        @media (min-width: $BREAKPOINT-4) {
+            height: 100%;
+            max-height: none;
+
+            img {
+                height: 100%;
+                position: absolute;
+                right: 0;
+            }
+
+            .thumbnail-1 {
+                width: 130%;
+
+                &.thumbnail-explode {
+                    width: 100%;
+                }
+            }
+
+            .thumbnail-2 {
+                width: 100%;
+                bottom: -2rem;
+            }
+        }
+
+
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        gap: 0.5rem;
+        min-width: 0;
+        /* prevents overflow clipping */
     }
 
     &.reverse {
@@ -245,9 +398,16 @@ a {
             left: 0;
         }
 
+        .thumbnails:hover {
+            .thumbnail-2 {
+                transform: translate3d(0.5rem, 0.5rem, 0) scale(1.02);
+            }
+        }
+
         .thumbnail-2 {
             width: 100%;
-            left: 1rem;
+            left: 8%;
+            right: auto;
             object-position: left bottom;
         }
 
@@ -268,121 +428,6 @@ a {
             padding: 0 1rem;
             grid-template-columns: 2fr 2.5fr;
         }
-    }
-
-    .thumbnails {
-        border-radius: 0.5rem;
-        position: relative;
-        display: flex;
-        width: 100%;
-        height: 70vw;
-        max-height: 400px;
-        align-items: center;
-        justify-content: center;
-        color: #7f8796;
-        font-size: 0.75rem;
-
-        img {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-            object-position: left center;
-            display: block;
-            transition: all 500ms ease;
-            position: absolute;
-
-            &:hover {
-                transform: translate3d(0, 0, 0) scale(1.02);
-            }
-        }
-
-        .thumbnail-1 {
-            width: 100%;
-            height: 100%;
-            object-position: top center;
-        }
-
-        .thumbnail-2 {
-            width: 100%;
-            height: auto;
-            position: absolute;
-            right: 1rem;
-            object-position: right bottom;
-            display: none;
-        }
-
-        @media (min-width: $BREAKPOINT-3) {
-            height: 100%;
-            max-height: none;
-
-            img {
-                right: 0;
-            }
-
-            .thumbnail-1 {
-                width: 125%;
-                height: auto;
-            }
-
-            .thumbnail-2 {
-                width: 100%;
-                display: block;
-                height: auto;
-                bottom: 1rem;
-            }
-        }
-
-        @media (min-width: $BREAKPOINT-4) {
-            height: 100%;
-            max-height: none;
-
-            img {
-                height: 100%;
-                position: absolute;
-                right: 0;
-            }
-
-            .thumbnail-1 {
-                width: 150%;
-
-            }
-
-            .thumbnail-2 {
-                width: 100%;
-                bottom: -2rem;
-            }
-
-        }
-        .thumbnail-explode {
-            height: 70%;
-            top: 0;
-            object-fit: contain;
-            object-position: center center;
-
-            &.thumbnail-1 {
-                width: 100%;
-                right: 10%
-            }
-
-            &.thumbnail-2 {
-                right: 20%;
-                bottom: 10%;
-                // top: auto;
-            }
-
-            &.thumbnail-3 {
-                bottom: 0;
-            }
-        }
-    }
-
-    .content {
-        display: flex;
-        flex-direction: column;
-        align-self: center;
-        gap: 0.5rem;
-        min-width: 0;
-        /* prevents overflow clipping */
     }
 
 }
@@ -440,39 +485,6 @@ button {
     color: #ff6b6b;
     margin-top: 0.5rem;
     font-size: 0.875rem
-}
-
-.glitch {
-    position: relative;
-    display: inline-block
-}
-
-.glitch::before,
-.glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    left: 0;
-    top: 0;
-    pointer-events: none
-}
-
-.glitch:hover {
-    animation: glitch-skew var(--glitch-total) steps(2, end) infinite;
-    animation-delay: 0s;
-}
-
-.glitch:hover::before {
-    color: #ff3358;
-    mix-blend-mode: screen;
-    animation: glitch-anim var(--glitch-total) steps(2, end) infinite;
-    transform: translate(1px, 0)
-}
-
-.glitch:hover::after {
-    color: #00e5ff;
-    mix-blend-mode: screen;
-    animation: glitch-anim2 var(--glitch-total) steps(2, end) infinite;
-    transform: translate(-1px, 0)
 }
 
 @keyframes glitch-anim {
@@ -609,28 +621,33 @@ button {
     mask: linear-gradient(to top, transparent, black 30%);
     backdrop-filter: blur(0.5px);
 }
+
 .pg-1 {
     backdrop-filter: blur(0.5px);
     bottom: -20%;
     height: 120%;
-    background:  linear-gradient(to top, transparent, rgba(80, 85, 100, 0.1));
+    background: linear-gradient(to top, transparent, rgba(80, 85, 100, 0.1));
 
 }
+
 .pg-2 {
     backdrop-filter: blur(1px);
     bottom: 20%;
     height: calc(100% - 20%);
 }
+
 .pg-3 {
     backdrop-filter: blur(3px);
     bottom: 40%;
     height: calc(100% - 40%);
 }
+
 .pg-4 {
     backdrop-filter: blur(4px);
     bottom: 60%;
     height: calc(100% - 60%);
 }
+
 .pg-5 {
     backdrop-filter: blur(5px);
     bottom: 80%;

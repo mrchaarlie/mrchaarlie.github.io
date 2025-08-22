@@ -11,16 +11,29 @@ Static site built with React (Vite) and deployed to Netlify/GitHub Pages.
 npm install
 ```
 
-3. Run dev server:
+3.1 Run dev server:
 
 ```sh
 npm run dev
 ```
 
+3.2 Configure netlify:
+
+```sh
+npx netlify-cli link
+npx netlify-cli env:set OPENAI_MODEL gpt-4o-mini
+```
+
+
 4. Build:
 
 ```sh
 npm run build && npm run preview
+```
+Update assistant-system.txt:
+
+```sh
+npx netlify-cli env:set ASSISTANT_SYSTEM "$(cat netlify/assistant-system.txt)" --force
 ```
 
 ## Password protection (client-side)

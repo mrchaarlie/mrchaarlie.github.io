@@ -27,15 +27,22 @@ export default function Item({ to, company, companyLogo, title, description, thu
     if (companyLogo === 'asana.svg') {
       return <AsanaLogo className="asana-logo" width={120} height={24} />
     }
-    return <img src={`/images/logos/${companyLogo}`} alt={`${company} logo`} />
+    return <img src={`/images/logos/${companyLogo}`} alt={`${company} logo`} loading="lazy" decoding="async" />
   }
   const extraClass = thumbnailExplode ? ' thumbnail-explode' : ''
+  const isFirstRow = index <= 1
+
+  function prefetchWorkChunk() {
+    // Hint bundler to prefetch the work page chunk
+    import('../pages/PortfolioItemPage').catch(() => {})
+  }
+
   return (
-    <div className={`portfolio-item${isReverse ? ' reverse' : ''}`}>
+    <div className={`portfolio-item${isReverse ? ' reverse' : ''}`} onMouseEnter={prefetchWorkChunk}>
       <div className="thumbnails">
-        <img src={`/images/portfolio/${thumbnail1}`} alt={`Image for ${title} case study`} className={`thumbnail thumbnail-1${extraClass}`} />
-        {thumbnail2 && <img src={`/images/portfolio/${thumbnail2}`} alt={`Image for ${title} case study`} className={`thumbnail thumbnail-2${extraClass}`} />}
-        {thumbnail3 && <img src={`/images/portfolio/${thumbnail3}`} alt={`Image for ${title} case study`} className={`thumbnail thumbnail-3${extraClass}`} />}
+        <img src={`/images/portfolio/${thumbnail1}`} alt={`Image for ${title} case study`} className={`thumbnail thumbnail-1${extraClass}`} loading={isFirstRow ? 'eager' : 'lazy'} fetchPriority={isFirstRow ? 'high' : 'auto'} decoding="async" />
+        {thumbnail2 && <img src={`/images/portfolio/${thumbnail2}`} alt={`Image for ${title} case study`} className={`thumbnail thumbnail-2${extraClass}`} loading="lazy" decoding="async" />}
+        {thumbnail3 && <img src={`/images/portfolio/${thumbnail3}`} alt={`Image for ${title} case study`} className={`thumbnail thumbnail-3${extraClass}`} loading="lazy" decoding="async" />}
       </div>
       <div className="content">
         <div className="company-logo">{renderLogo()}</div>

@@ -1,4 +1,6 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import ThemeToggle from './ThemeToggle'
+
 
 type SectionLink = { id: string; title: string }
 
@@ -10,41 +12,82 @@ function slugify(text: string): string {
     .replace(/\s+/g, '-')
 }
 
+function getResolvedTheme(): 'light' | 'dark' {
+  const attr = document.documentElement.getAttribute('data-theme') as 'light' | 'dark' | null
+  if (attr === 'light' || attr === 'dark') return attr
+  const isSystemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  return isSystemDark ? 'dark' : 'light'
+}
+
 export default function PortfolioHeader() {
   const [sections, setSections] = useState<SectionLink[]>([])
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => getResolvedTheme())
+  const [activeId, setActiveId] = useState<string | null>(null)
+
+  const toggleTheme = useCallback(() => {
+    const current = getResolvedTheme()
+    const next = current === 'dark' ? 'light' : 'dark'
+    document.documentElement.setAttribute('data-theme', next)
+    localStorage.setItem('theme', next)
+    setTheme(next)
+    window.dispatchEvent(new Event('themechange'))
+  }, [])
+
+  const onNavClick = useCallback((id: string) => () => {
+    setActiveId(id)
+  }, [])
 
   useEffect(() => {
-    const article = document.querySelector('article.case-study')
+    const article = document.querySelector('article.case-study') as HTMLElement | null
     if (!article) return
 
-    const headings = Array.from(article.querySelectorAll('h2')) as HTMLHeadingElement[]
-    const links: SectionLink[] = []
-
-    // Ensure each h2 has an id and collect
-    for (const h of headings) {
-      if (!h.id || h.id.trim() === '') {
-        h.id = slugify(h.textContent || 'section')
+    const collect = () => {
+      const headings = Array.from(article.querySelectorAll('h2')) as HTMLHeadingElement[]
+      const links: SectionLink[] = []
+      for (const h of headings) {
+        if (!h.id || h.id.trim() === '') {
+          h.id = slugify(h.textContent || 'section')
+        }
+        links.push({ id: h.id, title: h.textContent || 'Section' })
       }
-      links.push({ id: h.id, title: h.textContent || 'Section' })
+      setSections(links)
     }
 
-    // Add an Overview link to the top of the article
-    const articleId = (article as HTMLElement).id || 'top'
-    if (!(article as HTMLElement).id) (article as HTMLElement).id = articleId
-    setSections([{ id: articleId, title: 'Overview' }, ...links])
+    collect()
+
+    const observer = new MutationObserver(() => collect())
+    observer.observe(article, { subtree: true, childList: true })
+
+    return () => observer.disconnect()
   }, [])
 
-  const onNavClick = useMemo(() => {
-    const HEADER_OFFSET = 56 // px, approximate sticky header height
-    return (id: string) => (e: React.MouseEvent) => {
-      e.preventDefault()
-      const el = document.getElementById(id)
-      if (!el) return
-      const rect = el.getBoundingClientRect()
-      const scrollTop = window.scrollY + rect.top - HEADER_OFFSET
-      window.scrollTo({ top: scrollTop, behavior: 'smooth' })
+  useEffect(() => {
+    if (sections.length === 0) return
+    const article = document.querySelector('article.case-study') as HTMLElement | null
+    if (!article) return
+
+    const options: IntersectionObserverInit = {
+      root: null,
+      // Trigger when heading crosses 25% from top accounting for sticky header
+      rootMargin: '-64px 0px -70% 0px',
+      threshold: 0,
     }
-  }, [])
+    const io = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          setActiveId(entry.target.id)
+        }
+      }
+    }, options)
+
+    const targets = sections.map((s) => document.getElementById(s.id)).filter(Boolean) as Element[]
+    targets.forEach((el) => io.observe(el))
+
+    return () => io.disconnect()
+  }, [sections])
+
+  // Keep memo to avoid rerenders of handlers, though we now use native anchors
+  useMemo(() => sections, [sections])
 
   return (
     <div className="portfolio-header">
@@ -53,12 +96,14 @@ export default function PortfolioHeader() {
           <img src="/face.avif" alt="Charles Wu" className="avatar" width={28} height={28} loading="eager" decoding="async" />
         </a>
         <nav className="portfolio-nav" aria-label="Case study sections">
-          {sections.map((s) => (
-            <a key={s.id} href={`#${s.id}`} onClick={onNavClick(s.id)} className="portfolio-nav-link">
-              {s.title}
+          {sections.map((s, idx) => (
+            <a key={s.id} href={`#${s.id}`} className={`portfolio-nav-link${activeId === s.id ? ' is-active' : ''}`} onClick={onNavClick(s.id)}>
+              {`${idx + 1}. ${s.title}`}
             </a>
           ))}
         </nav>
+        {/* add theme toggle */}
+        <ThemeToggle />
       </div>
     </div>
   )

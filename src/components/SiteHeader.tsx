@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { usePassword } from '../auth/PasswordProvider'
+import ThemeToggle from './ThemeToggle'
 
 function getResolvedTheme(): 'light' | 'dark' {
   const attr = document.documentElement.getAttribute('data-theme') as 'light' | 'dark' | null
@@ -44,9 +45,7 @@ export default function SiteHeader() {
           <a className="icon-button icon-button--large" href="/Charles-Wu-Resume.pdf" target="_blank" rel="noreferrer" aria-label="Open resume PDF">
             <img className="theme-icon" src="/doc.svg" alt="" width={20} height={20} />
           </a>
-          <button className="icon-button icon-button--large" onClick={toggleTheme} aria-label={`Activate ${theme === 'dark' ? 'light' : 'dark'} theme`}>
-            <img className="theme-icon" src="/moon.svg" alt="" width={20} height={20} />
-          </button>
+          <ThemeToggle />
         </nav>
       </div>
       <div className="progressive-blur">

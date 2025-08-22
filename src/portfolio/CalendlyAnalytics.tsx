@@ -38,13 +38,12 @@ export default function CalendlyAnalytics() {
         </header>
 
         <section className="case-study-section">
-          <h2>Users lacked access to their Calendly usage data</h2>
+          <h2>The Problem</h2>
+          <h3>Users lacked access to their Calendly usage data</h3>
           <p>
             We wanted to empower our customers (Account Managers) with insights into their team's usage data and behaviors. This helps them make strategic decisions like optimizing schedules, coaching or rewarding members, and improving overall workflows.
           </p>
-        </section>
 
-        <section className="case-study-section">
           <h3>Goal</h3>
           <p>
             This initiative was meant to address a clear gap: give a better understanding of their product usage to maximize its benefits.
@@ -54,9 +53,7 @@ export default function CalendlyAnalytics() {
             <li>Increase user retention by improving their understanding of the product</li>
             <li>Increase Analytics MAUs by 10% within first quarter of launch</li>
           </ol>
-        </section>
 
-        <section className="case-study-section">
           <h3>Final results</h3>
           <p>
             After the public launch, users received a rich dashboard offering an array of features, allowing them to customize views, explore in-depth data, and gain unique insights. Several customers gave positive feedback on its impact and value:
@@ -69,7 +66,8 @@ export default function CalendlyAnalytics() {
         </section>
 
         <section className="case-study-section">
-          <h2>Uncovering key insights through research</h2>
+          <h2>Research</h2>
+          <h3>Uncovering key insights through research</h3>
           <p>We started off by validating our problem statement to fine-tune our goals.</p>
           
           <h3>Methodologies</h3>
@@ -106,14 +104,16 @@ export default function CalendlyAnalytics() {
         </section>
 
         <section className="case-study-section">
-          <h2>Designing solutions to meet user needs</h2>
+          <h2>Design iterations</h2>
+          <h3>Designing solutions to meet user needs</h3>
           <p>
             After the ideation phase, I delved into crafting storyboards, defining the information architecture, and making user flows and wireframes.
           </p>
         </section>
 
         <section className="case-study-section">
-          <h2>Summarizing successes, lessons learned, and next steps</h2>
+          <h2>Results</h2>
+          <h3>Impact, lessons learned, and next steps</h3>
           
           <h3>Challenges</h3>
           <ul>

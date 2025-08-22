@@ -4,6 +4,7 @@ import PasswordGate from '../components/PasswordGate'
 import { usePassword } from '../auth/PasswordProvider'
 import { portfolioComponentBySlug } from '../data/portfolio'
 import PortfolioHeader from '../components/PortfolioHeader'
+import SiteFooter from '../components/SiteFooter'
 
 export default function PortfolioItemPage() {
   const { slug = '' } = useParams()
@@ -49,6 +50,7 @@ export default function PortfolioItemPage() {
       <Suspense fallback={<p>Loading…</p>}>
         <ItemComponent />
       </Suspense>
+      <SiteFooter />
     </main>
   )
 } 

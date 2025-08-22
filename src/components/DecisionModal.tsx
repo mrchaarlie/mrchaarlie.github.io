@@ -11,8 +11,8 @@ export default function DecisionModal({ open, onClose, onContinue }: { open: boo
         </p>
         <p className="modal-description muted">No password? No problem. You can still explore my other case studies.</p>
         <div className="modal-actions">
-          <button className="btn btn-secondary half" onClick={onClose}>Go back</button>
-          <button className="btn half" onClick={onContinue}>Continue to case study</button>
+          <button className="button button--secondary half" onClick={onClose}>Go back</button>
+          <button className="button half" onClick={onContinue}>Continue to case study</button>
         </div>
       </div>
     </div>

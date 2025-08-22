@@ -4,15 +4,21 @@ import { useNavigate } from 'react-router-dom'
 import { useState, lazy, Suspense } from 'react'
 import DecisionModal from '../components/DecisionModal'
 import SiteFooter from '../components/SiteFooter'
+import { usePassword } from '../auth/PasswordProvider'
 
 const BackgroundDots = lazy(() => import('../components/BackgroundDots'))
 
 export default function Home() {
   const navigate = useNavigate()
   const [modalOpen, setModalOpen] = useState(false)
+  const { isAuthed } = usePassword()
 
   function handleItemClick(slug: string) {
     if (slug === 'asana') {
+      if (isAuthed) {
+        navigate('/work/asana')
+        return
+      }
       setModalOpen(true)
       return
     }

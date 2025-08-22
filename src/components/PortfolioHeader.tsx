@@ -68,8 +68,7 @@ export default function PortfolioHeader() {
 
     const options: IntersectionObserverInit = {
       root: null,
-      // Trigger when heading crosses 25% from top accounting for sticky header
-      rootMargin: '-64px 0px -70% 0px',
+      rootMargin: '-60px 0px -70% 0px',
       threshold: 0,
     }
     const io = new IntersectionObserver((entries) => {
@@ -104,6 +103,13 @@ export default function PortfolioHeader() {
         </nav>
         {/* add theme toggle */}
         <ThemeToggle />
+      </div>
+      <div className="progressive-blur">
+        <span className="pg-item pg-5"></span>
+        <span className="pg-item pg-4"></span>
+        <span className="pg-item pg-3"></span>
+        <span className="pg-item pg-2"></span>
+        <span className="pg-item pg-1"></span>
       </div>
     </div>
   )

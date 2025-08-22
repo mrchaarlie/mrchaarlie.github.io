@@ -108,7 +108,12 @@ html {
 article.case-study,
 .case-study-section,
 .case-study-header {
-    scroll-margin-top: 64px;
+    scroll-margin-top: 72px;
+}
+
+// Ensure headings anchor correctly under sticky header
+article.case-study h2 {
+    scroll-margin-top: 72px;
 }
 
 /* Heading fonts */
@@ -166,7 +171,9 @@ header {
     justify-content: space-between;
     gap: 0.75rem;
 
-    margin-bottom: 1.75rem h1 {
+    margin-bottom: 1.75rem;
+
+    h1 {
         font-size: 1.375rem;
         margin: 0
     }
@@ -328,19 +335,19 @@ a {
                 width: 100%;
                 height: auto;
                 object-fit: contain;
-    
+
                 &.thumbnail-1 {
                     top: 0;
                     right: 10%;
                     transform: translate3d(0, 0, 0) scale(1.00);
                 }
-    
+
                 &.thumbnail-2 {
                     top: 50%;
                     right: 20%;
                     transform: translate3d(0, -50%, 0) scale(1.00);
                 }
-    
+
                 &.thumbnail-3 {
                     bottom: 0;
                     transform: translate3d(0, 0, 0) scale(1.00);
@@ -588,12 +595,15 @@ input[type="password"] {
 .progressive-blur {
     display: block;
     position: absolute;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 110%;
     z-index: -1;
     pointer-events: none;
 }
+
+
 
 .pg-item {
     display: block;
@@ -601,19 +611,39 @@ input[type="password"] {
     width: 100%;
     height: 100%;
     mask: linear-gradient(to top, transparent, black 30%);
-    backdrop-filter: blur(0.5px);
+    backdrop-filter: blur(1px);
+    
 }
 
 .pg-1 {
-    backdrop-filter: blur(0.5px);
+    backdrop-filter: blur(2px);
     bottom: -20%;
     height: 120%;
-    background: linear-gradient(to top, transparent, rgba(80, 85, 100, 0.1));
-
+    background: linear-gradient(to top,
+        rgba(227, 252, 255, 0.1),
+        rgba(236, 250, 253, 0.5) 30%,
+        rgba(236, 250, 253, 0.6) 80%);
 }
 
+:root[data-theme="dark"] .pg-1 {
+    background: linear-gradient(to top,
+            rgba(59, 62, 77, 0.1),
+            rgba(39, 44, 66, 0.5),
+            rgba(39, 44, 66, 0.6));
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) .pg-1 {
+        background: linear-gradient(to top,
+                rgba(59, 62, 77, 0.1),
+                rgba(39, 44, 66, 0.5),
+                rgba(39, 44, 66, 0.6));
+    }
+}
+
+
 .pg-2 {
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(2px);
     bottom: 20%;
     height: calc(100% - 20%);
 }
@@ -756,7 +786,8 @@ input[type="password"] {
 // .btn}
 
 
-button, .button {
+button,
+.button {
     display: inline-flex;
     padding: 0.625rem 0.875rem;
     border-radius: 0.25rem;
@@ -782,7 +813,7 @@ button, .button {
     background: var(--brand);
     color: var(--button-text);
     font-weight: 600;
-   
+
     &:hover {
         background: color-mix(in oklab, var(--brand), black 8%);
     }
@@ -1175,9 +1206,6 @@ button, .button {
     top: 0;
     width: 100%;
     z-index: 15;
-    backdrop-filter: blur(6px);
-    background: color-mix(in oklab, var(--bg), transparent 60%);
-    border-bottom: 1px solid var(--border);
 }
 
 .portfolio-header .inner {
@@ -1217,7 +1245,7 @@ button, .button {
     outline: none;
 
     &.is-active {
-        color: var(--brand);
+        color: var(--brand-text);
     }
 }
 
@@ -1232,8 +1260,6 @@ button, .button {
     background: var(--brand-text);
     transform: translateX(-50%);
     transition: width 200ms ease;
-
-
 }
 
 .portfolio-nav-link:hover::after,
@@ -1242,8 +1268,14 @@ button, .button {
 }
 
 /* Remove default outline on hover; keep focus-visible outline for keyboard users */
-.portfolio-nav-link:hover { outline: none; }
-.portfolio-nav-link:focus { outline: none; }
+.portfolio-nav-link:hover {
+    outline: none;
+}
+
+.portfolio-nav-link:focus {
+    outline: none;
+}
+
 .portfolio-nav-link:focus-visible {
     box-shadow: 0 0 0 2px var(--border-hover);
     border-color: var(--border-hover);

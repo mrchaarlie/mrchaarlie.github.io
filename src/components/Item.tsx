@@ -44,7 +44,7 @@ export default function Item({ to, company, companyLogo, title, description, thu
         {thumbnail2 && <img src={`/images/portfolio/${thumbnail2}`} alt={`Image for ${title} case study`} className={`thumbnail thumbnail-2${extraClass}`} loading="lazy" decoding="async" />}
         {thumbnail3 && <img src={`/images/portfolio/${thumbnail3}`} alt={`Image for ${title} case study`} className={`thumbnail thumbnail-3${extraClass}`} loading="lazy" decoding="async" />}
       </div>
-      <div className="content">
+      <div className="case-study-preview">
         <div className="company-logo">{renderLogo()}</div>
         <h3 className="case-study-title">{title}</h3>
         <p className="case-study-description">{description}</p>

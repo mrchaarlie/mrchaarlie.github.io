@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom'
 import PasswordGate from '../components/PasswordGate'
 import { usePassword } from '../auth/PasswordProvider'
 import { portfolioComponentBySlug } from '../data/portfolio'
-import PortfolioHeader from '../components/PortfolioHeader'
 import SiteFooter from '../components/SiteFooter'
 
 export default function PortfolioItemPage() {
@@ -46,7 +45,6 @@ export default function PortfolioItemPage() {
 
   return (
     <main>
-      <PortfolioHeader />
       <Suspense fallback={<p>Loading…</p>}>
         <ItemComponent />
       </Suspense>

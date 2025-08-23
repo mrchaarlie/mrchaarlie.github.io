@@ -12,29 +12,28 @@ function slugify(text: string): string {
     .replace(/\s+/g, '-')
 }
 
-function getResolvedTheme(): 'light' | 'dark' {
-  const attr = document.documentElement.getAttribute('data-theme') as 'light' | 'dark' | null
-  if (attr === 'light' || attr === 'dark') return attr
-  const isSystemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-  return isSystemDark ? 'dark' : 'light'
-}
-
 export default function PortfolioHeader() {
   const [sections, setSections] = useState<SectionLink[]>([])
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => getResolvedTheme())
   const [activeId, setActiveId] = useState<string | null>(null)
+  const [title, setTitle] = useState<string>('')
 
-  const toggleTheme = useCallback(() => {
-    const current = getResolvedTheme()
-    const next = current === 'dark' ? 'light' : 'dark'
-    document.documentElement.setAttribute('data-theme', next)
-    localStorage.setItem('theme', next)
-    setTheme(next)
-    window.dispatchEvent(new Event('themechange'))
-  }, [])
 
-  const onNavClick = useCallback((id: string) => () => {
-    setActiveId(id)
+  const onNavClick = useCallback((id: string) => (e: React.MouseEvent) => {
+    e.preventDefault()
+    const el = document.getElementById(id)
+    if (!el) return
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    try {
+      el.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'start', inline: 'nearest' })
+    } catch {
+      const top = window.scrollY + el.getBoundingClientRect().top - 60
+      window.scrollTo(0, top)
+    }
+    if (history.replaceState) {
+      history.replaceState(null, '', `#${id}`)
+    } else {
+      window.location.hash = id
+    }
   }, [])
 
   useEffect(() => {
@@ -42,6 +41,11 @@ export default function PortfolioHeader() {
     if (!article) return
 
     const collect = () => {
+      // Title
+      const h1 = article.querySelector('h1')
+      setTitle((h1?.textContent || '').trim())
+
+      // Sections
       const headings = Array.from(article.querySelectorAll('h2')) as HTMLHeadingElement[]
       const links: SectionLink[] = []
       for (const h of headings) {
@@ -56,7 +60,7 @@ export default function PortfolioHeader() {
     collect()
 
     const observer = new MutationObserver(() => collect())
-    observer.observe(article, { subtree: true, childList: true })
+    observer.observe(article, { subtree: true, childList: true, characterData: true })
 
     return () => observer.disconnect()
   }, [])
@@ -94,15 +98,18 @@ export default function PortfolioHeader() {
         <a href="/" className="brand" aria-label="Home">
           <img src="/face.avif" alt="Charles Wu" className="avatar" width={28} height={28} loading="eager" decoding="async" />
         </a>
-        <nav className="portfolio-nav" aria-label="Case study sections">
-          {sections.map((s, idx) => (
-            <a key={s.id} href={`#${s.id}`} className={`portfolio-nav-link${activeId === s.id ? ' is-active' : ''}`} onClick={onNavClick(s.id)}>
-              {`${idx + 1}. ${s.title}`}
-            </a>
-          ))}
-        </nav>
-        {/* add theme toggle */}
-        <ThemeToggle />
+        <div className="header-content">
+          <span className="title">{title || 'Case study'}</span>
+          <nav className="portfolio-nav" aria-label="Case study sections">
+            {sections.map((s, idx) => (
+              <a key={s.id} href={`#${s.id}`} className={`portfolio-nav-link${activeId === s.id ? ' is-active' : ''}`} onClick={onNavClick(s.id)}>
+                {`${idx + 1}. ${s.title}`}
+              </a>
+            ))}
+          </nav>
+        </div>
+        <span/>
+        
       </div>
       <div className="progressive-blur">
         <span className="pg-item pg-5"></span>

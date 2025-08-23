@@ -1,41 +1,44 @@
+import PortfolioHeader from '../components/PortfolioHeader'
+
 export default function CalendlyAnalytics() {
   return (
     <article className="case-study">
       <div className="content">
-        <header className="case-study-header">
-          <h1>Analytics</h1>
-          <p className="case-study-subtitle">An industry-first dashboard designed for Account Managers, offering performance metrics and usage data to guide usage strategy.</p>
-          
-          <div className="case-study-meta">
-            <div className="meta-item">
-              <strong>Platform</strong>
-              <span>(Responsive) Web</span>
-            </div>
-            <div className="meta-item">
-              <strong>Timeline</strong>
-              <span>16+ weeks • Research &gt; Design &gt; Validation cycle (2x)</span>
-            </div>
-            <div className="meta-item">
-              <strong>Domain/Topics</strong>
-              <span>Enterprise, Data-Viz, Design Systems</span>
-            </div>
-            <div className="meta-item">
-              <strong>Core Team</strong>
-              <span>Designer (me), Product Manager, Content Strategist, 2 Engineers</span>
+        <section className="case-study-hero">
+          <h1 className="case-study-title">Calendly Analytics</h1>
+          <div className="case-study-summary">
+            <p className="case-study-lead">Calendly was moving up-market and needed a way to address churn by showing customers the value of its surfaces. I worked on creating the scheduling platform industry's first analytics dashboard, which resulted improved retention and company ARR.</p>
+
+            <div className="case-study-meta">
+              <div className="meta-row">
+                <span className="meta-label">Team</span>
+                <span>1 Product designer, 1 PM, 1 Content designer, 2 Engineers</span>
+              </div>
+              <div className="meta-row">
+                <span className="meta-label">Skills</span>
+                <span className="pills">
+                  <span className="pill">0 to 1</span>
+                  <span className="pill">Data viz</span>
+                  <span className="pill">Design systems</span>
+                </span>
+              </div>
+              <div className="meta-row">
+                <span className="meta-label">Impact</span>
+                <span>93% CSAT, 55% adoption rate (in 2 months)</span>
+              </div>
+              <div className="meta-row">
+                <strong>Date</strong>
+                <span>H1 2022</span>
+              </div>
             </div>
           </div>
 
-          <div className="case-study-results">
-            <div className="result-item">
-              <div className="result-number">1500</div>
-              <div className="result-label">MAUs within the first 90 days of launch</div>
-            </div>
-            <div className="result-item">
-              <div className="result-number">23%</div>
-              <div className="result-label">Increase in MAUs in the following 2 quarters</div>
-            </div>
-          </div>
-        </header>
+          <figure className="case-study-figure">
+            <img src="/images/portfolio/thumbnail-calendly-analytics-1.png" alt="Calendly Analytics dashboard screenshot" loading="lazy" decoding="async" />
+          </figure>
+        </section>
+
+        <PortfolioHeader />
 
         <section className="case-study-section">
           <h2>The Problem</h2>
@@ -58,7 +61,7 @@ export default function CalendlyAnalytics() {
           <p>
             After the public launch, users received a rich dashboard offering an array of features, allowing them to customize views, explore in-depth data, and gain unique insights. Several customers gave positive feedback on its impact and value:
           </p>
-          
+
           <blockquote className="testimonial">
             <p>"We used the dashboard trends to quickly reduce our meeting cancellations by 10%."</p>
             <cite>— Nabil Belmezouar, Senior Product Manager</cite>
@@ -69,31 +72,31 @@ export default function CalendlyAnalytics() {
           <h2>Research</h2>
           <h3>Uncovering key insights through research</h3>
           <p>We started off by validating our problem statement to fine-tune our goals.</p>
-          
+
           <h3>Methodologies</h3>
           <ol>
             <li><strong>Competitive Analysis:</strong> Assessed similar tools or features in the market to understand the competitive landscape and identify opportunities for differentiation</li>
             <li><strong>Discovery interviews:</strong> I worked with our Content Strategist to run 3 rounds of discovery interviews. Our primary audience was admins or account managers from diverse company sizes — from nimble startups to established enterprises.</li>
             <li><strong>Usability Testing:</strong> After creating prototypes, I conducted a series of moderated tests to identify pain points, and user expectations</li>
           </ol>
-          
+
           <h3>Key insights</h3>
           <ul>
             <li>Users valued <strong>exploring</strong> interesting data and wanted <strong>insights</strong> on anomalies and key indicators</li>
             <li><strong>Data export</strong> for in-depth analysis was essential</li>
             <li><strong>Customization</strong> was key, users wanted dashboards tailored to role-specific requirements</li>
           </ul>
-          
+
           <p><strong>Unexpected learnings:</strong></p>
           <ul>
             <li><strong>Some metrics</strong> initially believed to be important (like global seat usage data), <strong>were less relevant</strong></li>
           </ul>
-          
+
           <blockquote className="testimonial">
             <p>"I want something that summarizes usage data that I can easily share with my exec team in our monthly meeting"</p>
             <cite>— Discovery interview participant</cite>
           </blockquote>
-          
+
           <h3>Design principles</h3>
           <p>From the research, I derived a set of design principles which then used to guide my designs:</p>
           <ol>
@@ -114,14 +117,14 @@ export default function CalendlyAnalytics() {
         <section className="case-study-section">
           <h2>Results</h2>
           <h3>Impact, lessons learned, and next steps</h3>
-          
+
           <h3>Challenges</h3>
           <ul>
             <li><strong>Design optimization:</strong> Striking the balance between simplicity for everyday users and detailed insights for administrators was challenging</li>
             <li><strong>Technical constraints:</strong> Scope changes occurred due to engineering research and performance issues that were uncovered during tests</li>
             <li><strong>Stakeholder communication:</strong> Engagement with stakeholders took longer than anticipated, limiting the data available and affecting the project's timeline</li>
           </ul>
-          
+
           <h3>Results</h3>
           <p>
             After launching, we noted a <strong>23% increase in MAUs</strong> within two quarters, confirming that our goals were met and our approach was effective. Stakeholder's testimonial reinforced this success: "We used the dashboard trends to quickly <strong>reduce our meeting cancellations by 10%</strong>"—Nabil Belmezouar, Senior Product Manager.
@@ -129,21 +132,21 @@ export default function CalendlyAnalytics() {
           <p>
             The project's <strong>journey from idea to implementation</strong> demonstrated our ability to create a useful analytics tool that meets diverse user needs, presenting data in an accessible and significant manner.
           </p>
-          
+
           <h3>Reflections</h3>
           <p>Some things I would do differently:</p>
           <ul>
             <li><strong>Process optimization:</strong> Reflecting on the communication delays, and developing a more structured approach to stakeholder engagement could save time in future projects</li>
             <li><strong>Conduct engineering research earlier:</strong> Getting more accurate performance data earlier would have enabled more informed design decisions, impacting the project's outcome in a positive way</li>
           </ul>
-          
+
           <p><strong>Next steps:</strong></p>
           <ul>
             <li><strong>Improve sorting/filtering mechanisms:</strong> enhancing these functions will provide better contextual data availability</li>
             <li><strong>Expand dashboard customizability:</strong> Further personalization options will increase user efficacy and satisfaction</li>
             <li><strong>Scheduled data exporting:</strong> Introducing automation will enhance workflow efficiencies</li>
           </ul>
-          
+
           <p>
             These targeted improvements emphasized our commitment at the time to evolve the product and deliver the maximum value to users.
           </p>

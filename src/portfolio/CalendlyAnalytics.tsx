@@ -1,18 +1,35 @@
 import PortfolioHeader from '../components/PortfolioHeader'
+import { useEffect, useRef } from 'react'
 
 export default function CalendlyAnalytics() {
+  const tableRef = useRef<HTMLTableElement | null>(null)
+
+  useEffect(() => {
+    const el = tableRef.current
+    if (!el) return
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        el.classList.add('is-visible')
+        io.disconnect()
+      }
+    }, { threshold: 0.2 })
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
+
   return (
     <article className="case-study">
       <div className="content">
         <section className="case-study-hero">
           <h1 className="case-study-title">Calendly Analytics</h1>
           <div className="case-study-summary">
-            <p className="case-study-lead">Calendly was moving up-market and needed a way to address churn by showing customers the value of its surfaces. I worked on creating the scheduling platform industry's first analytics dashboard, which resulted improved retention and company ARR.</p>
+            <p className="case-study-lead">As Calendly shifted upmarket, we needed to combat churn by demonstrating clear value to customers. I led the design of the scheduling industry's first analytics dashboard, boosting retention and contributing to company ARR growth.</p>
 
             <div className="case-study-meta">
               <div className="meta-row">
                 <span className="meta-label">Team</span>
-                <span>1 Product designer, 1 PM, 1 Content designer, 2 Engineers</span>
+                <span>1 Product designer (me), 1 PM, 1 Content designer, 2 Engineers
+                </span>
               </div>
               <div className="meta-row">
                 <span className="meta-label">Skills</span>
@@ -24,10 +41,11 @@ export default function CalendlyAnalytics() {
               </div>
               <div className="meta-row">
                 <span className="meta-label">Impact</span>
-                <span>93% CSAT, 55% adoption rate (in 2 months)</span>
+                <span>90% adoption rate, 85% CSAT, 41% increase in engagement
+                </span>
               </div>
               <div className="meta-row">
-                <strong>Date</strong>
+                <span className="meta-label">Date</span>
                 <span>H1 2022</span>
               </div>
             </div>
@@ -42,114 +60,138 @@ export default function CalendlyAnalytics() {
 
         <section className="case-study-section">
           <h2>The Problem</h2>
-          <h3>Users lacked access to their Calendly usage data</h3>
           <p>
-            We wanted to empower our customers (Account Managers) with insights into their team's usage data and behaviors. This helps them make strategic decisions like optimizing schedules, coaching or rewarding members, and improving overall workflows.
-          </p>
+            Customers and account managers lacked visibility into how Calendly was being used, making it hard to quantify ROI or justify renewals. With churn rising after COVID-driven growth, retention became a company-wide priority.</p>
+          <p>Our goal was clear: build the scheduling industry’s first analytics dashboard to help teams prove value, increase engagement, and improve retention.</p>
 
-          <h3>Goal</h3>
+          <h3>Problem statement</h3>
+          <p>In collaboration with Customer Success and Product stakeholders, we defined:</p>
+
+          <blockquote>“Account managers lacked visibility into team scheduling metrics, making it difficult to justify renewals and undermining confidence in Calendly’s long-term value.”</blockquote>
+
+
+          <h3>Goals</h3>
           <p>
-            This initiative was meant to address a clear gap: give a better understanding of their product usage to maximize its benefits.
+            To align stakeholders across Product, Engineering, and Customer Success, we set 3 measurable goals:
           </p>
-          <p>Our measurable goals were:</p>
-          <ol>
-            <li>Increase user retention by improving their understanding of the product</li>
-            <li>Increase Analytics MAUs by 10% within first quarter of launch</li>
-          </ol>
-
-          <h3>Final results</h3>
-          <p>
-            After the public launch, users received a rich dashboard offering an array of features, allowing them to customize views, explore in-depth data, and gain unique insights. Several customers gave positive feedback on its impact and value:
-          </p>
-
-          <blockquote className="testimonial">
-            <p>"We used the dashboard trends to quickly reduce our meeting cancellations by 10%."</p>
-            <cite>— Nabil Belmezouar, Senior Product Manager</cite>
-          </blockquote>
-        </section>
-
-        <section className="case-study-section">
-          <h2>Research</h2>
-          <h3>Uncovering key insights through research</h3>
-          <p>We started off by validating our problem statement to fine-tune our goals.</p>
-
-          <h3>Methodologies</h3>
-          <ol>
-            <li><strong>Competitive Analysis:</strong> Assessed similar tools or features in the market to understand the competitive landscape and identify opportunities for differentiation</li>
-            <li><strong>Discovery interviews:</strong> I worked with our Content Strategist to run 3 rounds of discovery interviews. Our primary audience was admins or account managers from diverse company sizes — from nimble startups to established enterprises.</li>
-            <li><strong>Usability Testing:</strong> After creating prototypes, I conducted a series of moderated tests to identify pain points, and user expectations</li>
-          </ol>
-
-          <h3>Key insights</h3>
           <ul>
-            <li>Users valued <strong>exploring</strong> interesting data and wanted <strong>insights</strong> on anomalies and key indicators</li>
-            <li><strong>Data export</strong> for in-depth analysis was essential</li>
-            <li><strong>Customization</strong> was key, users wanted dashboards tailored to role-specific requirements</li>
+            <li><strong>Adoption:</strong> 40% of orgs with 20+ users adopt the feature</li>
+            <li><strong>Retention:</strong> 50% continue using after 1 month</li>
+            <li><strong>Statisfaction:</strong> 70%+ CSAT</li>
           </ul>
 
-          <p><strong>Unexpected learnings:</strong></p>
+          <h3>Constraints</h3>
+          <p>Building Analytics posed multiple risks:</p>
           <ul>
-            <li><strong>Some metrics</strong> initially believed to be important (like global seat usage data), <strong>were less relevant</strong></li>
+            <li><strong>Technical:</strong> Scaling performance with large datasets, untested chart rendering</li>
+            <li><strong>Product:</strong> Exposing unused seats could highlight value gaps, risking contraction</li>
+            <li><strong>Design:</strong> No existing chart components—this was a true 0→1 effort requiring new patterns and systems</li>
           </ul>
 
-          <blockquote className="testimonial">
-            <p>"I want something that summarizes usage data that I can easily share with my exec team in our monthly meeting"</p>
-            <cite>— Discovery interview participant</cite>
-          </blockquote>
-
-          <h3>Design principles</h3>
-          <p>From the research, I derived a set of design principles which then used to guide my designs:</p>
-          <ol>
-            <li><strong>Simplicity</strong> Ensure the designs remain intuitive and user-friendly</li>
-            <li><strong>Encourage interaction</strong> Elements should invite users to engage, sparking curiosity and promoting exploration</li>
-            <li><strong>Modularity</strong> Ensure each component is self-contained for easy future adaptability and expansion</li>
-          </ol>
         </section>
 
         <section className="case-study-section">
-          <h2>Design iterations</h2>
-          <h3>Designing solutions to meet user needs</h3>
+          <h2>Process</h2>
+
+          <h3>Research & insights</h3>
           <p>
-            After the ideation phase, I delved into crafting storyboards, defining the information architecture, and making user flows and wireframes.
-          </p>
+            I ran a competitive audit and 30 discovery interviews with customers and internal teams. We found users didn’t just want raw data—they wanted guidance. Key insights shaped our objectives:</p>
+
+          <ol>
+            <li><strong>Exploration mattered</strong> → Make the dashboard interactive, with filters and defaults</li>
+            <li><strong>Data should be shareable</strong> → Charts must look clear at any size, with lightweight UI</li>
+            <li><strong>Customization was key</strong> → Let users choose what metrics to display</li>
+          </ol>
+
+          <h3>Information Architecture</h3>
+          <p>I defined Analytics' placement in Calendly's navigation for scalability, collaborating with the navigation team for seamless integration.</p>
+
+          <h3>Chart System</h3>
+          <p>To handle diverse visualizations, I built a standardized design system for consistency, scalability, and performance—limiting initial chart types to focus the experience.</p>
+
+          <h3>Design iterations</h3>
+          <p>We explored multiple directions before arriving at the final design:</p>
+
+          <p>Wireframes testing layouts and IA</p>
+          <div>
+            <img src="/images/portfolio/calendly-analytics-wireframes.png" alt="Wireframes testing layouts and IA" loading="lazy" decoding="async" />
+          </div>
+
+          <p>Lo-fi dashboard concepts without cards</p>
+          <div>
+            <img src="/images/portfolio/calendly-analytics-lofi.png" alt="Lo-fi dashboard concepts without cards" loading="lazy" decoding="async" />
+          </div>
+
+
+          <p>Final high-fidelity dashboard shipped to dev</p>
+          <div>
+            <video src="/images/portfolio/calendly-analytics-video.mp4" alt="Final high-fidelity dashboard shipped to dev" loading="lazy" decoding="async" />
+          </div>
+
         </section>
 
         <section className="case-study-section">
+
           <h2>Results</h2>
-          <h3>Impact, lessons learned, and next steps</h3>
-
-          <h3>Challenges</h3>
-          <ul>
-            <li><strong>Design optimization:</strong> Striking the balance between simplicity for everyday users and detailed insights for administrators was challenging</li>
-            <li><strong>Technical constraints:</strong> Scope changes occurred due to engineering research and performance issues that were uncovered during tests</li>
-            <li><strong>Stakeholder communication:</strong> Engagement with stakeholders took longer than anticipated, limiting the data available and affecting the project's timeline</li>
-          </ul>
-
-          <h3>Results</h3>
-          <p>
-            After launching, we noted a <strong>23% increase in MAUs</strong> within two quarters, confirming that our goals were met and our approach was effective. Stakeholder's testimonial reinforced this success: "We used the dashboard trends to quickly <strong>reduce our meeting cancellations by 10%</strong>"—Nabil Belmezouar, Senior Product Manager.
-          </p>
-          <p>
-            The project's <strong>journey from idea to implementation</strong> demonstrated our ability to create a useful analytics tool that meets diverse user needs, presenting data in an accessible and significant manner.
+          <p>We launched Alpha in 4 months, validated with live data, and iterated through Beta to GA. At GA, results far surpassed goals:
           </p>
 
-          <h3>Reflections</h3>
-          <p>Some things I would do differently:</p>
-          <ul>
-            <li><strong>Process optimization:</strong> Reflecting on the communication delays, and developing a more structured approach to stakeholder engagement could save time in future projects</li>
-            <li><strong>Conduct engineering research earlier:</strong> Getting more accurate performance data earlier would have enabled more informed design decisions, impacting the project's outcome in a positive way</li>
-          </ul>
+          <div className="metrics-table-card">
+            <table ref={tableRef} className="metrics-table">
+              <thead>
+                <tr>
+                  <th>Goal</th>
+                  <th>Beta</th>
+                  <th>GA</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>40% Adoption</td>
+                  <td>53%</td>
+                  <td>90%</td>
+                </tr>
+                <tr>
+                  <td>50% Retention</td>
+                  <td>52%</td>
+                  <td>75%</td>
+                </tr>
+                <tr>
+                  <td>70% CSAT</td>
+                  <td>82%</td>
+                  <td>83%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-          <p><strong>Next steps:</strong></p>
-          <ul>
-            <li><strong>Improve sorting/filtering mechanisms:</strong> enhancing these functions will provide better contextual data availability</li>
-            <li><strong>Expand dashboard customizability:</strong> Further personalization options will increase user efficacy and satisfaction</li>
-            <li><strong>Scheduled data exporting:</strong> Introducing automation will enhance workflow efficiencies</li>
-          </ul>
-
-          <p>
-            These targeted improvements emphasized our commitment at the time to evolve the product and deliver the maximum value to users.
+          <p>Crucially, there was no measurable increase in contraction. Instead, we saw early signs of expansion among teams adopting Analytics, proving the feature strengthened retention and renewal conversations.
           </p>
+
+          <blockquote className="testimonial">
+            <p>“<strong>I really love it. It's reduced my workload so much</strong>...I just send the visuals [to execs] as is”</p>
+            <cite>—Adobe</cite>
+          </blockquote>
+
+          <blockquote className="testimonial">
+            <p>“Calendly is ahead of a lot of the other tools I use in terms of what we can get from the data.</p>
+            <cite>Halpenny Insurance</cite>
+          </blockquote>
+
+        </section>
+
+        <section className="case-study-section">
+          <h2>Reflections</h2>
+          <h3>What worked</h3>
+          <ul>
+            <li>Designing for varied data literacy levels ensured broad usability</li>
+            <li>Close collaboration with Engineering and CS grounded the product in both user and business needs</li>
+          </ul>
+          <h3>Opportunities</h3>
+          <ul>
+            <li><strong>Onboarding:</strong> A guided flow would have better highlighted value at first use</li>
+            <li><strong>Accessibility:</strong> Data display met compliance but could improve clarity and legibility</li>
+          </ul>
         </section>
       </div>
     </article>

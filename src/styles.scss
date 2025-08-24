@@ -1008,14 +1008,13 @@ button,
 .case-study {
     padding: 2rem 0;
     min-height: 100vh;
-    background: var(--bg);
     color: var(--fg);
-}
-
-.case-study .content {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 1.25rem;
+    
+    .content {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1.25rem;
+    }
 }
 
 .case-study-results {
@@ -1316,6 +1315,13 @@ button,
 .portfolio-header .brand {
     display: inline-flex;
     align-items: center;
+    opacity: 1;
+    transition: opacity 200ms ease;
+}
+
+.portfolio-header .brand.brand--hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .portfolio-header .avatar {
@@ -1842,4 +1848,58 @@ button,
     20% {
         transform: translateY(0px);
     }
+}
+
+.metrics-table-card {
+    margin: 1.25rem 0 2rem 0;
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    background: var(--card);
+    overflow: hidden;
+    box-shadow: 0 10px 24px -10px var(--shadow);
+}
+
+.metrics-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.metrics-table thead {
+    background: var(--card-header);
+}
+
+.metrics-table th,
+.metrics-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+.metrics-table th:last-child,
+.metrics-table td:last-child {
+    text-align: right;
+}
+
+.metrics-table th:nth-child(2),
+.metrics-table td:nth-child(2),
+.metrics-table th:nth-child(3),
+.metrics-table td:nth-child(3) {
+    opacity: 0;
+    transform: translateY(4px);
+}
+
+.metrics-table.is-visible th:nth-child(2),
+.metrics-table.is-visible td:nth-child(2) {
+    animation: FadeInUp 500ms ease forwards 100ms;
+}
+
+.metrics-table.is-visible th:nth-child(3),
+.metrics-table.is-visible td:nth-child(3) {
+    animation: FadeInUp 500ms ease forwards 400ms;
+}
+
+@keyframes FadeInUp {
+    0% { opacity: 0; transform: translateY(4px); }
+    100% { opacity: 1; transform: translateY(0); }
 }

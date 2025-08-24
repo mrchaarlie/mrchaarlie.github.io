@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import ThemeToggle from './ThemeToggle'
 
 
@@ -15,7 +15,8 @@ function slugify(text: string): string {
 export default function PortfolioHeader() {
   const [sections, setSections] = useState<SectionLink[]>([])
   const [activeId, setActiveId] = useState<string | null>(null)
-  const [title, setTitle] = useState<string>('')
+  const sentinelRef = useRef<HTMLDivElement | null>(null)
+  const [isStuck, setIsStuck] = useState(false)
 
 
   const onNavClick = useCallback((id: string) => (e: React.MouseEvent) => {
@@ -41,11 +42,6 @@ export default function PortfolioHeader() {
     if (!article) return
 
     const collect = () => {
-      // Title
-      const h1 = article.querySelector('h1')
-      setTitle((h1?.textContent || '').trim())
-
-      // Sections
       const headings = Array.from(article.querySelectorAll('h2')) as HTMLHeadingElement[]
       const links: SectionLink[] = []
       for (const h of headings) {
@@ -89,35 +85,49 @@ export default function PortfolioHeader() {
     return () => io.disconnect()
   }, [sections])
 
+  // Observe sentinel to know when header is stuck at top
+  useEffect(() => {
+    const sentinel = sentinelRef.current
+    if (!sentinel) return
+    const io = new IntersectionObserver(([entry]) => {
+      // If sentinel is not intersecting, header has reached top
+      setIsStuck(!entry.isIntersecting)
+    }, { root: null, threshold: 0 })
+    io.observe(sentinel)
+    return () => io.disconnect()
+  }, [])
+
   // Keep memo to avoid rerenders of handlers, though we now use native anchors
   useMemo(() => sections, [sections])
 
   return (
-    <div className="portfolio-header">
-      <div className="inner">
-        <a href="/" className="brand" aria-label="Home">
-          <img src="/face.avif" alt="Charles Wu" className="avatar" width={28} height={28} loading="eager" decoding="async" />
-        </a>
-        <div className="header-content">
-          <span className="title">{title || 'Case study'}</span>
-          <nav className="portfolio-nav" aria-label="Case study sections">
-            {sections.map((s, idx) => (
-              <a key={s.id} href={`#${s.id}`} className={`portfolio-nav-link${activeId === s.id ? ' is-active' : ''}`} onClick={onNavClick(s.id)}>
-                {`${idx + 1}. ${s.title}`}
-              </a>
-            ))}
-          </nav>
+    <>
+      <div ref={sentinelRef} aria-hidden style={{ position: 'relative', top: 0, height: 1 }} />
+      <div className="portfolio-header">
+        <div className="inner">
+          <a href="/" className={`brand${isStuck ? '' : ' brand--hidden'}`} aria-label="Home">
+            <img src="/face.avif" alt="Charles Wu" className="avatar" width={28} height={28} loading="eager" decoding="async" />
+          </a>
+          <div className="header-content">
+            <nav className="portfolio-nav" aria-label="Case study sections">
+              {sections.map((s, idx) => (
+                <a key={s.id} href={`#${s.id}`} className={`portfolio-nav-link${activeId === s.id ? ' is-active' : ''}`} onClick={onNavClick(s.id)}>
+                  {`${idx + 1}. ${s.title}`}
+                </a>
+              ))}
+            </nav>
+          </div>
+          <span/>
+          
         </div>
-        <span/>
-        
+        <div className="progressive-blur">
+          <span className="pg-item pg-5"></span>
+          <span className="pg-item pg-4"></span>
+          <span className="pg-item pg-3"></span>
+          <span className="pg-item pg-2"></span>
+          <span className="pg-item pg-1"></span>
+        </div>
       </div>
-      <div className="progressive-blur">
-        <span className="pg-item pg-5"></span>
-        <span className="pg-item pg-4"></span>
-        <span className="pg-item pg-3"></span>
-        <span className="pg-item pg-2"></span>
-        <span className="pg-item pg-1"></span>
-      </div>
-    </div>
+    </>
   )
 } 

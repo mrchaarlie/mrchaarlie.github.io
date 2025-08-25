@@ -11,7 +11,7 @@ export default function PortfolioItemPage() {
   const { isAuthed } = usePassword()
   const [unlocked, setUnlocked] = useState(false)
 
-  const shouldGate = slug === 'asana'
+  const shouldGate = slug === 'asana' || slug === 'calendly-analytics'
 
   useEffect(() => {
     if (!slug) navigate('/')

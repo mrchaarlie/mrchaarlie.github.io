@@ -23,7 +23,7 @@ export default function CalendlyAnalytics() {
         <section className="case-study-hero">
           <h1 className="case-study-title">Calendly Analytics</h1>
           <div className="case-study-summary">
-            <p className="case-study-lead">As Calendly shifted upmarket, we needed to combat churn by demonstrating clear value to customers. I led the design of the scheduling industry's first analytics dashboard, boosting retention and contributing to company ARR growth.</p>
+            <p className="case-study-lead">As Calendly shifted upmarket, we needed to combat churn by demonstrating clear value to customers. I led the design of the scheduling industry's first analytics dashboard, boosting retention and improving ARR growth.</p>
 
             <div className="case-study-meta">
               <div className="meta-row">
@@ -65,9 +65,9 @@ export default function CalendlyAnalytics() {
           <p>Our goal was clear: build the scheduling industry’s first analytics dashboard to help teams prove value, increase engagement, and improve retention.</p>
 
           <h3>Problem statement</h3>
-          <p>In collaboration with Customer Success and Product stakeholders, we defined:</p>
+          <p>In collaboration with Customer Success and Product stakeholders, we defined our problem statement:</p>
 
-          <blockquote>“Account managers lacked visibility into team scheduling metrics, making it difficult to justify renewals and undermining confidence in Calendly’s long-term value.”</blockquote>
+          <blockquote>Account managers lacked visibility into team scheduling metrics, making it difficult to justify renewals and undermining confidence in Calendly’s long-term value.</blockquote>
 
 
           <h3>Goals</h3>
@@ -81,7 +81,7 @@ export default function CalendlyAnalytics() {
           </ul>
 
           <h3>Constraints</h3>
-          <p>Building Analytics posed multiple risks:</p>
+          <p>Building Analytics posed multiple risks that I needed to design around:</p>
           <ul>
             <li><strong>Technical:</strong> Scaling performance with large datasets, untested chart rendering</li>
             <li><strong>Product:</strong> Exposing unused seats could highlight value gaps, risking contraction</li>
@@ -95,7 +95,7 @@ export default function CalendlyAnalytics() {
 
           <h3>Research & insights</h3>
           <p>
-            I ran a competitive audit and 30 discovery interviews with customers and internal teams. We found users didn’t just want raw data—they wanted guidance. Key insights shaped our objectives:</p>
+            I ran a competitive audit of scheduling software, followed by 30 discovery interviews with customers. We found users didn’t just want raw data, <strong>they wanted guidance!</strong> The insights from these interviews shaped our objectives:</p>
 
           <ol>
             <li><strong>Exploration mattered</strong> → Make the dashboard interactive, with filters and defaults</li>
@@ -103,8 +103,13 @@ export default function CalendlyAnalytics() {
             <li><strong>Customization was key</strong> → Let users choose what metrics to display</li>
           </ol>
 
+          <img src="/images/portfolio/calendly-analytics-research.png" alt="Research insights" loading="lazy" decoding="async" />
+
           <h3>Information Architecture</h3>
           <p>I defined Analytics' placement in Calendly's navigation for scalability, collaborating with the navigation team for seamless integration.</p>
+
+          <img src="/images/portfolio/calendly-analytics-info-arch.png" alt="Information architecture" loading="lazy" decoding="async" />
+          <figcaption>Different layout explorations</figcaption>
 
           <h3>Chart System</h3>
           <p>To handle diverse visualizations, I built a standardized design system for consistency, scalability, and performance—limiting initial chart types to focus the experience.</p>
@@ -112,20 +117,20 @@ export default function CalendlyAnalytics() {
           <h3>Design iterations</h3>
           <p>We explored multiple directions before arriving at the final design:</p>
 
-          <p>Wireframes testing layouts and IA</p>
-          <div>
-            <img src="/images/portfolio/calendly-analytics-wireframes.png" alt="Wireframes testing layouts and IA" loading="lazy" decoding="async" />
+          <div className="grid grid-cols-2 gap-4 width-130 margin-bottom-2">
+            <div className="flex flex-center flex-col">
+              <img src="/images/portfolio/calendly-analytics-wireframe.png" alt="Wireframes testing layouts and IA" loading="lazy" decoding="async" />
+              <figcaption>Wireframes testing layouts and IA</figcaption>
+            </div>
+            <div className="flex flex-center flex-col">
+              <img src="/images/portfolio/calendly-analytics-lofi.png" alt="Lo-fi dashboard concepts without cards" loading="lazy" decoding="async" />
+              <figcaption>Lo-fi dashboard concepts without cards</figcaption>
+            </div>
           </div>
 
-          <p>Lo-fi dashboard concepts without cards</p>
-          <div>
-            <img src="/images/portfolio/calendly-analytics-lofi.png" alt="Lo-fi dashboard concepts without cards" loading="lazy" decoding="async" />
-          </div>
-
-
-          <p>Final high-fidelity dashboard shipped to dev</p>
-          <div>
-            <video src="/images/portfolio/calendly-analytics-video.mp4" alt="Final high-fidelity dashboard shipped to dev" loading="lazy" decoding="async" />
+          <div className="flex flex-center flex-col">
+            <video src="/videos/portfolio/calendly-analytics-video.mp4" controls muted playsInline preload="metadata" aria-label="Final high-fidelity dashboard shipped to dev" className="margin-bottom-1" />
+            <figcaption>Final high-fidelity dashboard shipped to dev</figcaption>
           </div>
 
         </section>

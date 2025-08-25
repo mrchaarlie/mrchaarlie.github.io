@@ -46,8 +46,8 @@ export default function Item({ to, company, companyLogo, title, description, thu
       </div>
       <div className="case-study-preview">
         <div className="company-logo">{renderLogo()}</div>
-        <h3 className="case-study-title">{title}</h3>
-        <p className="case-study-description">{description}</p>
+        <h3 className="case-study-preview__title">{title}</h3>
+        <p className="case-study-preview__description">{description}</p>
         <Link to={to} className="button button--primary" onClick={onClick}>Read more</Link>
         <div className="metrics">
           <div className="metric">

@@ -10,7 +10,7 @@ export default function SiteFooter() {
     <footer className="site-footer">
       <div className="inner">
         <div className="footer-left">
-          <h3 className="footer-title">Thanks for visiting!</h3>
+          {/* <h3 className="footer-title">Thanks for visiting!</h3> */}
           <small>© {new Date().getFullYear()} Charles Wu</small>
         </div>
 

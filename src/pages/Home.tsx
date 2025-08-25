@@ -12,13 +12,15 @@ export default function Home() {
   const navigate = useNavigate()
   const [modalOpen, setModalOpen] = useState(false)
   const { isAuthed } = usePassword()
+  const [pendingSlug, setPendingSlug] = useState<string | null>(null)
 
   function handleItemClick(slug: string) {
-    if (slug === 'asana') {
+    if (slug === 'asana' || slug === 'calendly-analytics') {
       if (isAuthed) {
-        navigate('/work/asana')
+        navigate(`/work/${slug}`)
         return
       }
+      setPendingSlug(slug)
       setModalOpen(true)
       return
     }
@@ -72,7 +74,7 @@ export default function Home() {
       <DecisionModal
         open={modalOpen}
         onClose={() => setModalOpen(false)}
-        onContinue={() => { setModalOpen(false); navigate('/work/asana') }}
+        onContinue={() => { setModalOpen(false); navigate(`/work/${pendingSlug || 'asana'}`) }}
       />
 
       <SiteFooter />

@@ -103,10 +103,11 @@ export default function PortfolioHeader() {
   return (
     <>
       <div ref={sentinelRef} aria-hidden style={{ position: 'relative', top: 0, height: 1 }} />
-      <div className="portfolio-header">
+      <div className={`portfolio-header${isStuck ? '' : ' not-stuck'}`}>
         <div className="inner">
-          <a href="/" className={`brand${isStuck ? '' : ' brand--hidden'}`} aria-label="Home">
+          <a href="/" className="brand" aria-label="Home">
             <img src="/face.avif" alt="Charles Wu" className="avatar" width={28} height={28} loading="eager" decoding="async" />
+            <span className="brand-text">Charles Wu</span>
           </a>
           <div className="header-content">
             <nav className="portfolio-nav" aria-label="Case study sections">

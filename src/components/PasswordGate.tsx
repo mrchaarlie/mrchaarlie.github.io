@@ -1,6 +1,7 @@
 import { FormEvent, useMemo, useState } from 'react'
 import { usePassword } from '../auth/PasswordProvider'
 import KineticLines, { type KineticStatus } from './KineticLines'
+import SiteHeader from './SiteHeader'
 
 export default function PasswordGate({ onSuccess }: { onSuccess?: () => void }) {
   const { verify, verifying } = usePassword()
@@ -42,23 +43,26 @@ export default function PasswordGate({ onSuccess }: { onSuccess?: () => void }) 
   }
 
   return (
-    <div className="password-panel">
-      <h2>Enter password</h2>
+    <div className="password-gate-container">
+      <SiteHeader />
+      <div className="password-panel">
+        <h2>Enter password</h2>
 
-      <KineticLines length={password.length} status={status} />
-      
-      <form onSubmit={onSubmit}>
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          aria-label="Portfolio password"
-          autoFocus
-        />
-        <button type="submit" disabled={verifying}>{verifying ? 'Checking…' : 'Unlock'}</button>
-      </form>
-      {error && <div className="error" role="alert" aria-live="polite">{error}</div>}
+        <KineticLines length={password.length} status={status} />
+        
+        <form onSubmit={onSubmit}>
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            aria-label="Portfolio password"
+            autoFocus
+          />
+          <button type="submit" disabled={verifying}>{verifying ? 'Checking…' : 'Unlock'}</button>
+        </form>
+        {error && <div className="error" role="alert" aria-live="polite">{error}</div>}
+      </div>
     </div>
   )
 } 

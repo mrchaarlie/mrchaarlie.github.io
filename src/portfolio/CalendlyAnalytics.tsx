@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react'
 
 export default function CalendlyAnalytics() {
   const tableRef = useRef<HTMLTableElement | null>(null)
+  const videoRef = useRef<HTMLVideoElement | null>(null)
 
   useEffect(() => {
     const el = tableRef.current
@@ -15,6 +16,41 @@ export default function CalendlyAnalytics() {
     }, { threshold: 0.2 })
     io.observe(el)
     return () => io.disconnect()
+  }, [])
+
+  // Prefer HD video on fast connections (experimental Network Information API)
+  useEffect(() => {
+    const el = videoRef.current
+    if (!el) return
+    const nav: any = navigator as any
+    const conn = nav?.connection || nav?.mozConnection || nav?.webkitConnection
+    const saveData = !!conn?.saveData
+    const effectiveType = conn?.effectiveType as string | undefined
+    const downlink = typeof conn?.downlink === 'number' ? (conn.downlink as number) : undefined
+    const isFast = !saveData && effectiveType === '4g' && (downlink === undefined || downlink >= 5)
+    if (isFast) {
+      const hdSrc = '/videos/portfolio/calendly-analytics-video-hd.mp4'
+      // Only swap if not already HD
+      if (!(el.currentSrc && el.currentSrc.includes(hdSrc))) {
+        el.src = hdSrc
+        el.load()
+      }
+    }
+  }, [])
+
+  // Autoplay/pause when in view
+  useEffect(() => {
+    const el = videoRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+        try { el.play().catch(() => {}) } catch {}
+      } else {
+        el.pause()
+      }
+    }, { threshold: [0, 0.5, 1] })
+    observer.observe(el)
+    return () => { observer.disconnect(); el.pause() }
   }, [])
 
   return (
@@ -117,20 +153,20 @@ export default function CalendlyAnalytics() {
           <h3>Design iterations</h3>
           <p>We explored multiple directions before arriving at the final design:</p>
 
-          <div className="grid grid-cols-2 gap-4 width-130 margin-bottom-2">
+          <div className="grid grid-cols-2 gap-4 width-130 margin-bottom-3">
             <div className="flex flex-center flex-col">
-              <img src="/images/portfolio/calendly-analytics-wireframe.png" alt="Wireframes testing layouts and IA" loading="lazy" decoding="async" />
-              <figcaption>Wireframes testing layouts and IA</figcaption>
+              <img src="/images/portfolio/calendly-analytics-wireframe.png" alt="Early wireframe of the dashboard" loading="lazy" decoding="async" />
+              <figcaption>Early wireframe of the dashboard</figcaption>
             </div>
             <div className="flex flex-center flex-col">
-              <img src="/images/portfolio/calendly-analytics-lofi.png" alt="Lo-fi dashboard concepts without cards" loading="lazy" decoding="async" />
-              <figcaption>Lo-fi dashboard concepts without cards</figcaption>
+              <img src="/images/portfolio/calendly-analytics-lofi.png" alt="A lo-fi design that explored a alternate layout without the use of cards" loading="lazy" decoding="async" />
+              <figcaption>A lo-fi design that explored a alternate layout without the use of cards</figcaption>
             </div>
           </div>
 
           <div className="flex flex-center flex-col">
-            <video src="/videos/portfolio/calendly-analytics-video.mp4" controls muted playsInline preload="metadata" aria-label="Final high-fidelity dashboard shipped to dev" className="margin-bottom-1" />
-            <figcaption>Final high-fidelity dashboard shipped to dev</figcaption>
+            <video ref={videoRef} src="/videos/portfolio/calendly-analytics-video.mp4" controls muted playsInline preload="metadata" aria-label="The final design that was handed off to engineering" className="margin-bottom-1" />
+            <figcaption>The final design that was handed off to engineering</figcaption>
           </div>
 
         </section>

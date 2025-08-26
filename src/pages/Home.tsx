@@ -39,7 +39,7 @@ export default function Home() {
           <h1 className="hero-name">Charles Wu, <span className="muted">Staff Product Designer</span></h1>
           <h2 className="hero-headline">Making enterprise software, human</h2>
           <p className="hero-description">
-            Currently, design lead at <a href="https://asana.com" target="_blank" rel="noopener noreferrer">Asana</a>, focused on simplifying complex enterprise systems. I specialize in access controls and AI-driven workflows, creating secure, intuitive solutions used by millions. 
+            Currently, design lead at <a href="https://asana.com" target="_blank" rel="noopener noreferrer">Asana</a>, focused on simplifying complex enterprise systems. I specialize in access controls and AI-driven workflows, creating secure, intuitive solutions used by millions.
           </p>
         </div>
       </section>
@@ -76,6 +76,34 @@ export default function Home() {
         onClose={() => setModalOpen(false)}
         onContinue={() => { setModalOpen(false); navigate(`/work/${pendingSlug || 'asana'}`) }}
       />
+
+      <section className="about margin-bottom-3">
+        <div className="content">
+          <h2>About</h2>
+
+          <div className="grid grid-cols-8 gap-4">
+            <div className="about-image">
+              <img src="/images/charles-headshot.jpg" alt="A photo of Charles" loading="lazy" decoding="async" className="box-shadow" />
+            </div>
+            <div className="about-text">
+              <p>
+                I’ve spent the past decade designing products that make complex systems feel simple. My career began in mobile and web development, which gave me a strong technical foundation and an appreciation for the details that make products usable.
+              </p>
+              <p>
+                Over time, I shifted fully into design—first shaping user journeys as a UX developer, then leading end-to-end product design for enterprise platforms. My work spans access control frameworks, analytics dashboards, and design systems, with a consistent focus on distilling complexity into clear, intuitive experiences.
+              </p>
+              <p>
+                Today, I focus on building scalable, adaptable design solutions that help products grow with their users. Alongside my work, I mentor emerging designers and share principles that improve cross-functional collaboration.
+              </p>
+              <p>
+                Outside of design, you’ll find me climbing, playing volleyball, cycling around San Francisco, or relaxing with my cat and foster(s).
+              </p>
+            </div>
+          </div>
+
+
+        </div>
+      </section>
 
       <SiteFooter />
     </main>

@@ -44,7 +44,7 @@ export default function CalendlyAnalytics() {
     if (!el) return
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-        try { el.play().catch(() => {}) } catch {}
+        try { el.play().catch(() => { }) } catch { }
       } else {
         el.pause()
       }
@@ -165,7 +165,7 @@ export default function CalendlyAnalytics() {
           </div>
 
           <div className="flex flex-center flex-col">
-            <video ref={videoRef} src="/videos/portfolio/calendly-analytics-video.mp4" controls muted playsInline preload="metadata" aria-label="The final design that was handed off to engineering" className="margin-bottom-1" />
+            <video ref={videoRef} src="/videos/portfolio/calendly-analytics-video.mp4" controls muted playsInline preload="metadata" aria-label="The final design that was handed off to engineering" className="margin-bottom-1 box-shadow" />
             <figcaption>The final design that was handed off to engineering</figcaption>
           </div>
 
@@ -174,39 +174,39 @@ export default function CalendlyAnalytics() {
         <section className="case-study-section">
 
           <h2>Results</h2>
-          <p>We launched Alpha in 4 months, validated with live data, and iterated through Beta to GA. At GA, results far surpassed goals:
+          <p>We launched Alpha within 4 months, validated with customers, and iterated through to GA. The final results far surpassed our goals:
           </p>
 
-          <div className="metrics-table-card">
+          <div className="metrics-table-card box-shadow">
             <table ref={tableRef} className="metrics-table">
               <thead>
                 <tr>
                   <th>Goal</th>
-                  <th>Beta</th>
-                  <th>GA</th>
+                  <th>Beta metrics</th>
+                  <th>GA metrics</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>40% Adoption</td>
                   <td>53%</td>
-                  <td>90%</td>
+                  <td><strong>90%</strong></td>
                 </tr>
                 <tr>
                   <td>50% Retention</td>
                   <td>52%</td>
-                  <td>75%</td>
+                  <td><strong>75%</strong></td>
                 </tr>
                 <tr>
                   <td>70% CSAT</td>
                   <td>82%</td>
-                  <td>83%</td>
+                  <td><strong>83%</strong></td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <p>Crucially, there was no measurable increase in contraction. Instead, we saw early signs of expansion among teams adopting Analytics, proving the feature strengthened retention and renewal conversations.
+          <p>Crucially, there was also no measurable increase in contraction. Instead, we saw early signs of expansion among teams adopting Analytics, proving the feature strengthened retention and renewal conversations.
           </p>
 
           <blockquote className="testimonial">
@@ -216,7 +216,7 @@ export default function CalendlyAnalytics() {
 
           <blockquote className="testimonial">
             <p>“Calendly is ahead of a lot of the other tools I use in terms of what we can get from the data.</p>
-            <cite>Halpenny Insurance</cite>
+            <cite>—Halpenny Insurance</cite>
           </blockquote>
 
         </section>
@@ -224,15 +224,24 @@ export default function CalendlyAnalytics() {
         <section className="case-study-section">
           <h2>Reflections</h2>
           <h3>What worked</h3>
-          <ul>
-            <li>Designing for varied data literacy levels ensured broad usability</li>
-            <li>Close collaboration with Engineering and CS grounded the product in both user and business needs</li>
-          </ul>
+          <ol>
+            <li><strong>Designing for varied data literacy levels</strong>
+              <p>We had users ranging from data-savvy analysts to team leads who rarely looked at dashboards. By layering the experience—using clear defaults, approachable copy, and progressive complexity—we made Analytics useful to both audiences without overloading either.</p></li>
+            <li><strong>Tight collaboration with Engineering and CS</strong>
+              <p>Building a 0→1 analytics product meant constant unknowns. Partnering closely with engineers helped us pressure-test feasibility early, while ongoing input from Customer Success kept us anchored to real customer pain points. This alignment ensured we shipped something both technically sound and directly valuable.</p></li>
+          </ol>
           <h3>Opportunities</h3>
-          <ul>
-            <li><strong>Onboarding:</strong> A guided flow would have better highlighted value at first use</li>
-            <li><strong>Accessibility:</strong> Data display met compliance but could improve clarity and legibility</li>
-          </ul>
+          <ol>
+            <li><strong>Onboarding and first-use experience</strong>
+              <p>While the dashboard was intuitive once explored, new users often needed context to see its value immediately. A lightweight onboarding flow or guided highlights would have accelerated adoption and strengthened the retention curve.</p></li>
+            <li><strong>Accessibility and data clarity</strong>
+              <p>The product met compliance requirements, but there’s more to accessibility than checkboxes. Some charts could have communicated insights more directly with stronger color contrast, clearer labeling, and alternative views for users with visual or cognitive differences. It’s an area I’d invest in for future iterations.</p></li>
+          </ol>
+
+
+          
+          
+          
         </section>
       </div>
     </article>

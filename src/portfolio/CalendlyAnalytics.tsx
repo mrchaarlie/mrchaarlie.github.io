@@ -95,7 +95,7 @@ export default function CalendlyAnalytics() {
         <PortfolioHeader />
 
         <section className="case-study-section">
-          <h2>The Problem</h2>
+          <h2>The challenge</h2>
           <p>
             Customers and account managers lacked visibility into how Calendly was being used, making it hard to quantify ROI or justify renewals. With churn rising after COVID-driven growth, retention became a company-wide priority.</p>
           <p>Our goal was clear: build the scheduling industry’s first analytics dashboard to help teams prove value, increase engagement, and improve retention.</p>
@@ -103,7 +103,7 @@ export default function CalendlyAnalytics() {
           <h3>Problem statement</h3>
           <p>In collaboration with Customer Success and Product stakeholders, we defined our problem statement:</p>
 
-          <blockquote>Account managers lacked visibility into team scheduling metrics, making it difficult to justify renewals and undermining confidence in Calendly’s long-term value.</blockquote>
+          <blockquote className="box-shadow">Account managers lacked visibility into team scheduling metrics, making it difficult to justify renewals and undermining confidence in Calendly’s long-term value.</blockquote>
 
 
           <h3>Goals</h3>
@@ -117,7 +117,7 @@ export default function CalendlyAnalytics() {
           </ul>
 
           <h3>Constraints</h3>
-          <p>Building Analytics posed multiple risks that I needed to design around:</p>
+          <p>However, building Analytics posed multiple risks that our team needed to design around:</p>
           <ul>
             <li><strong>Technical:</strong> Scaling performance with large datasets, untested chart rendering</li>
             <li><strong>Product:</strong> Exposing unused seats could highlight value gaps, risking contraction</li>
@@ -182,25 +182,25 @@ export default function CalendlyAnalytics() {
               <thead>
                 <tr>
                   <th>Goal</th>
-                  <th>Beta metrics</th>
-                  <th>GA metrics</th>
+                  <th className="text-align-right">Beta metrics</th>
+                  <th className="text-align-right">GA metrics</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>40% Adoption</td>
-                  <td>53%</td>
-                  <td><strong>90%</strong></td>
+                  <td className="text-align-right">53%</td>
+                  <td className="text-align-right"><strong>90%</strong></td>
                 </tr>
                 <tr>
                   <td>50% Retention</td>
-                  <td>52%</td>
-                  <td><strong>75%</strong></td>
+                  <td className="text-align-right">52%</td>
+                  <td className="text-align-right"><strong>75%</strong></td>
                 </tr>
                 <tr>
                   <td>70% CSAT</td>
-                  <td>82%</td>
-                  <td><strong>83%</strong></td>
+                  <td className="text-align-right">82%</td>
+                  <td className="text-align-right"><strong>83%</strong></td>
                 </tr>
               </tbody>
             </table>
@@ -209,12 +209,12 @@ export default function CalendlyAnalytics() {
           <p>Crucially, there was also no measurable increase in contraction. Instead, we saw early signs of expansion among teams adopting Analytics, proving the feature strengthened retention and renewal conversations.
           </p>
 
-          <blockquote className="testimonial">
+          <blockquote className="testimonial box-shadow">
             <p>“<strong>I really love it. It's reduced my workload so much</strong>...I just send the visuals [to execs] as is”</p>
             <cite>—Adobe</cite>
           </blockquote>
 
-          <blockquote className="testimonial">
+          <blockquote className="testimonial box-shadow">
             <p>“Calendly is ahead of a lot of the other tools I use in terms of what we can get from the data.</p>
             <cite>—Halpenny Insurance</cite>
           </blockquote>

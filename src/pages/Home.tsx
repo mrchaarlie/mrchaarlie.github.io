@@ -81,23 +81,17 @@ export default function Home() {
         <div className="content">
           <h2>About</h2>
 
-          <div className="grid grid-cols-8 gap-4">
+          <div className="grid grid-cols-8 gap-2">
             <div className="about-image">
               <img src="/images/charles-headshot.jpg" alt="A photo of Charles" loading="lazy" decoding="async" className="box-shadow" />
             </div>
             <div className="about-text">
-              <p>
-                I’ve spent the past decade designing products that make complex systems feel simple. My career began in mobile and web development, which gave me a strong technical foundation and an appreciation for the details that make products usable.
-              </p>
-              <p>
-                Over time, I shifted fully into design—first shaping user journeys as a UX developer, then leading end-to-end product design for enterprise platforms. My work spans access control frameworks, analytics dashboards, and design systems, with a consistent focus on distilling complexity into clear, intuitive experiences.
-              </p>
-              <p>
-                Today, I focus on building scalable, adaptable design solutions that help products grow with their users. Alongside my work, I mentor emerging designers and share principles that improve cross-functional collaboration.
-              </p>
-              <p>
-                Outside of design, you’ll find me climbing, playing volleyball, cycling around San Francisco, or relaxing with my cat and foster(s).
-              </p>
+              <p>With over a decade in product design, I simplify complex systems into intuitive user experiences. Starting in mobile and web development, I built a strong technical foundation before transitioning to UX and leading end-to-end design for enterprise platforms, including access control frameworks, analytics dashboards, and design systems.</p>
+
+              <p>I specialize in creating scalable, user-focused design solutions that evolve with product growth. I also mentor emerging designers and foster cross-functional collaboration to drive impactful outcomes.</p>
+
+              <p>Outside work, I enjoy rock climbing, volleyball, cycling in San Francisco, and spending time with my cat and foster(s).</p>
+
             </div>
           </div>
 

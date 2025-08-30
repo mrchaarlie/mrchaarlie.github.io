@@ -30,7 +30,7 @@ export default function ThemeToggle() {
 
   return (
     <button className="icon-button icon-button--large" onClick={toggleTheme} aria-label={`Activate ${theme === 'dark' ? 'light' : 'dark'} theme`}>
-      <img className="theme-icon" src="/moon.svg" alt="" width={20} height={20} />
+      <img className="theme-icon" src="icons/moon.svg" alt="" width={20} height={20} />
     </button>
   )
 } 

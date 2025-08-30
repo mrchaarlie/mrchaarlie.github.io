@@ -43,7 +43,7 @@ export default function SiteHeader() {
           ) : null}
           
           <a className="icon-button icon-button--large" href="/Charles-Wu-Resume.pdf" target="_blank" rel="noreferrer" aria-label="Open resume PDF">
-            <img className="theme-icon" src="/doc.svg" alt="" width={20} height={20} />
+            <img className="theme-icon" src="icons/doc.svg" alt="" width={20} height={20} />
           </a>
           <ThemeToggle />
         </nav>

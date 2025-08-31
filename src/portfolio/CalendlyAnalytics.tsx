@@ -144,7 +144,7 @@ export default function CalendlyAnalytics() {
           <h3>Information Architecture</h3>
           <p>I defined Analytics' placement in Calendly's navigation for scalability, collaborating with the navigation team for seamless integration.</p>
 
-          <figure className="case-study-figure case-study-figure--large">
+          <figure className="case-study-figure width-130">
             <img src="/images/portfolio/calendly-analytics-info-arch.png" alt="Information architecture" loading="lazy" decoding="async" />
             <figcaption>Different layout explorations</figcaption>
           </figure>
@@ -155,7 +155,7 @@ export default function CalendlyAnalytics() {
           <h3>Design iterations</h3>
           <p>We explored multiple directions before arriving at the final design:</p>
 
-          <div className="grid grid-cols-2 gap-4  margin-bottom-3">
+          <div className="grid grid-cols-2 gap-4 margin-bottom-3 width-130">
             <div className="flex flex-center flex-col">
               <img src="/images/portfolio/calendly-analytics-wireframe.png" alt="Early wireframe of the dashboard" loading="lazy" decoding="async" />
               <figcaption>Early wireframe of the dashboard</figcaption>
@@ -166,7 +166,7 @@ export default function CalendlyAnalytics() {
             </div>
           </div>
 
-          <div className="flex flex-center flex-col">
+          <div className="flex flex-center flex-col width-130">
             <video ref={videoRef} src="/videos/portfolio/calendly-analytics-video.mp4" controls muted playsInline preload="metadata" aria-label="The final design that was handed off to engineering" className="margin-bottom-1 box-shadow" />
             <figcaption>The final design that was handed off to engineering</figcaption>
           </div>

@@ -1,4 +1,5 @@
 import PortfolioHeader from '../components/PortfolioHeader'
+
 import { useEffect, useRef } from 'react'
 
 export default function AsanaAccessControls() {
@@ -19,49 +20,50 @@ export default function AsanaAccessControls() {
 
   return (
     <article className="case-study">
-      <div className="content">
-        <section className="case-study-hero">
-          <h1 className="case-study-title">Asana Access Controls</h1>
+      <section className="case-study-hero">
+        <h1 className="case-study-title">Asana Access Controls</h1>
+        <div className="case-study-summary">
+          <p className="case-study-lead">
+            Asana’s complicated permission system was confusing for enterprise customers, causing them to leave or choose competitors. I redesigned the access controls to make permissions clear and predictable, helping organizations manage access easily and securely at scale.
+          </p>
 
-          <div className="case-study-summary">
-            <p className="case-study-lead">
-              Asana’s complicated permission system was confusing for enterprise customers, causing them to leave or choose competitors. I redesigned the access controls to make permissions clear and predictable, helping organizations manage access easily and securely at scale.
-            </p>
+          <div className="case-study-meta">
+            <div className="meta-row">
+              <span className="meta-label">Team</span>
+              <span>1 Product designer (me), 1 PM, 1 Data scientist, 3 Engineers</span>
+            </div>
+            <div className="meta-row">
+              <span className="meta-label">Skills</span>
+              <span className="pills">
+                <span className="pill">Enterprise scale</span>
 
-            <div className="case-study-meta">
-              <div className="meta-row">
-                <span className="meta-label">Team</span>
-                <span>1 Product designer (me), 1 PM, 1 Data scientist, 3 Engineers</span>
-              </div>
-              <div className="meta-row">
-                <span className="meta-label">Skills</span>
-                <span className="pills">
-                  <span className="pill">Enterprise scale</span>
-                  <span className="pill">Systems architecture</span>
-                  <span className="pill">Access controls</span>
-                </span>
-              </div>
-              <div className="meta-row">
-                <span className="meta-label">Impact</span>
-                <span>
-                  <strong>99%</strong> enterprise adoption<br />
-                  <strong>$100M+</strong> ARR influenced<br />
-                  <strong>90%</strong> CSAT
-                </span>
-              </div>
-              <div className="meta-row">
-                <span className="meta-label">Date</span>
-                <span>H2 2024</span>
-              </div>
+                <span className="pill">Systems architecture</span>
+                <span className="pill">Access controls</span>
+              </span>
+            </div>
+            <div className="meta-row">
+              <span className="meta-label">Impact</span>
+              <span>
+                <strong>99%</strong> enterprise adoption<br />
+                <strong>$100M+</strong> ARR influenced<br />
+                <strong>90%</strong> CSAT
+              </span>
+            </div>
+            <div className="meta-row">
+              <span className="meta-label">Date</span>
+              <span>H2 2024</span>
             </div>
           </div>
+        </div>
 
-          <figure className="case-study-figure">
-            <img src="/images/portfolio/asana-access-control.png" alt="Asana access controls redesign preview" loading="lazy" decoding="async" />
-          </figure>
-        </section>
+        <figure className="case-study-figure">
+          <img src="/images/portfolio/asana-access-control.png" alt="Asana access controls redesign preview" loading="lazy" decoding="async" />
+        </figure>
+      </section>
 
+      <div className="content">
         <PortfolioHeader />
+
 
         <section className="case-study-section">
           <h2>The challenge</h2>
@@ -71,13 +73,18 @@ export default function AsanaAccessControls() {
 
           <p>Admins often had to choose between settings that were <em>too restrictive</em> or <em>too permissive</em>, with many complaints that Asana’s model was “too open.” Sensitive fields like <em>Budgets</em> couldn’t be locked down, creating real risk of data leaks. As a result, high-risk data stayed out of Asana, reducing enterprise usage, reliance, and trust.</p>
 
-          <figure className="case-study-figure ">
-            <img src="/images/portfolio/asana-access-control-1.png" alt="A table of work with the Budget column visible to all team members" loading="lazy" decoding="async"  className="box-shadow"/>
+          <figure className="case-study-figure width-130">
+            <img src="/images/portfolio/asana-access-control-example.png" alt="A table of work with the Budget column visible to all team members" loading="lazy" decoding="async" className="box-shadow" />
             <figcaption>Previously, private data like <em>Budget</em> values were visible to all project members.</figcaption>
           </figure>
 
           <h3>My role</h3>
           <p>As the lead product designer, I owned the end-to-end experience from discovery to launch. I conducted customer interviews, analyzed usage patterns with our data scientist, and translated complex technical constraints into intuitive user flows. My responsibilities included designing the permission hierarchy, ensuring compatibility with all of Asana’s work objects (projects, portfolios, custom fields, etc), and ensuring the system worked for small teams up to Fortune 500 organizations.</p>
+
+          <figure className="case-study-figure ">
+            <img src="/images/portfolio/asana-access-control-role.png" alt="My work on access controls affects all of Asana's features" loading="lazy" decoding="async" className="" />
+            <figcaption>My work on access controls affects all of Asana's features.</figcaption>
+          </figure>
         </section>
 
         <section className="case-study-section">
@@ -88,11 +95,11 @@ export default function AsanaAccessControls() {
           <p>Custom fields are key to Asana, used in portfolios, projects, and tasks. They are typically confined to their parent object, making them visible only to its members. </p>
 
           <p>A core part of Asana is sharing work across multiple teams, like between marketing and accounting, or product and sales. This means that fields in one (very private) project can get revealed when shared with another team! Without more granular permissions settings <strong>work couldn’t safely be shared with cross-functional partners, hindering collaboration.</strong></p>
-            
+
           <h3>Setting the goal</h3>
 
           <p>
-          Our team’s objective wasn’t just about adding granular visibility settings; it was <em>building a scalable system</em>. We had to solve for:</p>
+            Our team’s objective wasn’t just about adding granular visibility settings; it was <em>building a scalable system</em>. We had to solve for:</p>
 
           <ul>
             <li><strong>Scale:</strong> supports thousands of fields across the company</li>

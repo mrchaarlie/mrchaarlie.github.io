@@ -69,30 +69,36 @@ export default function AsanaAccessControls() {
           <h3>Context & stakes</h3>
           <p>Asana’s permission system had grown inconsistently across product areas, creating serious problems for enterprise adoption. <strong>Customers were leaving for competitors with clearer access controls, and new deals stalled when buyers compared us to more structured solutions.</strong></p>
 
-          <p>The unpredictable behavior made access hard to manage. Admins often had to choose between settings that were too restrictive or too permissive, which slowed teams down. Enterprise buyers echoed the same concern: Asana’s model was “too open.” Sensitive fields like <em>Budgets</em> or <em>Performance ratings</em> couldn’t be locked down, creating real risk. As a result, high-risk data stayed out of Asana, teams worked around the product with external tools, and security concerns blocked deals.</p>
+          <p>Admins often had to choose between settings that were <em>too restrictive</em> or <em>too permissive</em>, with many complaints that Asana’s model was “too open.” Sensitive fields like <em>Budgets</em> couldn’t be locked down, creating real risk of data leaks. As a result, high-risk data stayed out of Asana, reducing enterprise usage, reliance, and trust.</p>
 
-          <h3>My Role</h3>
+          <figure className="case-study-figure ">
+            <img src="/images/portfolio/asana-access-control-1.png" alt="A table of work with the Budget column visible to all team members" loading="lazy" decoding="async"  className="box-shadow"/>
+            <figcaption>Previously, private data like <em>Budget</em> values were visible to all project members.</figcaption>
+          </figure>
+
+          <h3>My role</h3>
           <p>As the lead product designer, I owned the end-to-end experience from discovery to launch. I conducted customer interviews, analyzed usage patterns with our data scientist, and translated complex technical constraints into intuitive user flows. My responsibilities included designing the permission hierarchy, ensuring compatibility with all of Asana’s work objects (projects, portfolios, custom fields, etc), and ensuring the system worked for small teams up to Fortune 500 organizations.</p>
         </section>
 
         <section className="case-study-section">
           <h2>Process</h2>
 
-          <h3>Understanding the Landscape</h3>
+          <h3>Understanding the dependencies</h3>
 
-          <p>Custom fields power critical workflows across portfolios, projects, and tasks, making them central to how work gets done in Asana. For example, a private project may track performance ratings, but if a task is shared outside the project, the field and its sensitive data become visible.</p>
+          <p>Custom fields are key to Asana, used in portfolios, projects, and tasks. They are typically confined to their parent object, making them visible only to its members. </p>
 
-          <p>This showed why <strong>field-level visibility mattered:</strong> without it, teams couldn’t safely manage private data across shared workflows.</p>
+          <p>A core part of Asana is sharing work across multiple teams, like between marketing and accounting, or product and sales. This means that fields in one (very private) project can get revealed when shared with another team! Without more granular permissions settings <strong>work couldn’t safely be shared with cross-functional partners, hindering collaboration.</strong></p>
+            
+          <h3>Setting the goal</h3>
 
-          <h3>Defining the challenge</h3>
-
-          <p>The task wasn’t just adding visibility settings, it was building a system that scaled and preserved trust. We had to solve for:</p>
+          <p>
+          Our team’s objective wasn’t just about adding granular visibility settings; it was <em>building a scalable system</em>. We had to solve for:</p>
 
           <ul>
-            <li><strong>Scale:</strong> restrictions working across thousands of shared fields in a company library</li>
-            <li><strong>Dependencies:</strong> compatibility with projects, AI, rules, formulas, and more</li>
-            <li><strong>Regression risk:</strong> millions of existing tasks using fields that couldn’t break</li>
-            <li><strong>Collaboration impact:</strong> preventing unexpected access changes from eroding trust or disrupting workflows</li>
+            <li><strong>Scale:</strong> supports thousands of fields across the company</li>
+            <li><strong>Flexibility:</strong> adapts to rules, templates, AI teammates, and more</li>
+            <li><strong>Regression risk:</strong> compatible with millions of existing tasks using fields</li>
+            <li><strong>Trust:</strong> prevents unexpected access changes from eroding trust or disrupting workflows</li>
           </ul>
 
           <h3>Designing the system</h3>

@@ -1124,7 +1124,7 @@ input[type="password"] {
         width: 100%;
         font-weight: 600;
         font-size: 1.375rem;
-        margin: 2rem 0 2rem;
+        margin: 3rem 0 1.5rem;
     }
 
     h4 {
@@ -1140,9 +1140,10 @@ input[type="password"] {
         height: auto;
         border-radius: 0.5rem;
         margin: 1rem 0 0;
+        max-width: 90vw;
     }
 
-    >img {
+    .case-study-figure--large {
         width: 130%;
         max-width: 90vw;
     }
@@ -1152,7 +1153,7 @@ input[type="password"] {
     }
 
     figcaption {
-        font-size: 0.75rem;
+        font-size: 0.875rem;
         color: var(--muted);
     }
 
@@ -1241,7 +1242,7 @@ input[type="password"] {
 
 .case-study-hero {
     display: grid;
-    grid-template-columns: 2fr 2fr;
+    grid-template-columns: repeat(8, 1fr);
     grid-template-rows: max-content;
     gap: 1.25rem;
     align-items: start;
@@ -1251,37 +1252,60 @@ input[type="password"] {
     max-width: 1560px;
 
     @media (min-width: $BREAKPOINT-3) {
-        height: 60vh;
+        min-height: 45vh;
     }
 
     @media (min-width: $BREAKPOINT-4) {
-        grid-template-columns: 2fr 3fr;
         align-items: center;
-        height: 70vh;
+    }
+
+
+    .case-study-summary {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        align-self: flex-end;
+        grid-column: span 8;
+        grid-row: 2;
+
+        @media (min-width: $BREAKPOINT-3) {
+            // grid-column: span 4;
+        }
+
+        @media (min-width: $BREAKPOINT-4) {
+            grid-column: span 3;
+        }
     }
 
     .case-study-title {
         font-size: 3.2rem;
         line-height: 1.1;
         margin: 0 0 0.5rem 0;
+        grid-column: span 8;
+        grid-row: 1;
+    }
+
+    .case-study-figure {
+        align-self: end;
+        grid-column: span 8;
+        display: flex;
+        justify-content: flex-end;
+
+        @media (min-width: $BREAKPOINT-3) {
+            grid-column: 2/8;
+        }
+
+        @media (min-width: $BREAKPOINT-4) {
+            grid-column: span 5;
+        }
+
+        img {
+            align-self: flex-start;
+            width: 100%;
+        }
     }
 }
 
-.case-study-summary {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    align-self: flex-end;
-    grid-column: span 2;
-
-    @media (min-width: $BREAKPOINT-3) {
-        grid-column: span 1;
-    }
-
-    @media (min-width: $BREAKPOINT-4) {
-        // height: 70vh;
-    }
-}
 
 .case-study-lead {
     margin: 0 0 1rem 0;
@@ -1333,10 +1357,12 @@ input[type="password"] {
 .case-study-figure {
     grid-column: 1 / -1;
     margin: 0;
-    align-self: end;
+    align-self: center;
     height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 1rem;
 
     @media (min-width: $BREAKPOINT-3) {
         grid-column: 2 / 3;

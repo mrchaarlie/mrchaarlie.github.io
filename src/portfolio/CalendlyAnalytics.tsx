@@ -88,7 +88,7 @@ export default function CalendlyAnalytics() {
           </div>
 
           <figure className="case-study-figure">
-            <img src="/images/portfolio/thumbnail-calendly-analytics-1.png" alt="Calendly Analytics dashboard screenshot" loading="lazy" decoding="async" />
+            <img src="/images/portfolio/thumbnail-calendly-analytics-1.png" alt="Calendly Analytics dashboard screenshot" loading="lazy" decoding="async" className="box-shadow"/>
           </figure>
         </section>
 
@@ -144,8 +144,10 @@ export default function CalendlyAnalytics() {
           <h3>Information Architecture</h3>
           <p>I defined Analytics' placement in Calendly's navigation for scalability, collaborating with the navigation team for seamless integration.</p>
 
-          <img src="/images/portfolio/calendly-analytics-info-arch.png" alt="Information architecture" loading="lazy" decoding="async" />
-          <figcaption>Different layout explorations</figcaption>
+          <figure className="case-study-figure case-study-figure--large">
+            <img src="/images/portfolio/calendly-analytics-info-arch.png" alt="Information architecture" loading="lazy" decoding="async" />
+            <figcaption>Different layout explorations</figcaption>
+          </figure>
 
           <h3>Chart System</h3>
           <p>To handle diverse visualizations, I built a standardized design system for consistency, scalability, and performance—limiting initial chart types to focus the experience.</p>
@@ -153,7 +155,7 @@ export default function CalendlyAnalytics() {
           <h3>Design iterations</h3>
           <p>We explored multiple directions before arriving at the final design:</p>
 
-          <div className="grid grid-cols-2 gap-4 width-130 margin-bottom-3">
+          <div className="grid grid-cols-2 gap-4  margin-bottom-3">
             <div className="flex flex-center flex-col">
               <img src="/images/portfolio/calendly-analytics-wireframe.png" alt="Early wireframe of the dashboard" loading="lazy" decoding="async" />
               <figcaption>Early wireframe of the dashboard</figcaption>

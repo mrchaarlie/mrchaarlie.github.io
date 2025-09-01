@@ -150,93 +150,145 @@ export default function AsanaAccessControls() {
               <li><strong>Trust:</strong> preventing unexpected access changes from eroding trust or disrupting workflows</li>
             </ul>
 
+            <figure className="case-study-figure width-80">
+              <img src="/images/portfolio/asana-access-control-rule-example.png" alt="A rule template that says 'When Trigger, check if Condidtion, then do Action'. However when the condition isn't visible anymore, does the actions still run?" loading="lazy" decoding="async" className="box-shadow" />
+              <figcaption>An example of needing to be flexible: rules that use private fields need to continue working even when a user doesn't have access to the field.</figcaption>
+            </figure>
+
             <h3>Designing the system</h3>
 
             <h4>The starting point</h4>
             <p>Here's what the intial access settings for custom fields looked like. It lacked the granularity needed for secure collaboration.</p>
 
             <figure className="case-study-figure width-80">
-              <img src="/images/portfolio/asana-access-control-field-settings-0.png" alt="The starting point for the redesign" loading="lazy" decoding="async" className="" />
+              <img src="/images/portfolio/asana-access-control-field-settings-0.png" alt="An access settings modal for a custom field, with a section for invitations and a list of members." loading="lazy" decoding="async" className="" />
               <figcaption>The starting point for the redesign</figcaption>
             </figure>
-            
+
             <h4>Explorations</h4>
             <p>I explored several different designs for the access settings, each with varying benefits and drawbacks.</p>
-            
+
             <figure className="case-study-figure margin-bottom-4">
               <ClickableImage
-                src="/images/portfolio/asana-access-control-field-settings-1.png"
-                alt="Option A1: A privacy setting to the bottom of the modal."
+                src="/images/portfolio/asana-access-control-field-settings-a1.png"
+                alt="The same modal as above, with with a privacy dropdown at the bottom that says 'Privacy: Default privacy'."
                 onLightboxOpen={openLightbox}
               />
               <figcaption>Option A1: A privacy setting to the bottom of the modal.</figcaption>
             </figure>
 
             <div className="flex flex-center flex-col margin-bottom-4" style={{ width: '512px' }}>
-              <video ref={videoRef} src="/videos/portfolio/asana-access-control-field-settings-2.mp4" controls muted playsInline preload="metadata" aria-label="Option A2: Use a “click to reveal” pattern to discourage unintentional use." className="margin-bottom-1 box-shadow" />
+              <video ref={videoRef} src="/videos/portfolio/asana-access-control-field-settings-2.mp4" controls muted playsInline preload="metadata" loop aria-label="A video of the same modal, with a label and button that says 'Default privacy. Change'. Clicking the button reveals the same dropdown as in Option A1'." className="margin-bottom-1 box-shadow" />
               <figcaption>Option A2: Use a “click to reveal” pattern to discourage unintentional use.</figcaption>
             </div>
 
-            <figure className="case-study-figure margin-bottom-4 width-130">
+            <figure className="case-study-figure margin-bottom-4 width-150">
               <ClickableImage
-                src="/images/portfolio/asana-access-control-field-settings-3.png"
-                alt="Option B: A full screen modal with multiple tabs: Overview, field definition, Usage dashboard, and Advanced settings."
+                src="/images/portfolio/asana-access-control-field-settings-b.png"
+                alt="A full screen modal with multiple tabs: Overview, field definition, Usage dashboard, and Advanced settings."
                 className="width-130"
                 onLightboxOpen={openLightbox}
               />
               <figcaption>Option B: A full screen modal experience increases friction in a different way.</figcaption>
             </figure>
 
-            <h4>Tradeoffs & Decisions</h4>
+            <figure className="case-study-figure margin-bottom-4 width-150">
+              <ClickableImage
+                src="/images/portfolio/asana-access-control-field-settings-c.png"
+                alt="A large modal with a split view, allowing the user to see all available fields, and edit the selected field with 2 tabs: Overview and Field members."
+                className="width-130"
+                onLightboxOpen={openLightbox}
+              />
+              <figcaption>Option C: A large modal with a split view offered more context for the user. </figcaption>
+            </figure>
+
+            <h4>Design validation</h4>
+            <p>I bought these designs (or variations of them) to various users, including 20 enterprise customers and internal teams. The findings were then integrated into the final design:</p>
+
             <ul>
-              <li><strong>Fewer roles vs. flexibility:</strong> We consolidated roles to reduce cognitive load, adding scoped overrides for edge cases.</li>
-              <li><strong>Backwards compatibility:</strong> Legacy roles mapped to the nearest new role; we surfaced a review step for impactful changes.</li>
-              <li><strong>Progressive disclosure:</strong> Advanced options moved behind clear affordances to keep the primary path simple.</li>
+              <li>Simpler language outperformed technical terminology and imagery</li>
+              <li>An “eye” icon resonated more than padlocks</li>
+              <li>Users preferred managing visibility from the field library, not within each task</li>
             </ul>
+
+            <p>These insights helped me to refine both the designs and the mental model, ensuring the experience felt intuitive and trustworthy.</p>
+
+            <h4>Tradeoffs & decisions</h4>
+            <p>Further iterations were made, this time considering the impact to Asana's core features and workflows. We aligned with product and engineering leadership to navigate key tradeoffs, leveraging the key objectives set earlier around scale, flexibility, regression risk, and trust.</p>
+
+            <p>Ultimately, I ended up with a design that pritoritzed compatibility with other features without overcomplicating the experience. A decision matrix was used to help the team make the final call.</p>
+
+            <figure className="case-study-figure width-80">
+              <img src="/images/portfolio/asana-access-control-decision-chart.png" alt="A line chart with complexity on the x-axis and user  clarity on the y-axis. There are various solutions with an 'X', and Global restrictions is checked." loading="lazy" decoding="async" className="box-shadow" />
+              <figcaption>A simplified graph that showed how I ended up with the ultimate design.</figcaption>
+            </figure>
+
+            <h4>The final experience</h4>
+
+            <div className="flex flex-center flex-col margin-bottom-4 width-130">
+              <video ref={videoRef} src="/videos/portfolio/asana-access-control-final.mp4" controls muted playsInline preload="metadata" loop aria-label="A video of the final access controls experience. Approved users can view private fields, while others do not." className="margin-bottom-1 box-shadow" />
+            </div>
+
+
           </section>
 
           <section className="case-study-section">
             <h2 id="results">Results</h2>
-            <p>The redesign measurably improved clarity and speed for administrators and reduced frustrating access errors for end users.</p>
+            <p>The launch of field-level visibility had significant impact across both product usage and business outcomes.</p>
 
             <div className="metrics-table-card box-shadow">
               <table ref={tableRef} className="metrics-table">
                 <thead>
                   <tr>
-                    <th>Goal</th>
-                    <th>Beta metrics</th>
-                    <th>GA metrics</th>
+                    <th>Metric</th>
+                    <th className="text-align-right">Goal</th>
+                    <th className="text-align-right">Beta results</th>
+                    <th className="text-align-right">GA results</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Increase task completion rate</td>
-                    <td>+12%</td>
-                    <td><strong>+18%</strong></td>
+                    <td>Adoption rate</td>
+                    <td className="text-align-right">30%+</td>
+                    <td className="text-align-right">40%</td>
+                    <td className="text-align-right"><strong>99%</strong></td>
                   </tr>
                   <tr>
-                    <td>Reduce permission error rate</td>
-                    <td>-22%</td>
-                    <td><strong>-37%</strong></td>
+                    <td>CSAT</td>
+                    <td className="text-align-right">80%+</td>
+                    <td className="text-align-right">80%</td>
+                    <td className="text-align-right"><strong>90%</strong></td>
                   </tr>
                   <tr>
-                    <td>Shorten admin time-to-complete</td>
-                    <td>-14%</td>
-                    <td><strong>-28%</strong></td>
+                    <td>Unblocked enterprise use cases</td>
+                    <td className="text-align-right">✅</td>
+                    <td className="text-align-right">✅</td>
+                    <td className="text-align-right"><strong>✅</strong></td>
+                  </tr>
+                  <tr>
+                    <td>Establish a scalable permissions foundation</td>
+                    <td className="text-align-right">✅</td>
+                    <td className="text-align-right">🟠</td>
+                    <td className="text-align-right"><strong>✅</strong></td>
                   </tr>
                 </tbody>
               </table>
             </div>
+
+
+            <p>Feature adoption was significant, with 99% of enterprise customers using the new functionality, impacting over <strong>$100M in ARR</strong>. Additionally, the access control patterns are now being implemented in other product areas like rules and AI teammates, making it a foundational piece of the product.</p>
           </section>
 
           <section className="case-study-section">
             <h2 id="reflections">Reflections</h2>
 
+            <p>Improving access controls isn't just about the UI, <strong>it's about building trust at scale.</strong></p>
+
             <h3>What Worked</h3>
-            <p>Unifying roles across scopes paid off in comprehension and speed. Previewing the impact of changes was especially effective at preventing mistakes.</p>
+            <p>Simple interfaces and clear defaults are crucial when designing for scale. But arriving at that destination takes time, cross-functional collaboratoin, and countless iterations.</p>
 
             <h3>Opportunities</h3>
-            <p>Expand audit surfaces and add guided fixes for the most common errors. Extend role previews to bulk operations and templates.</p>
+            <p>Better internal documentation and knowledge-shares would have reduced ambiguity and confusion during rollout and planning. Other teams especially benefit from this since they're not directly involved in this work, often with different timelines and priorities.</p>
           </section>
         </div>
       </div>

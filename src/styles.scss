@@ -63,7 +63,7 @@ html {
     --bg2: rgba(20, 20, 24, 0.5);
     --fg: #e5e7eb;
     --modal-bg: rgba(199, 199, 199, 0.1);
-    --text-color: #cfcfcf;
+    --text-color: #e1e1e1;
     --text-color-inverted: #2b2b2b;
     --muted: #acaeb1;
     --brand: #0f87ba;
@@ -296,6 +296,12 @@ video {
 .width-130 {
     @media (min-width: $BREAKPOINT-4) {
         width: 130%;
+        max-width: 90vw;
+    }
+}
+.width-150 {
+    @media (min-width: $BREAKPOINT-4) {
+        width: 150%;
         max-width: 90vw;
     }
 }
@@ -1175,7 +1181,7 @@ input[type="password"] {
         font-weight: 600;
         font-size: 1.125rem;
         color: var(--muted);
-        margin: 0.5rem 0 0.5rem;
+        margin: 2rem 0 1rem;
     }
 
     img {
@@ -1618,6 +1624,7 @@ input[type="password"] {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.95rem;
+    text-align: left;
 }
 
 .metrics-table thead {
@@ -1627,7 +1634,6 @@ input[type="password"] {
 .metrics-table th,
 .metrics-table td {
     padding: 0.75rem 1rem;
-    text-align: left;
     border-bottom: 1px solid var(--border);
 }
 

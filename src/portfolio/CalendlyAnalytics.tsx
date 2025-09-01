@@ -185,24 +185,28 @@ export default function CalendlyAnalytics() {
               <table ref={tableRef} className="metrics-table">
                 <thead>
                   <tr>
-                    <th>Goal</th>
-                    <th className="text-align-right">Beta metrics</th>
-                    <th className="text-align-right">GA metrics</th>
+                    <th>Metric</th>
+                    <th className="text-align-right">Goal</th>
+                    <th className="text-align-right">Beta results</th>
+                    <th className="text-align-right">GA results</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>40% Adoption</td>
+                    <td>Adoption rate</td>
+                    <th className="text-align-right">40%+</th>
                     <td className="text-align-right">53%</td>
                     <td className="text-align-right"><strong>90%</strong></td>
                   </tr>
                   <tr>
-                    <td>50% Retention</td>
+                    <td>Retention rate</td>
+                    <th className="text-align-right">50%</th>
                     <td className="text-align-right">52%</td>
                     <td className="text-align-right"><strong>75%</strong></td>
                   </tr>
                   <tr>
-                    <td>70% CSAT</td>
+                    <td>CSAT</td>
+                    <th className="text-align-right">70%</th>
                     <td className="text-align-right">82%</td>
                     <td className="text-align-right"><strong>83%</strong></td>
                   </tr>

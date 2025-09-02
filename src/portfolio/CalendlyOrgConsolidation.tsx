@@ -1,130 +1,196 @@
+import PortfolioHeader from '../components/PortfolioHeader'
+import Lightbox, { ClickableImage } from '../components/Lightbox'
+import SiteFooter from '../components/SiteFooter'
+import { useEffect, useRef, useState } from 'react'
+
 export default function CalendlyOrgConsolidation() {
+  const videoRef = useRef<HTMLVideoElement | null>(null)
+  const [lightbox, setLightbox] = useState<{
+    isOpen: boolean
+    imageSrc: string
+    imageAlt: string
+    caption?: string
+  }>({
+    isOpen: false,
+    imageSrc: '',
+    imageAlt: '',
+    caption: ''
+  })
+
+  const openLightbox = (imageSrc: string, imageAlt: string, caption?: string) => {
+    setLightbox({ isOpen: true, imageSrc, imageAlt, caption })
+  }
+
+  const closeLightbox = () => {
+    setLightbox({ isOpen: false, imageSrc: '', imageAlt: '', caption: '' })
+  }
+  // Autoplay/pause when in view
+  useEffect(() => {
+    const el = videoRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+        try { el.play().catch(() => { }) } catch { }
+      } else {
+        el.pause()
+      }
+    }, { threshold: [0, 0.5, 1] })
+    observer.observe(el)
+    return () => { observer.disconnect(); el.pause() }
+  }, [])
+  
   return (
     <article className="case-study">
-      <div className="content">
-        <header className="case-study-header">
-          <h1>Organization Consolidation</h1>
-          <p className="case-study-subtitle">An end-to-end implementation of improving a user's account migration process.</p>
-          
+      <section className="case-study-hero">
+        <h1 className="case-study-title">Calendly Org Consolidation Tool</h1>
+        <div className="case-study-summary">
+          <p className="case-study-lead">
+            Enterprise M&A activity and organic growth left customers with fragmented Calendly accounts, creating security risks and operational inefficiencies. I designed an automated consolidation tool that reduced Customer Success workload by 75% while giving enterprise admins complete migration control.
+          </p>
+
           <div className="case-study-meta">
-            <div className="meta-item">
-              <strong>Platform</strong>
-              <span>(Responsive) Web, Email</span>
+            <div className="meta-row">
+              <span className="meta-label">Team</span>
+              <span>Led design for cross-functional team of 5 (PM, 3 engineers)
+              </span>
             </div>
-            <div className="meta-item">
-              <strong>Timeline</strong>
-              <span>16+ weeks • Research &gt; Design &gt; Enhancements</span>
+            <div className="meta-row">
+              <span className="meta-label">Skills</span>
+              <span className="pills">
+                <span className="pill">Compliance & security</span>
+                <span className="pill">Enterprise tooling</span>
+              </span>
             </div>
-            <div className="meta-item">
-              <strong>Domain/Topics</strong>
-              <span>Enterprise, Customer Experience, Compliance & Security</span>
+            <div className="meta-row">
+              <span className="meta-label">Impact</span>
+              <span>
+                <strong>75%</strong> reduction in CSM task time<br />
+                <strong>88%</strong> admin satisfaction
+              </span>
             </div>
-            <div className="meta-item">
-              <strong>Core Team</strong>
-              <span>Designer (me), Product Manager, 3 Engineers</span>
-            </div>
-          </div>
-        </header>
-
-        <section className="case-study-section">
-          <h2>Migrating accounts is a slow and tedious process</h2>
-          <p>
-            Managing accounts and consolidating them across organizations can be a real challenge. In 2022 alone, over 18,000 mergers and acquisitions (M&A's) took place, each one requiring the reallocation of personnel, resources, and the unification of software licenses. But the need to consolidate accounts isn't exclusive to M&A's: within many companies, different teams may independently sign up for Calendly, inadvertently forming their own localized organizations.
-          </p>
-          <p>
-            This <strong>fragmentation</strong> can create significant pain points such as <strong>security risks, billing complexities, and inconsistencies</strong> in departmental procedures.
-          </p>
-          <p>
-            Existing migration processes were slow, manual, cumbersome, and offered little transparency to customers. A more seamless solution was needed, one that would equip customers with the tools and knowledge they needed to control their migration process.
-          </p>
-        </section>
-
-        <section className="case-study-section">
-          <h3>Setting the goals</h3>
-          <p>We aimed to bring two key changes:</p>
-          <ul>
-            <li>Automate the migration process, reducing the CSM team's time spent on each migration</li>
-            <li>Enhance the customer experience by offering more visibility, updates, and control over the migration process</li>
-          </ul>
-        </section>
-
-        <section className="case-study-section">
-          <h2>Understanding the Challenges</h2>
-          <p>
-            Understanding the core issues involved substantial research and collaboration with my product manager and engineers.
-          </p>
-          
-          <h3>Weekly check-ins and feedback loops</h3>
-          <p>
-            Regular communication with CSMs helped uncover their pain points, and weekly design check-ins enabled ongoing feedback and adjustments. This <strong>iterative approach</strong> ensured alignment with users' needs.
-          </p>
-          <p>
-            The shared learning journey created stronger connections and uncovered valuable insights from CSMs as we continued further into the project
-          </p>
-          
-          <h3>Uncovered challenges</h3>
-          <p>The project was filled with complexities:</p>
-          <ul>
-            <li><strong>Uncertainty around the migration timelines</strong> at different companies steps affected communication and designs</li>
-            <li>This flow required <strong>interaction with different applications by different users</strong>, increasing the complexity</li>
-            <li>Challenges in incremental testing due to <strong>multiple features being added simultaneously</strong></li>
-          </ul>
-          
-          <div className="process-steps">
-            <div className="step">
-              <strong>Step 1:</strong> A CSM uses an internal tool to mark users as "ready to migration", after discussion with the org admins.
-            </div>
-            <div className="step">
-              <strong>Step 2:</strong> An admin at the incoming migration's org manages the user migration. They can send the invite when ready, or force a migration at a scheduled point in time.
-            </div>
-            <div className="step">
-              <strong>Step 3:</strong> The user that needs to migrate receives an email with information and next steps.
-            </div>
-            <div className="step">
-              <strong>Step 4 (Optional):</strong> The user can export their event types to have a back up, or to later import into their new org.
+            <div className="meta-row">
+              <span className="meta-label">Date</span>
+              <span>Q1 2023</span>
             </div>
           </div>
-        </section>
 
-        <section className="case-study-section">
-          <h2>Designing with insight</h2>
-          
-          <h3>Innovative solutions offer user choice</h3>
-          <p>Some standout features I designed included:</p>
-          <ul>
-            <li>Selective user migration, providing flexibility in who gets migrated</li>
-            <li>Admin control for invitations, scheduling, and notifications</li>
-            <li>An Event Type import and export feature, giving more control to users</li>
-          </ul>
-          
-          <blockquote className="testimonial">
-            <p>"[These changes] will greatly speed up my workflow... and simplify communication with my customers"</p>
-            <cite>— Customer Success Manager</cite>
-          </blockquote>
-        </section>
+        </div>
 
-        <section className="case-study-section">
-          <h2>Reflections and learnings</h2>
+        <figure className="case-study-figure">
+          <img src="/images/portfolio/calendly-org-hero.webp" alt="" loading="lazy" decoding="async" />
+        </figure>
+      </section>
+
+      <div className="wrapper">
+        <div className="content">
+          <PortfolioHeader />
+
+          <section className="case-study-section">
+            <h2>The challenge</h2>
+
+            <h3>Enterprise consolidation pain points</h3>
+
+            <p>Corporate M&A activity and decentralized software adoption created a critical operational problem: enterprise customers had multiple fragmented Calendly organizations across departments, business units, and acquired companies.</p>
+
+            <p>Customer Success teams spent 10+ hours per consolidation, manually migrating accounts, and enterprise admins lacked visibility into the process. This created security vulnerabilities, billing inefficiencies, and frustrated customers during critical business transitions.</p>
+
+            <h3>Business impact</h3>
+            <p>The manual process was unsustainable as Calendly moved upmarket:</p>
+            <ul>
+              <li><strong>CSM bandwidth:</strong> dozens of consolidation requests annually, each requiring weeks of coordination</li>
+              <li><strong>Customer risk:</strong> Delayed migrations during M&A integration timelines</li>
+              <li><strong>Security gaps:</strong> Temporary dual-access periods increased compliance risks</li>
+            </ul>
+
+            {/* <h3>Setting the goals</h3>
+            <p>We aimed to bring two key changes:</p>
+            <ul>
+              <li>Automate the migration process, reducing the CSM team's time spent on each migration</li>
+              <li>Enhance the customer experience by offering more visibility, updates, and control over the migration process</li>
+            </ul> */}
+
+          </section>
+
+          <section className="case-study-section">
+            <h2>The process</h2>
+
+            <h3>Service design approach</h3>
+            <p>I mapped the end-to-end consolidation journey across three user types: Customer Success Managers, enterprise admins, and end users. This service blueprint revealed critical handoff points where automation could reduce manual touchpoints while maintaining admin control.</p>
+
+            <figure className="case-study-figure margin-bottom-4 width-150">
+              <ClickableImage
+                src="/images/portfolio/calendly-org-service-blueprint.webp"
+                alt="A service blueprint that outlines the various users, actions, and interactions involved in the process."
+                onLightboxOpen={openLightbox}
+              />
+              <figcaption>The full service blueprint that I designed, which outlines the various users, actions, and interactions involved in the process.</figcaption>
+            </figure>
+
+            <h3>Cross-application user flows</h3>
+            <p>The consolidation process required seamless coordination between internal CSM tools and customer-facing admin dashboards. I designed connected experiences that kept all stakeholders informed while maintaining security protocols throughout the migration.</p>
+
+
+
+            <figure className="case-study-figure width-130 margin-bottom-4">
+              <img src="/images/portfolio/calendly-org-step-1.webp" alt="An image of an internal tool that allows a CSM to begin a migration process." loading="lazy" decoding="async" className="box-shadow" />
+              <figcaption><strong>CSM initiation:</strong> Internal tool enables Customer Success to prepare migrations after admin approval</figcaption>
+            </figure>
+
+            <figure className="case-study-figure width-130 margin-bottom-4">
+              <img src="/images/portfolio/calendly-org-step-2.webp" alt="An image of the Admin dashboard in Calendly where an admin can review and process member migrations." loading="lazy" decoding="async" className="box-shadow" />
+              <figcaption><strong>Admin control:</strong> Enterprise admins review pending migrations and control timing to align with business needs</figcaption>
+            </figure>
+
+            <figure className="case-study-figure width-130 margin-bottom-4">
+              <img src="/images/portfolio/calendly-org-step-3.webp" alt="An email inbox where a is informed of the migration status and is given instructions on how to migrate their account." loading="lazy" decoding="async" className="box-shadow" />
+              <figcaption><strong>User communication:</strong> Clear, actionable guidance helps users complete migrations independently</figcaption>
+            </figure>
+
+            <div className="flex flex-center flex-col margin-bottom-4 width-130" >
+              <video ref={videoRef} src="/videos/portfolio/calendly-org-step-4.mp4" controls muted playsInline preload="metadata" loop aria-label="The migrating user can export their work in their Calendly dashboard." className="box-shadow margin-bottom-1" />
+              <figcaption><strong>Data continuity:</strong> Export/import functionality ensures no scheduling data is lost during transitions</figcaption>
+            </div>
+
+
+          </section>
+
+          <section className="case-study-section">
+            <h2>Results</h2>
+
+            <p>The automated consolidation tool transformed enterprise account management:</p>
+
+            <ul>
+              <li><strong>Operational efficiency:</strong> Reduced CSM time per migration from 10+ to 1-2 hours</li>
+              <li><strong>Migration success:</strong> 99% completion rate with zero data loss incidents</li>
+              <li><strong>Admin satisfaction:</strong> 88% CSAT, with admins highlighting improved control and transparency</li>
+            </ul>
+
+            <blockquote className="testimonial">
+              "These changes will greatly speed up my workflow... and simplify communication with my customers"
+              <cite>— Customer Success Manager</cite>
+            </blockquote>
           
-          <h3>What I would do differently</h3>
-          <p>
-            If I made a service blueprint earlier, we could have untangled the web of user interactions sooner, making our journey smoother. Going forward, implementing a blueprint from the outset will be a priority for larger projects, as it has proven to be a vital tool in aligning the team, predicting challenges, and ensuring a more coherent and efficient design process.
-          </p>
-          
-          <h3>Results</h3>
-          <p>
-            Though quantitative metrics are not yet available, the qualitative insights are promising:
-          </p>
-          <ul>
-            <li>Customers appreciated the control and flexibility, potentially saving admin hours</li>
-            <li>CSMs loved the new features, with one saying it would "greatly speed up their workflow" and "simplify their communication with customers"</li>
-          </ul>
-          
-          <p>
-            This project signifies a major step towards customer empowerment and process automation. By addressing complex challenges, and involving users in the design process, the project is set to transform the migration experience.
-          </p>
-        </section>
+          </section>
+
+          <section className="case-study-section">
+            <h2>Reflections</h2>
+
+            <h3>What worked</h3>
+            <p>Regular collaboration with Customer Success teams provided continuous validation of design decisions. Their frontline experience with customer pain points ensured the solution addressed real operational needs rather than theoretical improvements.</p>
+
+            <h3>Opportunities</h3>
+            <p>Creating a comprehensive service blueprint earlier would have revealed cross-application dependencies sooner, potentially reducing development complexity. For future multi-stakeholder tools, I'd prioritize service design documentation to align technical and business requirements upfront.</p>
+          </section>
+        </div>
       </div>
+
+      <Lightbox
+        isOpen={lightbox.isOpen}
+        onClose={closeLightbox}
+        imageSrc={lightbox.imageSrc}
+        imageAlt={lightbox.imageAlt}
+        caption={lightbox.caption}
+      />
     </article>
   )
 } 

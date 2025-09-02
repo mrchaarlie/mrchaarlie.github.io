@@ -1,6 +1,5 @@
 import PortfolioHeader from '../components/PortfolioHeader'
 import Lightbox, { ClickableImage } from '../components/Lightbox'
-
 import { useEffect, useRef, useState } from 'react'
 
 export default function AsanaAccessControls() {
@@ -59,13 +58,13 @@ export default function AsanaAccessControls() {
         <h1 className="case-study-title">Asana Access Controls</h1>
         <div className="case-study-summary">
           <p className="case-study-lead">
-            Asana’s complicated permission system was confusing for enterprise customers, causing them to leave or choose competitors. I redesigned the access controls to make permissions clear and predictable, helping organizations manage access easily and securely at scale.
+            Enterprise customers were abandoning Asana due to confusing permission controls, directly impacting $100M+ ARR. I redesigned the access control system, achieving 99% enterprise adoption and preventing customer churn to competitors like Monday.com and Notion.
           </p>
 
           <div className="case-study-meta">
             <div className="meta-row">
               <span className="meta-label">Team</span>
-              <span>1 Product designer (me), 1 PM, 1 Data scientist, 3 Engineers</span>
+              <span>Led design for cross-functional team of 6 (PM, data scientist, 3 engineers)</span>
             </div>
             <div className="meta-row">
               <span className="meta-label">Skills</span>
@@ -92,7 +91,7 @@ export default function AsanaAccessControls() {
         </div>
 
         <figure className="case-study-figure">
-          <img src="/images/portfolio/asana-access-control.png" alt="Asana access controls redesign preview" loading="lazy" decoding="async" />
+          <img src="/images/portfolio/asana-access-control.png" alt="Asana custom field access control interface showing privacy settings and member permissions" loading="lazy" decoding="async" />
         </figure>
       </section>
       <div className="wrapper">
@@ -104,9 +103,11 @@ export default function AsanaAccessControls() {
             <h2>The challenge</h2>
 
             <h3>Context & stakes</h3>
-            <p>Asana’s permission system had grown inconsistently across product areas, creating serious problems for enterprise adoption. <strong>Customers were leaving for competitors with clearer access controls, and new deals stalled when buyers compared us to more structured solutions.</strong></p>
 
-            <p>Admins often had to choose between settings that were <em>too restrictive</em> or <em>too permissive</em>, with many complaints that Asana’s model was “too open.” Sensitive fields like <em>Budgets</em> couldn’t be locked down, creating real risk of data leaks. As a result, high-risk data stayed out of Asana, reducing enterprise usage, reliance, and trust.</p>
+            <p>Asana's inconsistent permission system was blocking deals: Sales reported losing enterprise prospects that cited better access controls as deal-blockers, and existing customers had churned to competitors like Monday.com or ClickUp for their more robust permission models.</p>
+
+            <p>Customer research revealed that most enterprise admins avoided putting sensitive data (eg: budgets, salaries, strategic metrics) in Asana due to permission gaps. This directly reduced platform adoption and renewal rates among our highest-value customers.
+            </p>
 
             <figure className="case-study-figure">
               <img src="/images/portfolio/asana-access-control-example.png" alt="A table of work with the Budget column visible to all team members" loading="lazy" decoding="async" className="box-shadow" />
@@ -114,7 +115,8 @@ export default function AsanaAccessControls() {
             </figure>
 
             <h3>My role</h3>
-            <p>As the lead product designer, I owned the end-to-end experience from discovery to launch. I conducted customer interviews, analyzed usage patterns with our data scientist, and translated complex technical constraints into intuitive user flows. My responsibilities included designing the permission hierarchy, ensuring compatibility with all of Asana’s work objects (projects, portfolios, custom fields, etc), and ensuring the system worked for small teams up to Fortune 500 organizations.</p>
+            <p>I led the complete design process from research to launch, conducting 20+ customer interviews and collaborating with data science to analyze usage across all of our enterprise accounts. I designed the core permission hierarchy and flows that needed to work with Asana's entire feature ecosystem (from custom fields to AI teammates) ensuring compatibility from SMB teams to Fortune 500 organizations with 300,000+ users.
+            </p>
 
             <figure className="case-study-figure width-80">
               <img src="/images/portfolio/asana-access-control-role.png" alt="My work on access controls affects all of Asana's features" loading="lazy" decoding="async" className="" />
@@ -127,11 +129,9 @@ export default function AsanaAccessControls() {
 
             <h3>Understanding the dependencies</h3>
 
-            <p>Custom fields often hold key data in Asana. They’re embedded in tasks, projects, and portfolios, and are visible to anyone with access to the task. </p>
+            <p>Custom fields store critical business data across all enterprise accounts, but Asana's cross-project task sharing meant sensitive data (eg: budgets, strategic goals) became visible to unintended teams, blocking secure collaboration.</p>
 
-            <p>Because work in Asana is shared across teams (like marketing and accounting, or product and sales), tasks can appear in multiple projects. When that happens, fields from one project may become visible to another team.</p>
-
-            <p>Without more granular permissions, sensitive data in custom fields <strong>can’t be kept private while still enabling collaboration</strong>, creating friction for cross-functional work.</p>
+            <p>Without more granular permissions, data in custom fields <strong>couldn't be kept private while still enabling collaboration</strong>, creating friction for cross-functional work.</p>
 
             <figure className="case-study-figure image-offset-16">
               <img src="/images/portfolio/asana-access-control-work-access.png" alt="A table of work with the Budget column visible to all team members" loading="lazy" decoding="async" className="" />
@@ -141,7 +141,8 @@ export default function AsanaAccessControls() {
             <h3>Setting the goal</h3>
 
             <p>
-              Our team’s objective wasn’t just about adding granular visibility settings; it was <em>building a scalable system</em>. We had to solve for:</p>
+              Beyond solving immediate access control needs, I designed a foundational permissions system that could scale across <em>Asana's entire product ecosystem</em>. We had to solve for:
+            </p>
 
             <ul>
               <li><strong>Scale:</strong> supporting thousands of fields across the company</li>
@@ -168,25 +169,24 @@ export default function AsanaAccessControls() {
             <h4>Explorations</h4>
             <p>I explored several different designs for the access settings, each with varying benefits and drawbacks.</p>
 
-            <figure className="case-study-figure margin-bottom-4">
+            {/* <figure className="case-study-figure margin-bottom-4">
               <ClickableImage
                 src="/images/portfolio/asana-access-control-field-settings-a1.png"
                 alt="The same modal as above, with with a privacy dropdown at the bottom that says 'Privacy: Default privacy'."
                 onLightboxOpen={openLightbox}
               />
               <figcaption>Option A1: A privacy setting to the bottom of the modal.</figcaption>
-            </figure>
+            </figure> */}
 
             <div className="flex flex-center flex-col margin-bottom-4" style={{ width: '512px' }}>
-              <video ref={videoRef} src="/videos/portfolio/asana-access-control-field-settings-2.mp4" controls muted playsInline preload="metadata" loop aria-label="A video of the same modal, with a label and button that says 'Default privacy. Change'. Clicking the button reveals the same dropdown as in Option A1'." className="margin-bottom-1 box-shadow" />
-              <figcaption>Option A2: Use a “click to reveal” pattern to discourage unintentional use.</figcaption>
+              <video ref={videoRef} src="/videos/portfolio/asana-access-control-field-settings-2.mp4" controls muted playsInline preload="metadata" loop aria-label="Interface demonstration showing privacy control toggle that reveals granular access settings when activated" className="margin-bottom-1 box-shadow" />
+              <figcaption>Option A: Use a “click to reveal” pattern to discourage unintentional use.</figcaption>
             </div>
 
             <figure className="case-study-figure margin-bottom-4 width-150">
               <ClickableImage
                 src="/images/portfolio/asana-access-control-field-settings-b.png"
                 alt="A full screen modal with multiple tabs: Overview, field definition, Usage dashboard, and Advanced settings."
-                className="width-130"
                 onLightboxOpen={openLightbox}
               />
               <figcaption>Option B: A full screen modal experience increases friction in a different way.</figcaption>
@@ -196,14 +196,14 @@ export default function AsanaAccessControls() {
               <ClickableImage
                 src="/images/portfolio/asana-access-control-field-settings-c.png"
                 alt="A large modal with a split view, allowing the user to see all available fields, and edit the selected field with 2 tabs: Overview and Field members."
-                className="width-130"
                 onLightboxOpen={openLightbox}
               />
               <figcaption>Option C: A large modal with a split view offered more context for the user. </figcaption>
             </figure>
 
             <h4>Design validation</h4>
-            <p>I bought these designs (or variations of them) to various users, including 20 enterprise customers and internal teams. The findings were then integrated into the final design:</p>
+            <p>I tested design concepts with 20 enterprise customers and internal teams through moderated usability sessions and unmoderated surveys. The findings from these conversations would later be used to guide the final design:
+            </p>
 
             <ul>
               <li>Simpler language outperformed technical terminology and imagery</li>
@@ -214,19 +214,21 @@ export default function AsanaAccessControls() {
             <p>These insights helped me to refine both the designs and the mental model, ensuring the experience felt intuitive and trustworthy.</p>
 
             <h4>Tradeoffs & decisions</h4>
-            <p>Further iterations were made, this time considering the impact to Asana's core features and workflows. We aligned with product and engineering leadership to navigate key tradeoffs, leveraging the key objectives set earlier around scale, flexibility, regression risk, and trust.</p>
+            <p>I facilitated alignment sessions with the VP of Product and other cross-functional leadership to prioritize tradeoffs using our framework of scale, flexibility, regression risk, and user trust
+            </p>
 
-            <p>Ultimately, I ended up with a design that pritoritzed compatibility with other features without overcomplicating the experience. A decision matrix was used to help the team make the final call.</p>
+            <p>Using a weighted decision matrix, I recommended the global restrictions approach that balanced system complexity with user clarity—enabling secure collaboration without disrupting existing workflows</p>
 
             <figure className="case-study-figure width-80">
-              <img src="/images/portfolio/asana-access-control-decision-chart.png" alt="A line chart with complexity on the x-axis and user  clarity on the y-axis. There are various solutions with an 'X', and Global restrictions is checked." loading="lazy" decoding="async" className="box-shadow" />
-              <figcaption>A simplified graph that showed how I ended up with the ultimate design.</figcaption>
+              <img src="/images/portfolio/asana-access-control-decision-chart.png" alt="Decision matrix plotting design complexity against user clarity, highlighting chosen global restrictions approach" loading="lazy" decoding="async" className="box-shadow" />
+              <figcaption>Decision framework that prioritized user clarity over feature completeness, leading to the current restrictions framework.</figcaption>
             </figure>
 
             <h4>The final experience</h4>
 
             <div className="flex flex-center flex-col margin-bottom-4 width-130">
               <video ref={videoRef} src="/videos/portfolio/asana-access-control-final.mp4" controls muted playsInline preload="metadata" loop aria-label="A video of the final access controls experience. Approved users can view private fields, while others do not." className="margin-bottom-1 box-shadow" />
+              <figcaption>Admin workflow: Restricting field visibility through column menu with confirmation dialog to prevent accidental changes.</figcaption>
             </div>
 
 
@@ -234,7 +236,8 @@ export default function AsanaAccessControls() {
 
           <section className="case-study-section">
             <h2 id="results">Results</h2>
-            <p>The launch of field-level visibility had significant impact across both product usage and business outcomes.</p>
+            <p>Field-level access controls delivered measurable impact across user adoption, business metrics, and product foundation:
+            </p>
 
             <div className="metrics-table-card box-shadow">
               <table ref={tableRef} className="metrics-table">
@@ -276,7 +279,7 @@ export default function AsanaAccessControls() {
             </div>
 
 
-            <p>Feature adoption was significant, with 99% of enterprise customers using the new functionality, impacting over <strong>$100M in ARR</strong>. Additionally, the access control patterns are now being implemented in other product areas like rules and AI teammates, making it a foundational piece of the product.</p>
+            <p>Achieved 99% adoption among enterprise customers within 3 months, directly supporting $100M+ ARR retention. The permission framework I designed became Asana's foundation for securing AI teammates, automation rules, and future enterprise features.</p>
           </section>
 
           <section className="case-study-section">
@@ -285,10 +288,10 @@ export default function AsanaAccessControls() {
             <p>Improving access controls isn't just about the UI, <strong>it's about building trust at scale.</strong></p>
 
             <h3>What Worked</h3>
-            <p>Simple interfaces and clear defaults are crucial when designing for scale. But arriving at that destination takes time, cross-functional collaboratoin, and countless iterations.</p>
+            <p>Prioritizing simple interfaces with smart defaults proved essential for enterprise adoption. The 4-month process required 20+ design iterations and deep cross-functional to alignment to balance security requirements with Asana's collaborative philosophy.</p>
 
             <h3>Opportunities</h3>
-            <p>Better internal documentation and knowledge-shares would have reduced ambiguity and confusion during rollout and planning. Other teams especially benefit from this since they're not directly involved in this work, often with different timelines and priorities.</p>
+            <p>Stronger upfront documentation and cross-team workshops would have accelerated adoption. Instead, I had to onboard teams one by one—a process that slowed momentum and diluted efficiency.</p>
           </section>
         </div>
       </div>

@@ -18,7 +18,7 @@ export default function PortfolioItemPage() {
   }, [slug, navigate])
 
   useEffect(() => {
-    if (!shouldGate || true) { // TEMPORARY
+    if (!shouldGate ) { 
       setUnlocked(true)
     } else if (isAuthed) {
       setUnlocked(true)

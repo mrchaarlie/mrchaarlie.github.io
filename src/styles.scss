@@ -526,6 +526,20 @@ button,
     }
 }
 
+.not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    padding: 0 2rem;
+    
+    p {
+        font-size: 1.25rem;
+    }
+}
+
 /* Hero */
 .hero {
     min-height: 90vh;

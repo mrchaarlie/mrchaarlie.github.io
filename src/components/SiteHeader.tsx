@@ -38,9 +38,9 @@ export default function SiteHeader() {
           <img src="/face.avif" alt="Charles Wu" className="avatar" width={32} height={32} loading="eager" decoding="async" />
         </a>
         <nav>
-        {isAuthed ? (
+        {/* {isAuthed ? (
             <a href="#" onClick={(e) => { e.preventDefault(); logout() }}>Lock</a>
-          ) : null}
+          ) : null} */}
           
           <a className="icon-button icon-button--large" href="/Charles-Wu-Resume.pdf" target="_blank" rel="noreferrer" aria-label="Open resume PDF">
             <img className="theme-icon" src="icons/doc.svg" alt="" width={20} height={20} />

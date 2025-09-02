@@ -6,6 +6,7 @@ const PortfolioItemPage = lazy(() => import('./pages/PortfolioItemPage'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 import SiteHeader from './components/SiteHeader'
 import ChatWidget from './components/ChatWidget'
+import GoogleAnalytics from './components/GoogleAnalytics'
 
 function HeaderSwitcher() {
   const location = useLocation()
@@ -26,6 +27,7 @@ export default function App() {
 
   return (
     <PasswordProvider>
+      <GoogleAnalytics trackingId="G-XS0NCEYM0X" />
       <HeaderSwitcher />
       <Suspense fallback={null}>
         <Routes>
